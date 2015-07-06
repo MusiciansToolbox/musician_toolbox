@@ -31,6 +31,12 @@
     <%= f.label :zipcode %><br>
     <%= f.number_field :zipcode %>
   </div>
+  <div class="field">
+    <%= f.fields_for :influences do |ff| %>
+      Influences:<br>
+      name: <%= ff.text_field :name %><br>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

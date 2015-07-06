@@ -25,5 +25,24 @@
   <%= @user.zipcode %>
 </p>
 
+<p>
+  Instruments:
+  <%= @user.instruments.map do |i| %>
+    <% i.name %>
+  <% end %>
+</p>
+<p>
+  Influences:
+  <%= @user.influences.map do |i| %>
+    <%= i.name %>
+  <% end %>
+</p>
+<p>
+  Genres:
+  <%= @user.genres.map do |i| %>
+    <%= i.name %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
