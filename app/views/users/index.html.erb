@@ -22,7 +22,7 @@
         <td><%= user.zipcode %></td>
         <td><%= link_to 'Show', "/users/#{user.id}" %></td>
         <td><%= link_to 'Edit', edit_user_registration_path %></td>
-        <td><%= link_to 'Destroy', cancel_user_registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', '/users', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
