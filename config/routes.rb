@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'users#index'
-  # resources :users 
+  resources :users
   devise_for :users
   devise_scope :user do
     get 'login' => 'devise/sessions#new'
