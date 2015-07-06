@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'reset';
+ @import 'defaults'; // default and shared classes
+ @import 'login';
+ @import 'register';
