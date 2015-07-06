@@ -1,5 +1,4 @@
 
-
 <div class="dashboard">
 
 
@@ -29,9 +28,4 @@
 
 
 
-
-<br /><br /><br /><br />
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>
-  Maybe home can be the dashboard -but if a user is not logged in, it takes them to log in screen....
-</p>
+<%= link_to "My Profile", profile_path(current_user.id) %>

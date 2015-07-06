@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'login' => 'devise/sessions#new'
   end
   devise_for :users
-  get 'users/:id' => 'users#show'
+  get 'users/:id' => 'users#show', as: :profile
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
