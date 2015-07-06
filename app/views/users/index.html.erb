@@ -20,8 +20,8 @@
         <td><%= user.email %></td>
         <td><%= user.description %></td>
         <td><%= user.zipcode %></td>
-        <td><%= link_to 'Show', user_registration_path %></td>
-        <td><%= link_to 'Edit', edit_user_registration_path(user) %></td>
+        <td><%= link_to 'Show', "/users/#{user.id}" %></td>
+        <td><%= link_to 'Edit', edit_user_registration_path %></td>
         <td><%= link_to 'Destroy', cancel_user_registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /users
@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
-  end
+  # # GET /users/1/edit
+  # def edit
+  # end
 
   # POST /users
   # POST /users.json
