@@ -5,17 +5,27 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= link_to "logout", destroy_user_session_path, method: :delete %>
+
+<header>
+  <h1>Musicians Toolbox</h1>
+</header>
+
   <div class="container">
 
 
     <%= yield %>
 
   </div>
+
+
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
 </body>
 </html>

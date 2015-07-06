@@ -1,43 +1,4 @@
-// media query sizes
-$phone-width: 450px;
-$in-between-width:650px;
-$tablet-width: 900px;
-$desktop-width: 1024px;
-
-
-// sass variables
-$form-border-color: #ccc; // applies to all form elements
-$border-radius: 0px; // applies to all form elements
-
-
-
-@mixin mobile { // and below
-  @media only screen and (min-width: 1px) and  (max-width: #{$phone-width}) {
-    @content;
-  }
-}
-
-
-
-@mixin in-between { // and below
-  @media  only screen and (min-width: #{$phone-width +1}) and (max-width: #{$in-between-width - 1px}) {
-    @content;
-  }
-}
-
-
-
-@mixin tablet { // and below
-  @media (min-width: #{$in-between-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
+@import 'sass';
 
 
 // base styles using golden ratio algorithm here http://type-scale.com/
@@ -45,7 +6,7 @@ $border-radius: 0px; // applies to all form elements
 html {font-size: 1em;}
 
 body {
-  background-color: white;
+  background-color: #F5F5F1;
   font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   line-height: 1.45;
@@ -83,48 +44,49 @@ small, .font_small {font-size: 0.707em;}
 // defaults
 .container {
   margin:0 auto;
-  max-width:400px;
-  padding:1em;
+  max-width:600px;
+  padding:0em;
 }
 
 
 
 // form defaults
-form {
-  width:100%;
+  form {
+    width:100%;
 
-  label {
-  display:block;
-  }
+    label {
+    display:block;
+    }
 
-  input {
-  width:100%;
-  padding:10px;
-  font-size:1.4em;
-  border:1px solid $form-border-color;
-  border-radius: $border-radius;
-  }
+    input {
+    width:100%;
+    padding:10px;
+    font-size:1.4em;
+    border:1px solid $border-color;
+    border-radius: $border-radius;
+    }
 
- .button {
-}
+   .button {
+   }
 
- input[type="submit"] {
-   width:100%;
-   padding:10px;
-   font-size:1.4em;
-   background:#fff;
-   color:#404040;
-   box-shadow: none;
-   border:1px solid $form-border-color;
-   border-radius: $border-radius;
- }
- textarea {
-  width:100%;
-  font-size:1.4em;
-  padding:10px;
-  border:1px solid $form-border-color;
-  border-radius: $border-radius;
- }
+   input[type="submit"] {
+     width:100%;
+     padding:10px;
+     font-size:1.4em;
+     background:#fff;
+     color:#404040;
+     box-shadow: none;
+     border:1px solid $border-color;
+     border-radius: $border-radius;
+   }
+
+   textarea {
+    width:100%;
+    font-size:1.4em;
+    padding:10px;
+    border:1px solid $border-color;
+    border-radius: $border-radius;
+   }
 
 
 }

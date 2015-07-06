@@ -1,0 +1,44 @@
+// media query sizes
+$phone-width: 450px;
+$in-between-width:650px;
+$tablet-width: 900px;
+$desktop-width: 1024px;
+
+
+
+
+
+// sass variables
+$border-color: #ccc; // applies to all form elements
+$border-radius: 0px; // applies to all form elements
+$transition: .5s ease; // apply to anything we want to have on hover transition effect, like buttons, etc
+$hover-bg: #fff;
+
+
+@mixin mobile { // and below
+  @media only screen and (min-width: 1px) and  (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+
+
+@mixin in-between { // and below
+  @media  only screen and (min-width: #{$phone-width +1}) and (max-width: #{$in-between-width - 1px}) {
+    @content;
+  }
+}
+
+
+
+@mixin tablet { // and below
+  @media (min-width: #{$in-between-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
