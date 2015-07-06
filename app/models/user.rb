@@ -9,5 +9,4 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :instruments
   accepts_nested_attributes_for :influences
   accepts_nested_attributes_for :genres
-
 end
