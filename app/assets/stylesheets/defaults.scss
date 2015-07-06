@@ -1,0 +1,108 @@
+$phone-width: 450px;
+$in-between-width:650px;
+$tablet-width: 900px;
+$desktop-width: 1024px;
+
+
+
+@mixin mobile { // and below
+  @media only screen and (min-width: 1px) and  (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+
+
+@mixin in-between { // and below
+  @media  only screen and (min-width: #{$phone-width +1}) and (max-width: #{$in-between-width - 1px}) {
+    @content;
+  }
+}
+
+
+
+@mixin tablet { // and below
+  @media (min-width: #{$in-between-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+
+// base styles using golden ratio algorithm here http://type-scale.com/
+
+html {font-size: 1em;}
+
+body {
+  background-color: white;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.998em;
+}
+
+h2 {font-size: 2.827em;}
+
+h3 {font-size: 1.999em;}
+
+h4 {font-size: 1.414em;}
+
+small, .font_small {font-size: 0.707em;}
+
+
+
+* {  // fix margin/padding calculations
+  box-sizing: border-box;
+}
+
+
+// defaults
+.container {
+  margin:0 auto;
+  max-width:400px;
+  padding:1em;
+}
+
+
+
+// form defaults
+.form {
+  width:100%;
+
+  label {
+  display:block;
+  }
+
+  input {
+  width:100%;
+  padding:10px;
+  font-size:1.4em;
+  }
+
+ .button {
+  width:100%;
+  padding:10px;
+  font-size:1.4em;
+  background:#f8f8f8;
+  color:#404040;
+ }
+
+}
