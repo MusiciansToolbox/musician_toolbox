@@ -12,24 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Username" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: "Email" %>
   </div>
   <div class="field">
-    <%= f.label :encrypted_password %><br>
-    <%= f.text_field :encrypted_password %>
+    <%= f.text_field :encrypted_password, placeholder: "Password" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "Add a line or two about yourself. (Optional)" %>
   </div>
   <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.number_field :zipcode %>
+    <%= f.number_field :zipcode, placeholder: "Zip Code" %>
   </div>
   <div class="field">
     <%= f.fields_for :influences do |ff| %>
@@ -37,7 +32,6 @@
       name: <%= ff.text_field :name %><br>
     <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions"><%= f.submit %>
   </div>
 <% end %>

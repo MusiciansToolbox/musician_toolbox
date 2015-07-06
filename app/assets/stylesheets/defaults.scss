@@ -1,7 +1,13 @@
+// media query sizes
 $phone-width: 450px;
 $in-between-width:650px;
 $tablet-width: 900px;
 $desktop-width: 1024px;
+
+
+// sass variables
+$form-border-color: #ccc; // applies to all form elements
+$border-radius: 0px; // applies to all form elements
 
 
 
@@ -84,7 +90,7 @@ small, .font_small {font-size: 0.707em;}
 
 
 // form defaults
-.form {
+form {
   width:100%;
 
   label {
@@ -95,14 +101,30 @@ small, .font_small {font-size: 0.707em;}
   width:100%;
   padding:10px;
   font-size:1.4em;
+  border:1px solid $form-border-color;
+  border-radius: $border-radius;
   }
 
  .button {
-  width:100%;
-  padding:10px;
-  font-size:1.4em;
-  background:#f8f8f8;
-  color:#404040;
+}
+
+ input[type="submit"] {
+   width:100%;
+   padding:10px;
+   font-size:1.4em;
+   background:#fff;
+   color:#404040;
+   box-shadow: none;
+   border:1px solid $form-border-color;
+   border-radius: $border-radius;
  }
+ textarea {
+  width:100%;
+  font-size:1.4em;
+  padding:10px;
+  border:1px solid $form-border-color;
+  border-radius: $border-radius;
+ }
+
 
 }
