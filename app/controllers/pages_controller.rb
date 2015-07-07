@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def new_file
   end
+
+  def musical_preferences
+    @user = User.find_by_id(params[:id])
+  end
 end
