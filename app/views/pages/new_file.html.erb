@@ -1,9 +1,0 @@
-<div style="margin-top:50%;">
-  <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %><%# form_for %>
-    <%# instrument field %>
-    <%# genre field %>
-    <%# influences field %>
-    <%= file_field_tag 'uploaded_file' %>
-    <%= submit_tag %>
-  <% end %>
-</div>
