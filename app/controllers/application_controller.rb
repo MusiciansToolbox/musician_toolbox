@@ -4,16 +4,34 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :configure_devise_parameters, if: :devise_controller?
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
-  end
-
-  def configure_devise_parameters
-    devise_parameter_sanitizer.for(:account_update) << :name
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
+      :name,
+      :email,
+      :zipcode,
+      :description,
+      :password,
+      :password_confirmation,
+      :current_password,
+      :instruments_attributes => [ :name, :user_id, :id],
+      :genres_attributes => [ :name, :user_id, :id],
+      :influences_attributes => [ :name, :user_id, :id])
+    }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
+      :name,
+      :email,
+      :zipcode,
+      :description,
+      :password,
+      :password_confirmation,
+      :current_password,
+      :instruments_attributes => [ :name, :user_id, :id],
+      :genres_attributes => [ :name, :user_id, :id],
+      :influences_attributes => [ :name, :user_id, :id])
+    }
   end
 
 end
