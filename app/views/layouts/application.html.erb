@@ -13,49 +13,17 @@
 <body class="parallax">
 
 
-<header>
+  <header>
+      <%= render 'layouts/header' %>
+  </header>
 
-  <div class="nav-bar">
-        <ul>
-          <li>
-            <a href="#">hey</a>
-          </li>
-          <li>
-            <a href="#">stuff</a>
-          </li>
-          <li>
-            <a href="#">FAQ</a>
-          </li>
-          <li>
-            <% if current_user %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            <% end %>
-          </li>
-        </ul>
-  </div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-
-  <h1>Musicians Toolbox</h1>
-</header>
-
-  <% if current_user %>
-    <%= render 'layouts/header' %>
-  <% end %>
 
   <div class="container">
     <%= yield %>
   </div>
-
-
-
-
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
 </body>
 </html>
