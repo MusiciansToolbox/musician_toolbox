@@ -12,25 +12,17 @@ class ApplicationController < ActionController::Base
       :name,
       :email,
       :zipcode,
-      :description,
-      :influences,
       :password,
       :password_confirmation,
-      :current_password,
-      :instruments_attributes => [ :name, :user_id, :id],
-      :genres_attributes => [ :name, :user_id, :id])
+      :current_password)
     }
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
       :name,
       :email,
       :zipcode,
-      :description,
-      :influences,
       :password,
       :password_confirmation,
-      :current_password,
-      :instruments_attributes => [ :name, :user_id, :id],
-      :genres_attributes => [ :name, :user_id, :id])
+      :current_password)
     }
   end
 
