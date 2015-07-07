@@ -1,4 +1,7 @@
-<h1>User Dashboard</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "My Profile", profile_path(current_user.id) %>
+<div class="dashboard">
+  <%= link_to "Music", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Search", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Profile", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Likes", profile_path(current_user.id), class: "dashboard-button" %>
+</div>

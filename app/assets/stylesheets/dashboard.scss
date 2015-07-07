@@ -1,0 +1,76 @@
+@import 'sass';
+
+
+
+.dashboard {
+  width:100%;
+  margin:0;
+  padding:0;
+
+
+   a {
+     display:block;
+     margin:0;
+     padding:.25em;
+     text-align:center;
+     background:#fff;
+     color:#404040;
+     font-size:2.8em;
+  //   border:0px solid $border-color;
+  //   border-radius: $border-radius;
+     transition: $transition;
+     text-decoration:none;
+    // box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    a:hover {
+       background: #f8f8f8;
+    //   box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
+    }
+
+    a:first-child {
+       margin-top:0; // no margin top of first block link
+       border-top-left-radius:10px;
+       border-top-right-radius:10px;
+       @include mobile {
+         border-radius:0;
+       }
+    }
+
+    a:last-child {
+       margin-bottom:0;  // no margin-bottom on last block link
+       border-bottom-left-radius:10px;
+       border-bottom-right-radius:10px;
+       @include mobile {
+         border-radius:0;
+       }
+     }
+
+    span {  // image and text are wrapped in their own span
+      display:inline-block;
+      border:0px solid #000;
+
+
+    }
+
+    span:first-child {  // block holding font awesome icon
+      display:none; // don't show icon for now
+      width:40%;
+      text-align:center;
+      @include mobile {
+    //  width:20%;
+      }
+    }
+
+   span:last-child {  // block holding text
+     width:100%;
+     text-align: center;
+     padding-left:0px;
+     @include mobile {
+     width:50%;
+     font-size:.8em;
+     }
+
+   }
+
+}
