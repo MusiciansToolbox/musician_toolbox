@@ -26,7 +26,7 @@
 
 
 
-<% if current_user %>
+<% if session[:user_id] %>
 <script>
 mobileDashboard(); // run on load to adjust menu for mobile screens
 $( window ).resize(function() { mobileDashboard(); });// run when resizing the window to cover our tracks
