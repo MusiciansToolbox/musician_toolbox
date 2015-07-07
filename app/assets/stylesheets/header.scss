@@ -1,59 +1,45 @@
 @import 'sass';
-
 header {
-  text-align:left;
-  max-width:100%;
-  padding:1em 0 0 2em;
-  margin:0;
-  height:100px; // offset body by this amount too
-  padding-top:1em;
-  position: fixed;
-  top: 0;
-  right:0;
-  left:0;
-  margin:0;
-  background:rgba(0,0,0,.8);
-  @include mobile {
-     height:70px;
-     padding:0em;
-     text-align:center;
-     background:#000;
-   }
-   @include in-between {
-     padding:1em;
-     text-align:center;
-   }
-   @include tablet {
-      padding:1em;
-      text-align:left;
+    text-align: left;
+    max-width: 100%;
+    padding: 1em 0 0 2em;
+    margin: 0;
+    height: 100px; // offset body by this amount too
+    padding-top: 1em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, .8);
+    @include mobile {
+        height: 70px;
+        padding: 0em;
+        text-align: center;
+        background: #000;
     }
-
-
-         h1 {
-           letter-spacing:.1em;
-           padding:0;
-           margin:0;
-           position: relative;
-           top:10px;
-           display:inline-block;
-           font-size:2.5em;
-
-             // adjust h1 header font for non-desktop views
-             @include mobile {
-             font-size:1.8em;
-             padding-top:7px;
-
-              }
-             @include in-between {
-               font-size:2.0em;
-             }
-             @include tablet {
-               font-size:1.8em;
-             }
-          }
-
+    @include tablet {
+        padding: 1em;
+        text-align: center;
+    }
+    h1 {
+        letter-spacing: .1em;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        top: 10px;
+        display: inline-block;
+        font-size: 2.5em;
+        // adjust h1 header font for non-desktop views
+        @include mobile {
+            font-size: 1.8em;
+            padding-top: 7px;
+        }
+        @include tablet {
+            font-size: 2.0em;
+        }
+    }
 }
-
 /*
 .logo {
   padding-left:9em;
@@ -62,38 +48,38 @@ header {
   display:none;
 }
 */
+
 .nav-bar {
-  float:right;
-  padding-right:1em;
-      @include mobile {
-        display:none;
-        }
-      @include in-between {display: none}
-      @include tablet { padding:1em;}
-
+    float: right;
+    padding-right: 1em;
+    @include mobile {
+        display: none;
+    }
+    @include tablet {
+      display:none;
+    }
 }
-
 .nav-bar ul {
-  display:inline-block;
-  list-style-type:none;
-  padding:1.5em 0;  /* NIGHTMARE MODE: VERTICAL CENTER THIS instead of padding hack */
-}
+    display: inline-block;
+    list-style-type: none;
+    padding: 1.5em 0;
+  }
 .nav-bar ul li {
-  display:inline;
-  padding-left:3em;
+    display: inline;
+    padding-left: 3em;
 }
 .nav-bar ul li a {
-  font-weight:bold;
-  color:#ffffff;
-  text-decoration:none;
-  text-transform: uppercase;
-
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 .nav-bar ul li a:hover {
-  color:#ffffff;
-  line-height:1.4;
-  text-decoration: none;   /* underline effect achieved via padding and border applied to bottom on hover */
-  padding-bottom:5px;
-  border-bottom-width: 2px;
-  border-bottom-style: solid
+    color: #ffffff;
+    line-height: 1.4;
+    text-decoration: none;
+    /* underline effect below- achieved via padding and border applied to bottom on hover */
+    padding-bottom: 5px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid
 }
