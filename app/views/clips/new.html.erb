@@ -1,4 +1,4 @@
-<div style="margin-top:50%;">
+<div>
   <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %><%# form_for %>
     <%= f.label 'instrument' %>
     <%= f.select 'instrument', options_for_select(['guitar','piano','flute','trumpet']) %>
