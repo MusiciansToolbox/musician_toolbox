@@ -1,31 +1,7 @@
 
 <div class="dashboard">
-
-
-    <a href="#" class="dashboard-button">
-      <span><i class="fa fa-search"></i></span>
-     <span>Search</span>
-   </a>
-
-  <a href="#" class="dashboard-button">
-   <span><i class="fa fa-music"></i></span>
-   <span>Music</span>
- </a>
-
-
-  <a href="#" class="dashboard-button">
-    <span><i class="fa fa-user"></i></span>
-   <span>Profile</span>
-  </a>
-
-  <a href="#" class="dashboard-button">
-     <span><i class="fa fa-thumbs-o-up"></i></span>
-    <span>Likes</span>
-  </a>
-
+  <%= link_to "Music", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Search", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Profile", profile_path(current_user.id), class: "dashboard-button" %>
+  <%= link_to "Likes", profile_path(current_user.id), class: "dashboard-button" %>
 </div>
-
-
-
-
-<%= link_to "My Profile", profile_path(current_user.id) %>

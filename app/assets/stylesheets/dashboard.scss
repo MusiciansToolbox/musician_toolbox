@@ -54,6 +54,7 @@
     }
 
     span:first-child {  // block holding font awesome icon
+      display:none; // don't show icon for now
       width:40%;
       text-align:center;
       @include mobile {
@@ -62,8 +63,8 @@
     }
 
    span:last-child {  // block holding text
-     width:50%;
-     text-align: left;
+     width:100%;
+     text-align: center;
      padding-left:0px;
      @include mobile {
      width:50%;

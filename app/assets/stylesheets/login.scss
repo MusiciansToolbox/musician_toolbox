@@ -1,13 +1,70 @@
 @import 'sass';
 
-#logIn {
+.account-start {
+  background:rgba(0,0,0,.7);
+  border:1.5em solid #000;
+  position:absolute;
+  left:60%;
+  top:16%;
+  width:450px;
+
+ @include mobile {
+   max-width:100%;
+   position:static;
+   margin:0;
+ }
+
+ @include in-between {
+   width:500px;
+   position:static;
+     margin:150px auto;
+
+ }
+
+ @include tablet {
+  width:500px;
+  position:static;
+    margin:150px auto;
+
+   }
+
+
+  .login-box {
+  }
+
+  form {
+    margin:0;
+    padding:15px 50px;
+  }
 
   h2 {
-    text-align:center;
+    text-align:left;
+    margin:0;
+    padding:15px 0 15px 50px;
+    color:#ccc;
+    text-transform:uppercase;
+    font-size:2em;
+    background:rgba(0,0,0,.5);
+    margin-bottom:10px;
+    padding:.5em 1;
+
+
 
   }
-  .forgot {
-    float:right;
+
+  .render-links {
+    color:#fff;
+    margin:0;
+    padding:0;
+    display: block;
+    padding-left:50px;
+  }
+  .render-links:first-child {
+  }
+  .render-links:last-child {
+    color:#808080;
+    margin-bottom:10px;
+//    float:right;
   }
 
 }
