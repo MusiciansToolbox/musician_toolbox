@@ -25,7 +25,12 @@
           </li>
           <li>
             <a href="#">FAQ</a>
-         </li>
+          </li>
+          <li>
+            <% if current_user %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <% end %>
+          </li>
         </ul>
   </div>
 
@@ -48,9 +53,6 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <% if current_user %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
