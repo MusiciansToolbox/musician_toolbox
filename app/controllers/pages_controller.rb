@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   def new_file
     @clip = current_user.clips.build
   end
+
+  def musical_preferences
+    @user = User.find_by_id(params[:id])
+  end
 end
