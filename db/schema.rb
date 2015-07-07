@@ -11,9 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706160030) do
+ActiveRecord::Schema.define(version: 20150707161946) do
+
+  create_table "clips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "instrument_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
+    t.string   "genre"
+  end
+
+  add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"
+  add_index "clips", ["user_id"], name: "index_clips_on_user_id"
 
   create_table "genres", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "influences", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
@@ -31,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150706160030) do
     t.string   "name"
     t.text     "description"
     t.integer  "zipcode"
-    t.text     "influences"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

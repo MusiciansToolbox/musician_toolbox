@@ -12,7 +12,7 @@
           </li>
           <li>
             <% if current_user %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <%= link_to "Logout", logout_path, method: :delete %>
             <% end %>
           </li>
         </ul>

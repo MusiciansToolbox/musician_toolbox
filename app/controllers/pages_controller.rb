@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def new_file
+    @clip = current_user.clips.build
   end
 end
