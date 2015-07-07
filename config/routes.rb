@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/:id' => 'users#show', as: :profile
   get 'new_file' => 'pages#new_file'
+  get 'music' => 'pages#music'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
