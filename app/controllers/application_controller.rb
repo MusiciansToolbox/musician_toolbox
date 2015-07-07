@@ -5,13 +5,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  # private def user_logged_in?
-  #   unless User.find_by_id(current_user.id)
-  #     redirect_to user_session_path, notice: 'Please login to view this page.'
-  #   end
-  # end
-
-
   protected
 
   def configure_permitted_parameters
@@ -40,6 +33,5 @@ class ApplicationController < ActionController::Base
       :influences_attributes => [ :name, :user_id, :id])
     }
   end
-
 
 end
