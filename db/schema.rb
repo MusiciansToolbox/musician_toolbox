@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20150706160030) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "influences", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "instruments", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -38,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150706160030) do
     t.string   "name"
     t.text     "description"
     t.integer  "zipcode"
+    t.text     "influences"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
