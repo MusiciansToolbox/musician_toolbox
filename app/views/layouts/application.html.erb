@@ -18,7 +18,8 @@
     </div>
 
    <footer>
-    <% if @user %>
+
+     <% if session[:user_id] %>
       <%= render 'layouts/footer' %>
     <% end %>
     </footer>
@@ -27,6 +28,8 @@
 
 
 <% if session[:user_id] %>
+
+
 <script>
 mobileDashboard(); // run on load to adjust menu for mobile screens
 $( window ).resize(function() { mobileDashboard(); });// run when resizing the window to cover our tracks
@@ -40,6 +43,7 @@ function mobileDashboard(){ // make mobile dashboard menu dynamically fit all sc
   $('.dashboard-button').css("height",newHeight);
 }
     </script>
+
     <% end %>
 
   </body>
