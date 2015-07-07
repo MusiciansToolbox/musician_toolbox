@@ -1,6 +1,9 @@
 class ClipsController < ApplicationController
+  before_action :authenticate_user
+
   def new
-    @clip = current_user.clips.build
+    @clip = Clip.new
+    # @clip = @user.clips.build
   end
 
   def index
@@ -22,7 +25,6 @@ class ClipsController < ApplicationController
   private
 
   def clip_params
-    params.require(:clip).permit(:user_id, :instrument_id, :uploaded_file_file_name,
-        :uploaded_file_content_type, :uploaded_file_file_size, :uploaded_file_updated_at)
+    params.require(:clip).permit(:user_id, :instrument_id, :genre, :uploaded_file)
   end
 end

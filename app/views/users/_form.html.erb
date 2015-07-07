@@ -1,39 +1,23 @@
 <!--don't think this is used anymore! ask rails...-->
-
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="account-start">
+  <span class="login-box">
+    <h2>Sign Up</h2>
+    <%= form_for(@user) do |f| %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Username" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :encrypted_password, placeholder: "Password" %>
-  </div>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "Add a line or two about yourself. (Optional)" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :zipcode, placeholder: "Zip Code" %>
-  </div>
-  <div class="field">
-    <%= f.fields_for :influences do |ff| %>
-      Influences:<br>
-      name: <%= ff.text_field :name %><br>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :zipcode, placeholder: "Zipcode" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
     <% end %>
-  </div>
-  <div class="actions"><%= f.submit %>
-  </div>
-<% end %>
+  </span>
+</div>
