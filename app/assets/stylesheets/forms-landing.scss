@@ -1,0 +1,51 @@
+@import 'sass';
+// all the forms on the landing page(s)
+// ex -  login/register/password request forms
+// ex -  the black box, opacity, etc around the forms
+
+.account-start {
+    background: rgba(0, 0, 0, .7);
+    border: 1.5em solid #000;
+    position: absolute;
+    left: 60%;
+    top: 16%;
+    width: 450px;
+    padding-bottom: 10px;
+    @include mobile {
+        max-width: 100%;
+        position: static;
+        margin: 0;
+    }
+    @include tablet {
+        width: 500px;
+        position: static;
+        margin: 0 auto;
+    }
+    .login-box {} form {
+        margin: 0;
+        padding: 15px 50px;
+    }
+    h2 {
+        text-align: left;
+        margin: 0;
+        padding: 15px 0 15px 50px;
+        color: #ccc;
+        text-transform: uppercase;
+        font-size: 2em;
+        background: rgba(0, 0, 0, .5);
+        margin-bottom: 10px;
+        padding: .5em 1;
+        @include mobile {
+            text-align: left;
+            font-size: 1em;
+            margin-top: 15px;
+            padding-bottom: 0;
+            color: #fff;
+            background: rgba(0, 0, 0, 1); // remove background opacity
+            display: inline-block;
+            margin-left: 50px;
+            padding: 5px 10px;
+        }
+    }
+
+}
