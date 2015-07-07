@@ -6,12 +6,15 @@
 html {font-size: 1em;}
 
 body {
-  background-color: #000;
-  background:#000;
+  background: #f8f8f8;
   font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   line-height: 1.45;
-  color: #333;
+  color: #fff;
+  padding-top: 150px; // offset for header height
+   @include mobile {
+     padding-top:70px;
+   }
   /*background-image: url(https://static.pexels.com/photos/387/man-person-wall-music.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -72,6 +75,9 @@ small, .font_small {font-size: 0.707em;}
     font-size:1.4em;
     border:1px solid $border-color;
     border-radius: $border-radius;
+      @include mobile {
+        font-size:1.2em;
+        }
     }
 
    .button {

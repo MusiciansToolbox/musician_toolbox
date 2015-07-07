@@ -3,9 +3,9 @@
 header {
   text-align:left;
   max-width:100%;
-  padding:1em;
+  padding:1em 0 0 2em;
   margin:0;
-  height:auto;
+  height:100px; // offset body by this amount too
   padding-top:1em;
   position: fixed;
   top: 0;
@@ -14,21 +14,43 @@ header {
   margin:0;
   background:rgba(0,0,0,.8);
   @include mobile {
-//  height:50px;
+     height:70px;
+     padding:0em;
+     text-align:center;
+     background:#000;
    }
+   @include in-between {
+     padding:1em;
+     text-align:center;
+   }
+   @include tablet {
+      padding:1em;
+      text-align:left;
+    }
 
-     h1 {
-       font-size:2.5em;
-       letter-spacing:.1em;
-       padding:0;
-       margin:0;
-       position: relative;
-       top:10px;
-       display:inline-block;
-         @include mobile {
-         font-size:2em;
+
+         h1 {
+           letter-spacing:.1em;
+           padding:0;
+           margin:0;
+           position: relative;
+           top:10px;
+           display:inline-block;
+           font-size:2.5em;
+
+             // adjust h1 header font for non-desktop views
+             @include mobile {
+             font-size:1.8em;
+             padding-top:7px;
+
+              }
+             @include in-between {
+               font-size:2.0em;
+             }
+             @include tablet {
+               font-size:1.8em;
+             }
           }
-      }
 
 }
 
@@ -42,8 +64,14 @@ header {
 */
 .nav-bar {
   float:right;
-  padding-right:9em;
-  }
+  padding-right:1em;
+      @include mobile {
+        display:none;
+        }
+      @include in-between {display: none}
+      @include tablet { padding:1em;}
+
+}
 
 .nav-bar ul {
   display:inline-block;
