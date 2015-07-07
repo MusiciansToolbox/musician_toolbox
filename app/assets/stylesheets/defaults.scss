@@ -75,9 +75,9 @@ small, .font_small {font-size: 0.707em;}
     font-size:1.4em;
     border:1px solid $border-color;
     border-radius: $border-radius;
-    @include mobile {
-      font-size:1.2em;
-    }
+      @include mobile {
+        font-size:1.2em;
+        }
     }
 
    .button {
