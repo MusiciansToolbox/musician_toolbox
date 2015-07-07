@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :zipcode
+      t.text :influences
 
       t.timestamps null: false
     end

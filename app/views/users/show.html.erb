@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Influences:</strong>
+  <%= @user.influences %>
+</p>
+
+<p>
   <strong>Encrypted_Password:</strong>
   <%= @user.encrypted_password %>
 </p>
@@ -31,16 +36,11 @@
     <% i.name %>
   <% end %>
 </p>
-<p>
-  Influences:
-  <%= @user.influences.map do |i| %>
-    <%= i.name %>
-  <% end %>
-</p>
+
 <p>
   Genres:
   <%= @user.genres.map do |i| %>
-    <%= i.name %>
+    <% i.name %>
   <% end %>
 </p>
 
