@@ -8,29 +8,32 @@
   padding:0;
   height:100%;
 
-   .test {
-     border:5px solid #000;
-
-
-   }
    a {
      display:block;
      margin:0;
-     padding:.25em;
      text-align:center;
      background:#fff;
      color:#404040;
      font-size:2.8em;
      transition: $transition;
      text-decoration:none;
-     @include mobile {
-       //
-     }
+     border:0px solid #ccc;
+     margin-bottom:5px;
+
+
+     // always center text on dashboard buttons
+     // via: text align + vertical align + function to set dynamic line height
+     text-align: center;
+     vertical-align: middle;
+
+
+         @include mobile {
+           font-size:2.5em;
+         }
     }
 
     a:hover {
        background: #f8f8f8;
-    //   box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.75);
     }
 
     a:first-child {
@@ -43,7 +46,7 @@
     }
 
     a:last-child {
-       margin-bottom:0;  // no margin-bottom on last block link
+       margin-bottom:0px;  // no margin-bottom on last block link
        border-bottom-left-radius:10px;
        border-bottom-right-radius:10px;
        @include mobile {
@@ -51,6 +54,6 @@
        }
      }
 
-    
+
 
 }

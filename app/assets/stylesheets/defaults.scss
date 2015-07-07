@@ -12,8 +12,10 @@ body {
     height:100%;
     color: #fff;
     padding-top: 150px; // offset for header height
+    padding-bottom:80px; // not tied to footer, etc heights
     @include mobile {
-        padding-top: 70px;
+        padding-top: 70px; // needs to match height of sticky header
+        padding-bottom:30px; // needs to match size of sticky footer
     }
 }
 p {
