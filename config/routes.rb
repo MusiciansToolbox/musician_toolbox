@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   post 'sessions/create'
-
-
   get 'new_file' => 'clips#new'
   get 'music' => 'pages#music'
+  get 'musical_preferences/:id' => 'pages#musical_preferences', as: :musical_preferences
   resources :clips
   resources :users
   get 'users/:id' => 'users#show', as: :profile

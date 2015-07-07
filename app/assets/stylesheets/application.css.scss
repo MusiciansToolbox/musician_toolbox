@@ -17,13 +17,10 @@
 
  @import 'reset';
  @import 'defaults'; // defaults + shared classes
-
- @import 'login';
- @import 'register';
-
+ @import 'rails-auto';  // rails generated links and messages
+ @import 'forms-landing'; // login, reset, etc forms
  @import 'header';
  @import 'footer';
-
  @import 'dashboard';
 
 
