@@ -1,0 +1,71 @@
+@import 'sass';
+
+header {
+  text-align:left;
+  max-width:100%;
+  padding:1em;
+  margin:0;
+  height:auto;
+  padding-top:1em;
+  position: fixed;
+  top: 0;
+  right:0;
+  left:0;
+  margin:0;
+  background:rgba(0,0,0,.8);
+  @include mobile {
+//  height:50px;
+   }
+
+     h1 {
+       font-size:2.5em;
+       letter-spacing:.1em;
+       padding:0;
+       margin:0;
+       position: relative;
+       top:10px;
+       display:inline-block;
+         @include mobile {
+         font-size:2em;
+          }
+      }
+
+}
+
+/*
+.logo {
+  padding-left:9em;
+}
+#logoMobile {
+  display:none;
+}
+*/
+.nav-bar {
+  float:right;
+  padding-right:9em;
+  }
+
+.nav-bar ul {
+  display:inline-block;
+  list-style-type:none;
+  padding:1.5em 0;  /* NIGHTMARE MODE: VERTICAL CENTER THIS instead of padding hack */
+}
+.nav-bar ul li {
+  display:inline;
+  padding-left:3em;
+}
+.nav-bar ul li a {
+  font-weight:bold;
+  color:#ffffff;
+  text-decoration:none;
+  text-transform: uppercase;
+
+}
+.nav-bar ul li a:hover {
+  color:#ffffff;
+  line-height:1.4;
+  text-decoration: none;   /* underline effect achieved via padding and border applied to bottom on hover */
+  padding-bottom:5px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid
+}

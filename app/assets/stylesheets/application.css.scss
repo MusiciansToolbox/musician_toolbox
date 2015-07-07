@@ -14,7 +14,17 @@
  *= require_self
  */
 
+
  @import 'reset';
- @import 'defaults'; // default and shared classes
+ @import 'defaults'; // defaults + shared classes
+
  @import 'login';
  @import 'register';
+
+ @import 'header';
+ @import 'footer';
+
+ @import 'dashboard';
+
+
+// ** add @import 'sass'; to the top of all other scss files **

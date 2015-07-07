@@ -2,13 +2,36 @@
 <html>
 <head>
   <title>MusicianToolbox</title>
+  <meta name="viewport" content="width=device-width">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+
+<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
-<body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<body class="parallax">
+
+
+<header>
+
+  <div class="nav-bar">
+        <ul>
+          <li>
+            <a href="#">hey</a>
+          </li>
+          <li>
+            <a href="#">stuff</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+         </li>
+        </ul>
+  </div>
+
+
+  <h1>Musicians Toolbox</h1>
+</header>
 
   <% if current_user %>
     <%= render 'layouts/header' %>
@@ -17,6 +40,20 @@
   <div class="container">
     <%= yield %>
   </div>
+
+
+
+
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <% if current_user %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% end %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
 </body>
 </html>
