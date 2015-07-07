@@ -7,6 +7,7 @@
   left:60%;
   top:16%;
   width:450px;
+  padding-bottom: 10px;
 
  @include mobile {
    max-width:100%;
@@ -52,19 +53,12 @@
 
   }
 
-  .render-links {
+  .link-to-login {
     color:#fff;
     margin:0;
     padding:0;
     display: block;
     padding-left:50px;
-  }
-  .render-links:first-child {
-  }
-  .render-links:last-child {
-    color:#808080;
-    margin-bottom:10px;
-//    float:right;
   }
 
 }
