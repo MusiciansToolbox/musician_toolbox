@@ -1,7 +1,7 @@
 <div style="position: fixed; top: 200px;">
   <h1> Musical Preferences </h1>
   <strong> Welcome <%= @user.name %>! </strong>
-  <%= form_for @user, url: { action: "create", controller: 'devise/registrations' } do |f| %>
+  <%= form_for @user, url: { action: "create", controller: 'registrations' } do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

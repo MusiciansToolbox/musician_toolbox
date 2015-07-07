@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'login' => 'devise/sessions#new'
     delete 'logout' => 'devise/sessions#destroy'
   end
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   get 'users/:id' => 'users#show', as: :profile
   get 'new_file' => 'clips#new'
   get 'music' => 'pages#music'
