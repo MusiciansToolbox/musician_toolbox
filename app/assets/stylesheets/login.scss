@@ -17,14 +17,14 @@
  @include in-between {
    width:500px;
    position:static;
-     margin:150px auto;
+   margin:0 auto;
 
  }
 
  @include tablet {
   width:500px;
   position:static;
-    margin:150px auto;
+    margin:0 auto;
 
    }
 
@@ -35,6 +35,7 @@
   form {
     margin:0;
     padding:15px 50px;
+
   }
 
   h2 {
@@ -47,6 +48,19 @@
     background:rgba(0,0,0,.5);
     margin-bottom:10px;
     padding:.5em 1;
+        @include mobile {
+        //  text-transform:none;
+          text-align:left;
+          font-size:1em;
+          margin-top:15px;
+          padding-bottom:0;
+          color:#fff;
+          background:rgba(0,0,0,1); // remove background opacity
+          display:inline-block;
+          margin-left:50px;
+          padding:5px 10px;
+
+        }
 
 
 

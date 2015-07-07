@@ -1,3 +1,25 @@
-<%= link_to "Home", root_path %>
-<%= link_to "Profile", edit_user_registration_path %>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+<% if current_user %>
+<div class="nav-bar">
+      <ul>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+</div>
+<% end %>
+
+
+        <% unless current_user %>
+
+      <!--stuff to show up if not logged in, in top right header -->
+
+        <% end %>
+
+
+
+
+<h1>Musicians Toolbox</h1>
