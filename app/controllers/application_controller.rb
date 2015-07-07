@@ -4,19 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
-  # private def user_logged_in?
-  #   unless User.find_by_id(current_user.id)
-  #     redirect_to user_session_path, notice: 'Please login to view this page.'
-  #   end
-  # end
-
+  before_filter :configure_devise_parameters, if: :devise_controller?
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:type, :email, :password) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password) }
   end
 
+  def configure_devise_parameters
+    devise_parameter_sanitizer.for(:account_update) << :name
+  end
 
 end
