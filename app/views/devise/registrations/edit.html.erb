@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :influences %><br />
+    <%= f.text_field :influences %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
@@ -43,6 +48,7 @@
   </div>
 
   <div class="field">
+    Instruments<br>
     <%= f.fields_for :instruments do |ff| %>
       name: <%= ff.text_field :name %>
       user_id: <%= ff.text_field :user_id %>
@@ -50,13 +56,7 @@
   </div>
 
   <div class="field">
-    <%= f.fields_for :influences do |ff| %>
-      name: <%= ff.text_field :name %>
-      user_id: <%= ff.text_field :user_id %>
-    <% end %>
-  </div>
-
-  <div class="field">
+    Genres<br>
     <%= f.fields_for :genres do |ff| %>
       name: <%= ff.text_field :name %>
       user_id: <%= ff.text_field :user_id %>
