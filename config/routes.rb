@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  get 'users' => 'users#index'
   devise_scope :user do
     get 'login' => 'devise/sessions#new'
   end
