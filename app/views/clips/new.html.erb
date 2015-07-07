@@ -1,4 +1,6 @@
 <div style="color:black">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
     <%= hidden_field :user_id, session[:user_id] %>
     <%= f.label :instrument_id, 'Instrument' %>

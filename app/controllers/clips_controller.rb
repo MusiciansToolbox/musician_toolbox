@@ -14,12 +14,11 @@ class ClipsController < ApplicationController
 
   def create
     @clip = Clip.new(clip_params)
-      # if @clip.save
-        redirect_to root_path, notice: "Clip successfully made"
-      # else
-      #   render :new
-      # end
-    # end
+    if @clip.save
+      redirect_to root_path, notice: "Clip successfully made"
+    else
+      redirect_to new_file_path, notice: "Clip failed to upload"
+    end
   end
 
   private
