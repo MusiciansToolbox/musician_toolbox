@@ -3,7 +3,7 @@
 
   <div class="nav-bar">
     <ul>
-      <% if current_user %>
+      <% if session[:user_id] %>
       <li>
         <%= link_to "Home", root_path %>
       </li>

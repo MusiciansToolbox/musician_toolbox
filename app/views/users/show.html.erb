@@ -16,11 +16,6 @@
 </p>
 
 <p>
-  <strong>Encrypted_Password:</strong>
-  <%= @user.encrypted_password %>
-</p>
-
-<p>
   <strong>Description:</strong>
   <%= @user.description %>
 </p>
@@ -44,5 +39,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %>

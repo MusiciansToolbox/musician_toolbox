@@ -1,6 +1,8 @@
 class ClipsController < ApplicationController
+  before_action :authenticate_user
+
   def new
-    @clip = current_user.clips.build
+    @clip = @user.clips.build
   end
 
   def index

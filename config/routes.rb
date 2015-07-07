@@ -3,15 +3,17 @@ Rails.application.routes.draw do
   root 'pages#home'
   post 'clips/create'
   get 'users' => 'users#index'
-  devise_scope :user do
-    get 'login' => 'devise/sessions#new'
-    delete 'logout' => 'devise/sessions#destroy'
-  end
-  devise_for :users
-  get 'users/:id' => 'users#show', as: :profile
+
+  get 'login' => 'sessions#new'
+  delete 'logout' => 'sessions#destroy'
+  post 'sessions/create'
+
+
   get 'new_file' => 'clips#new'
   get 'music' => 'pages#music'
   resources :clips
+  resources :users
+  get 'users/:id' => 'users#show', as: :profile
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

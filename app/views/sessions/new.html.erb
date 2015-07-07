@@ -1,0 +1,20 @@
+<div class="parallax">
+  <div class="account-start">
+    <span class="login-box">
+      <h2>Log in</h2>
+      <%= form_tag("/sessions/create", method: "post") do |f| %>
+      <div class="field">
+        <%= email_field_tag :email, nil, {autofocus: true, autocomplete: "off", placeholder: "Email"} %>
+      </div>
+      <div class="field">
+        <%= password_field_tag :password, nil, {autocomplete: "off", placeholder: "Password"} %>
+      </div>
+      <div class="actions">
+        <%= submit_tag "Submit" %>
+      </div>
+      <% end %>
+
+      <%= link_to "Create an Account", new_user_path, class: "link-to-create" %>
+    </span>
+  </div>
+</div>

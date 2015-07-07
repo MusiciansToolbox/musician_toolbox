@@ -1,6 +1,6 @@
 <div style="color:black">
   <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
-    <%= hidden_field current_user.id %>
+    <%= hidden_field session[:user_id] %>
     <%= f.label :instrument_id, 'Instrument' %>
     <!-- MAKE INSTRUMENTS TABLE AND USE THAT FOR THE DROPDOWN -->
     <%= f.select :instrument_id, options_for_select(['guitar','piano','flute','trumpet']) %>
