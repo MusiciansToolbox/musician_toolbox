@@ -1,13 +1,13 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: "render-links" %>
+  <%= link_to "Log in", new_session_path(resource_name), class: "render-links link-to-login" %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Create an Account", new_registration_path(resource_name), class: "render-links" %>
+  <%= link_to "Create an Account", new_registration_path(resource_name), class: "link-to-create" %>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "render-links" %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "link-to-fyp" %>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

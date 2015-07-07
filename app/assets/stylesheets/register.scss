@@ -1,10 +1,25 @@
-#signUp {
-   h2 {
-     text-align:center;
-   }
+@import 'sass';
 
-   .signup-1 {
-     display:none;
-   }
+.account-start {
+
+/* uses same styles from login.scss - look there */
+
+.link-to-create {
+  color:#fff;
+  margin:0;
+  padding:0;
+  display: block;
+  padding-left:50px;
+}
+
+
+.link-to-fyp {
+  color:#808080;
+  margin:0;
+  padding:0;
+  display: block;
+  padding-left:50px;
+}
+
 
 }

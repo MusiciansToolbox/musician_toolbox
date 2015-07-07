@@ -7,6 +7,7 @@
   left:60%;
   top:16%;
   width:450px;
+  padding-bottom: 10px;
 
  @include mobile {
    max-width:100%;
@@ -17,14 +18,14 @@
  @include in-between {
    width:500px;
    position:static;
-     margin:150px auto;
+   margin:0 auto;
 
  }
 
  @include tablet {
   width:500px;
   position:static;
-    margin:150px auto;
+    margin:0 auto;
 
    }
 
@@ -35,6 +36,7 @@
   form {
     margin:0;
     padding:15px 50px;
+
   }
 
   h2 {
@@ -47,24 +49,30 @@
     background:rgba(0,0,0,.5);
     margin-bottom:10px;
     padding:.5em 1;
+        @include mobile {
+        //  text-transform:none;
+          text-align:left;
+          font-size:1em;
+          margin-top:15px;
+          padding-bottom:0;
+          color:#fff;
+          background:rgba(0,0,0,1); // remove background opacity
+          display:inline-block;
+          margin-left:50px;
+          padding:5px 10px;
+
+        }
 
 
 
   }
 
-  .render-links {
+  .link-to-login {
     color:#fff;
     margin:0;
     padding:0;
     display: block;
     padding-left:50px;
-  }
-  .render-links:first-child {
-  }
-  .render-links:last-child {
-    color:#808080;
-    margin-bottom:10px;
-//    float:right;
   }
 
 }
