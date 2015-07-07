@@ -22,7 +22,6 @@ class ClipsController < ApplicationController
   private
 
   def clip_params
-    params.require(:clip).permit(:user_id, :instrument_id, :uploaded_file_file_name,
-        :uploaded_file_content_type, :uploaded_file_file_size, :uploaded_file_updated_at)
+    params.require(:clip).permit(:user_id, :instrument_id, :genre, :uploaded_file)
   end
 end
