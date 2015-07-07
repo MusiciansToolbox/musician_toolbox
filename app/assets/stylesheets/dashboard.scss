@@ -8,7 +8,11 @@
   padding:0;
   height:100%;
 
+   .test {
+     border:5px solid #000;
 
+
+   }
    a {
      display:block;
      margin:0;
@@ -20,7 +24,7 @@
      transition: $transition;
      text-decoration:none;
      @include mobile {
-       // 
+       //
      }
     }
 
@@ -47,31 +51,6 @@
        }
      }
 
-    span {  // image and text are wrapped in their own span
-      display:inline-block;
-      border:0px solid #000;
-
-
-    }
-
-    span:first-child {  // block holding font awesome icon
-      display:none; // don't show icon for now
-      width:40%;
-      text-align:center;
-      @include mobile {
-    //  width:20%;
-      }
-    }
-
-   span:last-child {  // block holding text
-     width:100%;
-     text-align: center;
-     padding-left:0px;
-     @include mobile {
-     width:50%;
-     font-size:.8em;
-     }
-
-   }
+    
 
 }

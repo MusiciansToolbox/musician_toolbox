@@ -2,12 +2,14 @@
 // base styles using golden ratio algorithm here http://type-scale.com/
 html {
     font-size: 1em;
+    height:100%;
 }
 body {
     background: #f8f8f8;
     font-family: 'Libre Baskerville', serif;
     font-weight: 400;
     line-height: 1.45;
+    height:100%;
     color: #fff;
     padding-top: 150px; // offset for header height
     @include mobile {

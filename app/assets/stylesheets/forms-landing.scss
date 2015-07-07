@@ -12,7 +12,7 @@
     width: 450px;
     padding-bottom: 10px;
     @include mobile {
-        max-width: 100%;
+        width: 100%;
         position: static;
         margin: 0;
     }
