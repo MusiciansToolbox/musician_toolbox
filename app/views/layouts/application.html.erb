@@ -7,6 +7,8 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <%= session[:user_id] ? '<body>'.html_safe : '<body class="parallax">'.html_safe %>
@@ -35,10 +37,11 @@
     function mobileDashboard(){
       // make mobile dashboard menu dynamically fit all screen sizes
       var parentHeight = $("body").height();
-      var footerHeight = $('footer').height();
+      var footerHeight = $('.mobile-menu-bar').height();
       var dashboardBlocks = $('.dashboard a')
       dashboardBlocks = dashboardBlocks.length
-      var newHeight = ( (parentHeight - footerHeight) / dashboardBlocks)
+      var newHeight = ( (parentHeight - 20 ) / dashboardBlocks)
+      // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
       $('.dashboard-button').css("height",newHeight);
 
       // set line height on text so that it dynamically stays vertically centered

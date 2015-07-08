@@ -8,7 +8,12 @@
   padding:0;
   height:100%;
 
-   a {
+/* optionally alternate background colors
+  .dashboard-button:nth-child(odd) {
+    background:#f8f8f8;
+  }
+*/
+   .dashboard-button {
      display:block;
      margin:0;
      text-align:center;
@@ -17,7 +22,6 @@
      font-size:2.8em;
      transition: $transition;
      text-decoration:none;
-     border:0px solid #ccc;
      margin-bottom:5px;
 
 
@@ -29,6 +33,9 @@
 
          @include mobile {
            font-size:2.5em;
+           border-top:5px solid #f8f8f8; // create space between nav buttons in mobile
+           margin:0; // remove margin as in interferences with dynamic height settings
+
          }
     }
 
@@ -42,6 +49,7 @@
        border-top-right-radius:10px;
        @include mobile {
          border-radius:0;
+         border-top:0px;
        }
     }
 
