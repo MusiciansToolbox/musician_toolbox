@@ -17,7 +17,7 @@ class ClipsController < ApplicationController
     if @clip.save
       redirect_to root_path, notice: "Clip successfully made"
     else
-      redirect_to new_file_path, notice: "Clip failed to upload"
+      render :new, as: :new_file, notice: "Clip failed to upload"
     end
   end
 

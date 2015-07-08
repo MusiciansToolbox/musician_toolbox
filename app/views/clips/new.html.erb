@@ -2,7 +2,19 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
-    <%= hidden_field :user_id, session[:user_id] %>
+  <% if @clip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clip.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% @clip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
     <%= f.label :instrument_id, 'Instrument' %>
     <!-- MAKE INSTRUMENTS TABLE AND USE THAT FOR THE DROPDOWN -->
     <%= f.select :instrument_id, options_for_select(['guitar','piano','flute','trumpet']) %>
