@@ -7,6 +7,8 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <%= session[:user_id] ? '<body>'.html_safe : '<body class="parallax">'.html_safe %>
@@ -17,10 +19,35 @@
       <%= yield %>
     </div>
 
-    <% if @user %>
+   <footer>
+
+     <% if session[:user_id] %>
       <%= render 'layouts/footer' %>
     <% end %>
+    </footer>
+
+
+
+
+<% if session[:user_id] %>
+  <script>
+    mobileDashboard(); // run on load to adjust menu for mobile screens
+    $( window ).resize(function() { mobileDashboard(); });// run when resizing the window to cover our tracks
+
+    function mobileDashboard(){
+      // make mobile dashboard menu dynamically fit all screen sizes
+      var parentHeight = $("body").height();
+      var footerHeight = $('footer').height();
+      var dashboardBlocks = $('.dashboard a')
+      dashboardBlocks = dashboardBlocks.length
+      var newHeight = ( (parentHeight - footerHeight) / dashboardBlocks)
+      $('.dashboard-button').css("height",newHeight);
+
+      // set line height on text so that it dynamically stays vertically centered
+      $('.dashboard-button').css("line-height",newHeight+'px');
+    }
+  </script>
+<% end %>
 
   </body>
-
 </html>
