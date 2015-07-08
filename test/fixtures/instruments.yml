@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
-  user_id: 1
-  name: guitar
+  name: MyString
 
 two:
-  id: 2
-  user_id: 2
-  name: sitar
+  name: MyString

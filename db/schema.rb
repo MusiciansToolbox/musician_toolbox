@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707161946) do
+ActiveRecord::Schema.define(version: 20150708191538) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -29,18 +29,32 @@ ActiveRecord::Schema.define(version: 20150707161946) do
   add_index "clips", ["user_id"], name: "index_clips_on_user_id"
 
   create_table "genres", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "genre_id"
+  end
+
+  add_index "genres_users", ["genre_id"], name: "index_genres_users_on_genre_id"
+  add_index "genres_users", ["user_id"], name: "index_genres_users_on_user_id"
+
   create_table "instruments", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "instruments_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "instrument_id"
+  end
+
+  add_index "instruments_users", ["instrument_id"], name: "index_instruments_users_on_instrument_id"
+  add_index "instruments_users", ["user_id"], name: "index_instruments_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

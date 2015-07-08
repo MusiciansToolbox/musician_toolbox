@@ -11,5 +11,8 @@ class PagesController < ApplicationController
 
   def musical_preferences
     @user = User.find_by_id(params[:id])
+    # @genres =
+    @user_instruments = @user.instruments
+    @instruments = Instrument.all
   end
 end

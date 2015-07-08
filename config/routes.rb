@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :genres
+  resources :instruments
   root 'pages#home'
   post 'clips/create'
   get 'users' => 'users#index'
