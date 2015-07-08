@@ -17,9 +17,7 @@
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
     <%= f.label :instrument_id, 'Instrument' %>
     <!-- MAKE INSTRUMENTS TABLE AND USE THAT FOR THE DROPDOWN -->
-    <%= f.select :instrument_id, options_for_select(['guitar','piano','flute','trumpet']) %>
-    <%= f.label 'genre' %>
-    <%= f.text_field 'genre' %><hr/>
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name %>
     <%= f.file_field 'uploaded_file' %><hr/>
     <%= submit_tag 'Upload File' %>
   <% end %>
