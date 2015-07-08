@@ -1,21 +1,46 @@
 <div style="position: fixed; top: 200px;">
+  <style>
+    p, div h1, strong {
+      color: black;
+    }
+  </style>
   <h1> Musical Preferences </h1>
   <strong> Welcome <%= @user.name %>! </strong>
-  <%= form_for @user, url: { action: "create", controller: 'registrations' } do |f| %>
+  <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
+
   <p>
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
   </p>
 
   <p>
-    <%= f.label :current_password %>
-    <%= f.text_field :current_password %>
+    <%= f.label :influences %>
+    <%= f.text_field :influences %>
   </p>
-  
+
+  <p style="font-weight:bold;font-size:23px">My Instruments</p>
+  <% @user_instruments.each do |instrument| %>
+    <p>
+      <%= instrument.name %>
+    </p>
+  <% end %>
+
+  <p style="font-weight:bold;font-size:23px">My Genres</p>
+  <% @user_genres.each do |genre| %>
+    <p>
+      <%= genre.name %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>
