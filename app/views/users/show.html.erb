@@ -26,6 +26,13 @@
 </p>
 
 <p>
+  Clips:
+  <%= @user.clips.each do |i| %>
+    <% i %>
+  <% end %>
+</p>
+
+<p>
   Instruments:
   <%= @user.instruments.map do |i| %>
     <% i.name %>
