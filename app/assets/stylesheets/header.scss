@@ -1,5 +1,6 @@
 @import 'sass';
 header {
+    z-index:1;
     text-align: left;
     max-width: 100%;
     padding: 1em 0 0 2em;
@@ -12,13 +13,12 @@ header {
     left: 0;
     margin: 0;
     background: $accent-color-1-bg;
-    color: $accent-color-1-fg;
+
 
     @include mobile {
         height: 70px;
         padding: 0em;
         text-align: center;
-        background: $accent-color-1-bg;
         }
     @include tablet {
         padding: 1em;
@@ -26,10 +26,15 @@ header {
         }
 
 
-    a {
-      color:$accent-color-1-fg;
-      text-decoration:none;
+    a, a:visited {
+
+          color:#fff;
+          text-decoration:none;
     }
+    a:hover { // stay the same on hover
+      background: $accent-color-1-bg;
+
+          color:#fff;}
     h1 {
         letter-spacing: .1em;
         padding: 0;

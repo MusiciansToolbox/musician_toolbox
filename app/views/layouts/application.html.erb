@@ -40,10 +40,11 @@
     function mobileDashboard(){
       // make mobile dashboard menu dynamically fit all screen sizes
       var parentHeight = $("body").height();
-      var footerHeight = $('footer').height();
+      var footerHeight = $('.mobile-menu-bar').height();
       var dashboardBlocks = $('.dashboard a')
       dashboardBlocks = dashboardBlocks.length
-      var newHeight = ( (parentHeight - footerHeight) / dashboardBlocks)
+      var newHeight = ( (parentHeight - 20 ) / dashboardBlocks)
+      // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
       $('.dashboard-button').css("height",newHeight);
 
       // set line height on text so that it dynamically stays vertically centered
