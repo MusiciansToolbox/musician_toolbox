@@ -3,9 +3,7 @@
     <h2>Edit</h2>
     <%= render 'form' %>
 
-   <!--
-    <%= link_to 'Show', @user %>
-  -->
+    <%= link_to "Logout", logout_path, method: :delete %>
     <%= link_to 'Back', users_path, class:"link-to-go-back" %>
       <%= link_to "Logout", logout_path, method: :delete, class:"link-to-logout" %>
 

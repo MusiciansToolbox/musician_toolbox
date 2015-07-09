@@ -10,17 +10,17 @@
   <div class="field">
     <%= f.text_area :description, placeholder: "Add anything you want about yourself." %>
   </div>
-  <div class="field">
-    <span class="settings-header">My Influences</span>
-    <%= f.text_field :influences, placeholder: "Influences" %>
+  <span class="settings-header">My Influences</span>
+  <div id='influences-container'>
+    <%#= render 'pages/user_influences' %>
   </div>
   <span class="settings-header">My Instruments</span>
   <div id='instruments-container'>
-    <%= render partial: 'pages/user_instruments', locals: { user_instruments: @user_instruments } %>
+    <%= render 'pages/user_instruments' %>
   </div>
   <span class="settings-header">My Genres</span>
   <div id='genres-container'>
-    <%= render partial: 'pages/user_genres', locals: { user_genres: @user_genres } %>
+    <%= render 'pages/user_genres' %>
   </div>
   <div class="field">
     <%= f.submit :Save %>
