@@ -1,10 +1,10 @@
 <div class="dashboard-wrapper music-wrapper">
   <h2>Play Sound Clip</h2>
-
+  <a href='<%= @clips.uploaded_file %>'>
   <div class="dashboard-music-player">
     <i class="fa fa-play-circle"></i>
   </div>
-  <%= @clips.uploaded_file %>
+  </a>
   <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
 <!--  <%= link_to "Add Musical Preferences", musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>-->
 </div>
