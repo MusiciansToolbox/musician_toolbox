@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
-  before_action :set_user, only: [:home]
+  before_action :set_user, only: [:home, :search]
 
 
   def home
