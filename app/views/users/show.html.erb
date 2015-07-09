@@ -1,7 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="users-wrapper">
+<h2>Your Settings</h2>
 
+
+
+<span class="users-data">
 <p>
-  <strong>Name heyy:</strong>
+  <strong>Name:</strong>
   <%= @user.name %>
 </p>
 
@@ -45,6 +49,13 @@
     <% i.name %>
   <% end %>
 </p>
+</span>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', root_path %>
+
+<%= link_to 'Back', root_path, class:"link-to-go-back" %>
+
+<%= link_to 'Edit', edit_user_path(@user), class:"link-to-edit-profile" %>
+
+
+
+</div>
