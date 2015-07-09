@@ -1,0 +1,12 @@
+<p id="my_instruments" style="font-weight:bold;font-size:23px">
+  My Instruments
+</p>
+<% @user_instruments.each do |instrument| %>
+  <% if instrument.id %>
+    <p>
+      <%= instrument.name %>
+      <%= link_to 'destroy', "/#{instrument.id}", value: instrument.id, remote: true %>
+    </p>
+  <% end %>
+<% end %>
+<%= link_to 'Add Instrument', '/', id: 'add_partial_to_add_instrument', remote: true %>

@@ -3,13 +3,13 @@
 one:
   name: MyString
   email: email_1@test.com
-  encrypted_password: MyString
+  password_digest: MyString
   description: MyText
   zipcode: 1
 
 two:
   name: MyString
   email: email_2@test.com
-  encrypted_password: MyString
+  password_digest: MyString
   description: MyText
   zipcode: 1
