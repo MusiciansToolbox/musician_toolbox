@@ -6,10 +6,10 @@ footer {
 
 
     @include mobile {
-        display: block;
+        display: none;
     }
    @include tablet {
-        display: none;;
+        display: none;
    }
 
 }
