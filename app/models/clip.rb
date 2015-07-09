@@ -7,4 +7,5 @@ class Clip < ActiveRecord::Base
 
   validates :user_id, presence: true, numericality: true
   validates :instrument_id, presence: true, numericality: true
+
 end

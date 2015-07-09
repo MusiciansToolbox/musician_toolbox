@@ -1,43 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name heyy:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Influences:</strong>
-  <%= @user.influences %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @user.zipcode %>
-</p>
-
-<p>
-  Instruments:
-  <%= @user.instruments.map do |i| %>
-    <% i.name %>
-  <% end %>
-</p>
-
-<p>
-  Genres:
-  <%= @user.genres.map do |i| %>
-    <% i.name %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', root_path %>
+<div class="users-wrapper">
+  <h2>Your Settings</h2>
+  <span class="users-data">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+    <p>
+      <strong>Influences:</strong>
+      <%= @user.influences %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @user.description %>
+    </p>
+    <p>
+      <strong>Zipcode:</strong>
+      <%= @user.zipcode %>
+    </p>
+    <p>
+      Clips:
+      <%= @user.clips.each do |i| %>
+      <% i %>
+      <% end %>
+    </p>
+    <p>
+      Instruments:
+      <%= @user.instruments.map do |i| %>
+      <% i.name %>
+      <% end %>
+    </p>
+    <p>
+      Genres:
+      <%= @user.genres.map do |i| %>
+      <% i.name %>
+      <% end %>
+    </p>
+  </span>
+  <%= link_to 'Back', root_path, class:"link-to-go-back" %>
+  <%= link_to 'Edit', edit_user_path(@user), class:"link-to-edit-profile" %>
+  <%= link_to "Musical Preferences", musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences", style:'text-align:center;padding:0;' %>
+</div>

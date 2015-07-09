@@ -9,7 +9,7 @@ footer {
         display: block;
     }
    @include tablet {
-        display: block;
+        display: none;;
    }
 
 }
@@ -74,6 +74,41 @@ footer {
 }
 
 
+
  .fa + p {  // link text
   display:inline;
   }
+
+.footer-profile {
+  display:inline;
+  float:right;
+//  padding-top:1em;
+//  padding-right: 1em;
+  @include mobile {
+      display: block;
+  }
+  @include tablet {
+    display:none;
+  }
+  @include desktop {
+    display:none;
+  }
+
+  .profile-pic {
+    width:auto;
+    max-height:30px;
+    border-radius:50px;
+  }
+
+  .settings-link {
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    font-size:.8em;
+  }
+  .settings-link:hover {
+    padding-bottom:3px;
+    border-bottom:1px solid #fff;
+  }
+}
+>>>>>>> master

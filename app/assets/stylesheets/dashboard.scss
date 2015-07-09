@@ -3,10 +3,16 @@
 
 
 .dashboard {
-  width:100%;
-  margin:0;
+  width:450px;
+  margin:0 auto;
   padding:0;
-  height:100%;
+  background:#404040;
+
+       @include mobile {
+         width:100%;
+         padding:0px;
+
+       }
 
 /* optionally alternate background colors
   .dashboard-button:nth-child(odd) {
@@ -17,12 +23,13 @@
      display:block;
      margin:0;
      text-align:center;
-     background:#fff;
-     color:#404040;
+     background:$button-color-bg;
+     color:$button-text;
      font-size:2.8em;
      transition: $transition;
      text-decoration:none;
-     margin-bottom:5px;
+
+     margin-bottom:1px;
 
 
      // always center text on dashboard buttons
@@ -33,35 +40,48 @@
 
          @include mobile {
            font-size:2.5em;
-           border-top:5px solid #f8f8f8; // create space between nav buttons in mobile
-           margin:0; // remove margin as in interferences with dynamic height settings
-
          }
     }
 
     a:hover {
-       background: #f8f8f8;
+       background: $button-hover ;
+       color:#f8f8f8;
     }
 
     a:first-child {
        margin-top:0; // no margin top of first block link
-       border-top-left-radius:10px;
-       border-top-right-radius:10px;
-       @include mobile {
-         border-radius:0;
-         border-top:0px;
-       }
     }
 
     a:last-child {
        margin-bottom:0px;  // no margin-bottom on last block link
-       border-bottom-left-radius:10px;
-       border-bottom-right-radius:10px;
-       @include mobile {
-         border-radius:0;
-       }
      }
 
 
+
+}
+
+
+
+
+
+.dashboard-wrapper {
+  background:#000;
+  border: 1.5em solid #000;
+  position: absolute;
+  left: 60%;
+  top: 18%;
+  width: 400px;
+  @include mobile {
+      width: 100%;
+      position: static;
+      margin: 0;
+      border: 0em solid #000;
+
+  }
+  @include tablet {
+      width: 500px;
+      position: static;
+      margin: 0 auto;
+  }
 
 }

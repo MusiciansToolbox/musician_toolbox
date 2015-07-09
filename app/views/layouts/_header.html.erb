@@ -1,7 +1,10 @@
 <header>
-  <h1>Musicians Toolbox</h1>
+
+  <h1><%= link_to "Jam Connect", root_path %></h1>
 
   <div class="nav-bar">
+
+
     <ul>
       <% if session[:user_id] %>
       <li>
@@ -13,9 +16,22 @@
       <li>
         <%= link_to "Logout", logout_path, method: :delete %>
       </li>
+
       <% else %><!--stuff to show up if not logged in, in top right header -->
 
       <% end %>
     </ul>
   </div>
+
+  <div class="header-profile">
+    <% if session[:user_id] %>
+    <img src="https://avatars0.githubusercontent.com/u/4855619?v=3&s=460" class="profile-pic" />
+    <%= link_to "Logout", logout_path, method: :delete, class: "settings-link" %>
+
+<!--    <a href="#" class="settings-link">Settings</a>-->
+    <% else %>
+    <!--stuff to show up if not logged in, in top right header -->
+    <% end %>
+  </div>
+
 </header>

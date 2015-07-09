@@ -11,16 +11,24 @@ header {
     right: 0;
     left: 0;
     margin: 0;
-    background: rgba(0, 0, 0, .8);
+    background: $accent-color-1-bg;
+    color: $accent-color-1-fg;
+
     @include mobile {
         height: 70px;
         padding: 0em;
         text-align: center;
-        background: #000;
-    }
+        background: $accent-color-1-bg;
+        }
     @include tablet {
         padding: 1em;
         text-align: center;
+        }
+
+
+    a {
+      color:$accent-color-1-fg;
+      text-decoration:none;
     }
     h1 {
         letter-spacing: .1em;
@@ -30,6 +38,7 @@ header {
         top: 10px;
         display: inline-block;
         font-size: 2.5em;
+
         // adjust h1 header font for non-desktop views
         @include mobile {
             font-size: 1.8em;
@@ -38,6 +47,7 @@ header {
         @include tablet {
             font-size: 2.0em;
         }
+
     }
 }
 /*
@@ -49,7 +59,39 @@ header {
 }
 */
 
+
+.header-profile {
+  position: absolute;
+  top:0;
+  right:0;
+  padding-top:1em;
+  padding-right: 1em;
+  @include mobile {
+      display: none;
+  }
+  @include tablet {
+    display:block;
+  }
+
+  .profile-pic {
+    max-width:50px;
+    height:auto;
+    border-radius:50px;
+  }
+
+  .settings-link {
+    color:#fff;
+    text-decoration:none;
+    display:block;
+    font-size:.8em;
+  }
+  .settings-link:hover {
+    padding-bottom:3px;
+    border-bottom:1px solid #fff;
+  }
+}
 .nav-bar {
+    display:none;
     float: right;
     padding-right: 1em;
     @include mobile {
@@ -59,6 +101,7 @@ header {
       display:none;
     }
 }
+
 .nav-bar ul {
     display: inline-block;
     list-style-type: none;

@@ -1,4 +1,10 @@
-<div style="margin-top:50%;">
-  <%= link_to "new file", new_clip_path %>
-  <%= link_to "Add Musical Preferences", musical_preferences_path(session[:user_id]) %>
+<div class="dashboard-wrapper music-wrapper">
+  <h2>Play Sound Clip</h2>
+
+  <div class="dashboard-music-player">
+    <i class="fa fa-play-circle"></i>
+  </div>
+
+  <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
+<!--  <%= link_to "Add Musical Preferences", musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>-->
 </div>
