@@ -25,13 +25,16 @@
 
   <div class="header-profile">
     <% if session[:user_id] %>
-      <%= link_to edit_user_path(@user), class:"link-to-edit-profile" do %>
+
+        <%= link_to edit_user_path(@user), class:"link-to-edit-profile" do %>
         <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
-      <% end %>
+        <% end %>
 
-    <%= link_to "Logout", logout_path, method: :delete, class: "settings-link" %>
+        <%= link_to edit_user_path(@user), class:"settings-link" do %>
+         Account
+       <% end %>
 
-<!--    <a href="#" class="settings-link">Settings</a>-->
+
     <% else %>
     <!--stuff to show up if not logged in, in top right header -->
     <% end %>
