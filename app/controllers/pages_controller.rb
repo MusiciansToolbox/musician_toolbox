@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
+  before_action :set_user, only: [:home]
 
 
   def home
@@ -20,12 +21,6 @@ class PagesController < ApplicationController
 
     @user_genres = @user.genres
     @user_instruments = @user.instruments
-
-    @all_genres = Genre.all
-
-    # @user.instruments.build
-    @user.genres.build
-
   end
 
   def add_instrument_partial
@@ -57,4 +52,9 @@ class PagesController < ApplicationController
   end
 
 
+  private
+
+  def set_user
+    @user = User.find(session[:user_id])
+  end
 end

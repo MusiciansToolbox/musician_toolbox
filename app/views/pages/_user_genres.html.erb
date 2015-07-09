@@ -1,7 +1,7 @@
 <% @user_genres.each do |genre| %>
   <% if genre.id %>
     <p>
-      <%= genre.name %>
+      <%= genre.name.capitalize %>
       <%= link_to 'destroy', "/#{genre.id}", value: genre.id, remote: true %>
     </p>
   <% end %>

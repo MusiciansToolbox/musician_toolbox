@@ -1,6 +1,11 @@
-<h1>Editing User</h1>
+<div class="account-start">
+  <span class="login-box">
+    <h2>Edit</h2>
+    <%= render 'form' %>
 
-<%= render 'form' %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+    <%= link_to 'Back', users_path, class:"link-to-go-back" %>
+      <%= link_to "Logout", logout_path, method: :delete, class:"link-to-logout" %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  </span>
+</div>

@@ -1,5 +1,6 @@
 class ClipsController < ApplicationController
   before_action :authenticate_user
+  before_action :set_user
 
   def new
     @clip = Clip.new
@@ -25,5 +26,9 @@ class ClipsController < ApplicationController
 
   def clip_params
     params.require(:clip).permit(:user_id, :instrument_id, :genre, :uploaded_file)
+  end
+
+  def set_user
+    @user = User.find(session[:user_id])
   end
 end

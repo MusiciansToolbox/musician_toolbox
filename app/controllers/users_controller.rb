@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :update]
+  before_action :set_user, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user, except: [:new, :create]
 
 
   def new
     @user = User.new
+  end
+
+  def edit
   end
 
   def index
@@ -88,7 +91,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :description, :zipcode, :influences,
-          instruments_attributes: [:name])
+      params.require(:user).permit(:name, :email, :password,
+      :profile_picture, :description, :zipcode, :influences, instruments_attributes: [:name])
     end
 end

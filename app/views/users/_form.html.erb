@@ -1,23 +1,30 @@
-<!--don't think this is used anymore! ask rails...-->
-<div class="account-start">
-  <span class="login-box">
-    <h2>Sign Up</h2>
-    <%= form_for(@user) do |f| %>
-    <div class="field">
-      <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
-    </div>
-    <div class="field">
-      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
-    </div>
-    <div class="field">
-      <%= f.text_field :zipcode, placeholder: "Zipcode" %>
-    </div>
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-    <% end %>
-  </span>
+<%= form_for @user, html: { multipart: true } do |f| %>
+<div class="field">
+  <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
 </div>
+<div class="field">
+  <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+</div>
+<div class="field">
+  <%= f.text_field :zipcode, placeholder: "Zipcode" %>
+</div>
+
+
+<div class="field">
+  <label>Profile Photo</label>
+  <label class="fileContainer">
+  <%= f.file_field :profile_picture %>
+  <%= image_tag @user.profile_picture.url, class:"profile-pic-account" %>
+  </label>
+</div>
+
+
+
+<div class="field">
+  <label>Password</label>
+  <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+</div>
+<div class="actions">
+  <%= f.submit "Submit" %>
+</div>
+<% end %>

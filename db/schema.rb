@@ -74,8 +74,12 @@ ActiveRecord::Schema.define(version: 20150709165933) do
     t.text     "description"
     t.integer  "zipcode"
     t.text     "influences"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
   end
 
 end
