@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def music
     @user = User.find_by_id(session[:user_id])
-    @clips = Clip.find_by_user_id(@user.id)
+    @clips = Clip.where(user_id: @user.id)
   end
 
   def new_file
