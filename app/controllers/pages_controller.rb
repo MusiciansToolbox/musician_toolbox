@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
+  before_action :set_user, only: [:home]
 
 
   def home
@@ -33,5 +34,11 @@ class PagesController < ApplicationController
 
   def add_genre_partial
     @all_genres = Genre.all
+  end
+
+  private
+
+  def set_user
+    @user = User.find(session[:user_id])
   end
 end
