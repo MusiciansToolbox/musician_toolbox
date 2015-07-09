@@ -1,15 +1,104 @@
+<script="javascript/audiojs/audio.js"></script>
+
+<script>
+audiojs.events.ready(function() {
+ var as = audiojs.createAll();
+});
+</script>
+
+
 <div class="dashboard-wrapper music-wrapper">
-  <h2>Play Sound Clip</h2>
+  <h2>Your Sound Clips</h2>
+
   <div class="dashboard-music-player">
-    <i class="fa fa-play-circle"></i>
-  </div>
-  <%= @clips.each do |clip| %>
-    <p>
-      <a href='<%= clip.uploaded_file %>'>
-        <%= clip.uploaded_file_file_name %>
-      </a>
-    </p>
-  <% end %>
-  <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
-<!--  <%= link_to "Add Musical Preferences", musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>-->
+
+    <h1>Song Title</h1>
+    <audio preload></audio>
+
+
+    <ol>
+      <%= @clips.each do |clip| %>
+
+      <li>
+        <a href="#" data-src="<%= clip.uploaded_file %>">  <%= clip.uploaded_file_file_name %>
+        </a>
+      </li>
+
+      <div class="audio-garbage">
+      <!--hack to hide all that text that's outputted to the page-->
+        <% end %>
+      </div>
+
+      <!--
+      <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/01-dead-wrong-intro.mp3">dead wrong intro</a></li>
+      <li><a href="#" data-src="http://kolber.github.io/audiojs/demos/mp3/02-juicy-r.mp3">juicy-r</a></li>
+    -->
+    </ol>
+
+
+
+
+
+
+<!-- previous setup, working with a player for each song-->
+<!--
+        <%= @clips.each do |clip| %>
+        <span class="song-title">
+          <%= clip.uploaded_file_file_name %>
+        </span>
+
+        <audio class="audio-controls" preload="auto">
+        <source src='<%= clip.uploaded_file %>'  />
+        </audio>
+
+        <div class="audio-garbage">
+          <% end %>
+        </div>
+-->
+
+
+   </div>
+<%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
 </div>
+
+
+
+<script>
+hideAudioGarbage();
+function hideAudioGarbage() {$('.audio-garbage').last().css("display","none");}
+</script>
+
+
+
+
+
+<script>
+      $(function() {
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          console.log('hey');
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+
+      });
+    </script>
