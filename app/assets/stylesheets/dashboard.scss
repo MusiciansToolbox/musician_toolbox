@@ -7,18 +7,24 @@
   margin:0;
   padding:0;
   height:100%;
-
+  /* RESPONSIVE FULL WIDTH BACKGROUND IMAGE CSS*/
+/*  background-image: url(http://s27.postimg.org/f3cfot1aa/image.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+*/
    a {
      display:block;
      margin:0;
      text-align:center;
-     background:#fff;
-     color:#404040;
+     background:$button-color-bg;
+     color:$button-text;
      font-size:2.8em;
      transition: $transition;
      text-decoration:none;
      border:0px solid #ccc;
-     margin-bottom:5px;
+     margin-bottom:1px;
 
 
      // always center text on dashboard buttons
@@ -33,7 +39,8 @@
     }
 
     a:hover {
-       background: #f8f8f8;
+       background: $button-hover ;
+       color:#f8f8f8;
     }
 
     a:first-child {
@@ -55,5 +62,57 @@
      }
 
 
+
+}
+
+
+
+
+
+.dashboard-wrapper {
+//  background: rgba(0, 0, 0, .8);
+  border: 0em solid #000;
+//  position: absolute;
+//  left: 60%;
+//  top: 16%;
+  margin:0 auto;
+  width: 100%;
+//  padding-bottom: 10px;
+  @include mobile {
+      width: 100%;
+      position: static;
+      margin: 0;
+  }
+  @include tablet {
+      width: 500px;
+      position: static;
+      margin: 0 auto;
+  }
+  .login-box {} form {
+      margin: 0;
+      padding: 15px 50px;
+  }
+  h2 {
+      text-align: left;
+      margin: 0;
+      padding: 15px 0 15px 50px;
+      color: #ccc;
+      text-transform: uppercase;
+      font-size: 2em;
+      background: rgba(0, 0, 0, .5);
+      margin-bottom: 10px;
+      padding: .5em 1;
+      @include mobile {
+          text-align: left;
+          font-size: 1em;
+          margin-top: 15px;
+          padding-bottom: 0;
+          color: #fff;
+          background: rgba(0, 0, 0, 1); // remove background opacity
+          display: inline-block;
+          margin-left: 50px;
+          padding: 5px 10px;
+      }
+  }
 
 }
