@@ -8,7 +8,10 @@
 
 Instrument.create(name:"guitar")
 Instrument.create(name:"voice")
-
 Instrument.create(name:"drums")
-
 Instrument.create(name:"bass")
+
+Genre.create(name:"rock")
+Genre.create(name:"pop")
+Genre.create(name:"hip-hop")
+Genre.create(name:"country")
