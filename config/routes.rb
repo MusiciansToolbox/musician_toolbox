@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   root 'pages#home'
   post 'clips/create'
   get 'users' => 'users#index'
-
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   post 'sessions/create'
   get 'new_file' => 'clips#new'
   get 'music' => 'pages#music'
+  get 'likes' => 'pages#likes'
+  get 'search' => 'pages#search'
   get 'musical_preferences/:id' => 'pages#musical_preferences', as: :musical_preferences
   resources :clips
   resources :users

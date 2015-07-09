@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
 
   def home
+
   end
 
   def music
@@ -34,4 +35,14 @@ class PagesController < ApplicationController
   def add_genre_partial
     @all_genres = Genre.all
   end
+
+  def likes
+
+  end
+
+  def search
+
+  end
+
+
 end
