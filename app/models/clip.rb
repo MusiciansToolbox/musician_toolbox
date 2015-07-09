@@ -6,6 +6,6 @@ class Clip < ActiveRecord::Base
   validates_attachment_content_type :uploaded_file, :content_type => /\Aaudio\/.*\Z/
 
   validates :user_id, presence: true, numericality: true
-  # validates :instrument_id, presence: true, numericality: true # work this in later
+  validates :instrument_id, presence: true, numericality: true
 
 end
