@@ -12,7 +12,7 @@ body {
     // greyscale http://s1.postimg.org/svufwdsse/image.jpg
    // whiteout http://s23.postimg.org/c20fy0a0q/image.jpg
     /* RESPONSIVE FULL WIDTH BACKGROUND IMAGE CSS*/
-    background-image: url(http://s23.postimg.org/c20fy0a0q/image.jpg);
+    background-image: url(https://static.pexels.com/photos/387/man-person-wall-music.jpg);
   //  background-image: url(http://s27.postimg.org/f3cfot1aa/image.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ body {
     padding-bottom:80px; // not tied to footer, etc heights
     @include mobile {
         padding-top: 70px; // needs to match height of sticky header
-        padding-bottom:30px; // needs to match size of sticky footer
+        padding-bottom:20px; // needs to match size of sticky footer
     }
 }
 p {
@@ -92,6 +92,26 @@ form {
         color: #404040;
         box-shadow: none;
         border: 1px solid $border-color;
+        border-radius: $border-radius;
+    }
+    input[type="select"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.4em;
+        background: #fff;
+        color: #404040;
+        box-shadow: none;
+        border: 0px solid $border-color;
+        border-radius: $border-radius;
+    }
+    input[type="file"] {
+        width: 100%;
+      //  padding: 10px;
+        font-size: 1.4em;
+        background: #fff;
+        color: #404040;
+        box-shadow: none;
+        border: 0px solid $border-color;
         border-radius: $border-radius;
     }
     textarea {
