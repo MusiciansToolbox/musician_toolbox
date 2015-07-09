@@ -25,7 +25,7 @@
 
   <div class="header-profile">
     <% if session[:user_id] %>
-      <%= link_to edit_user_path(@user), class:"link-to-edit-profile" do %>
+      <%= link_to edit_user_path(@user) do %>
         <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
       <% end %>
 

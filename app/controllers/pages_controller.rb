@@ -21,12 +21,6 @@ class PagesController < ApplicationController
 
     @user_genres = @user.genres
     @user_instruments = @user.instruments
-
-    @all_genres = Genre.all
-
-    # @user.instruments.build
-    @user.genres.build
-
   end
 
   def add_instrument_partial
