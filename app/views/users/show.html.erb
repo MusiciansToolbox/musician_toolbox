@@ -41,6 +41,5 @@
     </p>
   </span>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
-  <%= link_to 'Account', edit_user_path(@user), class:"link-to-edit-profile" %>
-  <%= link_to 'Preferences', musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>
+  <%= link_to 'Music Preferences', musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>
 </div>
