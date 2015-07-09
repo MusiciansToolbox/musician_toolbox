@@ -1,0 +1,12 @@
+<p id="my_genres" style="font-weight:bold;font-size:23px">
+  My Genres
+</p>
+<% @user_genres.each do |genre| %>
+  <% if genre.id %>
+    <p>
+      <%= genre.name %>
+      <%= link_to 'destroy', "/#{genre.id}", value: genre.id, remote: true %>
+    </p>
+  <% end %>
+<% end %>
+<%= link_to 'Add Genre', '/', id: 'add_partial_to_add_genre', remote: true %>

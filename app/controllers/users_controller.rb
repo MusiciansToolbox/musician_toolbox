@@ -51,12 +51,44 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_instrument
+    user = User.find(session[:user_id])
+
+    instrument = Instrument.find( params[:instrument_id] )
+
+    user.instruments.delete(instrument)
+
+    user.instruments << instrument
+
+    @user_instruments = user.instruments
+  end
+
+  def add_genre
+    user = User.find( session[:user_id] )
+
+    genre = Genre.find( params[:genre_id] )
+
+    user.genres.delete(genre)
+
+    user.genres << genre
+
+    @user_genres = user.genres
+  end
+
+  def rm_instrument
+    u = User.find( session[:user_id] )
+    u.instruments.delete(Instrument.find(params[:instrument_id]))
+    @user_instruments = user.instruments
+    # render 'add_instrument.js.erb'
+  end
+
   private
     def set_user
       @user = User.find(params[:id])
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :description, :zipcode, :influences)
+      params.require(:user).permit(:name, :email, :password, :description, :zipcode, :influences,
+          instruments_attributes: [:name])
     end
 end

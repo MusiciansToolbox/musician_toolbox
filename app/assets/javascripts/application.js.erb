@@ -1,0 +1,78 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
+
+function addInstrumentAndRunSomeJavaScript() {
+  $("select#instrument").change(
+    function() {
+      var instrument_id = $("select#instrument option:selected")[0].value
+      $.ajax({
+        url: "/add_instrument/" + instrument_id,
+        type: "PATCH",
+      });
+    }
+  )
+}
+
+function addGenreAndRunSomeJavaScript() {
+  $("select#genre").change(
+    function() {
+      var genre_id = $("select#genre option:selected")[0].value
+      $.ajax({
+        url: "/add_genre/" + genre_id,
+        type: "PATCH",
+      });
+    }
+  )
+}
+
+function addPartialToAddInstrument() {
+  $("#add_partial_to_add_instrument").click(
+    function() {
+      $(this).hide();
+      $.ajax({
+        url: "/add_instrument_partial",
+        type: "PATCH",
+      });
+    }
+  )
+}
+
+function addPartialToAddGenre() {
+  $("#add_partial_to_add_genre").click(
+    function() {
+      $(this).hide();
+      $.ajax({
+        url: "/add_genre_partial",
+        type: "PATCH",
+      });
+    }
+  )
+}
+
+function rmInstrument() {
+  $("div#instruments-container p a").click(function() {
+    var instrument_id = $(this).parent
+
+    $.ajax({
+      url: "/rm_instrument/" + instrument_id,
+      type: "PATCH",
+    });}
+  )
+}
+
+$(rmInstrument)
+$(addPartialToAddInstrument)
+$(addPartialToAddGenre)

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :genres
 
   has_secure_password
-  accepts_nested_attributes_for :instruments
+
+  accepts_nested_attributes_for :instruments, reject_if: proc { |attributes| attributes['name'].blank? }
+
   accepts_nested_attributes_for :genres
 end

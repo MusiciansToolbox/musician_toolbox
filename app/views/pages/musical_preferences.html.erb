@@ -22,19 +22,14 @@
     <%= f.text_field :influences %>
   </p>
 
-  <p style="font-weight:bold;font-size:23px">My Instruments</p>
-  <% @user_instruments.each do |instrument| %>
-    <p>
-      <%= instrument.name %>
-    </p>
-  <% end %>
 
-  <p style="font-weight:bold;font-size:23px">My Genres</p>
-  <% @user_genres.each do |genre| %>
-    <p>
-      <%= genre.name %>
-    </p>
-  <% end %>
+  <div id='instruments-container'>
+    <%= render partial: 'pages/user_instruments', locals: { user_instruments: @user_instruments } %>
+  </div>
+
+  <div id='genres-container'>
+    <%= render partial: 'pages/user_genres', locals: { user_genres: @user_genres } %>
+  </div>
 
   <p>
     <%= f.label :password %>

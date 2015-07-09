@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   resources :clips
   resources :users
   get 'users/:id' => 'users#show', as: :profile
+  patch 'add_instrument/:instrument_id' => 'users#add_instrument'
+  patch 'add_genre/:genre_id' => 'users#add_genre'
+  patch 'add_instrument_partial' => 'pages#add_instrument_partial'
+  patch 'add_genre_partial' => 'pages#add_genre_partial'
+  patch 'rm_instrument/:instrument_id' => 'users#rm_instrument'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
