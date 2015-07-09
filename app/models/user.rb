@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                                     :content_type => [ 'image/gif', 'image/jpeg', 'image/png' ],
                                     :styles => { :large => "500x500>", :thumb => "50x50>" },
                                     :message => ['must be audio file']
+  # attr_accessor :profile_picture_file_name
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :genres

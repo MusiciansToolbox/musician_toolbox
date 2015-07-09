@@ -2,8 +2,7 @@
   <h2>
     Musical Preferences
   </h2>
-<!-- we may want to move this somewhere on the dashboard ->
-<!--  <strong> Welcome <%= @user.name %>! </strong> -->
+<!-- we may want to move this somewhere on the dashboard -->
   <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
   <div class="field">
     <%= f.text_field :name, placeholder: "Name" %>
