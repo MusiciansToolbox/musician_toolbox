@@ -2,8 +2,9 @@
   <span class="login-box">
     <h2>Edit</h2>
     <%= render 'form' %>
-    <%= link_to 'Show', @user %>
-    |
-    <%= link_to 'Back', users_path %>
+
+    <%= link_to "Logout", logout_path, method: :delete %>
+    <%= link_to 'Back', users_path, class:"link-to-go-back" %>
+
   </span>
 </div>
