@@ -1,15 +1,34 @@
 <div class="dashboard-wrapper music-wrapper">
   <h2>Play Sound Clip</h2>
   <div class="dashboard-music-player">
-    <i class="fa fa-play-circle"></i>
-  </div>
+
+
   <%= @clips.each do |clip| %>
-    <p>
-      <a href='<%= clip.uploaded_file %>' target="_blank">
+
+      <span class="song-title">
         <%= clip.uploaded_file_file_name %>
-      </a>
-    </p>
-  <% end %>
+      </span>
+      <audio src='<%= clip.uploaded_file %>' controls></audio>
+
+
+
+
+    <div class="remove-audio-garbage">
+    <!--hacky way to get rid of unwanted audio text output-->
+    <!--it is intentionally wrapped around the end tag-->
+    <% end %></div>
+
+
+  </div>
+
+
   <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
-<!--  <%= link_to "Add Musical Preferences", musical_preferences_path(session[:user_id]), class:"link-to-musical-preferences" %>-->
+
+
 </div>
+
+
+
+<script>
+$('.remove-audio-garbage').last().css("display","none");
+</script>
