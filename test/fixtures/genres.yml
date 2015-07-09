@@ -2,8 +2,8 @@
 
 one:
   name: rock
-  user_id: <%= ActiveRecord::Fixtures.identify(:Bob) %>
+  user_id: <%= users[:Bob].id %>
 
 two:
   name: rock
-  user_id: <%= ActiveRecord::Fixtures.identify(:Joe) %>
+  user_id: <%= users[:Joe].id %>

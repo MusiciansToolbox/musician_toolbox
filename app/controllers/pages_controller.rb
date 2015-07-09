@@ -42,7 +42,7 @@ class PagesController < ApplicationController
     else
       @search = UserSearch.new(user_search)
       @search.searcher_id = session[:user_id]
-      UserSearch.search_musicians(zipcode: @search.zipcode, genre_id: @search.genre_id, instrument_id: @search.instrument_id)
+      @results = UserSearch.search_musicians(zipcode: @search.zipcode, genre_id: @search.genre_id, instrument_id: @search.instrument_id)
       @search.save!
     end
   end
