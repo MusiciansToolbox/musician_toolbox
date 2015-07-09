@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
+  before_action :set_user, only: [:home]
 
 
   def home
@@ -45,4 +46,9 @@ class PagesController < ApplicationController
   end
 
 
+  private
+
+  def set_user
+    @user = User.find(session[:user_id])
+  end
 end

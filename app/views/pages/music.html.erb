@@ -5,7 +5,7 @@
   </div>
   <%= @clips.each do |clip| %>
     <p>
-      <a href='<%= clip.uploaded_file %>'>
+      <a href='<%= clip.uploaded_file %>' target="_blank">
         <%= clip.uploaded_file_file_name %>
       </a>
     </p>
