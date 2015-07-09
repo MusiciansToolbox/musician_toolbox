@@ -5,6 +5,11 @@ class PagesController < ApplicationController
   def home
   end
 
+  def music
+    @user = User.find_by_id(session[:user_id])
+    @clips = Clip.find_by_user_id(@user.id)
+  end
+
   def new_file
     # @clip = current_.clips.build
   end
