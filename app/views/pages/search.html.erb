@@ -1,2 +1,19 @@
 <h1>Search Page </h1>
+<% if @get == true %>
+  <script>
+    function displaySearchForm() {
+      $('#search-form-holder').append("<%= j(render partial: 'pages/search_form', locals: {search: @search}) %>");
+    }
+    $(displaySearchForm);
+  </script>
+<% else %>
+  <script>
+    function displaySearchResults() {
+      $('#search-form-holder').append("<%= j(render partial: 'pages/search_results', locals: {search: @search}) %>");
+    }
+    $(displaySearchResults);
+  </script>
+<% end %>
+<div id="search-form-holder">
+</div>
 <%= link_to 'Back', root_path, class:"link-to-go-back" %>
