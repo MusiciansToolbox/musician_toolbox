@@ -1,46 +1,30 @@
 <div class="settings-wrapper">
-
-
-  <h2> Musical Preferences </h2>
+  <h2>
+    Musical Preferences
+  </h2>
 <!-- we may want to move this somewhere on the dashboard ->
 <!--  <strong> Welcome <%= @user.name %>! </strong> -->
-
   <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
-
-
-    <div class="field">
-        <%= f.text_field :name, placeholder: "Name" %>
-    </div>
-
-     <div class="field">
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name" %>
+  </div>
+  <div class="field">
     <%= f.text_area :description, placeholder: "Add anything you want about yourself." %>
-    </div>
-
-    <div class="field">
+  </div>
+  <div class="field">
     <span class="settings-header">My Influences</span>
     <%= f.text_field :influences, placeholder: "Influences" %>
-    </div>
-
-
-
-
-      <span class="settings-header">My Instruments</span>
+  </div>
+  <span class="settings-header">My Instruments</span>
   <div id='instruments-container'>
     <%= render partial: 'pages/user_instruments', locals: { user_instruments: @user_instruments } %>
   </div>
-
-
-    <span class="settings-header">My Genres</span>
+  <span class="settings-header">My Genres</span>
   <div id='genres-container'>
     <%= render partial: 'pages/user_genres', locals: { user_genres: @user_genres } %>
   </div>
-
-
   <div class="field">
     <%= f.submit :Save %>
   </div>
-
   <% end %>
-
-
 </div>
