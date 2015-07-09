@@ -14,11 +14,6 @@
 
        }
 
-/* optionally alternate background colors
-  .dashboard-button:nth-child(odd) {
-    background:#f8f8f8;
-  }
-*/
    .dashboard-button {
      display:block;
      margin:0;
@@ -43,10 +38,7 @@
          }
     }
 
-    a:hover {
-       background: $button-hover ;
-       color:#f8f8f8;
-    }
+
 
     a:first-child {
        margin-top:0; // no margin top of first block link
@@ -68,9 +60,9 @@
   background:#000;
   border: 1.5em solid #000;
   position: absolute;
-  left: 60%;
-  top: 18%;
-  width: 400px;
+  left: 57%;
+  top: 16%;
+  width: 450px;
   @include mobile {
       width: 100%;
       position: static;

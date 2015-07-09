@@ -62,6 +62,18 @@ small,
     // fix margin/padding calculations
     box-sizing: border-box;
 }
+
+// standard link settings
+a, a:visited {
+      color:#fff;
+}
+a:hover {
+  color:default;
+  background:none;
+}
+
+
+
 // defaults
 .container {
     margin: 0 auto;
@@ -118,6 +130,9 @@ form {
         width: 100%;
         font-size: 1.4em;
         padding: 10px;
+        background: #fff;
+        color: #404040;
+        box-shadow:none;
         border: 1px solid $border-color;
         border-radius: $border-radius;
     }
