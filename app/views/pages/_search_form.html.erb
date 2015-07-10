@@ -5,11 +5,11 @@
   </div>
   <div>
     <%= f.label :instrument %>
-    <%= f.collection_select :instrument_id, Instrument.all, :id, :name%>
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true%>
   </div>
   <div>
     <%= f.label :genre %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name%>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
   </div>
   <div>
     <%= f.label :default_search %>
