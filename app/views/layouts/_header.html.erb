@@ -1,37 +1,18 @@
 <header>
-
   <h1><%= link_to "Jam Connect", root_path %></h1>
-
-  <div class="nav-bar">
-
-
-    <ul>
-      <% if session[:user_id] %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "new file", new_file_path %>
-      </li>
-      <li>
-        <%= link_to "Logout", logout_path, method: :delete %>
-      </li>
-
-      <% else %><!--stuff to show up if not logged in, in top right header -->
-
-      <% end %>
-    </ul>
-  </div>
 
   <div class="header-profile">
     <% if session[:user_id] %>
-    <img src="https://avatars0.githubusercontent.com/u/4855619?v=3&s=460" class="profile-pic" />
-    <%= link_to "Logout", logout_path, method: :delete, class: "settings-link" %>
+      <%= link_to edit_user_path(@user) do %>
+        <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+      <% end %>
 
-<!--    <a href="#" class="settings-link">Settings</a>-->
+      <%= link_to edit_user_path(@user) do %>
+        <span class="settings-link">Settings</span> 
+       <% end %>
+
     <% else %>
-    <!--stuff to show up if not logged in, in top right header -->
+      <!--stuff to show up if not logged in, in top right header -->
     <% end %>
   </div>
-
 </header>

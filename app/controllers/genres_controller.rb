@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user
   # GET /genres
   # GET /genres.json
   def index
@@ -62,6 +62,10 @@ class GenresController < ApplicationController
   end
 
   private
+    def set_user
+      @user = User.find(session[:user_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_genre
       @genre = Genre.find(params[:id])

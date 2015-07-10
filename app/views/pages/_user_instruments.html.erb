@@ -2,7 +2,7 @@
 <% @user_instruments.each do |instrument| %>
   <% if instrument.id %>
     <p>
-      <%= instrument.name %>
+      <%= instrument.name.capitalize %>
       <%= link_to 'destroy', "/#{instrument.id}", value: instrument.id, remote: true %>
     </p>
   <% end %>

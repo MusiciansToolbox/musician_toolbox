@@ -1,2 +1,2 @@
-$("#instruments-container").html("<%= j(render partial: 'pages/user_instruments', locals: { user_instruments: @user_instruments }) %>");
+$("#instruments-container").html("<%= j(render 'pages/user_instruments') %>");
 addPartialToAddInstrument();

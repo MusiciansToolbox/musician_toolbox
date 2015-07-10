@@ -1,6 +1,6 @@
 <div class="dashboard dashboard-wrapper">
   <%= link_to "Music", music_path, class: "dashboard-button" %>
-  <%= link_to "Search", profile_path(session[:user_id]), class: "dashboard-button" %>
+  <%= link_to "Search", search_path, class: "dashboard-button" %>
   <%= link_to "Profile", profile_path(session[:user_id]), class: "dashboard-button" %>
-  <%= link_to "Likes", profile_path(session[:user_id]), class: "dashboard-button" %>
+  <%= link_to "Likes", likes_path, class: "dashboard-button" %>
 </div>

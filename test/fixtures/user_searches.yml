@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  searcher_id: 1
+  zipcode: 1
+  default_search: false
+  instrument_id: 1
+  genre_id: 1
+  results: MyText
+
+two:
+  searcher_id: 1
+  zipcode: 1
+  default_search: false
+  instrument_id: 1
+  genre_id: 1
+  results: MyText

@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+Bob:
+  name: Bob
   email: email_1@test.com
   password_digest: MyString
   description: MyText
-  zipcode: 1
+  zipcode: 27278
 
-two:
-  name: MyString
+Joe:
+  name: Joe
   email: email_2@test.com
   password_digest: MyString
   description: MyText
-  zipcode: 1
+  zipcode: 27278

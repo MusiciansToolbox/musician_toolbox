@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script="javascript/audiojs/audio.js"></script>
 
 <script>
@@ -5,6 +6,46 @@ audiojs.events.ready(function() {
  var as = audiojs.createAll();
 });
 </script>
+=======
+    <style>
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+    <script src="javascript/audiojs/audio.min.js"></script>
+    <script>
+      $(function() {
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+
+      });
+
+
+    </script>
+>>>>>>> master
 
 
 <div class="dashboard-wrapper music-wrapper">
@@ -12,6 +53,7 @@ audiojs.events.ready(function() {
 
   <div class="dashboard-music-player">
 
+<<<<<<< HEAD
     <h1>Song Title</h1>
     <audio preload></audio>
 
@@ -59,10 +101,37 @@ audiojs.events.ready(function() {
 
    </div>
 <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
+=======
+
+    <div id="wrapper">
+      <audio preload></audio>
+      <ol>
+
+        <%= @clips.each do |clip| %>
+          <li>
+            <a href="#" data-src='<%= clip.uploaded_file %>'>
+            <span class="song-title">
+                <%= clip.uploaded_file_file_name %>
+              </span></a>
+          </li>
+
+          <div class="remove-audio-garbage">
+          <% end %></div>
+
+      </ol>
+    </div>
+
+
+  </div>
+  <%= link_to "Upload New Song", new_clip_path, class:"link-to-new-file" %>
+
+
+>>>>>>> master
 </div>
 
 
 
+<<<<<<< HEAD
 <script>
 hideAudioGarbage();
 function hideAudioGarbage() {$('.audio-garbage').last().css("display","none");}
@@ -102,3 +171,9 @@ function hideAudioGarbage() {$('.audio-garbage').last().css("display","none");}
 
       });
     </script>
+=======
+
+<script>
+$('.remove-audio-garbage').last().css("display","none");
+</script>
+>>>>>>> master

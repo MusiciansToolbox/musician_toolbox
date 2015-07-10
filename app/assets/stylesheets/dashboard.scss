@@ -39,6 +39,10 @@
     }
 
 
+    a:hover {
+       background:$button-hover;
+      // color:#f8f8f8;
+    }
 
     a:first-child {
        margin-top:0; // no margin top of first block link
