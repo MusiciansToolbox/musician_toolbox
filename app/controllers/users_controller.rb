@@ -89,9 +89,25 @@ class UsersController < ApplicationController
   def rm_instrument
     u = User.find( session[:user_id] )
     u.instruments.delete(Instrument.find(params[:instrument_id]))
-    @user_instruments = user.instruments
-    # render 'add_instrument.js.erb'
+    @user_instruments = u.instruments
+    render 'add_instrument.js.erb'
   end
+
+  def rm_genre
+    u = User.find( session[:user_id] )
+    u.genres.delete(Genre.find(params[:genre_id]))
+    @user_genres = u.genres
+    render 'add_genre.js.erb'
+  end
+
+  def rm_influence
+    u = User.find( session[:user_id] )
+    u.influences.delete(Influence.find(params[:influence_id]))
+    @user_influences = u.influences
+    render 'add_influence.js.erb'
+  end
+
+
 
   private
     def set_user

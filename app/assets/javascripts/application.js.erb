@@ -95,7 +95,8 @@ function addPartialToAddGenre() {
 
 function rmInstrument() {
   $("div#instruments-container p a").click(function() {
-    var instrument_id = $(this).parent
+    var instrument_id = $(this).attr('value');
+    // var instrument_id = $($('#instruments-container a')[0]).attr('value'); // LOL DOUBLE DOLLAR SIGN WTF
 
     $.ajax({
       url: "/rm_instrument/" + instrument_id,
@@ -104,7 +105,33 @@ function rmInstrument() {
   )
 }
 
-$(rmInstrument);
+function rmGenre() {
+  $("div#genres-container p a").click(function() {
+    var genre_id = $(this).attr('value');
+    // var genre_id = $($('#instruments-container a')[0]).attr('value'); // LOL DOUBLE DOLLAR SIGN WTF
+
+    $.ajax({
+      url: "/rm_genre/" + genre_id,
+      type: "PATCH",
+    });}
+  )
+}
+
+function rmInfluence() {
+  $("div#influences-container p a").click(function() {
+    var influence_id = $(this).attr('value');
+    // var influence_id = $($('#instruments-container a')[0]).attr('value'); // LOL DOUBLE DOLLAR SIGN WTF
+
+    $.ajax({
+      url: "/rm_influence/" + influence_id,
+      type: "PATCH",
+    });}
+  )
+}
+
 $(addPartialToAddInstrument);
 $(addPartialToAddGenre);
 $(addPartialToAddInfluence);
+$(rmInstrument);
+$(rmGenre);
+$(rmInfluence);

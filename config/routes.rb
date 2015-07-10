@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   patch 'add_influence_partial' => 'pages#add_influence_partial'
 
   patch 'rm_instrument/:instrument_id' => 'users#rm_instrument'
+  patch 'rm_genre/:genre_id' => 'users#rm_genre'
+  patch 'rm_influence/:influence_id' => 'users#rm_influence'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
