@@ -4,57 +4,15 @@
 // like login links, alerts, messages, etc.
 
 
-// TODO: ALMOST ALL OF THESE CAN BE CONSOLIDATED TO ONCE CLASS
-
-.link-to-create {
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: block;
-    padding-left: 50px;
-}
-.link-to-fyp {
-    color: #808080;
-    margin: 0;
-    padding: 0;
-    display: block;
-    padding-left: 50px;
-}
-.link-to-login {
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: block;
-    padding-left: 50px;
-}
-
-.link-to-logout {
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: block;
-    padding-left: 50px;
-}
-.link-to-upload-help {
+.rails-link {
   color: #fff;
   margin: 0;
   padding: 0;
   display: block;
   padding-left: 50px;
-}
-.link-to-new-file {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  display: block;
-  text-align:center;
-}
-.link-to-musical-preferences {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  display: block;
-  padding-left: 50px;
+      @include mobile {
+      padding-left:10px;
+      }
 }
 
 .link-to-go-back {
@@ -66,19 +24,21 @@
   padding-right: 50px;
   float: right;
 
+}
 
+
+.link-to-new-file {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align:center;
 }
 
 
 
 
-// .link-to-edit-profile {
-//   color: #fff;
-//   margin: 0;
-//   padding: 0;
-//   display: block;
-//   padding-left: 0px;
-// }
+
 
 
 

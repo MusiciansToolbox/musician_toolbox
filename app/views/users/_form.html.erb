@@ -12,8 +12,8 @@
 
 <div class="field">
   <label>Profile Photo</label>
-  <label class="fileContainer">
-  <%= f.file_field :profile_picture %>
+  <label>
+  <%= f.file_field :profile_picture, id:"profilePicFileField"%>
   <%= image_tag @user.profile_picture.url, class:"profile-pic-account" %>
   </label>
 </div>

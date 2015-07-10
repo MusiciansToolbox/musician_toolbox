@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
-  before_action :set_user, only: [:home, :search]
+  before_action :set_user, only: [:home, :search, :likes]
 
 
   def home
@@ -18,7 +18,6 @@ class PagesController < ApplicationController
 
   def musical_preferences
     @user = User.find_by_id(params[:id])
-
     @user_genres = @user.genres
     @user_instruments = @user.instruments
     @user_influences = @user.influences
@@ -47,7 +46,7 @@ class PagesController < ApplicationController
     else
       @search = UserSearch.new(user_search)
       @search.searcher_id = session[:user_id]
-      @results = UserSearch.search_musicians(zipcode: @search.zipcode, genre_id: @search.genre_id, instrument_id: @search.instrument_id)
+      @results = UserSearch.search_musicians(@search.zipcode,@search.genre_id,@search.instrument_id)
       @search.save!
     end
   end

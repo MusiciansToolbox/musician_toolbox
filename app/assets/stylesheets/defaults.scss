@@ -145,12 +145,13 @@ form {
 
 
 
-// THIS NEEDS TO GO ELSEWHERE BUT FOR RIGHT NOW IT FIXES THE PROFILE
+// THIS MAY NEED TO GO ELSEWHERE BUT FOR RIGHT NOW IT FIXES THE PROFILE
 // PIC ON THE ACCOUNT PAGE
-
 .profile-pic-account {
   max-width:100%;
   height:auto;
+  cursor: pointer;
+  margin-top:5px;
 }
 
 
@@ -166,6 +167,10 @@ form {
   padding-bottom: 20px;
 
 
+  #profilePicFileField {
+    display:none;
+  }  // this hides the profile photo upload button, showing only the profile photo
+
         @include mobile {
             width: 100%;
             position: static;
@@ -176,6 +181,13 @@ form {
             position: static;
             margin: 0 auto;
         }
+
+
+  form {
+      margin: 0;
+      padding: 15px 50px;
+  }
+
 
   h2 {
       text-align: center;

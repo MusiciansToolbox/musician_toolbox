@@ -18,12 +18,12 @@
  @import 'reset';
  @import 'defaults'; // defaults + shared classes
  @import 'rails-auto';  // rails generated links and messages
- @import 'forms-landing'; // login, reset, etc forms
  @import 'header';
  @import 'footer';
  @import 'dashboard';
  @import 'upload';
  @import 'music';
+ @import 'profile';
 
 
 // ** add @import 'sass'; to the top of all other scss files **
