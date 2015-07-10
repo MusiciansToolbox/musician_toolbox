@@ -19,6 +19,7 @@ header {
         height: 70px;
         padding: 0em;
         text-align: center;
+        border-bottom:1px solid $button-hover; // creates divider b/t header and first button
         }
     @include tablet {
         padding: 1em;
@@ -27,14 +28,14 @@ header {
 
 
     a, a:visited {
-
           color:#fff;
           text-decoration:none;
     }
+
     a:hover { // stay the same on hover
       background: $accent-color-1-bg;
+      color:#fff;}
 
-          color:#fff;}
     h1 {
         letter-spacing: .1em;
         padding: 0;
@@ -55,14 +56,6 @@ header {
 
     }
 }
-/*
-.logo {
-  padding-left:9em;
-}
-#logoMobile {
-  display:none;
-}
-*/
 
 
 .header-profile {
@@ -71,12 +64,13 @@ header {
   right:0;
   padding-top:1em;
   padding-right: 1em;
-  @include mobile {
-      display: none;
-  }
-  @include tablet {
-    display:block;
-  }
+
+      @include mobile {
+          display: none;
+      }
+      @include tablet {
+        display:block;
+      }
 
   .profile-pic {
     width:50px;
@@ -94,40 +88,4 @@ header {
     padding-bottom:3px;
     border-bottom:1px solid #fff;
   }
-}
-.nav-bar {
-    display:none;
-    float: right;
-    padding-right: 1em;
-    @include mobile {
-        display: none;
-    }
-    @include tablet {
-      display:none;
-    }
-}
-
-.nav-bar ul {
-    display: inline-block;
-    list-style-type: none;
-    padding: 1.5em 0;
-  }
-.nav-bar ul li {
-    display: inline;
-    padding-left: 3em;
-}
-.nav-bar ul li a {
-    font-weight: bold;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.nav-bar ul li a:hover {
-    color: #ffffff;
-    line-height: 1.4;
-    text-decoration: none;
-    /* underline effect below- achieved via padding and border applied to bottom on hover */
-    padding-bottom: 5px;
-    border-bottom-width: 2px;
-    border-bottom-style: solid
 }

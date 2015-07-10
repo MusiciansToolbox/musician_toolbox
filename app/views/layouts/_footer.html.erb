@@ -1,6 +1,24 @@
+<div class="mobile-menu-simple">
 
-<!-- TBD: in use or not-->
 
+  <% if session[:user_id] %>
+
+    <%= link_to edit_user_path(@user) do %>
+      <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+    <% end %>
+
+
+  <% else %>
+    <!--stuff to show up if not logged in, in bottom of footer -->
+   <% end %>
+
+</div>
+
+
+
+
+<!--OLD FOOTER-->
+<!-- 3 button one not in use now-->
 <div class="mobile-menu-bar">
 
     <div class="mobile-menu-section">
@@ -24,10 +42,3 @@
     </a>
 
 </div>
-
-
-
-
-
-
-  </div>
