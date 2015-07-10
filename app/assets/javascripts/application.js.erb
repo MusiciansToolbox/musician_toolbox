@@ -101,8 +101,8 @@ function rmInstrument() {
     $.ajax({
       url: "/rm_instrument/" + instrument_id,
       type: "PATCH",
-    });}
-  )
+    });
+  })
 }
 
 function rmGenre() {
@@ -129,9 +129,27 @@ function rmInfluence() {
   )
 }
 
+// function disableButton() {
+//   var button = $(event.target);
+//   button.prop("disabled", "true");
+//   button.value = "Updating..."
+//   button.closest("form").submit();
+// }
+//
+function disableButton() {
+  $('.submit-clip').click(function() {
+    var button = $('.submit-clip')[0]
+    var icon = $('center')
+    $(button).hide();
+    $(icon).show();
+    button.closest("form").submit();
+  })
+}
+
 $(addPartialToAddInstrument);
 $(addPartialToAddGenre);
 $(addPartialToAddInfluence);
 $(rmInstrument);
 $(rmGenre);
 $(rmInfluence);
+$(disableButton);
