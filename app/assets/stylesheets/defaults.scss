@@ -139,18 +139,7 @@ form {
 }
 
 
-// parallax class createsthe full span bg image on landing page
-.parallax {
-    display: block;
-    color: #ffffff;
-    /* RESPONSIVE FULL WIDTH BACKGROUND IMAGE CSS*/
-    background-image: url(https://static.pexels.com/photos/387/man-person-wall-music.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: #464646;
-}
+
 
 
 
@@ -162,4 +151,52 @@ form {
 .profile-pic-account {
   max-width:100%;
   height:auto;
+}
+
+
+
+// wrapper for all content with the big black border
+.content-wrapper {
+  background: rgba(0, 0, 0, .7);
+  border: 1.5em solid #000;
+  position: absolute;
+  left: 57%;
+  top: 16%;
+  width: 450px;
+  padding-bottom: 20px;
+
+
+        @include mobile {
+            width: 100%;
+            position: static;
+            margin: 0;
+        }
+        @include tablet {
+            width: 500px;
+            position: static;
+            margin: 0 auto;
+        }
+
+  h2 {
+      text-align: center;
+      margin: 0;
+      color: #ccc;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      background: rgba(0, 0, 0, .5);
+      padding:15px 50px;
+            @include mobile {
+                text-align: left;
+                font-size: 1em;
+                margin-top: 15px;
+                padding-bottom: 0;
+                color: #fff;
+                background: rgba(0, 0, 0, 1); // remove background opacity
+                display: inline-block;
+                margin-left: 50px;
+                padding: 5px 10px;
+            }
+      }
+
+
 }
