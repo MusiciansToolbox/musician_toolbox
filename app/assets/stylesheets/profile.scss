@@ -3,11 +3,13 @@
 
 .profile-wrapper {
      margin-bottom:80px;
+           @include mobile {
+             padding-bottom:50px;
+             margin-bottom:0px;
+           }
 
-     form {
-       box-sizing: border-box;
-       margin:0;
-       padding:10px;   }
+
+
 
      .settings-header {
          display: block;
@@ -29,7 +31,7 @@
                    color: #fff;
                    background: rgba(0, 0, 0, 1); // remove background opacity
                    display: inline-block;
-                   margin-left: 50px;
+                   margin-left: 0px;
                    padding: 5px 10px;
                }
          }
