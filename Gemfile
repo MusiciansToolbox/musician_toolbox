@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'font-awesome-rails'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 1.6'
 gem 'puma'
