@@ -52,7 +52,7 @@
          background: rgba(0, 0, 0, .5);
          padding:15px 10px;
          margin-bottom:10px;
-         
+
                @include mobile {
                    text-align: left;
                    font-size: 1em;
@@ -68,6 +68,9 @@
 
     #instruments-container {
       padding:10px;
+    }
+    #influences-container {
+      padding: 10px;
     }
     #genres-container {
       padding:10px;

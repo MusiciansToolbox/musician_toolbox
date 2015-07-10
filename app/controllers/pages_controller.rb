@@ -21,6 +21,7 @@ class PagesController < ApplicationController
 
     @user_genres = @user.genres
     @user_instruments = @user.instruments
+    @user_influences = @user.influences
   end
 
   def add_instrument_partial
@@ -29,6 +30,10 @@ class PagesController < ApplicationController
 
   def add_genre_partial
     @all_genres = Genre.all
+  end
+
+  def add_influence_partial
+
   end
 
   def likes

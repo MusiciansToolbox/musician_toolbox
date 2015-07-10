@@ -12,15 +12,20 @@ Rails.application.routes.draw do
   get 'music' => 'pages#music'
   get 'likes' => 'pages#likes'
   get 'search' => 'pages#search'
+  get 'profile/:id' => 'pages#musical_preferences', as: :profile
   post 'search' => 'pages#search'
-  get 'musical_preferences/:id' => 'pages#musical_preferences', as: :musical_preferences
   resources :clips
   resources :users
-  get 'users/:id' => 'users#show', as: :profile
+
+  # javaScript paths
   patch 'add_instrument/:instrument_id' => 'users#add_instrument'
   patch 'add_genre/:genre_id' => 'users#add_genre'
+  post 'add_influence/:influence_name' => 'users#add_influence'
+
   patch 'add_instrument_partial' => 'pages#add_instrument_partial'
   patch 'add_genre_partial' => 'pages#add_genre_partial'
+  patch 'add_influence_partial' => 'pages#add_influence_partial'
+
   patch 'rm_instrument/:instrument_id' => 'users#rm_instrument'
 
   # The priority is based upon order of creation: first created -> highest priority.

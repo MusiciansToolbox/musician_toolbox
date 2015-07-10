@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709165933) do
+ActiveRecord::Schema.define(version: 20150709205148) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20150709165933) do
 
   add_index "genres_users", ["genre_id"], name: "index_genres_users_on_genre_id"
   add_index "genres_users", ["user_id"], name: "index_genres_users_on_user_id"
+
+  create_table "influences", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "influences", ["user_id"], name: "index_influences_on_user_id"
 
   create_table "instruments", force: :cascade do |t|
     t.string   "name"
@@ -73,7 +82,6 @@ ActiveRecord::Schema.define(version: 20150709165933) do
     t.string   "email"
     t.text     "description"
     t.integer  "zipcode"
-    t.text     "influences"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "profile_picture_file_name"
