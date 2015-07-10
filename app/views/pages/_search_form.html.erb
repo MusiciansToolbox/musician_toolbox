@@ -1,7 +1,7 @@
 <%= form_for search, url: search_path(search), method: :post do |f| %>
   <div>
     <%= f.label :zipcode %>
-    <%= f.text_field :zipcode %>
+    <%= f.text_field :zipcode, placeholder: @user.zipcode%>
   </div>
   <div>
     <%= f.label :instrument %>
