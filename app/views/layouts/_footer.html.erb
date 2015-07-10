@@ -9,7 +9,7 @@
 
 
   <% else %>
-    <!--stuff to show up if not logged in, in bottom of footer -->
+    <%= link_to "Create Account", new_user_path, class:"rails-link create-account-link" %>    <!--stuff to show up if not logged in, in bottom of footer -->
    <% end %>
 
 </div>
