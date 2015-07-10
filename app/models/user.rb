@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :genres
+  has_many :influences
 
   # I think these things down here now obsolete. Idk.
   accepts_nested_attributes_for :instruments, reject_if: proc { |attributes| attributes['name'].blank? }
