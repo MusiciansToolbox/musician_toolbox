@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
-  before_action :set_user, only: [:home]
+  before_action :set_user, only: [:home, :search]
 
 
   def home
@@ -41,7 +41,19 @@ class PagesController < ApplicationController
   end
 
   def search
+    if request.get?
+      @get = true
+      @search = UserSearch.new()
+    else
+      @search = UserSearch.new(user_search)
+      @search.searcher_id = session[:user_id]
+      @results = UserSearch.search_musicians(zipcode: @search.zipcode, genre_id: @search.genre_id, instrument_id: @search.instrument_id)
+      @search.save!
+    end
+  end
 
+  def user_search
+    params.require(:user_search).permit(:zipcode, :genre_id, :instrument_id, :default_search, :searcher_id)
   end
 
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'likes' => 'pages#likes'
   get 'search' => 'pages#search'
   get 'profile/:id' => 'pages#musical_preferences', as: :profile
+  post 'search' => 'pages#search'
   resources :clips
   resources :users
 

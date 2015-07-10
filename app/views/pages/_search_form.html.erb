@@ -1,0 +1,21 @@
+<%= form_for search, url: search_path(search), method: :post do |f| %>
+  <div>
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
+  </div>
+  <div>
+    <%= f.label :instrument %>
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name%>
+  </div>
+  <div>
+    <%= f.label :genre %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name%>
+  </div>
+  <div>
+    <%= f.label :default_search %>
+    <%= f.check_box :default_search %>
+  </div>
+  <div>
+    <%= f.submit id: "search-form-submit" %>
+  </div>
+<% end %>

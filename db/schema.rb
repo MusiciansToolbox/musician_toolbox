@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20150709205148) do
   add_index "instruments_users", ["instrument_id"], name: "index_instruments_users_on_instrument_id"
   add_index "instruments_users", ["user_id"], name: "index_instruments_users_on_user_id"
 
+  create_table "user_searches", force: :cascade do |t|
+    t.integer  "searcher_id"
+    t.integer  "zipcode"
+    t.boolean  "default_search"
+    t.integer  "instrument_id"
+    t.integer  "genre_id"
+    t.text     "results"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "password_digest"
