@@ -78,6 +78,14 @@ class UsersController < ApplicationController
     @user_genres = user.genres
   end
 
+  def add_influence
+    user = User.find( session[:user_id] )
+
+    Influence.create(name: params[:influence_name], user_id: user.id )
+
+    @user_influences = user.influences
+  end
+
   def rm_instrument
     u = User.find( session[:user_id] )
     u.instruments.delete(Instrument.find(params[:instrument_id]))

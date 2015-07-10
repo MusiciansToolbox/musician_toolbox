@@ -14,24 +14,20 @@
 //= require jquery_ujs
 //= require_tree .
 
-function maddInfluenceAndRunSomeJavaScript() {
-  // $('#influence').focus(function(){
-  //  (this).addEventListener('keypress', function (e) {
-  //    var key = e.which || e.keyCode;
-  //        if (key === 13) { // once enter key is presssed, do this:
-  //           $('#influence').hide()
-  //          }
-  //    } // close e function
-  //  );
-  // });
-}
 
 function addInfluenceAndRunSomeJavaScript() {
   $('#influence').focus(function(){
     (this).addEventListener('keypress', function (e) {
       var key = e.which || e.keyCode;
-      if (key === 13) { // once enter key is presssed, do this:
-        $('#influence').hide()
+      if (key === 13) { // once ENTER key is presssed, do this:
+        var influence_name = $('#influence').val();
+        $('#influence').hide();
+
+        $.ajax({
+          url: "/add_influence/" + influence_name,
+          type: "POST"
+        })
+
       }} // close e function
     );
   });
