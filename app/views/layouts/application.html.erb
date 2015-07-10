@@ -24,32 +24,46 @@
 
 
    <footer>
-     <% if session[:user_id] %>
       <%= render 'layouts/footer' %>
-    <% end %>
     </footer>
+
+
+
 
 
 
 
 <% if session[:user_id] %>
   <script>
-    mobileDashboard(); // run on load to adjust menu for mobile screens
-    $( window ).resize(function() { mobileDashboard(); });// run when resizing the window to cover our tracks
 
-    function mobileDashboard(){
-      // make mobile dashboard menu dynamically fit all screen sizes
+
+  mobileDashboard();
+  $(window).resize(function() {
+    mobileDashboard();
+    });
+
+// make mobile dashboard menu dynamically fit all screen sizes
+function mobileDashboard(){
+    var parentHeight = $("body").height();
+    var dashboardBlocks = $('.dashboard a')
+    dashboardBlocks = dashboardBlocks.length
+    var newHeight = ( (parentHeight - 30) / dashboardBlocks)
+    // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
+    $('.dashboard-button').css("height",newHeight);
+
+    // set line height on text so that it dynamically stays vertically centered
+    $('.dashboard-button').css("line-height",newHeight+'px');
+}
+
+
+
+  // make all other pages dynamically fit viewport height
+ function mobileHeight() {
       var parentHeight = $("body").height();
-      var footerHeight = $('.mobile-menu-bar').height();
-      var dashboardBlocks = $('.dashboard a')
-      dashboardBlocks = dashboardBlocks.length
-      var newHeight = ( (parentHeight - 20 ) / dashboardBlocks)
-      // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
-      $('.dashboard-button').css("height",newHeight);
+      var newHeight = (parentHeight - 20)
+      $('.content-wrapper').css("height",newHeight);
+}
 
-      // set line height on text so that it dynamically stays vertically centered
-      $('.dashboard-button').css("line-height",newHeight+'px');
-    }
   </script>
 <% end %>
 

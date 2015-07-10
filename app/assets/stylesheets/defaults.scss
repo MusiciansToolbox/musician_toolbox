@@ -6,6 +6,7 @@ html {
 }
 body {
     background: $background-color;
+    height:100%;
 
 
 
@@ -23,11 +24,14 @@ body {
     line-height: 1.45;
     height:100%;
     color: #fff;
+
     padding-top: 150px; // offset for header height
     padding-bottom:80px; // not tied to footer, etc heights
+
     @include mobile {
         padding-top: 70px; // needs to match height of sticky header
         padding-bottom:20px; // needs to match size of sticky footer
+
     }
 }
 p {
@@ -79,6 +83,10 @@ a:hover {
     margin: 0 auto;
     max-width: 600px;
     padding: 0em;
+    height:100%;
+    @include mobile {
+//      overflow:hidden; // mobile footer tweaks
+    }
 }
 // form defaults
 form {
@@ -160,11 +168,20 @@ form {
 .content-wrapper {
   background: rgba(0, 0, 0, .7);
   border: 1.5em solid #000;
-  position: absolute;
+  position: absolute; // necessary to go to the right in desktop view
   left: 57%;
   top: 16%;
   width: 450px;
   padding-bottom: 20px;
+
+   @include mobile {
+     border-width:.5em;
+     min-height:100%; //when I do this content longer than initial viewport
+  // spills out of it - IE it goes out of the content wrapper
+     padding-bottom:50px; // must match footer height
+     position:static;
+
+   }
 
 
   #profilePicFileField {
@@ -186,6 +203,9 @@ form {
   form {
       margin: 0;
       padding: 15px 50px;
+      @include mobile {
+        padding:10px;
+      }
   }
 
 
@@ -198,15 +218,12 @@ form {
       background: rgba(0, 0, 0, .5);
       padding:15px 50px;
             @include mobile {
-                text-align: left;
+                text-align: center;
                 font-size: 1em;
-                margin-top: 15px;
-                padding-bottom: 0;
                 color: #fff;
                 background: rgba(0, 0, 0, 1); // remove background opacity
-                display: inline-block;
-                margin-left: 50px;
-                padding: 5px 10px;
+                display: block;
+                padding: 15px 10px;
             }
       }
 
