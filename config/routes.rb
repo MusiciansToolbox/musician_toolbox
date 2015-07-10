@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # javaScript paths
   patch 'add_instrument/:instrument_id' => 'users#add_instrument'
   patch 'add_genre/:genre_id' => 'users#add_genre'
-  post 'add_influence' => 'users#add_influence'
+  post 'add_influence/:influence_name' => 'users#add_influence'
 
   patch 'add_instrument_partial' => 'pages#add_instrument_partial'
   patch 'add_genre_partial' => 'pages#add_genre_partial'
