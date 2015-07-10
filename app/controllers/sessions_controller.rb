@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   before_action :authenticate_user, only: :destroy
 
   def new
+    if User.count == 0
+      session[:user_id] = nil
+    end
     @user = User.new
   end
 

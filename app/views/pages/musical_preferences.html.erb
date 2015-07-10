@@ -2,28 +2,29 @@
   <h2>
     Musical Preferences
   </h2>
-<!-- we may want to move this somewhere on the dashboard -->
-  <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Name" %>
-  </div>
-  <div class="field">
-    <%= f.text_area :description, placeholder: "Add anything you want about yourself." %>
-  </div>
-  <span class="settings-header">My Influences</span>
-  <div id='influences-container'>
-    <%#= render 'pages/user_influences' %>
-  </div>
   <span class="settings-header">My Instruments</span>
   <div id='instruments-container'>
     <%= render 'pages/user_instruments' %>
   </div>
+
   <span class="settings-header">My Genres</span>
   <div id='genres-container'>
     <%= render 'pages/user_genres' %>
   </div>
-  <div class="field">
-    <%= f.submit :Save %>
+
+  <span class="settings-header">My Influences</span>
+  <div id='influences-container'>
+    <%= render 'pages/user_influences' %>
   </div>
+
+  <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
+    <div class="field">
+      <span class="settings-header">Description</span>
+      <%= f.text_area :description, placeholder: "About me" %>
+    </div>
+    <div class="field">
+      <%= f.submit :Save %>
+    </div>
   <% end %>
+
 </div>

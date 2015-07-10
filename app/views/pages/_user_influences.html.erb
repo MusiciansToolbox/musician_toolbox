@@ -1,5 +1,7 @@
-<% user_influences.each do |influence| %>
-
+<% @user_influences.each do |influence| %>
+  <p>
+    <%= influence.name.capitalize %>
+    <%= link_to 'destroy', "/#{influence.id}", value: influence.id, remote: true %>
+  </p>
 <% end %>
-
 <%= link_to 'Add Influence', '/', id: 'add_partial_to_add_influence', remote: true %>
