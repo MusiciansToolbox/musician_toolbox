@@ -1,3 +1,4 @@
+
 <% if @clips.any? %>
 <script>
   $ (function () {
@@ -30,13 +31,16 @@
   });
 </script>
 <% end %>
-<div class="dashboard-wrapper music-wrapper">
-  <h2>Play Sound Clip
-</h2>
+<div class="content-wrapper">
+  <h2>Play Sound Clip</h2>
+
+
 <% if @clips.any? %>
 <div class="dashboard-music-player">
   <div id="wrapper">
     <audio preload></audio>
+
+
       <ol>
         <% @clips.each do |clip| %>
         <li>
@@ -47,8 +51,10 @@
           </li>
         <% end %>
      </ol>
+
   </div>
 </div>
+
 <% else %>
 <center>
   <div>

@@ -23,9 +23,7 @@
      font-size:2.8em;
      transition: $transition;
      text-decoration:none;
-
-     margin-bottom:1px;
-
+     margin-bottom:1px; // creates line between buttons
 
      // always center text on dashboard buttons
      // via: text align + vertical align + function to set dynamic line height
@@ -41,15 +39,14 @@
 
     a:hover {
        background:$button-hover;
-      // color:#f8f8f8;
     }
 
-    a:first-child {
-       margin-top:0; // no margin top of first block link
-    }
+   @include mobile {
+       a:last-child {
+            margin-bottom:0px;
 
-    a:last-child {
-       margin-bottom:0px;  // no margin-bottom on last block link
+    }
+  //     margin-bottom:0px;  // no margin-bottom on last block link
      }
 
 
