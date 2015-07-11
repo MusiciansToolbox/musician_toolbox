@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
   before_action :authenticate_user
-  before_action :set_user, only: [:home, :search, :likes]
+  before_action :set_user, only: [:home, :search, :likes, :cheat_activated]
 
 
   def home
+
+  end
+
+  def cheat_activated
 
   end
 

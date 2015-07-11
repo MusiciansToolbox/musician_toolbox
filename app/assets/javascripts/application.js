@@ -190,6 +190,14 @@ $(function() {
     console.log("END");
   }, true);
 
+  listener.sequence_combo("c h e a t", function() {
+    console.log("START")
+    $.ajax({
+      url: "/pages/cheat_activated",
+      type: "PATCH",
+    });
+    console.log("END");
+  }, true);
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("FUCK YOU");
