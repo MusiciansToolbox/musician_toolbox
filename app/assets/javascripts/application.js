@@ -179,25 +179,38 @@ $(function() {
   listener = new window.keypress.Listener();
 
   listener.sequence_combo("h i d e", function() {
-    console.log("START");
-    $('.dashboard-button').hide()
-    console.log("END");
+    $('.dashboard-button').hide();
   }, true);
 
   listener.sequence_combo("s h o w", function() {
-    console.log("START");
-    $('.dashboard-button').show()
-    console.log("END");
+    $('.dashboard-button').show();
   }, true);
 
-  listener.sequence_combo("c h e a t", function() {
-    $('.cheat-activated').show();
-    $('.dashboard-button').addClass('fa fa-spin')
+  listener.sequence_combo("s p i n", function() {
+    $('.cheat-activated').delay(1000).fadeIn(100, function(){
+      $('.dashboard-button').addClass('fa fa-spin')
+    }).delay(5000).fadeOut(100);
+  });
+
+  listener.sequence_combo("s t o p", function() {
+    $('.dashboard-button').removeClass('fa fa-spin')
+  });
+
+  listener.sequence_combo("s d a s h", function() {
+    $('.dashboard.dashboard-wrapper').slideUp(2000);
+  });
+
+  listener.sequence_combo("s h e a d", function() {
+    $('header').slideUp(2000);
+  });
+
+  listener.sequence_combo("r e t u r n", function() {
+    $('header').show(2000);
+    $('.dashboard.dashboard-wrapper').show(2000);
   });
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
-    console.log("FUCK YOU");
-    lives = 30;
+    console.log("Cheat code");
   }, true);
 
 });
