@@ -178,6 +178,12 @@ $(function() {
 
   listener = new window.keypress.Listener();
 
+  listener.sequence_combo("n o s t a l g i a", function() {
+    $('.cheat-activated').delay(1000).fadeIn(90, function(){
+      // $('.dashboard-button').addClass('fa fa-spin')
+    }).delay(5000).fadeOut(90);
+  });
+
   listener.sequence_combo("h i d e", function() {
     $('.dashboard-button').hide();
   }, true);
