@@ -170,18 +170,33 @@ function disableButton() {
 //
 // };
 //
-//
+
 //______________________SECRET______________________SAUCE_______________________
 
+var audio = new Audio('/assets/gta_san_andreas_theme.mp3');
+
+function gtaNostalgia() {
+  audio.play();
+  $('.cheat-activated').delay(5000).fadeIn(50).delay(10000).fadeOut(90);
+  $('img.chrome-rim').delay(5000).show(50).addClass('fa fa-spin');
+};
+
+function pauseAudio() {
+  audio.pause();
+};
 
 $(function() {
 
   listener = new window.keypress.Listener();
 
-  listener.sequence_combo("n o s t a l g i a", function() {
-    $('.cheat-activated').delay(1000).fadeIn(90, function(){
-      // $('.dashboard-button').addClass('fa fa-spin')
-    }).delay(5000).fadeOut(90);
+  listener.sequence_combo("n o s t a l g i a", gtaNostalgia);
+
+  listener.sequence_combo("p a u s e", function() {
+    pauseAudio();
+    $('.cheat-activated').hide();
+    $('.cheat-deactivated').show().delay(6500).fadeOut(90);
+    $('.dashboard-button').removeClass('fa fa-spin');
+    $('img.chrome-rim').hide().removeClass('fa fa-spin')
   });
 
   listener.sequence_combo("h i d e", function() {
@@ -199,20 +214,24 @@ $(function() {
   });
 
   listener.sequence_combo("s t o p", function() {
-    $('.dashboard-button').removeClass('fa fa-spin')
+    $('.cheat-activated').hide();
+    $('.cheat-deactivated').show().delay(6500).fadeOut(90);
+    $('.dashboard-button').removeClass('fa fa-spin');
+    $('img.chrome-rim').hide().removeClass('fa fa-spin')
+    audio.currentTime = 0;
   });
 
-  listener.sequence_combo("s d a s h", function() {
-    $('.dashboard.dashboard-wrapper').slideUp(2000);
+  listener.sequence_combo("d a s h", function() {
+    $('.dashboard.dashboard-wrapper').fadeOut(1500);
   });
 
-  listener.sequence_combo("s h e a d", function() {
-    $('header').slideUp(2000);
+  listener.sequence_combo("h e a d", function() {
+    $('header').slideUp(1500);
   });
 
   listener.sequence_combo("r e t u r n", function() {
-    $('header').show(2000);
-    $('.dashboard.dashboard-wrapper').show(2000);
+    $('header').fadeIn(1500);
+    $('.dashboard.dashboard-wrapper').fadeIn(1500);
   });
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
@@ -220,12 +239,6 @@ $(function() {
   }, true);
 
 });
-
-var audio = new Audio('/assets/gta_san_andreas_theme.mp3');
-
-document.onkeydown = function() {
-  audio.play();
-}
 
 
 //______________________SECRET______________________SAUCE_______________________
