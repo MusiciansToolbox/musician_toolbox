@@ -3,10 +3,15 @@ class SessionsController < ApplicationController
   before_action :authenticate_user, only: :destroy
 
   def new
-    if User.count == 0
-      session[:user_id] = nil
+    if User.any?                # Are there any users?
+      if session[:user_id]        # If so, check if user is signed in
+        redirect_to root_path       # if so, go to home page, already logged in
+      else
+        @user = User.new            # if not, go login page
+      end
+    else
+      session[:user_id] = nil     # if not, clear session and go to login page
     end
-    @user = User.new
   end
 
   def create
