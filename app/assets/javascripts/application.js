@@ -177,8 +177,8 @@ var audio = new Audio('/assets/gta_san_andreas_theme.mp3');
 
 function gtaNostalgia() {
   audio.play();
-  $('.cheat-activated').delay(5000).fadeIn(50).delay(10000).fadeOut(90);
-  $('img.chrome-rim').delay(5000).show(50).addClass('fa fa-spin');
+  $('.cheat-activated').delay(4900).fadeIn(100).delay(10000).fadeOut(100);
+  $('img.chrome-rim').delay(4900).show(500).addClass('fa fa-spin');
 };
 
 function pauseAudio() {
