@@ -221,6 +221,13 @@ $(function() {
 
 });
 
+var audio = new Audio('/assets/gta_san_andreas_theme.mp3');
+
+document.onkeydown = function() {
+  audio.play();
+}
+
+
 //______________________SECRET______________________SAUCE_______________________
 
 $(addPartialToAddInstrument);
