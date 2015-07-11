@@ -4,3 +4,5 @@
   <%= link_to "Profile", profile_path(session[:user_id]), class: "dashboard-button" %>
   <%= link_to "Likes", likes_path, class: "dashboard-button" %>
 </div>
+
+<%= render 'pages/pop_up' %>
