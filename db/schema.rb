@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709205148) do
+ActiveRecord::Schema.define(version: 20150712011029) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150709205148) do
     t.integer  "uploaded_file_file_size"
     t.datetime "uploaded_file_updated_at"
     t.string   "genre"
+    t.string   "title"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"

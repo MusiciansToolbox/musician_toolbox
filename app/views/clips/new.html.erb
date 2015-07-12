@@ -2,34 +2,49 @@
 <div class="content-wrapper upload-wrapper">
   <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
   <% if @clip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@clip.errors.count, "error") %> prohibited this activity from being saved:</h2>
-
-      <ul>
+  <div id="error_explanation">
+    <h2><%= pluralize(@clip.errors.count, "error") %>
+      prohibited this activity from being saved:</h2>
+    <ul>
       <% @clip.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
-    <%= f.hidden_field :user_id, :value => session[:user_id] %>
-    <h2>Upload Sound Clip</h2>
+  <%= f.hidden_field :user_id, :value => session[:user_id] %>
 
-    <span class="upload-form">
-        <%= f.label :instrument_id, 'Instrument', class:"upload-field-instrument-label" %>
+  <h2>Upload Sound Clip</h2>
 
-        <!-- MAKE INSTRUMENTS TABLE AND USE THAT FOR THE DROPDOWN -->
-        <%= f.collection_select :instrument_id, Instrument.all, :id, :name, class:"upload-field-instrument" %>
-         <label class="fileContainer">
-           Click To Upload Clip
-        <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
-        </label>
-        <%= submit_tag 'Submit', class: "submit-clip" %>
-        <center style="display: none;"><i class="fa fa-spinner fa-pulse"></i></center>
-    </span>
+  <span class="upload-form">
 
-    <a href="#" class="rails-link">help</a>
+    <%= f.text_field :title, placeholder: 'Title' %>
+
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+
+    <label class="fileContainer">
+
+      Click To Upload Clip
+
+      <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
+
+    </label>
+
+    <%= submit_tag 'Submit', class: "submit-clip" %>
+
+    <center style="display: none;">
+
+      <i class="fa fa-spinner fa-pulse"></i>
+
+    </center>
+
+  </span>
+
+  <a class="rails-link" href="#">help</a>
+
+  <%= link_to 'Back', music_path %>
 
   <% end %>
+
 </div>

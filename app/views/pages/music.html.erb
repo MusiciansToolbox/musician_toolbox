@@ -46,7 +46,11 @@
         <li>
           <a href="#" data-src='<%= clip.uploaded_file %>'>
             <span class="song-title">
-              <%= clip.uploaded_file_file_name %>
+              <% if clip.title? %>
+                <%= clip.title.capitalize %>
+              <% else %>
+                <%= clip.uploaded_file_file_name %>
+              <% end %>
             </span></a>
           </li>
         <% end %>
