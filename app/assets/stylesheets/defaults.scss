@@ -1,164 +1,156 @@
 @import 'sass';
+
+.audiojs .play {
+  background: asset_url("player_graphics.gif") -2px -1px no-repeat;
+}
+
 // base styles using golden ratio algorithm here http://type-scale.com/
 html {
-    font-size: 1em;
-    height:100%;
+  font-size: 1em;
+  height: 100%;
 }
 body {
-    background: $background-color;
-    height:100%;
-
-
-
-    background-image: asset_url('man-person-wall-music.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 400;
-    line-height: 1.45;
-    color: #fff;
-
-    padding-top: 150px; // offset for header height
-    padding-bottom:80px; // not tied to footer, etc heights
-
-    @include mobile {
-        padding-top: 70px; // needs to match height of sticky header
-        padding-bottom:20px; // needs to match size of sticky footer
-
-    }
+  background: $background-color;
+  height: 100%;
+  background-image: asset_url('man-person-wall-music.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #fff;
+  padding-top: 150px; // offset for header height
+  padding-bottom: 80px; // not tied to footer, etc heights
+  @include mobile {
+    padding-top: 70px; // needs to match height of sticky header
+    padding-bottom: 20px; // needs to match size of sticky footer
+  }
 }
-
 p {
-    margin-bottom: 1.3em;
+  margin-bottom: 1.3em;
 }
 h1,
 h2,
 h3,
 h4 {
-    margin: 1.414em 0 0.5em;
-    font-weight: inherit;
-    line-height: 1.2;
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
 }
 h1 {
-    margin-top: 0;
-    font-size: 3.998em;
+  margin-top: 0;
+  font-size: 3.998em;
 }
 h2 {
-    font-size: 2.827em;
+  font-size: 2.827em;
 }
 h3 {
-    font-size: 1.999em;
+  font-size: 1.999em;
 }
 h4 {
-    font-size: 1.414em;
+  font-size: 1.414em;
 }
 small,
 .font_small {
-    font-size: 0.707em;
+  font-size: 0.707em;
 }
 * {
-    // fix margin/padding calculations
-    box-sizing: border-box;
+
+  // fix margin/padding calculations
+  box-sizing: border-box;
 }
 
 // standard link settings
-a, a:visited {
-      color:#fff;
+a,
+a:visited {
+  color: #fff;
 }
 a:hover {
-  color:default;
-  background:none;
+  color: default;
+  background: none;
 }
-
-
 
 // defaults
 .container {
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 0em;
-    height:100%;
-    @include mobile {
-//      overflow:hidden; // mobile footer tweaks
-    }
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0;
+  height: 100%;
+  @include mobile {
+
+    //      overflow:hidden; // mobile footer tweaks
+  }
 }
+
 // form defaults
 form {
+  width: 100%;
+  label {
+    display: block;
+  }
+  input {
     width: 100%;
-    label {
-        display: block;
+    padding: 10px;
+    font-size: 1.4em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    @include mobile {
+      font-size: 1.2em;
     }
-    input {
-        width: 100%;
-        padding: 10px;
-        font-size: 1.4em;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        @include mobile {
-            font-size: 1.2em;
-        }
-    }
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 1.4em;
-        background: #fff;
-        color: #404040;
-        box-shadow: none;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-    }
-    input[type="select"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 1.4em;
-        background: #fff;
-        color: #404040;
-        box-shadow: none;
-        border: 0px solid $border-color;
-        border-radius: $border-radius;
-    }
-    input[type="file"] {
-        width: 100%;
-      //  padding: 10px;
-        font-size: 1.4em;
-        background: #fff;
-        color: #404040;
-        box-shadow: none;
-        border: 0px solid $border-color;
-        border-radius: $border-radius;
-    }
-    textarea {
-        width: 100%;
-        font-size: 1.4em;
-        padding: 10px;
-        background: #fff;
-        color: #404040;
-        box-shadow:none;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-    }
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.4em;
+    background: #fff;
+    color: #404040;
+    box-shadow: none;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+  input[type="select"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.4em;
+    background: #fff;
+    color: #404040;
+    box-shadow: none;
+    border: 0 solid $border-color;
+    border-radius: $border-radius;
+  }
+  input[type="file"] {
+    width: 100%;
+
+    //  padding: 10px;
+    font-size: 1.4em;
+    background: #fff;
+    color: #404040;
+    box-shadow: none;
+    border: 0 solid $border-color;
+    border-radius: $border-radius;
+  }
+  textarea {
+    width: 100%;
+    font-size: 1.4em;
+    padding: 10px;
+    background: #fff;
+    color: #404040;
+    box-shadow: none;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
 }
-
-
-
-
-
-
-
 
 // THIS MAY NEED TO GO ELSEWHERE BUT FOR RIGHT NOW IT FIXES THE PROFILE
 // PIC ON THE ACCOUNT PAGE
 .profile-pic-account {
-  max-width:100%;
-  height:auto;
+  max-width: 100%;
+  height: auto;
   cursor: pointer;
-  margin-top:5px;
+  margin-top: 5px;
 }
-
-
 
 // wrapper for all content with the big black border
 .content-wrapper {
@@ -169,59 +161,49 @@ form {
   top: 16%;
   width: 450px;
   padding-bottom: 20px;
-
-   @include mobile {
-     border-width:.5em;
-     min-height:100%; //when I do this content longer than initial viewport
-  // spills out of it - IE it goes out of the content wrapper
-     padding-bottom:50px; // must match footer height
-     position:static;
-
-   }
-
-
-  #profilePicFileField {
-    display:none;
-  }  // this hides the profile photo upload button, showing only the profile photo
-
-        @include mobile {
-            width: 100%;
-            position: static;
-            margin: 0;
-        }
-        @include tablet {
-            width: 500px;
-            position: static;
-            margin: 0 auto;
-        }
-
-
-  form {
-      margin: 0;
-      padding: 15px 50px;
-      @include mobile {
-        padding:10px;
-      }
+  @include mobile {
+    border-width: 0.5em;
+    min-height: 100%; //when I do this content longer than initial viewport
+    // spills out of it - IE it goes out of the content wrapper
+    padding-bottom: 50px; // must match footer height
+    position: static;
   }
-
-
+  #profilePicFileField {
+    display: none;
+  }
+  // this hides the profile photo upload button, showing only the profile photo
+  @include mobile {
+    width: 100%;
+    position: static;
+    margin: 0;
+  }
+  @include tablet {
+    width: 500px;
+    position: static;
+    margin: 0 auto;
+  }
+  form {
+    margin: 0;
+    padding: 15px 50px;
+    @include mobile {
+      padding: 10px;
+    }
+  }
   h2 {
+    text-align: center;
+    margin: 0;
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px 50px;
+    @include mobile {
       text-align: center;
-      margin: 0;
-      color: #ccc;
-      text-transform: uppercase;
-      font-size: 1.5em;
-      background: rgba(0, 0, 0, .5);
-      padding:15px 50px;
-            @include mobile {
-                text-align: center;
-                font-size: 1em;
-                color: #fff;
-                background: rgba(0, 0, 0, 1); // remove background opacity
-                display: block;
-                padding: 15px 10px;
-            }
-      }
-
-
+      font-size: 1em;
+      color: #fff;
+      background: rgba(0, 0, 0, 1); // remove background opacity
+      display: block;
+      padding: 15px 10px;
+    }
+  }
 }
