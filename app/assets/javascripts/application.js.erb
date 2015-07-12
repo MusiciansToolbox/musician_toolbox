@@ -133,56 +133,100 @@ function disableButton() {
   })
 };
 
-// function doubleEnter() {
-//   $(document).keypress(function(event){
-//   	var keycode1 = (event.keyCode ? event.keyCode : event.which);
-//   	if(keycode1 === 13 ){
-//       $(document).keypress(function(event){
-//         var keycode2 = (event.keyCode ? event.keyCode : event.which);
-//         if(keycode2 === 13 ){
-//     		  alert('You pressed a "enter" key twice!');
-//         };
-//   	  });
-//     };
-//     event.stopPropagation();
-//   });
-// };
-//
-//
-// document.onkeydown = checkKey;
-//
-// function checkKey(e) {
-//
-//   e = e || window.event;
-//
-//   if (e.keyCode == '38') {
-//     alert('You pressed the "up" key!');
-//   }
-//   else if (e.keyCode == '40') {
-//     alert('You pressed the "down" key!');
-//   }
-//   else if (e.keyCode == '37') {
-//     alert('You pressed the "left" key!');
-//   }
-//   else if (e.keyCode == '39') {
-//     alert('You pressed the "right" key!');
-//   }
-//
-// };
-//
-
 //______________________SECRET______________________SAUCE_______________________
-
-var audio = new Audio("<%= asset_url('gta_san_andreas_theme.mp3') %>");
 
 function gtaNostalgia() {
   audio.play();
-  $('.cheat-activated').delay(4900).fadeIn(100).delay(10000).fadeOut(100);
-  $('img.chrome-rim').delay(4900).show(500).addClass('fa fa-spin');
+  $('.cheat-box').delay(4900).fadeIn(100).delay(10000).fadeOut(100);
+
+  dash(4800);
+
+  head(4800);
+
+  setTimeout( function() {
+    prepareForSlideshow();
+    showRim();
+    $('#gta').fadeIn(500).attr('src','<%= asset_url("1.jpg") %>');
+    $('img.chrome-rim').fadeIn(500);
+  }, 5000);
+
+  setTimeout( function() {
+    $('#gta').fadeOut(1000);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("2.jpg") %>');
+  }, 15000);
+
+  setTimeout( function() {
+    $('#gta2').fadeOut(1000);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("4.jpg") %>');
+  }, 25000);
+
+  setTimeout( function() {
+    $('#gta').fadeOut(1000);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("7.jpg") %>');
+  }, 35000);
+
+  setTimeout( function() {
+    $('#gta2').fadeOut(1000);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("10.jpg") %>');
+  }, 45000);
+
+  setTimeout( function() {
+    $('#gta').fadeOut(1000);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("8.png") %>');
+  }, 55000);
+
+  setTimeout( function() {
+    $('#gta2').fadeOut(1000);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("5.jpg") %>');
+  }, 65000);
+
+  setTimeout( function() {
+    $('#gta').fadeOut(1000);
+    reTurn();
+  }, 75000);
+
 };
 
 function pauseAudio() {
   audio.pause();
+};
+
+function cheatDeactivated() {
+  $('.cheat-box').show(100).delay(6500).fadeOut(90);
+  $('.cheat-text').html('Cheat deactivated');
+  $('.dashboard-button').removeClass('fa fa-spin');
+  $('img.chrome-rim').removeClass('fa fa-spin').hide();
+};
+
+function reTurn() {
+  returnFromSlideshow();
+  $('header').fadeIn(1500);
+  $('.dashboard.dashboard-wrapper').fadeIn(1500);
+  $('.chrome-rim').fadeOut(1000);
+};
+
+function dash(wait) {
+  var wait = wait || 0;
+  $('.dashboard.dashboard-wrapper').delay(wait).fadeOut(1500);
+}
+
+function head(wait) {
+  var wait = wait || 0;
+  $('header').delay(wait).slideUp(1500);
+}
+
+function prepareForSlideshow() {
+  $('body').css({padding: 0});
+  $('.container').css({margin: 0});
+};
+
+function returnFromSlideshow() {
+  $('body').css({padding: ""});
+  $('.container').css({margin: ""});
+};
+
+function showRim() {
+  $('.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top');;
 };
 
 $(function() {
@@ -193,10 +237,7 @@ $(function() {
 
   listener.sequence_combo("p a u s e", function() {
     pauseAudio();
-    $('.cheat-activated').hide();
-    $('.cheat-deactivated').show().delay(6500).fadeOut(90);
-    $('.dashboard-button').removeClass('fa fa-spin');
-    $('img.chrome-rim').hide().removeClass('fa fa-spin')
+    cheatDeactivated();
   });
 
   listener.sequence_combo("h i d e", function() {
@@ -221,25 +262,21 @@ $(function() {
     audio.currentTime = 0;
   });
 
-  listener.sequence_combo("d a s h", function() {
-    $('.dashboard.dashboard-wrapper').fadeOut(1500);
-  });
-
-  listener.sequence_combo("h e a d", function() {
-    $('header').slideUp(1500);
-  });
-
-  listener.sequence_combo("r e t u r n", function() {
-    $('header').fadeIn(1500);
-    $('.dashboard.dashboard-wrapper').fadeIn(1500);
-  });
+  listener.sequence_combo("d a s h", dash);
+  listener.sequence_combo("h e a d", head);
+  listener.sequence_combo("r e t u r n", reTurn);
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("Cheat code");
   }, true);
 
-});
+  listener.sequence_combo("left right", function() {
+    console.log("Cheat code");
+    $('body').css({backgroundImage: 'url("<%= asset_url("1.jpg") %>")'});
+  });
 
+
+});
 
 //______________________SECRET______________________SAUCE_______________________
 
@@ -250,4 +287,3 @@ $(rmInstrument);
 $(rmGenre);
 $(rmInfluence);
 $(disableButton);
-// $(doubleEnter);

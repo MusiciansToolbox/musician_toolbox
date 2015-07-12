@@ -1,44 +1,40 @@
-<div class="mobile-menu-simple">
+<footer>
+  <div class="mobile-menu-simple">
 
-
-  <% if session[:user_id] %>
-
-    <%= link_to edit_user_path(@user) do %>
-      <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+    <% if session[:user_id] %>
+      <%= link_to edit_user_path(@user) do %>
+        <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Create Account", new_user_path, class:"rails-link create-account-link" %>
     <% end %>
+    
+  </div>
 
-
-  <% else %>
-    <%= link_to "Create Account", new_user_path, class:"rails-link create-account-link" %>    <!--stuff to show up if not logged in, in bottom of footer -->
-   <% end %>
-
-</div>
-
-
-
-
-<!--OLD FOOTER-->
-<!-- 3 button one not in use now-->
-<div class="mobile-menu-bar">
+  <!--OLD FOOTER-->
+  <!-- 3 button one not in use now-->
+  <div class="mobile-menu-bar">
 
     <div class="mobile-menu-section">
       <a href="/#">
-          <i class="fa fa-home"></i>
-          <p>Home</p>
+        <i class="fa fa-home"></i>
+        <p>Home</p>
       </a>
     </div>
 
     <div class="mobile-menu-section">
       <a href="#">
-      <i class="fa fa-search"></i>
-       <p>Search</p>
-     </a>
+        <i class="fa fa-search"></i>
+        <p>Search</p>
+      </a>
     </div>
 
     <div class="mobile-menu-section">
       <a href="#">
-      <i class="fa fa-thumbs-o-up"></i>
-      <p> Likes</p>
-    </a>
+        <i class="fa fa-thumbs-o-up"></i>
+        <p>Likes</p>
+      </a>
+    </div>
 
-</div>
+  </div>
+</footer>

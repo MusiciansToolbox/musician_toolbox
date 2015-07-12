@@ -3,69 +3,57 @@
   <head>
     <%# VVLOGOVV %>
     <link rel="icon" href="https://avatars1.githubusercontent.com/u/8742021?v=3&amp;s=400">
-
     <title>Jam Connect</title>
     <meta content="width=device-width" name="viewport">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
 
   <body>
-      <%= render 'layouts/header' %>
 
+    <%= render 'layouts/header' %>
 
     <div class="container">
       <%= yield %>
     </div>
 
+    <%= render 'layouts/footer' %>
 
-   <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+    <% if session[:user_id] %>
 
+      <script>
 
+        mobileDashboard();
+        $(window).resize(function() {
+          mobileDashboard();
+        });
 
+        // make mobile dashboard menu dynamically fit all screen sizes
+        function mobileDashboard(){
+            var parentHeight = $("body").height();
+            var dashboardBlocks = $('.dashboard a')
+            dashboardBlocks = dashboardBlocks.length
+            var newHeight = ( (parentHeight - 30) / dashboardBlocks)
+            // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
+            $('.dashboard-button').css("height",newHeight);
 
+            // set line height on text so that it dynamically stays vertically centered
+            $('.dashboard-button').css("line-height",newHeight+'px');
+        }
 
+        // make all other pages dynamically fit viewport height
+        function mobileHeight() {
+          var parentHeight = $("body").height();
+          var newHeight = (parentHeight - 20)
+          $('.content-wrapper').css("height",newHeight);
+        }
 
+      </script>
 
-<% if session[:user_id] %>
-  <script>
-
-
-  mobileDashboard();
-  $(window).resize(function() {
-    mobileDashboard();
-    });
-
-// make mobile dashboard menu dynamically fit all screen sizes
-function mobileDashboard(){
-    var parentHeight = $("body").height();
-    var dashboardBlocks = $('.dashboard a')
-    dashboardBlocks = dashboardBlocks.length
-    var newHeight = ( (parentHeight - 30) / dashboardBlocks)
-    // not sure why it's 20. the footer is 50px. but 20 fixes any issues.
-    $('.dashboard-button').css("height",newHeight);
-
-    // set line height on text so that it dynamically stays vertically centered
-    $('.dashboard-button').css("line-height",newHeight+'px');
-}
-
-
-
-  // make all other pages dynamically fit viewport height
- function mobileHeight() {
-      var parentHeight = $("body").height();
-      var newHeight = (parentHeight - 20)
-      $('.content-wrapper').css("height",newHeight);
-}
-
-  </script>
-<% end %>
+    <% end %>
 
   </body>
 </html>

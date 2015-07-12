@@ -1,3 +1,6 @@
+<script>
+  var audio = new Audio("<%= asset_url('gta_san_andreas_theme.mp3') %>");
+</script>
 <div class="dashboard dashboard-wrapper">
   <%= link_to "Music", music_path, class: "dashboard-button" %>
   <%= link_to "Search", search_path, class: "dashboard-button" %>
@@ -5,7 +8,9 @@
   <%= link_to "Likes", likes_path, class: "dashboard-button" %>
 </div>
 
-<%= render 'pages/cheat_activated' %>
-<%= render 'pages/cheat_deactivated' %>
+<%= render 'pages/cheat_box' %>
 
-<%= image_tag asset_url('chrome_rim.png'), class: 'chrome-rim', style: 'display:none;' %>
+<%= image_tag asset_url('chrome_rim.png'), class: 'chrome-rim' %>
+
+<img id="gta"></img>
+<img id="gta2"></img>
