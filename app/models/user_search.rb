@@ -47,7 +47,16 @@ class UserSearch < ActiveRecord::Base
         next
       else
         user.clips.each do |clip|
-          if clip.instrument_id == instrument_id
+          liked = false
+          current_user.opinions.each do |opinion|
+            if opinion.clip_id == clip.id
+              liked = true
+              break
+            end
+          end
+          if liked == true
+            next
+          elsif clip.instrument_id == instrument_id
             clips << clip
           elsif instrument_id == nil
             clips << clip

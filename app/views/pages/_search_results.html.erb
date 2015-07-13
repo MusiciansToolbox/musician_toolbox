@@ -58,50 +58,44 @@
   }
 </style>
 
-<div class="dashboard-music-player">
 
-  <% if @results.blank? %>
-    <p> No Results, Sorry! </p>
-  <% else %>
+<% if @results.blank? %>
+  <p> No Results, Sorry! </p>
+  <%= link_to "Back", search_path %>
+<% else %>
+  <div class="dashboard-music-player">
 
-  <div id="wrapper">
-    <audio preload autoplay></audio>
+    <div id="wrapper">
+      <audio preload autoplay></audio>
+      <ol>
+        <% @results.each do |clip| %>
+          <li class="search-results-entries">
+              <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
+                <span class="song-title">
+                  <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                </span>
+              </a>
+          </li>
+        <% end %>
+      </ol>
+    </div><!--close wrapper-->
+  </div><!--close dashboard music player-->
 
-    <ol>
+  <div class="swipe-feedback">
+    <a href="#" class="swipe-left">No<a/>
+    <a href="#" class="swipe-right">Yes</a>
 
-      <% @results.each do |clip| %>
-        <li class="search-results-entries">
-            <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
-              <span class="song-title">
-                <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
-              </span>
-            </a>
-        </li>
-      <% end %>
-    </ol>
-  </div><!--close wrapper-->
+    <div style="clear:both;"><!-- clear floats--></div>
+    </div>
+  </div>
 
+  <div class="game-over" style="display:none;">
+    now we need to figure out what to do with user once they've gone through results IE <br />
+    - autoroute them to LIKES page
+    - show them the contact info of all their likes, etc
+  </div>
 
 <% end %>
-
-</div><!--close dashboard music player-->
-<div class="swipe-feedback">
-  <a href="#" class="swipe-left">No<a/>
-  <a href="#" class="swipe-right">Yes</a>
-
-  <div style="clear:both;"><!-- clear floats--></div>
-  </div>
-</div>
-
-
-
-<div class="game-over" style="display:none;">
-  now we need to figure out what to do with user once they've gone through results IE <br />
-  - autoroute them to LIKES page
-  - show them the contact info of all their likes, etc
-
-</div>
-
 
 <script>
   // global for now
