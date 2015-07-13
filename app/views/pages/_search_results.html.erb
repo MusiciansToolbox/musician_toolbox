@@ -134,11 +134,12 @@
     // select all search results entries OTHER than the visible one
     // make them all display:none;
     //  $('.search-results-entries:not(:visible)');
+    var clip_id = $("ol li:visible a").attr('value');
 
-
-
-
-
+    $.ajax({
+      url: "/dislike_clip/" + clip_id,
+      type: "POST",
+    });
 
     // TODO push into array an UNLIKE for this song
     var swipeLeftArray = [];

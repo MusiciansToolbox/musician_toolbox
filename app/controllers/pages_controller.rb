@@ -33,11 +33,13 @@ class PagesController < ApplicationController
   def search
     if request.get?
       @get = true
+      default_search = UserSearch.where(searcher_id: session[:user_id]).where(default_search: true).order(:created_at)
+      p default_search
       @search = UserSearch.new()
     else
       @search = UserSearch.new(user_search)
       @search.searcher_id = session[:user_id]
-      zipcodes = UserSearch.find_nearby_zipcodes(@search.zipcode, 10)
+      zipcodes = UserSearch.find_nearby_zipcodes(@search.zipcode, @search.radius)
       @results = UserSearch.search_musicians(zipcodes,@search.genre_id,@search.instrument_id)
       @search.save!
     end

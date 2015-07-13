@@ -2,14 +2,14 @@ class UserSearch < ActiveRecord::Base
   belongs_to :user
 
   def self.find_nearby_zipcodes(zipcode, radius)
-    response = HTTParty.get("https://www.zipwise.com/webservices/radius.php?key=#{ENV['ZIP_CODE_API_KEY']}&zip=#{zipcode}&radius=#{radius}&format=json")
+    response = HTTParty.get("https://www.zipwise.com/webservices/radius.php?key=#{ENV['ZIP_CODE_API_KEY']}&zip=#{zipcode}&radius=#{radius.to_i}&format=json")
+    p "Response: #{response}"
     parsed = response.parsed_response
-    p parsed
     zipcodes = []
     parsed["results"].each do |i|
       zipcodes << i["zip"]
     end
-    p zipcodes
+    p "Zipcodes: #{zipcodes}"
     return zipcodes
   end
 

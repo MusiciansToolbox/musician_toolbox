@@ -1,12 +1,14 @@
 <div class="content-wrapper">
   <h2>Likes Page</h2>
   <% @user.likes.each do |like| %>
-    <div>
-      <%= like.clip.user.name %> -
-      <%= like.clip.title ? like.clip.title : like.clip.uploaded_file_file_name %>
-      <%= like.clip.instrument ? "- " + like.clip.instrument.name : () %>
-      <%= like.clip.genre ? "- " + like.clip.genre : () %>
-    </div>
+    <% if like.positive == true %>
+      <div>
+        <%= like.clip.user.name %> -
+        <%= like.clip.title ? like.clip.title : like.clip.uploaded_file_file_name %>
+        <%= like.clip.instrument ? "- " + like.clip.instrument.name : () %>
+        <%= like.clip.genre ? "- " + like.clip.genre : () %>
+      </div>
+    <% end %>
   <% end %>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
 </div>
