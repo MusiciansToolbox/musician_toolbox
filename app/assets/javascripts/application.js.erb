@@ -136,18 +136,27 @@ function disableButton() {
 //______________________SECRET______________________SAUCE_______________________
 
 function gtaNostalgia() {
-  audio.play();
+  setTimeout( function() {
+    cheat_activated.play();
+    $('.cheat-box').fadeIn(50).delay(5000).fadeOut(500);
+  }, 200);
 
-  $('.cheat-box').delay(4867).fadeIn(50).delay(10000).fadeOut(100);
+
+  cheat_activated.play();
+  audio.play();
 
   dash(3500);
 
   head(3500);
 
-  setTimeout( function () {
+  setTimeout( function() {
     $('#gta').fadeIn(1000).attr('src','<%= asset_url("1.jpg") %>');
     showRim();
-  }, 4000)
+  }, 4000);
+
+  // setTimeout( function() {
+  //   cheat_activated.play();
+  // }, 4917);
 
   setTimeout( function() {
     prepareForSlideshow();
@@ -184,9 +193,9 @@ function gtaNostalgia() {
   }, 64000);
 
   setTimeout( function() {
-    $('#gta').fadeOut(2000);
+    $('#gta').fadeOut(3000);
     reTurn();
-  }, 72000);
+  }, 71000);
 
 };
 
@@ -238,8 +247,10 @@ $(function() {
 
   listener = new window.keypress.Listener();
 
-  listener.sequence_combo("n o s t a l g i a", gtaNostalgia);
+  // listener.sequence_combo("n o s t a l g i a", gtaNostalgia);
+  listener.sequence_combo("left right a q f r up down left right", gtaNostalgia);
 
+  // broken incomplete functions below, needs work
   listener.sequence_combo("p a u s e", function() {
     pauseAudio();
     cheatDeactivated();
@@ -274,12 +285,6 @@ $(function() {
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("Cheat code");
   }, true);
-
-  listener.sequence_combo("left right", function() {
-    console.log("Cheat code");
-    $('body').css({backgroundImage: 'url("<%= asset_url("1.jpg") %>")'});
-  });
-
 
 });
 
