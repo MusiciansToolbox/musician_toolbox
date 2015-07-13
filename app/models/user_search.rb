@@ -13,7 +13,7 @@ class UserSearch < ActiveRecord::Base
     return zipcodes
   end
 
-  def self.search_musicians(zipcodes, genre_id, instrument_id)
+  def self.search_musicians(zipcodes, genre_id, instrument_id, user_id)
     local_users = []
     zipcodes.each do |zipcode|
       if zipcode == nil
@@ -39,7 +39,22 @@ class UserSearch < ActiveRecord::Base
       # return exact_matches
       end
     end
-    p local_users.flatten
-    local_users.flatten
+    clips = []
+    current_user = User.find_by_id(user_id)
+    p local_users.flatten!
+    local_users.each do |user|
+      if user.id == current_user.id
+        next
+      else
+        user.clips.each do |clip|
+          if clip.instrument_id == instrument_id
+            clips << clip
+          elsif instrument_id == nil
+            clips << clip
+          end
+        end
+      end
+    end
+    return clips
   end
 end

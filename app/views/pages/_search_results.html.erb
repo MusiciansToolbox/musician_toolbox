@@ -69,22 +69,14 @@
 
     <ol>
 
-      <% @results.each do |user| %>
-
-        <% user.clips.each do |clip| %>
-          <li class="search-results-entries">
-              <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
-                <span class="song-title">
-                  <% if user.id == session[:user_id] %>
-                    You
-                  <% else %>
-                    <%= user.name %>(<%= user.zipcode %>)
-                  <% end %> -
-                  <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
-                </span>
-              </a>
-          </li>
-        <% end %>
+      <% @results.each do |clip| %>
+        <li class="search-results-entries">
+            <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
+              <span class="song-title">
+                <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
+              </span>
+            </a>
+        </li>
       <% end %>
     </ol>
   </div><!--close wrapper-->

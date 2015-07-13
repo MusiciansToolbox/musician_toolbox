@@ -1,9 +1,7 @@
 class Clip < ActiveRecord::Base
   belongs_to :user
   belongs_to :instrument
-
-  has_many :likes
-
+  has_many :opinions
   has_attached_file :uploaded_file
   validates_attachment_content_type :uploaded_file,
                                     :content_type => /\Aaudio\/.*\Z/,
