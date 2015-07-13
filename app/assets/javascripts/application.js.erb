@@ -137,53 +137,56 @@ function disableButton() {
 
 function gtaNostalgia() {
   audio.play();
-  $('.cheat-box').delay(4900).fadeIn(100).delay(10000).fadeOut(100);
 
-  dash(4800);
+  $('.cheat-box').delay(4867).fadeIn(50).delay(10000).fadeOut(100);
 
-  head(4800);
+  dash(3500);
+
+  head(3500);
+
+  setTimeout( function () {
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("1.jpg") %>');
+    showRim();
+  }, 4000)
 
   setTimeout( function() {
     prepareForSlideshow();
-    showRim();
-    $('#gta').fadeIn(500).attr('src','<%= asset_url("1.jpg") %>');
-    $('img.chrome-rim').fadeIn(500);
   }, 5000);
 
   setTimeout( function() {
-    $('#gta').fadeOut(1000);
-    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("2.jpg") %>');
-  }, 15000);
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("2.jpg") %>').css('z-index',10);
+  }, 14000);
 
   setTimeout( function() {
-    $('#gta2').fadeOut(1000);
-    $('#gta').fadeIn(1000).attr('src','<%= asset_url("4.jpg") %>');
-  }, 25000);
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("4.jpg") %>').css('z-index',10);
+  }, 24000);
 
   setTimeout( function() {
-    $('#gta').fadeOut(1000);
-    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("7.jpg") %>');
-  }, 35000);
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("7.jpg") %>').css('z-index',10);
+  }, 34000);
 
   setTimeout( function() {
-    $('#gta2').fadeOut(1000);
-    $('#gta').fadeIn(1000).attr('src','<%= asset_url("10.jpg") %>');
-  }, 45000);
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("10.jpg") %>').css('z-index',10);
+  }, 44000);
 
   setTimeout( function() {
-    $('#gta').fadeOut(1000);
-    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("8.png") %>');
-  }, 55000);
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("8.png") %>').css('z-index',10);
+  }, 54000);
 
   setTimeout( function() {
-    $('#gta2').fadeOut(1000);
-    $('#gta').fadeIn(1000).attr('src','<%= asset_url("5.jpg") %>');
-  }, 65000);
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("5.jpg") %>').css('z-index',10);
+  }, 64000);
 
   setTimeout( function() {
-    $('#gta').fadeOut(1000);
+    $('#gta').fadeOut(2000);
     reTurn();
-  }, 75000);
+  }, 72000);
 
 };
 
@@ -225,8 +228,10 @@ function returnFromSlideshow() {
   $('.container').css({margin: ""});
 };
 
-function showRim() {
-  $('.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top');;
+function showRim(wait) {
+  var wait = wait || 1000;
+  $('img.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top').fadeIn(wait);
+;
 };
 
 $(function() {
