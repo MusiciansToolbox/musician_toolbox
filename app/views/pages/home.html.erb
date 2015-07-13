@@ -3,8 +3,11 @@
   var audio = new Audio("<%= asset_url('gta_san_andreas_theme.mp3') %>");
 </script>
 <div class="dashboard dashboard-wrapper">
-  <%= link_to "Music", music_path, class: "dashboard-button" %>
+
   <%= link_to "Search", search_path, class: "dashboard-button" %>
+
+  <%= link_to "Jam Circle", search_path, class: "dashboard-button" %>
+
   <%= link_to "Profile", profile_path(session[:user_id]), class: "dashboard-button" %>
   <%= link_to "Likes", likes_path, class: "dashboard-button" %>
 </div>

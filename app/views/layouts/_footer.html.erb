@@ -1,14 +1,22 @@
 <footer>
   <div class="mobile-menu-simple">
 
+
+
+
     <% if session[:user_id] %>
-      <%= link_to edit_user_path(@user) do %>
-        <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+      <%= link_to root_path do %>
+      <i class="fa fa-home"></i>
+
       <% end %>
+
+
     <% else %>
-      <%= link_to "Create Account", new_user_path, class:"rails-link create-account-link" %>
+    <%= link_to "Create Account", new_user_path, class:"rails-link create-account-link" %>
     <% end %>
-    
+
+
+
   </div>
 
   <!--OLD FOOTER-->

@@ -3,13 +3,10 @@
 
   <div class="header-profile">
     <% if session[:user_id] %>
-      <%= link_to edit_user_path(@user) do %>
+      <%= link_to root_path do %>
         <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
       <% end %>
 
-      <%= link_to edit_user_path(@user) do %>
-        <span class="settings-link">Settings</span>
-       <% end %>
 
     <% else %>
       <!--stuff to show up if not logged in, in top right header -->

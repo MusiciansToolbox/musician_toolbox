@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import 'bootstrap';
 @import 'reset';
 @import 'defaults'; // defaults + shared classes
 @import 'rails-auto'; // rails generated links and messages
