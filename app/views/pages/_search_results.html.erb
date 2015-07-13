@@ -60,31 +60,34 @@
 
 <div class="dashboard-music-player">
 
-      <% if @results.blank? %>
-        <p> No Results, Sorry! </p>
-      <% else %>
+  <% if @results.blank? %>
+    <p> No Results, Sorry! </p>
+  <% else %>
 
+  <div id="wrapper">
+    <audio preload autoplay></audio>
 
-          <div id="wrapper">
-            <audio preload autoplay></audio>
+    <ol>
 
-            <ol>
+      <% @results.each do |user| %>
 
-          <% @results.each do |user| %>
-
-             <% user.clips.each do |clip| %>
-                <li class="search-results-entries">
-                    <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>'>
-                      <span class="song-title">
-                        <%= user.name %>(<%= user.zipcode %>) - 
-                        <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
-                      </span>
-                    </a>
-                  </li>
-              <% end %>
+        <% user.clips.each do |clip| %>
+          <li class="search-results-entries">
+              <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
+                <span class="song-title">
+                  <% if user.id == session[:user_id] %>
+                    You
+                  <% else %>
+                    <%= user.name %>(<%= user.zipcode %>)
+                  <% end %> -
+                  <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                </span>
+              </a>
+          </li>
         <% end %>
-          </ol>
-        </div><!--close wrapper-->
+      <% end %>
+    </ol>
+  </div><!--close wrapper-->
 
 
 <% end %>
@@ -149,6 +152,14 @@
   });
 
   $('.swipe-feedback .swipe-right').click(function() {
+
+    var clip_id = $("ol li:visible a").attr('value');
+
+    $.ajax({
+      url: "/like_clip/" + clip_id,
+      type: "POST",
+    });
+
     // TODO push into array a LIKE for this song
     var swipeRightArray = [];
 
@@ -158,6 +169,7 @@
     // is game over?
     swipedCounter = swipedCounter + 1;
     gameOver();
+
   });
 
 
@@ -179,6 +191,8 @@
         $('.swipe-feedback').css("display","none");
         $('.game-over').css("display","block");
         console.log("that's all folks! reroute user to their likes.");
+        window.location.href = "<%= root_url %>likes"
+
       }
 
   }

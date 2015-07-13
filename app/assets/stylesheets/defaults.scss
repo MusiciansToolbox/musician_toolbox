@@ -1,7 +1,18 @@
 @import 'sass';
 
-.audiojs .play {
-  background: asset_url("player_graphics.gif") -2px -1px no-repeat;
+.audiojs {
+  .play {
+    background: asset_url("player_graphics.gif") -2px -1px no-repeat;
+  }
+  .pause {
+    background: asset_url("player_graphics.gif") -2px -91px no-repeat
+  }
+  .loading {
+    background: asset_url("player_graphics.gif") -2px -31px no-repeat;
+  }
+  .error {
+    background: url("assets/player_graphics.gif") -2px -61px no-repeat;
+  }
 }
 
 // base styles using golden ratio algorithm here http://type-scale.com/

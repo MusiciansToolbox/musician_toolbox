@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :clips
   resources :users
 
+  post 'like_clip/:clip_id' => 'users#like_clip'
+  post 'reroute_to_likes_page_clip' => 'pages#reroute'
+
   # javaScript paths
   patch 'add_instrument/:instrument_id' => 'users#add_instrument'
   patch 'add_genre/:genre_id' => 'users#add_genre'
@@ -30,6 +33,6 @@ Rails.application.routes.draw do
   patch 'rm_genre/:genre_id' => 'users#rm_genre'
   patch 'rm_influence/:influence_id' => 'users#rm_influence'
 
-  patch 'pages/cheat_activated'
+  # patch 'pages/cheat_activated'
 
 end

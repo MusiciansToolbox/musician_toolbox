@@ -2,13 +2,8 @@ class PagesController < ApplicationController
   before_action :authenticate_user
   before_action :set_user, only: [:home, :search, :likes, :cheat_activated]
 
-
-  def home
-
-  end
-
-  def cheat_activated
-
+  def reroute
+    redirect_to likes_path
   end
 
   def music
@@ -35,14 +30,6 @@ class PagesController < ApplicationController
     @all_genres = Genre.all
   end
 
-  def add_influence_partial
-
-  end
-
-  def likes
-
-  end
-
   def search
     if request.get?
       @get = true
@@ -57,7 +44,9 @@ class PagesController < ApplicationController
   end
 
   def user_search
-    params.require(:user_search).permit(:zipcode, :genre_id, :instrument_id, :default_search, :searcher_id)
+    params.require(:user_search).permit(:zipcode, :genre_id,
+      :instrument_id, :default_search, :searcher_id, :radius
+    )
   end
 
 

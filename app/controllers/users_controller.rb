@@ -88,26 +88,35 @@ class UsersController < ApplicationController
 
   def rm_instrument
     u = User.find( session[:user_id] )
-    u.instruments.delete(Instrument.find(params[:instrument_id]))
+    u.instruments.destroy(Instrument.find(params[:instrument_id]))
     @user_instruments = u.instruments
     render 'add_instrument.js.erb'
   end
 
   def rm_genre
     u = User.find( session[:user_id] )
-    u.genres.delete(Genre.find(params[:genre_id]))
+    u.genres.destroy(Genre.find(params[:genre_id]))
     @user_genres = u.genres
     render 'add_genre.js.erb'
   end
 
   def rm_influence
     u = User.find( session[:user_id] )
-    u.influences.delete(Influence.find(params[:influence_id]))
+    u.influences.destroy(Influence.find(params[:influence_id]))
     @user_influences = u.influences
     render 'add_influence.js.erb'
   end
 
-
+  def like_clip
+    @user = User.find( session[:user_id] )
+    clip_id = params[:clip_id]
+    if request.post?
+      @user.likes.new(user_id: @user.id, clip_id: clip_id)
+      @user.save
+    elsif request.delete?
+      Like.destroy( (Like.where( user_id: user.id, clip_id: params[:clip_id] ))[0].id )
+    end
+  end
 
   private
     def set_user
