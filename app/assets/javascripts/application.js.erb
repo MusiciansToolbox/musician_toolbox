@@ -137,8 +137,11 @@ function disableButton() {
 
 function gtaNostalgia() {
   setTimeout( function() {
-    cheat_activated.play();
-    $('.cheat-box').fadeIn(50).delay(5000).fadeOut(500);
+    $('.cheat-box').fadeIn(50).delay(4500).fadeOut(400);
+  }, 100);
+
+  setTimeout( function() {
+    cheat_activated.play(); // 50 ms delay before sound plays
   }, 200);
 
 
