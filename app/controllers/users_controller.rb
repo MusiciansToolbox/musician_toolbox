@@ -111,10 +111,10 @@ class UsersController < ApplicationController
     @user = User.find( session[:user_id] )
     clip_id = params[:clip_id]
     if request.post?
-      @user.likes.new(user_id: @user.id, clip_id: clip_id, positive: true)
+      @user.opinions.new(user_id: @user.id, clip_id: clip_id, positive: true)
       @user.save
     elsif request.delete?
-      Like.destroy( (Like.where( user_id: user.id, clip_id: params[:clip_id] ))[0].id )
+      Opinion.destroy( (Opinion.where( user_id: user.id, clip_id: params[:clip_id] ))[0].id )
     end
   end
 
@@ -122,10 +122,10 @@ class UsersController < ApplicationController
     @user = User.find( session[:user_id] )
     clip_id = params[:clip_id]
     if request.post?
-      @user.likes.new(user_id: @user.id, clip_id: clip_id, positive: false)
+      @user.opinions.new(user_id: @user.id, clip_id: clip_id, positive: false)
       @user.save
     elsif request.delete?
-      Like.destroy( (Like.where( user_id: user.id, clip_id: params[:clip_id] ))[0].id )
+      Opinion.destroy( (Opinion.where( user_id: user.id, clip_id: params[:clip_id] ))[0].id )
     end
   end
 
