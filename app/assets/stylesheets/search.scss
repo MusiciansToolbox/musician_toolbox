@@ -37,34 +37,40 @@
         .swipe-feedback {
           text-align:center;
           padding:0 10px;
+
+                .fa-music {
+                  padding-top:0px;
+                  cursor: pointer;
+                  padding:.75em 1em 1em 1em;
+                }
+
+                a {
+                  background:rgba(0,0,0,.5);
+                  text-decoration:none;
+                  font-size:1.8em;
+                }
+
         }
 
-        .swipe-feedback a {
-          background:rgba(0,0,0,.5);
-          text-decoration:none;
-          font-size:1.8em;
-        }
 
 
         .swipe-left {
           float:left;
           text-align:center;
-          padding:50px;
+          padding:30px;
         }
 
         .swipe-right {
           float:right;
           text-align:center;
-          padding:50px;
+          padding:30px;
         }
 
-
-
-
-        .link-to-go-back {
+      .link-to-go-back {
           float:none;
           text-align: center;
           padding:50px 0 0 0;
+          @include mobile {display:none;}
         }
 
 }
