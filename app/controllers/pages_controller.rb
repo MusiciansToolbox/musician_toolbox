@@ -2,10 +2,6 @@ class PagesController < ApplicationController
   before_action :authenticate_user
   before_action :set_user, only: [:home, :search, :likes, :cheat_activated]
 
-  def reroute
-    redirect_to likes_path
-  end
-
   def music
     @user = User.find_by_id(session[:user_id])
   end
@@ -20,8 +16,7 @@ class PagesController < ApplicationController
     @user_instruments = @user.instruments
     @user_influences = @user.influences
     @clips = Clip.where(user_id: @user.id)
-    @clip = Clip.new	
-
+    @clip = Clip.new
   end
 
   def add_instrument_partial
