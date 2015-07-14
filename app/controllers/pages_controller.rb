@@ -31,9 +31,9 @@ class PagesController < ApplicationController
     if request.get?
       @get = true
       default_search = UserSearch.where(searcher_id: session[:user_id]).where(default_search: true).order(:created_at).last
-      default_search.default_search = false
       p default_search
       if default_search
+        default_search.default_search = false
         @search = default_search
       else
         @search = UserSearch.new()
