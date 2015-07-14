@@ -1,26 +1,29 @@
 
+
 <script>
+// either need to have a new one appear
+// or get revert to work
+// which likely meeans not using the stop function
+// since stop always runs after revert which means I can't use it to calculate the position!
+
 $(function() {
   $("#draggableIcon").draggable({
         axis: 'x',
-        stop: function(event, ui) {
+        revert: true,
+        drag: function(event, ui) {
              var pos = ui.helper.position(); // just get pos.top and pos.left
              if (pos.left < 50) {
                console.log ('LEFT SWIPE');
-               $("#draggableIcon").css("color","red").fadeOut(1200);
+              // $("#draggableIcon").clone().prependTo('.swipe-feedback');
+              // $("#draggableIcon").css("color","red").fadeOut(1200);
                $('.swipe-feedback .swipe-left').click();
-              // either need to have a new one appear
-              // or get revert to work
-              // which likely meeans not using the stop function
-              // since stop always runs after revert which means I can't use it to calculate the position! 
 
               }
 
              else if (pos.left > 200) {
                console.log ('RIGHT SWIPE');
                $('.swipe-feedback .swipe-right').click();
-
-               $("#draggableIcon").css("color","green").fadeOut(1200);
+               //$("#draggableIcon").css("color","green").fadeOut(1200);
               }
 
             else {
