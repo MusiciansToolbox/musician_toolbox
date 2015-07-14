@@ -38,12 +38,13 @@
           <% @user.opinions.each do |opinion| %>
             <% if opinion.positive == true %>
               <li>
-                <%= opinion.clip.user.email %> -
+                <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
+                <%= opinion.clip.user.name %> -
                 <%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %>
                 <%= opinion.clip.instrument ? "- " + opinion.clip.instrument.name : () %>
                 <%= opinion.clip.genre ? "- " + opinion.clip.genre : () %>
-                <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
                 </a>
+                <button><%= link_to 'Profile', user_path(opinion.clip.user.id), method: 'get' %></button>
               </li>
             <% end %>
           <% end %>
