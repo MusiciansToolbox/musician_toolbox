@@ -219,3 +219,72 @@ form {
     }
   }
 }
+
+
+
+
+
+// likes page - these may later go into their scss stylesheet
+.likes-page-music-player {
+
+        .likes-profile-button {
+          float:right;
+          top:-15px;
+          position:relative;
+          background:#000;
+          color:#fff;
+          font-size:.8em;
+        }
+
+
+        .likes-page-song-titles {
+          text-align: left;
+
+                li {
+                  text-align:left;
+                  padding-left:0;
+                  margin-left:0;
+                }
+
+                a {
+                  position:relative;
+                  left:-35px;
+                }
+        }
+}
+
+
+.liked-profile {
+
+  h2 {
+      padding:10px;
+      margin:10px auto;
+      text-align: center;
+      display:block;
+    }
+
+
+  h3 {
+    padding:0 0 0 0;
+    margin:0 auto;
+    text-align: center;
+    display:block;
+  }
+
+  .profile-pic {
+    text-align:center;
+    margin:20px auto;
+    display:block;
+    max-width:400px;
+    height:auto;
+  }
+
+  .link-to-go-back {
+    text-align:center;
+    float:none;
+    padding:10px 0;
+
+  }
+
+
+}

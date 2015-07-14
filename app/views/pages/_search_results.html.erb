@@ -82,18 +82,19 @@
   </div><!--close dashboard music player-->
 
   <div class="swipe-feedback">
+
+    <i class="fa fa-music"></i>
+
     <a href="#" class="swipe-left">No<a/>
     <a href="#" class="swipe-right">Yes</a>
 
     <div style="clear:both;"><!-- clear floats--></div>
     </div>
+
+
+
   </div>
 
-  <div class="game-over" style="display:none;">
-    now we need to figure out what to do with user once they've gone through results IE <br />
-    - autoroute them to LIKES page
-    - show them the contact info of all their likes, etc
-  </div>
 
 <% end %>
 
@@ -176,7 +177,6 @@
       var totalToGoThrough = $('.search-results-entries').length;
       if (swipedCounter === totalToGoThrough) {
         $('.swipe-feedback').css("display","none");
-        $('.game-over').css("display","block");
         console.log("that's all folks! reroute user to their likes.");
         window.location.href = "<%= root_url %>likes"
 

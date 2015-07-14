@@ -1,42 +1,68 @@
-<div class="content-wrapper">
-  <h2><%= @user.name %></h2>
+<div class="content-wrapper liked-profile">
+  <h2>Contact <%= @user.name %>:</h2>
   <span class="users-data">
-    <p>
-      <strong>Email:</strong>
+
+
+    <h3>
       <%= @user.email %>
-    </p>
+    </h3>
+
+
+    <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+
+
+
+
+
+<!--
+    <h2>Influences</h2>
     <p>
-      <strong>Influences:</strong>
       <% @user.influences.each do |i| %>
-      <p><%= i.name %></p>
-      <% end %>
+       <%= i.name  %>
+       <% end %>
     </p>
+-->
+
+
+
+<!--
+    <h2>Zipcode</h2>
     <p>
-      <strong>Description:</strong>
-      <%= @user.description %>
-    </p>
-    <p>
-      <strong>Zipcode:</strong>
       <%= @user.zipcode %>
     </p>
-    <p>
-      Clips:
-      <% @user.clips.each do |i| %>
-      <a href="<%= i.uploaded_file %>"><%= i.title %></a>
-      <% end %>
-    </p>
-    <p>
-      Instruments:
+-->
+
+
+<!--
+    <h2>Clips:</h2>
+    <% @user.clips.each do |i| %>
+    <a href="<%= i.uploaded_file %>" class:"preferences-label"><%= i.title %></a>
+    <% end %>
+
+
+      <h2>Instruments</h2>
+      <p>
       <% @user.instruments.each do |i| %>
-      <p><%= i.name %></p>
+      <%= i.name %>
       <% end %>
     </p>
+
+
+
+    <h2> Genres</h2>
     <p>
-      Genres:
       <% @user.genres.map do |i| %>
-      <p><%= i.name %></p>
-      <% end %>
+      <%= i.name %>
+        <% end %>
     </p>
+-->
+
+    <h2>Description</h2>
+    <p>
+      <%= @user.description %>
+    </p>
+
+
   </span>
   <%= link_to 'Back', likes_path, class:"link-to-go-back" %>
 </div>
