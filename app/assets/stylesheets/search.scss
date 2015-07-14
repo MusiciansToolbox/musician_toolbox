@@ -3,14 +3,42 @@
 .search-content {
 
 
-        .search-results-entries {
-          display:none;
+
+        form {
+          input {
+            margin-bottom:20px;
+          }
+          select {
+            width:100%;
+            margin-bottom:20px;
+          }
+
+          label {
+            display:inline-block;
+          }
+
+          #user_search_default_search {
+            display:inline-block;
+          }
+          input[type="checkbox"] {
+            display:inline-block;
+             width:30px;
+           }
+
         }
 
+
+        .search-results-entries {
+          display:none; // displayed one by one via javascript
+        }
+
+
+         // swipe
         .swipe-feedback {
           text-align:center;
           padding:0 10px;
         }
+
         .swipe-feedback a {
           background:rgba(0,0,0,.5);
           text-decoration:none;

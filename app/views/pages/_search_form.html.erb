@@ -1,11 +1,12 @@
 <%= form_for search, url: search_path(search), method: :post do |f| %>
   <div>
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode, value: @user.zipcode%>
+
+      <%= f.label :zipcode, "Zip Code" %>
+    <%= f.text_field :zipcode, value: @user.zipcode, placeholder:"Zipcode" %>
   </div>
   <div>
-    <%= f.label :radius %>
-    <%= f.number_field :radius, max: 50 %>
+    <%= f.label :radius, "Radius (in miles)" %> 
+    <%= f.number_field :radius, max: 50, placeholder:"25" %>
   </div>
   <div>
     <%= f.label :instrument %>
@@ -20,6 +21,6 @@
     <%= f.check_box :default_search %>
   </div>
   <div>
-    <%= f.submit id: "search-form-submit" %>
+    <%= f.submit "Submit", id: "search-form-submit" %>
   </div>
 <% end %>
