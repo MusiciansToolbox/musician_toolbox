@@ -1,13 +1,10 @@
 <!--jquery ui and jquery mobile links for accordion -->
-<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
--->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
--->
+
 <script>
   $(function() {
-    $("#accordion").accordion({ header: "h3", collapsible: true, active: false });
+    $("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
   });
   </script>
 
@@ -23,6 +20,8 @@
 
 
         <div>
+
+
           <span class="settings-header">My Instruments</span>
           <div id='instruments-container'>
             <%= render 'pages/user_instruments' %>
@@ -54,19 +53,40 @@
 
 
 
-        <!--NEW SECTION-->
-        <h3>Account Settings</h3>
-        <div>
-          <%= render 'users/form' %>
-        </div>
 
 
 
         <!--NEW SECTION-->
         <h3>Your Music</h3>
         <div>
-         This content is breaking. I copied over the content from the music player page and it gives an error starting with the @clip code. Should it be made into a partial or something?
-       </div>
+          <% if @clips.any? %>
+
+            <div class="dashboard-music-player">
+              <div id="wrapper">
+                <audio preload></audio>
+                <ol>
+                  <% @clips.each do |clip| %>
+                    <li>
+                      <a href="#" data-src='<%= clip.uploaded_file %>'>
+                        <span class="song-title">
+                          <%= clip.title ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                        </span>
+                      </a>
+                    </li>
+                  <% end %>
+                </ol>
+              </div>
+            </div>
+
+          <% else %>
+            <center>
+              <div>
+                You do not have any audio clips! <br />
+                Upload some, quick!
+              </div>
+            </center>
+          <% end %>
+</div>
 
 
 
@@ -74,13 +94,111 @@
           <!---NEW SECTION--->
           <h3>Upload Music</h3>
           <div>
-              This content is breaking. I copied over the content from the upload new clip page and it gives an error starting with: <br />
-              form_for @clip, url: clips_create_path, html: { multipart: true } do |f|
-              <br /><br />
-              Should it be made into a partial or something?
+
+
+
+            <div class="upload-wrapper">
+              <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
+              <% if @clip.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@clip.errors.count, "error") %>
+                  prohibited this activity from being saved:</h2>
+                <ul>
+                  <% @clip.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+              <% end %>
+
+              <%= f.hidden_field :user_id, :value => session[:user_id] %>
+
+
+              <span class="upload-form">
+
+                <%= f.text_field :title, placeholder: 'Title' %>
+
+                <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+
+                <label class="fileContainer">
+
+                  Click To Upload Clip
+
+                  <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
+
+                </label>
+
+                <%= submit_tag 'Submit', class: "submit-clip" %>
+
+                <center style="display: none;">
+
+                  <i class="fa fa-spinner fa-pulse"></i>
+
+                </center>
+
+              </span>
+
+              <a class="upload-help" href="#">help</a>
+
+              <% end %>
+
+
+
+
+
+
+
           </div>
+
+
+
+
+
 
 
 </div><!--CLOSE ACCORDION-->
 
 </div><!--CLOSE WRAPPER-->
+
+
+
+
+
+
+
+
+
+
+
+<% if @clips.any? %>
+  <script>
+    $ (function () {
+    // Setup the player to autoplay the next track
+      var a = audiojs.createAll({
+        trackEnded: function () {
+          var next = $('ol li.playing').next();
+          if (!next.length)
+            next = $('ol li').first();
+          next.addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', next).attr('data-src'));
+          audio.play();
+        }
+      });
+
+    // Load in the first track
+      var audio = a[0];
+      first = $('ol a').attr('data-src');
+      $('ol li').first().addClass('playing');
+      audio.load(first);
+
+    // Load in a track on click
+      $('ol li').click(function (e) {
+        e.preventDefault();
+        $(this).addClass('playing').siblings().removeClass('playing');
+        audio.load($('a', this).attr('data-src'));
+        audio.play();
+      });
+
+    });
+  </script>
+<% end %>
