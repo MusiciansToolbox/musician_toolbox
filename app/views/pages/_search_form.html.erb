@@ -1,26 +1,25 @@
-
-  <%= form_for search, url: search_path(search), method: :post do |f| %>
-    <div>
-      <%= f.label :zipcode %>
-      <%= f.text_field :zipcode, value: @user.zipcode%>
-    </div>
-    <div>
-      <%= f.label :radius %>
-      <%= f.select :radius, (1..50).select{|x| x%5 == 0 } %>
-    </div>
-    <div>
-      <%= f.label :instrument %>
-      <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true%>
-    </div>
-    <div>
-      <%= f.label :genre %>
-      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
-    </div>
-    <div>
-      <%= f.label :default_search %>
-      <%= f.check_box :default_search %>
-    </div>
-    <div>
-      <%= f.submit id: "search-form-submit" %>
-    </div>
-  <% end %>
+<%= form_for search, url: search_path(search), method: :post do |f| %>
+  <div>
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode, value: @user.zipcode%>
+  </div>
+  <div>
+    <%= f.label :radius %>
+    <%= f.number_field :radius, max: 50 %>
+  </div>
+  <div>
+    <%= f.label :instrument %>
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true%>
+  </div>
+  <div>
+    <%= f.label :genre %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
+  </div>
+  <div>
+    <%= f.label :default_search, "Save this search as default?" %>
+    <%= f.check_box :default_search %>
+  </div>
+  <div>
+    <%= f.submit id: "search-form-submit" %>
+  </div>
+<% end %>
