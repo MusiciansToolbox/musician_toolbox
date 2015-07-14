@@ -29,34 +29,7 @@
   });
 </script>
 
-<style type="text/css">
-  .search-results-entries {
-    display:none;
-  }
 
-  .swipe-feedback {
-    text-align:center;
-    padding:0 10px;
-  }
-  .swipe-feedback a {
-    background:rgba(0,0,0,.5);
-    text-decoration:none;
-    font-size:1.8em;
-  }
-
-
-  .swipe-left {
-    float:left;
-    text-align:center;
-    padding:50px;
-  }
-
-  .swipe-right {
-    float:right;
-    text-align:center;
-    padding:50px;
-  }
-</style>
 
 
 <% if @results.blank? %>
@@ -128,8 +101,6 @@
       type: "POST",
     });
 
-    // TODO push into array an UNLIKE for this song
-    var swipeLeftArray = [];
 
     // ALSO DO THESE:
     // 1 play next song, hide the old one
@@ -148,8 +119,6 @@
       type: "POST",
     });
 
-    // TODO push into array a LIKE for this song
-    var swipeRightArray = [];
 
     // ALSO DO THESE:
     // 1 play next song, hide the old one

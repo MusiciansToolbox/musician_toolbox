@@ -37,25 +37,30 @@
         .swipe-feedback {
           text-align:center;
           padding:0 10px;
+          .fa-music{
+            padding-top:25px;
+          }
+
+          a {
+            background:rgba(0,0,0,.5);
+            text-decoration:none;
+            font-size:1.8em;
+          }
+
         }
 
-        .swipe-feedback a {
-          background:rgba(0,0,0,.5);
-          text-decoration:none;
-          font-size:1.8em;
-        }
 
 
         .swipe-left {
           float:left;
           text-align:center;
-          padding:50px;
+          padding:30px;
         }
 
         .swipe-right {
           float:right;
           text-align:center;
-          padding:50px;
+          padding:30px;
         }
 
 
