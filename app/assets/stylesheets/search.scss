@@ -1,29 +1,42 @@
 @import 'sass';
 
-
-.search-results-entries {
-  display:none;
-}
-
-.swipe-feedback {
-  text-align:center;
-  padding:0 10px;
-}
-.swipe-feedback a {
-  background:rgba(0,0,0,.5);
-  text-decoration:none;
-  font-size:1.8em;
-}
+.search-content {
 
 
-.swipe-left {
-  float:left;
-  text-align:center;
-  padding:50px;
-}
+        .search-results-entries {
+          display:none;
+        }
 
-.swipe-right {
-  float:right;
-  text-align:center;
-  padding:50px;
+        .swipe-feedback {
+          text-align:center;
+          padding:0 10px;
+        }
+        .swipe-feedback a {
+          background:rgba(0,0,0,.5);
+          text-decoration:none;
+          font-size:1.8em;
+        }
+
+
+        .swipe-left {
+          float:left;
+          text-align:center;
+          padding:50px;
+        }
+
+        .swipe-right {
+          float:right;
+          text-align:center;
+          padding:50px;
+        }
+
+
+
+
+        .link-to-go-back {
+          float:none;
+          text-align: center;
+          padding:50px 0 0 0;
+        }
+
 }
