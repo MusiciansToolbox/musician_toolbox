@@ -1,10 +1,14 @@
 
 <% @user_instruments.each do |instrument| %>
   <% if instrument.id %>
-    <p>
+    <p class="preferences-label">
       <%= instrument.name.capitalize %>
-      <%= link_to 'destroy', "/#{instrument.id}", value: instrument.id, remote: true %>
+      <%= link_to 'X', "/#{instrument.id}", value: instrument.id, remote: true, class:"destroy-link", title:"remove" %>
     </p>
   <% end %>
 <% end %>
-<%= link_to 'Add Instrument', '/', id: 'add_partial_to_add_instrument', remote: true %>
+
+
+  <%= link_to '/', id: 'add_partial_to_add_instrument', remote: true do %>
+  <i class="fa fa-plus-circle add-icon"></i>Add Instrument
+   <% end %>

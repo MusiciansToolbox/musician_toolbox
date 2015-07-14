@@ -1,8 +1,60 @@
 @import 'sass';
 
+.preferences-label {
+  padding:.5em;
+  background:rgba(0,0,0,.5);
+  max-width:100%;
+  position: relative;
+//  color: #404040;
+
+
+  .destroy-link {
+    padding:.5em;
+    position: absolute;
+    top:0;
+    right:0;
+    font-size:.6em;
+    text-decoration: none;
+    color:#ccc;
+  }
+  + a {
+    // add instrument anchor text
+   }
+
+}
+
+
+.add-icon {
+  font-size:1.5em!important;
+  margin-left:5px!important;
+  position: relative!important;
+  top:3px!important;
+  }
+
+
+
+
+
+
+
 
 .profile-wrapper {
      margin-bottom:80px;
+
+     form { /* super hacky,for some reason 100% is making it bump out of container */
+       width:94%;
+       padding:0;
+       margin:10px;
+     }
+
+     select {
+       width:100%;
+       padding:10px; // does nothing
+       font-size:2.8em!important; // does nothing
+       height:20px;
+     }
+
+
            @include mobile {
              padding-bottom:50px;
              margin-bottom:0px;
@@ -14,7 +66,7 @@
      .settings-header {
          display: block;
          width:100%;
-         text-align: left;
+         text-align: center;
          margin: 0;
          color: #ccc;
          text-transform: uppercase;
@@ -38,13 +90,29 @@
 
     #instruments-container {
       padding:10px;
+      margin-bottom:15px;
     }
     #influences-container {
       padding: 10px;
+      margin-bottom:15px;
+
+          #influence-input{   // see inline styles for this - CSS issues
+            color: initial;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.4em;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
+                @include mobile {
+                  font-size: 1.2em;
+                }
+           }
     }
+
     #genres-container {
       padding:10px;
-      margin-bottom:10px;
+      margin-bottom:15px;
+
 
     }
 }
