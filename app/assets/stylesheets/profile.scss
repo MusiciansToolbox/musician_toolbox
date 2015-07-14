@@ -65,11 +65,19 @@
 .profile-wrapper {
      margin-bottom:80px;
 
+
      form { /* super hacky,for some reason 100% is making it bump out of container */
        width:94%;
        padding:0;
        margin:10px;
      }
+
+
+    .link-to-go-back {
+      float:none;
+      text-align: center;
+      padding:30px 0 0 0;
+    }
 
 
            @include mobile {
