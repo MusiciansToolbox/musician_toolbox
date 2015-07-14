@@ -8,8 +8,16 @@
     </h3>
 
 
-    <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
 
+    <% unless @user.profile_picture.blank? %>
+      <%= image_tag @user.profile_picture.url, class:"profile-pic-account profile-pic" %>
+    <% else %>
+      <%= image_tag "default_profile_pic.jpg", class:"profile-pic-account profile-pic" %>
+    <% end %>
+
+    <!--
+    <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
+  -->
 
 
 
