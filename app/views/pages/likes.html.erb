@@ -1,12 +1,18 @@
 <div class="content-wrapper">
   <h2>Likes Page</h2>
-  <% @user.likes.each do |like| %>
-    <div>
-      <%= like.clip.user.name %> -
-      <%= like.clip.title ? like.clip.title : like.clip.uploaded_file_file_name %>
-      <%= like.clip.instrument ? "- " + like.clip.instrument.name : () %>
-      <%= like.clip.genre ? "- " + like.clip.genre : () %>
-    </div>
+  <% if @user.opinions.count != 0%>
+    <% @user.opinions.each do |opinion| %>
+      <% if opinion.positive == true %>
+        <div>
+          <%= opinion.clip.user.name %> -
+          <%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %>
+          <%= opinion.clip.instrument ? "- " + opinion.clip.instrument.name : () %>
+          <%= opinion.clip.genre ? "- " + opinion.clip.genre : () %>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p> No Likes!  Go <%= link_to 'Search', search_path %> for musicians! </p>
   <% end %>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
 </div>

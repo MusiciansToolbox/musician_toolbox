@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713074751) do
+ActiveRecord::Schema.define(version: 20150713180941) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -66,15 +66,13 @@ ActiveRecord::Schema.define(version: 20150713074751) do
   add_index "instruments_users", ["instrument_id"], name: "index_instruments_users_on_instrument_id"
   add_index "instruments_users", ["user_id"], name: "index_instruments_users_on_user_id"
 
-  create_table "likes", force: :cascade do |t|
+  create_table "opinions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "clip_id"
+    t.boolean  "positive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "likes", ["clip_id"], name: "index_likes_on_clip_id"
-  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "user_searches", force: :cascade do |t|
     t.integer  "searcher_id"
@@ -82,7 +80,6 @@ ActiveRecord::Schema.define(version: 20150713074751) do
     t.boolean  "default_search"
     t.integer  "instrument_id"
     t.integer  "genre_id"
-    t.text     "results"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.float    "radius"

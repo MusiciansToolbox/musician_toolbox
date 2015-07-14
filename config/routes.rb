@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users
 
   post 'like_clip/:clip_id' => 'users#like_clip'
+  post 'dislike_clip/:clip_id' => 'users#dislike_clip'
   post 'reroute_to_likes_page_clip' => 'pages#reroute'
 
   # javaScript paths
