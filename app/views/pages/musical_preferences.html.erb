@@ -1,43 +1,86 @@
+<!--jquery ui and jquery mobile links for accordion -->
+<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+-->
+<script>
+  $(function() {
+    $("#accordion").accordion({ header: "h3", collapsible: true, active: false });
+  });
+  </script>
+
+
+
 <div class="content-wrapper profile-wrapper">
-  <h2>
-    Musical Preferences
-  </h2>
+  <h2> Profile </h2>
+
+  <div id="accordion" collapsible="true">
+
+        <!--NEW SECTION-->
+        <h3>Musical Preferences</h3>
 
 
+        <div>
+          <span class="settings-header">My Instruments</span>
+          <div id='instruments-container'>
+            <%= render 'pages/user_instruments' %>
+          </div>
 
+          <span class="settings-header">My Genres</span>
+          <div id='genres-container'>
+            <%= render 'pages/user_genres' %>
+          </div>
 
-        <%= link_to edit_user_path(@user) do %>
-          <span class="settings-link">Settings</span>
-         <% end %></br>
-         <%= link_to music_path(@user) do %>
-           <span class="settings-link">Music</span>
+          <span class="settings-header">My Influences</span>
+          <div id='influences-container'>
+            <%= render 'pages/user_influences' %>
+          </div>
+
+          <span class="settings-header">Description</span>
+
+          <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
+            <div class="field">
+              <%= f.text_area :description, placeholder: "About me" %>
+            </div>
+            <div class="field">
+              <%= f.submit :Save %>
+            </div>
           <% end %>
 
+        </div>
 
-  <span class="settings-header">My Instruments</span>
-  <div id='instruments-container'>
-    <%= render 'pages/user_instruments' %>
-  </div>
 
-  <span class="settings-header">My Genres</span>
-  <div id='genres-container'>
-    <%= render 'pages/user_genres' %>
-  </div>
 
-  <span class="settings-header">My Influences</span>
-  <div id='influences-container'>
-    <%= render 'pages/user_influences' %>
-  </div>
+        <!--NEW SECTION-->
+        <h3>Account Settings</h3>
+        <div>
+          <%= render 'users/form' %>
+        </div>
 
-  <span class="settings-header">Description</span>
 
-  <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
-    <div class="field">
-      <%= f.text_area :description, placeholder: "About me" %>
-    </div>
-    <div class="field">
-      <%= f.submit :Save %>
-    </div>
-  <% end %>
 
-</div>
+        <!--NEW SECTION-->
+        <h3>Your Music</h3>
+        <div>
+         This content is breaking. I copied over the content from the music player page and it gives an error starting with the @clip code. Should it be made into a partial or something?
+       </div>
+
+
+
+
+
+          <!---NEW SECTION--->
+          <h3>Upload Music</h3>
+          <div>
+              This content is breaking. I copied over the content from the upload new clip page and it gives an error starting with: <br />
+              form_for @clip, url: clips_create_path, html: { multipart: true } do |f|
+              <br /><br />
+              Should it be made into a partial or something?
+          </div>
+
+
+</div><!--CLOSE ACCORDION-->
+
+</div><!--CLOSE WRAPPER-->
