@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Jam Circles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Open</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jam_circles.each do |jam_circle| %>
+      <tr>
+        <td><%= jam_circle.user %></td>
+        <td><%= jam_circle.name %></td>
+        <td><%= jam_circle.description %></td>
+        <td><%= jam_circle.open %></td>
+        <td><%= link_to 'Show', jam_circle %></td>
+        <td><%= link_to 'Edit', edit_jam_circle_path(jam_circle) %></td>
+        <td><%= link_to 'Destroy', jam_circle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jam circle', new_jam_circle_path %>

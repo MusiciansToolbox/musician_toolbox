@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713074751) do
+ActiveRecord::Schema.define(version: 20150713190737) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 20150713074751) do
     t.datetime "uploaded_file_updated_at"
     t.string   "genre"
     t.string   "title"
+    t.integer  "jam_circle_id"
+    t.integer  "previous_clip_id"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"
+  add_index "clips", ["jam_circle_id"], name: "index_clips_on_jam_circle_id"
   add_index "clips", ["user_id"], name: "index_clips_on_user_id"
 
   create_table "genres", force: :cascade do |t|
@@ -65,6 +68,18 @@ ActiveRecord::Schema.define(version: 20150713074751) do
 
   add_index "instruments_users", ["instrument_id"], name: "index_instruments_users_on_instrument_id"
   add_index "instruments_users", ["user_id"], name: "index_instruments_users_on_user_id"
+
+  create_table "jam_circles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "public"
+    t.boolean  "open"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "jam_circles", ["user_id"], name: "index_jam_circles_on_user_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
