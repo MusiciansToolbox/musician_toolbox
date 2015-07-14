@@ -68,7 +68,13 @@
     </div>
 
   <% else %>
-    <p> No Likes!  Go <%= link_to 'Search', search_path %> for musicians! </p>
+
+  <div class="dashboard-music-player">
+    <p> No Likes yet! <br /><br />
+       Go <%= link_to 'Search', search_path %> for musicians <br />
+       to change this! </p>
+  </div>
+
   <% end %>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
 </div>
