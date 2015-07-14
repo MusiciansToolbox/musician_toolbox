@@ -8,7 +8,6 @@ class PagesController < ApplicationController
 
   def music
     @user = User.find_by_id(session[:user_id])
-    @clips = Clip.where(user_id: @user.id)
   end
 
   def new_file
@@ -20,6 +19,7 @@ class PagesController < ApplicationController
     @user_genres = @user.genres
     @user_instruments = @user.instruments
     @user_influences = @user.influences
+
   end
 
   def add_instrument_partial
