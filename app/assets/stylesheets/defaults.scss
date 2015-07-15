@@ -299,9 +299,18 @@ form {
 // parsley
 .parsley-errors-list li {
   padding-bottom:20px;
+  line-height:20px;
 }
 .parsley-success {
   color: #000!important;
   background-color: #fff!important;
   border: 0px solid #D6E9C6!important;
+}
+
+#userForm, #loginForm {
+  .parsley-errors-list li {
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+
 }
