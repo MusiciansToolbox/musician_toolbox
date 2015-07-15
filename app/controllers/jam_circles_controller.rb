@@ -70,11 +70,10 @@ class JamCirclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jam_circle_params
-      params.require(:jam_circle).permit(:user_id, :name, :description, :open)
+      params.require(:jam_circle).permit( :user_id, :name, :description, :open )
     end
 
     def set_user
       @user = User.find(session[:user_id])
-
     end
 end
