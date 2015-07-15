@@ -1,3 +1,95 @@
+
+
+<script>
+// either need to have a new one appear
+// or get revert to work
+// which likely meeans not using the stop function
+// since stop always runs after revert which means I can't use it to calculate the position!
+
+$(function() {
+  $("#draggableIcon").draggable({
+        axis: 'x',
+        revert: true,
+        drag: function(event, ui) {
+             var pos = ui.helper.position(); // just get pos.top and pos.left
+             if (pos.left < 50) {
+               console.log ('LEFT SWIPE');
+              // $("#draggableIcon").clone().prependTo('.swipe-feedback');
+              // $("#draggableIcon").css("color","red").fadeOut(1200);
+               $('.swipe-feedback .swipe-left').click();
+
+              }
+
+             else if (pos.left > 200) {
+               console.log ('RIGHT SWIPE');
+               $('.swipe-feedback .swipe-right').click();
+               //$("#draggableIcon").css("color","green").fadeOut(1200);
+              }
+
+            else {
+              console.log('motherfucker');
+            }
+             console.log("left: " + pos.left);
+             console.log("top: " + pos.top);
+         },
+  });
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+/*
+$(function() {
+
+
+  var x1=x2=y1=y2=0;
+
+  $("#draggableIcon").draggable({
+      revert: true,
+      revertDuration: 100,
+      axis: 'x',
+      drag: function (e, ui){
+          y2 = ui.position.top;
+          x2 = ui.position.left;
+          if(x2 > 100){ // RIGHT
+            console.log('right swipe');
+            $('.swipe-feedback .swipe-right').click();
+            break;
+
+        }
+
+          if(x2 < -100){ // LEFT
+            console.log("left swipe");
+            $('.swipe-feedback .swipe-left').click();
+            break;
+
+          }
+
+      },
+      start: function(e, ui) {
+          y1 = ui.position.top;
+          x1 = ui.position.left;
+
+      },
+      stop: function(e, ui) {
+
+      }
+  });
+
+});
+*/
+
+  </script>
+
 <script>
   $ (function () {
   // Setup the player to autoplay the next track
@@ -29,39 +121,19 @@
   });
 </script>
 
-<style type="text/css">
-  .search-results-entries {
-    display:none;
-  }
-
-  .swipe-feedback {
-    text-align:center;
-    padding:0 10px;
-  }
-  .swipe-feedback a {
-    background:rgba(0,0,0,.5);
-    text-decoration:none;
-    font-size:1.8em;
-  }
 
 
-  .swipe-left {
-    float:left;
-    text-align:center;
-    padding:50px;
-  }
+<<<<<<< HEAD
 
-  .swipe-right {
-    float:right;
-    text-align:center;
-    padding:50px;
-  }
-</style>
-
+=======
+>>>>>>> master
 
 <% if @results.blank? %>
+
+  <div class="dashboard-music-player">
+    <br /><br />
   <p> No Results, Sorry! </p>
-  <%= link_to "Back", search_path %>
+</div>
 <% else %>
   <div class="dashboard-music-player">
 
@@ -82,20 +154,22 @@
   </div><!--close dashboard music player-->
 
   <div class="swipe-feedback">
-    <a href="#" class="swipe-left">No<a/>
-    <a href="#" class="swipe-right">Yes</a>
 
-    <div style="clear:both;"><!-- clear floats--></div>
-    </div>
-  </div>
 
-  <div class="game-over" style="display:none;">
-    now we need to figure out what to do with user once they've gone through results IE <br />
-    - autoroute them to LIKES page
-    - show them the contact info of all their likes, etc
+        <i class="fa fa-music" id="draggableIcon"></i>
+
+      <a href="#" class="swipe-left">No<a/>
+      <a href="#" class="swipe-right">Yes</a>
+
+      <div style="clear:both;"><!-- clear floats--></div>
+      </div>
+
   </div>
 
 <% end %>
+
+
+
 
 <script>
   // global for now
@@ -110,58 +184,55 @@
   }
 
 
-
-
-
-
-
-  // testing, etc below here
+  // add songs to correct bucket
   $('.swipe-feedback .swipe-left').click(function() {
-    // select all search results entries OTHER than the visible one
-    // make them all display:none;
-    //  $('.search-results-entries:not(:visible)');
+    // on click add the current song to dislikes
     var clip_id = $("ol li:visible a").attr('value');
-
     $.ajax({
       url: "/dislike_clip/" + clip_id,
       type: "POST",
     });
+<<<<<<< HEAD
+    //  play next song, hide the old one
+=======
 
-    // TODO push into array an UNLIKE for this song
-    var swipeLeftArray = [];
 
     // ALSO DO THESE:
     // 1 play next song, hide the old one
+>>>>>>> master
     manageSongs();
-    // 2 is game over?
+    // check is game over?
     swipedCounter = swipedCounter + 1;
     gameOver();
   });
 
   $('.swipe-feedback .swipe-right').click(function() {
-
+   // on click add the current song to likes
     var clip_id = $("ol li:visible a").attr('value');
-
     $.ajax({
       url: "/like_clip/" + clip_id,
       type: "POST",
     });
+<<<<<<< HEAD
+    // play next song, hide the old one
+=======
 
-    // TODO push into array a LIKE for this song
-    var swipeRightArray = [];
 
     // ALSO DO THESE:
     // 1 play next song, hide the old one
+>>>>>>> master
     manageSongs();
-    // is game over?
+    // check is game over?
     swipedCounter = swipedCounter + 1;
     gameOver();
-
   });
 
 
 
+
+
   // FUNCTIONS
+
   // PLAY NEXT SONG & hide the previous one
   function manageSongs(){
     counter = counter + 1;
@@ -176,7 +247,6 @@
       var totalToGoThrough = $('.search-results-entries').length;
       if (swipedCounter === totalToGoThrough) {
         $('.swipe-feedback').css("display","none");
-        $('.game-over').css("display","block");
         console.log("that's all folks! reroute user to their likes.");
         window.location.href = "<%= root_url %>likes"
 

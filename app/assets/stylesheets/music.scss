@@ -49,12 +49,18 @@
     background:#000;
     color: #fff!important; /* fix later */
     font-size:1.1em;
-      }
+  }
+
   li.playing a {
     font-size:1em;
-
     color: #fff!important; /* fix later */
     }
+
+
+   li.playing .likes-profile-button  {
+     font-size:.8em; // keep button link on LIKES page the same font size even when track is playing
+     }
+
 /*  li.playing:before { content: '♬'; width: 14px; height: 14px; padding: 3px 3px 3px 10px; line-height: 18px; margin: 0px; color: #fff; font-size: 13px; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2); float:left;  }
 */
 

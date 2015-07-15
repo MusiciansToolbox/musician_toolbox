@@ -30,9 +30,14 @@ class PagesController < ApplicationController
   def search
     if request.get?
       @get = true
-      default_search = UserSearch.where(searcher_id: session[:user_id]).where(default_search: true).order(:created_at)
+      default_search = UserSearch.where(searcher_id: session[:user_id]).where(default_search: true).order(:created_at).last
       p default_search
-      @search = UserSearch.new()
+      if default_search
+        default_search.default_search = false
+        @search = default_search
+      else
+        @search = UserSearch.new()
+      end
     else
       @search = UserSearch.new(user_search)
       @search.searcher_id = session[:user_id]

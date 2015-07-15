@@ -1,5 +1,5 @@
-<div class="content-wrapper">
-  <h2>Likes Page</h2>
+<div class="content-wrapper liked-profile">
+  <h2>Music You've Liked</h2>
   <% if @user.opinions.count != 0%>
     <script>
       $ (function () {
@@ -21,6 +21,9 @@
         $('ol li').first().addClass('playing');
         audio.load(first);
 
+
+
+
       // Load in a track on click
         $('ol li').click(function (e) {
           e.preventDefault();
@@ -29,14 +32,22 @@
           audio.play();
         });
 
+
+        // prevent click on profile button inside LI from also starting audio
+        $('.likes-profile-button').click(function (e) {
+          event.stopPropagation();
+        });
+
+
       });
     </script>
     <div class="dashboard-music-player">
-      <div id="wrapper">
+      <div id="wrapper" class="likes-page-music-player">
         <audio preload></audio>
-        <ol>
+        <ol class="likes-page-song-titles">
           <% @user.opinions.each do |opinion| %>
             <% if opinion.positive == true %>
+
               <li>
                 <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
                 <%= opinion.clip.user.name %> -
@@ -44,8 +55,12 @@
                 <%= opinion.clip.instrument ? "- " + opinion.clip.instrument.name : () %>
                 <%= opinion.clip.genre ? "- " + opinion.clip.genre : () %>
                 </a>
-                <button><%= link_to 'Profile', user_path(opinion.clip.user.id), method: 'get' %></button>
-              </li>
+
+                <%= link_to 'Profile', user_path(opinion.clip.user.id), method: 'get', class:"likes-profile-button" %>
+
+             </li>
+
+
             <% end %>
           <% end %>
         </ol>
@@ -53,7 +68,13 @@
     </div>
 
   <% else %>
-    <p> No Likes!  Go <%= link_to 'Search', search_path %> for musicians! </p>
+
+  <div class="dashboard-music-player">
+    <p> No Likes yet! <br /><br />
+       Go <%= link_to 'Search', search_path %> for musicians <br />
+       to change this! </p>
+  </div>
+
   <% end %>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
 </div>

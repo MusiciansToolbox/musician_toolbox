@@ -19,7 +19,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    if @user.profile_picture.blank?
+      url = "https://s3-us-west-2.amazonaws.com/jam-connect-uploads/default-profile-pic/default_profile_pic.jpg"
+      @user.profile_picture = url
+    end
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id

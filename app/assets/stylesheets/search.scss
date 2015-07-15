@@ -1,29 +1,89 @@
 @import 'sass';
 
-
-.search-results-entries {
-  display:none;
-}
-
-.swipe-feedback {
-  text-align:center;
-  padding:0 10px;
-}
-.swipe-feedback a {
-  background:rgba(0,0,0,.5);
-  text-decoration:none;
-  font-size:1.8em;
-}
+.search-content {
 
 
-.swipe-left {
-  float:left;
-  text-align:center;
-  padding:50px;
-}
 
-.swipe-right {
-  float:right;
-  text-align:center;
-  padding:50px;
+        form {
+          input {
+            margin-bottom:20px;
+          }
+          select {
+            width:100%;
+            margin-bottom:20px;
+          }
+
+          label {
+            display:inline-block;
+          }
+
+          #user_search_default_search {
+            display:inline-block;
+          }
+          input[type="checkbox"] {
+            display:inline-block;
+             width:30px;
+           }
+
+        }
+
+
+        .search-results-entries {
+          display:none; // displayed one by one via javascript
+        }
+
+
+         // swipe
+        .swipe-feedback {
+          text-align:center;
+          padding:0 10px;
+<<<<<<< HEAD
+
+                .fa-music {
+                  padding-top:0px;
+                  cursor: pointer;
+                  padding:.75em 1em 1em 1em;
+                }
+
+                a {
+                  background:rgba(0,0,0,.5);
+                  text-decoration:none;
+                  font-size:1.8em;
+                }
+
+=======
+          .fa-music{
+            padding-top:25px;
+          }
+
+          a {
+            background:rgba(0,0,0,.5);
+            text-decoration:none;
+            font-size:1.8em;
+          }
+
+>>>>>>> master
+        }
+
+
+
+        .swipe-left {
+          float:left;
+          text-align:center;
+          padding:30px;
+        }
+
+        .swipe-right {
+          float:right;
+          text-align:center;
+          padding:30px;
+        }
+
+      .link-to-go-back {
+          float:none;
+          text-align: center;
+          padding:50px 0 0 0;
+          @include mobile {display:none;}
+        }
+
 }
