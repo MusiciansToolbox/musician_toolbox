@@ -6,7 +6,6 @@ one:
   default_search: false
   instrument_id: 1
   genre_id: 1
-  results: MyText
 
 two:
   searcher_id: 1
@@ -14,4 +13,3 @@ two:
   default_search: false
   instrument_id: 1
   genre_id: 1
-  results: MyText

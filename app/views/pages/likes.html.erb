@@ -1,12 +1,59 @@
 <div class="content-wrapper">
   <h2>Likes Page</h2>
-  <% @user.likes.each do |like| %>
-    <div>
-      <%= like.clip.user.name %> -
-      <%= like.clip.title ? like.clip.title : like.clip.uploaded_file_file_name %>
-      <%= like.clip.instrument ? "- " + like.clip.instrument.name : () %>
-      <%= like.clip.genre ? "- " + like.clip.genre : () %>
+  <% if @user.opinions.count != 0%>
+    <script>
+      $ (function () {
+      // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function () {
+            var next = $('ol li.playing').next();
+            if (!next.length)
+              next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+
+      // Load in the first track
+        var audio = a[0];
+        first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+
+      // Load in a track on click
+        $('ol li').click(function (e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+
+      });
+    </script>
+    <div class="dashboard-music-player">
+      <div id="wrapper">
+        <audio preload></audio>
+        <ol>
+          <% @user.opinions.each do |opinion| %>
+            <% if opinion.positive == true %>
+              <li>
+                <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
+                <%= opinion.clip.user.name %> -
+                <%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %>
+                <%= opinion.clip.instrument ? "- " + opinion.clip.instrument.name : () %>
+                <%= opinion.clip.genre ? "- " + opinion.clip.genre : () %>
+                </a>
+                <button><%= link_to 'Profile', user_path(opinion.clip.user.id), method: 'get' %></button>
+              </li>
+            <% end %>
+          <% end %>
+        </ol>
+      </div>
     </div>
+
+  <% else %>
+    <p> No Likes!  Go <%= link_to 'Search', search_path %> for musicians! </p>
   <% end %>
   <%= link_to 'Back', root_path, class:"link-to-go-back" %>
 </div>

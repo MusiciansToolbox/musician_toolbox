@@ -3,7 +3,7 @@ class Clip < ActiveRecord::Base
   belongs_to :instrument
   belongs_to :jam_circle
 
-  has_many :likes
+  has_many :opinions
 
   validates :uploaded_file, presence: true unless Rails.env.test?
 

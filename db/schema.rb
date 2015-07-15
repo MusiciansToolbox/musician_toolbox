@@ -91,13 +91,20 @@ ActiveRecord::Schema.define(version: 20150713190737) do
   add_index "likes", ["clip_id"], name: "index_likes_on_clip_id"
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
+  create_table "opinions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clip_id"
+    t.boolean  "positive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_searches", force: :cascade do |t|
     t.integer  "searcher_id"
     t.integer  "zipcode"
     t.boolean  "default_search"
     t.integer  "instrument_id"
     t.integer  "genre_id"
-    t.text     "results"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.float    "radius"
