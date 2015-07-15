@@ -136,15 +136,13 @@
 
       </div>
 
-    </div><hr/>
+    </div>
 <!--CLOSE ACCORDION-->
-
-    <h3>
-      <%= link_to 'Back', root_path, class:"link-to-go-back", style: "text-decoration: none; padding:0;" %>
-    </h3>
-
-  </div>
+  </div><hr/>
 <!--CLOSE WRAPPER-->
+<%= link_to root_path, class:"link-to-go-back", style: "text-decoration: none;" do %>
+  <h3 style="margin: 40px 0 30px 0;">Back</h3>
+<% end %>
 
   <% if @clips.any? %>
   <script>
