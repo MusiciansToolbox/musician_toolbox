@@ -1,20 +1,6 @@
 
 
 <script>
-// either need to have a new one appear
-// or get revert to work
-// which likely meeans not using the stop function
-// since stop always runs after revert which means I can't use it to calculate the position!
-
-
-// what if I used a loop based on the length of the array
-// IE $('.search-results-entries').length
-// to create that many draggable icons
-// each with the draggable ID on them
-// and each one hidden by default
-// but as soon as you trigger the pos.functions to left or right, it runs a function
-// that takes makes one of them visible
-
 $(function() {
 
   //1  this needs to run once to create all the hidden draggable icons
@@ -64,61 +50,9 @@ $(function() {
          },
   });
 
-
-
-
-
 });
 
-
-
-
-
-
-
-
-/*
-$(function() {
-
-
-  var x1=x2=y1=y2=0;
-
-  $("#draggableIcon").draggable({
-      revert: true,
-      revertDuration: 100,
-      axis: 'x',
-      drag: function (e, ui){
-          y2 = ui.position.top;
-          x2 = ui.position.left;
-          if(x2 > 100){ // RIGHT
-            console.log('right swipe');
-            $('.swipe-feedback .swipe-right').click();
-            break;
-
-        }
-
-          if(x2 < -100){ // LEFT
-            console.log("left swipe");
-            $('.swipe-feedback .swipe-left').click();
-            break;
-
-          }
-
-      },
-      start: function(e, ui) {
-          y1 = ui.position.top;
-          x1 = ui.position.left;
-
-      },
-      stop: function(e, ui) {
-
-      }
-  });
-
-});
-*/
-
-  </script>
+</script>
 
 <script>
   $ (function () {
@@ -150,9 +84,6 @@ $(function() {
 
   });
 </script>
-
-
-
 
 
 <% if @results.blank? %>
@@ -219,6 +150,7 @@ $(function() {
       url: "/dislike_clip/" + clip_id,
       type: "POST",
     });
+
     manageSongs();
 
 
@@ -247,6 +179,7 @@ $(function() {
           }, 300 ).animate({
             color: "#fff",
           }, 300 );
+
     manageSongs();
     // check is game over?
     swipedCounter = swipedCounter + 1;
