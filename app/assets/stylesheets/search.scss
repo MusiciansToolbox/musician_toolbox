@@ -38,29 +38,20 @@
           text-align:center;
           padding:0 10px;
 
+          position:relative;
+          margin-bottom:30px;
+
                 .fa-music {
-                  padding-top:0px;
-                  cursor: pointer;
-                  padding:.75em 1em 1em 1em;
-                }
+                  position: absolute;
+                  top:50%;
+                  left:44%;
+              }
 
                 a {
                   background:rgba(0,0,0,.5);
                   text-decoration:none;
                   font-size:1.8em;
                 }
-
-          .fa-music{
-            padding-top:25px;
-          }
-
-          a {
-            background:rgba(0,0,0,.5);
-            text-decoration:none;
-            font-size:1.8em;
-          }
-
-        }
 
 
 
@@ -82,5 +73,5 @@
           padding:50px 0 0 0;
           @include mobile {display:none;}
         }
-
+  }
 }
