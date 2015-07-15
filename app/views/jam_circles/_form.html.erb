@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -27,7 +23,45 @@
     <%= f.label :open %><br>
     <%= f.check_box :open %>
   </div>
+  <div>
+    <%= f.label :public %>
+    <%= f.check_box :public %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<hr/>
+<%= form_for(@jam_circle.clips.new) do |f| %>
+  <h2>Upload Sound Clip</h2>
+
+  <span class="upload-form">
+
+    <%= f.text_field :title, placeholder: 'Clip title' %>
+
+    <%= f.number_field :previous_clip_id, placeholder: 'ID of Previous clip' %>
+
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+
+    <label class="fileContainer">
+
+      Click To Upload Clip
+
+      <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
+
+    </label>
+
+    <%= submit_tag 'Submit', class: "submit-clip" %>
+
+    <center style="display: none;">
+
+      <i class="fa fa-spinner fa-pulse"></i>
+
+    </center>
+
+  </span>
+
+  <a class="rails-link" href="#">help</a>
+
 <% end %>
