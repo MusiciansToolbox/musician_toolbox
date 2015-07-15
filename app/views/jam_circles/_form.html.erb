@@ -1,4 +1,3 @@
-<% if @jam_circle.user.id == session[:user_id] %>
   <%= form_for(@jam_circle) do |f| %>
     <% if @jam_circle.errors.any? %>
       <div id="error_explanation">
@@ -21,27 +20,28 @@
       <%= f.label :description %><br>
       <%= f.text_area :description %>
     </div>
-    <div class="field">
-      <%= f.label :open %><br>
-      <%= f.check_box :open %>
-    </div>
     <div>
       <%= f.label :public %>
       <%= f.check_box :public %>
     </div>
+    <div>
+      <%= f.label :open %>
+      <%= f.check_box :open %>
+    </div>
+    <br/>
     <div class="actions">
       <%= f.submit %>
     </div>
   <% end %>
-<% end %>
 
 <hr/>
-<%= form_for(@jam_circle.clips.new) do |f| %>
+<%= form_for(@clip) do |f| %>
   <h2>Upload Sound Clip</h2>
 
   <span class="upload-form">
 
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
+    <%= f.hidden_field :jam_circle_id, :value => @jam_circle.id %>
 
     <%= f.text_field :title, placeholder: 'Clip title' %>
 

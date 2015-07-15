@@ -1,32 +1,49 @@
-<div class="content-wrapper">
-  <p id="notice"><%= notice %></p>
+<div class='content-wrapper'>
+  <p id='notice'><%= notice %></p>
 
   <p>
-    <strong>User:</strong>
     <%= @jam_circle.user.name.capitalize %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
+    -
     <%= @jam_circle.title %>
   </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @jam_circle.description %>
-  </p>
+  <% unless @jam_circle.description.blank? %>
+    <p>
+      <strong>Description:</strong>
+      <%= @jam_circle.description %>
+    </p>
+  <% end %>
 
   <p>
-    <strong>Public:</strong>
-    <%= @jam_circle.public %>
+    <%= @jam_circle.public ? 'Public' : 'Private' %>
+    -
+    <%= @jam_circle.open ? 'Open' : 'Closed' %>
   </p>
 
-  <p>
-    <strong>Open:</strong>
-    <%= @jam_circle.open %>
-  </p>
+  <% if @jam_circle.user.id == session[:user_id]%>
+    <%= link_to 'Edit Jam Circle', edit_jam_circle_path(@jam_circle) %>
+  <% end %>
 
-  <%= link_to 'Edit', edit_jam_circle_path(@jam_circle) %>
-  |
+  <h2>Clips</h2>
+  <% counter = 1 %>
+  <% @jam_circle.clips.each do |clip| %>
+    <p>
+      <%= counter %>. <%= clip.title ? clip.title : 'Untitled' %>
+      (id: <%= clip.id %>)
+      -
+      <% if clip.previous_clip_id %>
+        Previous clip id:
+      <% else %>
+        Original
+      <% end %>
+      -
+      <%= link_to 'Download' %>
+      -
+      <%= link_to 'Add To' %>
+
+    </p>
+    <% counter += 1 %>
+  <% end %>
+
   <%= link_to 'Back', jam_circles_path %>
 </div>

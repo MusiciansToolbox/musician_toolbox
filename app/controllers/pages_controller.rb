@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @user_genres = @user.genres
     @user_instruments = @user.instruments
     @user_influences = @user.influences
-    @clips = Clip.where(user_id: @user.id)
+    @clips = Clip.where( user_id: @user.id, jam_circle_id: nil )
     @clip = Clip.new
   end
 
