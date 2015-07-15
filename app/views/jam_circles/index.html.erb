@@ -25,8 +25,8 @@
         <td><%= jam_circle.public  %></td>
         <td><%= link_to 'Show', jam_circle %></td>
         <% if jam_circle.user == @user %>
-        <td><%= link_to 'Edit', edit_jam_circle_path(jam_circle) %></td>
-        <td><%= link_to 'Destroy', jam_circle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_jam_circle_path(jam_circle) %></td>
+          <td><%= link_to 'Destroy', jam_circle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
