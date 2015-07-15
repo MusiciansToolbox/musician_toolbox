@@ -20,6 +20,9 @@
   text-align:center;
   display: block;
   margin:0 auto;
+    @include mobile {
+      display:none;
+    }
 }
 
 .create-account-link {  // mobile login view link in footer
