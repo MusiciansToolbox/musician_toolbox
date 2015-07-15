@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @jam_circle.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @jam_circle.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @jam_circle.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @jam_circle.public %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @jam_circle.open %>
+</p>
+
+<%= link_to 'Edit', edit_jam_circle_path(@jam_circle) %> |
+<%= link_to 'Back', jam_circles_path %>

@@ -2,8 +2,6 @@
 
 one:
   name: rock
-  user_id: <%= users[:Bob].id %>
 
 two:
   name: rock
-  user_id: <%= users[:Joe].id %>
