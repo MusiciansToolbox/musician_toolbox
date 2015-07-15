@@ -1,7 +1,7 @@
 <html>
 <head><title>Some demo title</title></head>
 <body>
-<form action="/uploads" enctype="multipart/form-data" method="POST">
+<form action="/transloadits" enctype="multipart/form-data" method="POST">
   <input type="file" name="my_file" multiple="multiple" />
 </form>
 
@@ -14,7 +14,7 @@ $(function() {
     triggerUploadOnFileSelection: true,
 
     params: {
-      auth: { key: "YOUR-AUTH-KEY" },
+      auth: { key: "2f24b7202b0e11e58964e38e2b13e21e" },
       steps: {
         mp3: {
           use: ":original",

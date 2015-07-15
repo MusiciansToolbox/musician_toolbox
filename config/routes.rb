@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :transloadituploads
+  resources :transloadits
   resources :jam_circles
   resources :genres
   resources :instruments
