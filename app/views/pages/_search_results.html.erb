@@ -6,16 +6,20 @@ $(function() {
   //1  this needs to run once to create all the hidden draggable icons
   foo();
   function foo(){
+
         var foo = $('.search-results-entries').length;
+         console.log('icons foo is creating: ' + foo);
         var tempHTML = '<i class="fa fa-music draggableIcon" style="display:none;"></i>';
-              for (x = 0; x < foo; x++){
+              for (x = 0; x < 200; x++){ // creating a huge queue of icons as a hack around counter issues
                 $('.swipe-feedback').prepend(tempHTML).fadeIn(1200);
               }
-         console.log(foo);
+
   }
  //2 then another function needs to run that makes 1 visible when when disappearse
   function bar() {
-      $($('.draggableIcon')[counter]).fadeIn(1500).css("display","block");
+       console.log('counter @ bar: ' + counter);
+       $($('.draggableIcon')[counter]).fadeIn(1500).css("display","block");
+
   }
 
 
