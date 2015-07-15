@@ -34,9 +34,11 @@ class PagesController < ApplicationController
       p default_search
       if default_search
         default_search.default_search = false
+        @default_search = true
         @search = default_search
       else
         @search = UserSearch.new()
+        @default_search = false
       end
     else
       @search = UserSearch.new(user_search)

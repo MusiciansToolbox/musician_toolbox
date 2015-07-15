@@ -1,12 +1,19 @@
 <%= form_for search, url: search_path(search), method: :post do |f| %>
   <div>
-
-      <%= f.label :zipcode, "Zip Code" %>
-    <%= f.text_field :zipcode, value: @user.zipcode, placeholder:"Zipcode" %>
+    <%= f.label :zipcode, "Zip Code" %>
+    <% if @default_search == false %>
+      <%= f.text_field :zipcode, value: @user.zipcode %>
+    <% else %>
+      <%= f.text_field :zipcode %>
+    <% end %>
   </div>
   <div>
-    <%= f.label :radius, "Radius (in miles)" %> 
-    <%= f.number_field :radius, max: 50, placeholder:"25" %>
+    <%= f.label :radius, "Radius (in miles)" %>
+    <% if @default_search == false %>
+      <%= f.number_field :radius, max: 50, value: 10 %>
+    <% else %>
+      <%= f.number_field :radius %>
+    <% end %>
   </div>
   <div>
     <%= f.label :instrument %>
