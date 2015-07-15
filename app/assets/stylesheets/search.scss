@@ -37,33 +37,26 @@
         .swipe-feedback {
           text-align:center;
           padding:0 10px;
-<<<<<<< HEAD
+          position:relative;
+          margin-bottom:30px;
+
 
                 .fa-music {
-                  padding-top:0px;
+                  position: absolute;
+                  top:50%;
+                  left:44%;
+              /*    padding-top:0px;
                   cursor: pointer;
                   padding:.75em 1em 1em 1em;
-                }
+              */
+              }
 
                 a {
                   background:rgba(0,0,0,.5);
                   text-decoration:none;
                   font-size:1.8em;
                 }
-
-=======
-          .fa-music{
-            padding-top:25px;
-          }
-
-          a {
-            background:rgba(0,0,0,.5);
-            text-decoration:none;
-            font-size:1.8em;
-          }
-
->>>>>>> master
-        }
+  }
 
 
 

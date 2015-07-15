@@ -1,16 +1,16 @@
 <div class="content-wrapper liked-profile">
-  <h2>Contact <%= @user.name %>:</h2>
+  <h2>Contact <%= @other_user.name %>:</h2>
   <span class="users-data">
 
 
     <h3>
-      <%= @user.email %>
+      <%= @other_user.email %>
     </h3>
 
 
 
-    <% unless @user.profile_picture.blank? %>
-      <%= image_tag @user.profile_picture.url, class:"profile-pic-account profile-pic" %>
+    <% unless @other_user.profile_picture.blank? %>
+      <%= image_tag @other_user.profile_picture.url, class:"profile-pic-account profile-pic" %>
     <% else %>
       <%= image_tag "default_profile_pic.jpg", class:"profile-pic-account profile-pic" %>
     <% end %>
@@ -65,10 +65,14 @@
     </p>
 -->
 
+
+<% if @other_user.description %>
+
     <h2>Description</h2>
     <p>
-      <%= @user.description %>
+      <%= @other_user.description %>
     </p>
+    <% end %>
 
 
   </span>
