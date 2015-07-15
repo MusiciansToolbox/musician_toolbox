@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'parsley-rails', '~> 2.0.7.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'paperclip', '~> 4.2'
@@ -26,6 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+
+
 
 gem 'httparty'
 

@@ -1,27 +1,31 @@
+<script type="text/javascript">
+  $('#new_user_search').parsley();
+</script>
+
 <%= form_for search, url: search_path(search), method: :post do |f| %>
   <div>
     <%= f.label :zipcode, "Zip Code" %>
     <% if @default_search == false %>
-      <%= f.text_field :zipcode, value: @user.zipcode %>
+      <%= f.text_field :zipcode, value: @user.zipcode, 'data-parsley-type' => 'number', 'data-parsley-minlength' => '5', 'data-parsley-maxlength' => '5', 'data-parsley-minlength-message' =>'Zip code should be 5 digits.', 'data-parsley-type-message' => 'Zip code should only be numbers.', 'data-parsley-trigger' => 'blur' %>
     <% else %>
-      <%= f.text_field :zipcode %>
+      <%= f.text_field :zipcode, 'data-parsley-type' => 'number', 'data-parsley-minlength' => '5', 'data-parsley-maxlength' => '5', 'data-parsley-minlength-message' =>'Zip code should be 5 digits.', 'data-parsley-type-message' => 'Zip code should only be numbers.', 'data-parsley-trigger' => 'blur' %>
     <% end %>
   </div>
   <div>
     <%= f.label :radius, "Radius (in miles)" %>
     <% if @default_search == false %>
-      <%= f.number_field :radius, max: 50, value: 10 %>
+      <%= f.text_field :radius, min:1, max: 50, value: 10, 'data-parsley-type' => 'number', 'data-parsley-trigger' => 'blur' %>
     <% else %>
-      <%= f.number_field :radius %>
+      <%= f.text_field :radius, min:1, max: 50, 'data-parsley-type' => 'number', 'data-parsley-trigger' => 'blur'  %>
     <% end %>
   </div>
   <div>
     <%= f.label :instrument %>
-    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true%>
+    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true %>
   </div>
   <div>
     <%= f.label :genre %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true%>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
   </div>
   <div>
     <%= f.label :default_search, "Save this search as default?" %>
