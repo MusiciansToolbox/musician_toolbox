@@ -3,179 +3,148 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <script>
-  $(function() {
-    $("#accordion").accordion({ header: "h3", collapsible: true, active: false, heightStyle: "content" });
+  $(function () {
+    $("#accordion").accordion({
+      header: "h3",
+      collapsible: true,
+      active: false,
+      heightStyle: "content"
+    });
   });
-  </script>
+</script>
 
+<div class="content-wrapper profile-wrapper" style="padding:0;">
+  <h2>
+    Music
+  </h2>
 
+  <div collapsible="true" id="accordion">
 
-<div class="content-wrapper profile-wrapper">
-  <h2> Music </h2>
+<!--NEW SECTION-->
+    <h3>Musical Preferences</h3>
 
-  <div id="accordion" collapsible="true">
+    <div>
 
-        <!--NEW SECTION-->
-        <h3>Musical Preferences</h3>
+      <span class="settings-header">My Instruments</span>
+      <div id='instruments-container'>
+        <%= render 'pages/user_instruments' %>
+      </div>
 
+      <span class="settings-header">My Genres</span>
+      <div id='genres-container'>
+        <%= render 'pages/user_genres' %>
+      </div>
 
-        <div>
+      <span class="settings-header">My Influences</span>
+      <div id='influences-container'>
+        <%= render 'pages/user_influences' %>
+      </div>
 
+      <span class="settings-header">Description</span>
 
-          <span class="settings-header">My Instruments</span>
-          <div id='instruments-container'>
-            <%= render 'pages/user_instruments' %>
-          </div>
+      <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
+      <div class="field">
+        <%= f.text_area :description, placeholder: "About me" %>
+      </div>
+      <div class="field">
+        <%= f.submit :Save %>
+      </div>
+      <% end %>
 
-          <span class="settings-header">My Genres</span>
-          <div id='genres-container'>
-            <%= render 'pages/user_genres' %>
-          </div>
+    </div><hr/>
 
-          <span class="settings-header">My Influences</span>
-          <div id='influences-container'>
-            <%= render 'pages/user_influences' %>
-          </div>
+<!--NEW SECTION-->
+    <h3>Your Music</h3>
+    <div>
+      <% if @clips.any? %>
 
-          <span class="settings-header">Description</span>
-
-
-          <%= form_for @user, url: { action: 'update', controller: 'users' } do |f| %>
-            <div class="field">
-              <%= f.text_area :description, placeholder: "About me" %>
-            </div>
-            <div class="field">
-              <%= f.submit :Save %>
-            </div>
-          <% end %>
-
+      <div class="dashboard-music-player">
+        <div id="wrapper">
+          <audio preload></audio>
+          <ol>
+            <% @clips.each do |clip| %>
+            <li>
+              <a data-src='<%= clip.uploaded_file %>' href="#">
+                <span class="song-title">
+                  <%= clip.title ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                </span>
+              </a>
+            </li>
+            <% end %>
+          </ol>
         </div>
+      </div>
 
-
-
-
-
-
-        <!--NEW SECTION-->
-        <h3>Your Music</h3>
+      <% else %>
+      <center>
         <div>
-          <% if @clips.any? %>
+          You do not have any audio clips!
+          <br/>
+          Upload some, quick!
+        </div>
+      </center>
+      <% end %>
+    </div><hr/>
 
-            <div class="dashboard-music-player">
-              <div id="wrapper">
-                <audio preload></audio>
-                <ol>
-                  <% @clips.each do |clip| %>
-                    <li>
-                      <a href="#" data-src='<%= clip.uploaded_file %>'>
-                        <span class="song-title">
-                          <%= clip.title ? clip.title.capitalize : clip.uploaded_file_file_name %>
-                        </span>
-                      </a>
-                    </li>
-                  <% end %>
-                </ol>
-              </div>
-            </div>
+<!---NEW SECTION--->
+    <h3>Upload Music</h3>
+    <div>
 
-          <% else %>
-            <center>
-              <div>
-                You do not have any audio clips! <br />
-                Upload some, quick!
-              </div>
-            </center>
-          <% end %>
-</div>
+      <div class="upload-wrapper">
+        <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
+        <% if @clip.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@clip.errors.count, "error") %>
+            prohibited this activity from being saved:</h2>
+          <ul>
+            <% @clip.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
 
+        <%= f.hidden_field :user_id, :value => session[:user_id] %>
 
+        <span class="upload-form">
 
+          <%= f.text_field :title, placeholder: 'Title' %>
 
-          <!---NEW SECTION--->
-          <h3>Upload Music</h3>
-          <div>
+          <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
 
+          <label class="fileContainer">
 
+            Click To Upload Clip
 
-            <div class="upload-wrapper">
-              <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
-              <% if @clip.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@clip.errors.count, "error") %>
-                  prohibited this activity from being saved:</h2>
-                <ul>
-                  <% @clip.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-              <% end %>
+            <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
 
-              <%= f.hidden_field :user_id, :value => session[:user_id] %>
+          </label>
 
+          <%= submit_tag 'Submit', class: "submit-clip" %>
 
-              <span class="upload-form">
+          <center style="display: none;">
 
-                <%= f.text_field :title, placeholder: 'Title' %>
+            <i class="fa fa-spinner fa-pulse"></i>
 
-                <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+          </center>
 
-                <label class="fileContainer">
+        </span>
 
-                  Click To Upload Clip
+        <a class="upload-help" href="#">help</a>
 
-                  <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
+        <% end %>
 
-                </label>
+      </div>
 
-                <%= submit_tag 'Submit', class: "submit-clip" %>
+    </div>
+<!--CLOSE ACCORDION-->
+  </div><hr/>
+<!--CLOSE WRAPPER-->
+<%= link_to root_path, class:"link-to-go-back", style: "text-decoration: none;" do %>
+  <h3 style="margin: 40px 0 30px 0;">Back</h3>
+<% end %>
 
-                <center style="display: none;">
-
-                  <i class="fa fa-spinner fa-pulse"></i>
-
-                </center>
-
-              </span>
-
-              <a class="upload-help" href="#">help</a>
-
-              <% end %>
-
-
-
-
-
-
-
-          </div>
-
-
-
-
-
-
-
-</div><!--CLOSE ACCORDION-->
-
-
-<%= link_to 'Back', root_path, class:"link-to-go-back" %>
-
-
-
-</div><!--CLOSE WRAPPER-->
-
-
-
-
-
-
-
-
-
-
-
-<% if @clips.any? %>
+  <% if @clips.any? %>
   <script>
     $ (function () {
     // Setup the player to autoplay the next track
@@ -206,4 +175,4 @@
 
     });
   </script>
-<% end %>
+  <% end %>

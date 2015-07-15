@@ -1,3 +1,4 @@
+<div class="content-wrapper">
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Jam Circles</h1>
@@ -24,8 +25,8 @@
         <td><%= jam_circle.public  %></td>
         <td><%= link_to 'Show', jam_circle %></td>
         <% if jam_circle.user == @user %>
-        <td><%= link_to 'Edit', edit_jam_circle_path(jam_circle) %></td>
-        <td><%= link_to 'Destroy', jam_circle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_jam_circle_path(jam_circle) %></td>
+          <td><%= link_to 'Destroy', jam_circle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
@@ -35,3 +36,5 @@
 <br>
 
 <%= link_to 'New Jam Circle', new_jam_circle_path %>
+<%= link_to 'Back', root_path %>
+</div>

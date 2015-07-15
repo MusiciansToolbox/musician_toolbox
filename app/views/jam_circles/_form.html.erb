@@ -1,35 +1,38 @@
-<%= form_for(@jam_circle) do |f| %>
-  <% if @jam_circle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@jam_circle.errors.count, "error") %> prohibited this jam_circle from being saved:</h2>
+<% if @jam_circle.user.id == session[:user_id] %>
+  <%= form_for(@jam_circle) do |f| %>
+    <% if @jam_circle.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@jam_circle.errors.count, "error") %> prohibited this jam_circle from being saved:</h2>
 
-      <ul>
-      <% @jam_circle.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @jam_circle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :open %><br>
+      <%= f.check_box :open %>
+    </div>
+    <div>
+      <%= f.label :public %>
+      <%= f.check_box :public %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :open %><br>
-    <%= f.check_box :open %>
-  </div>
-  <div>
-    <%= f.label :public %>
-    <%= f.check_box :public %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
 
 <hr/>
@@ -37,6 +40,8 @@
   <h2>Upload Sound Clip</h2>
 
   <span class="upload-form">
+
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
 
     <%= f.text_field :title, placeholder: 'Clip title' %>
 
