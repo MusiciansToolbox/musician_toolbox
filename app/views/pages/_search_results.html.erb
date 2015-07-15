@@ -1,94 +1,58 @@
 
 
 <script>
-// either need to have a new one appear
-// or get revert to work
-// which likely meeans not using the stop function
-// since stop always runs after revert which means I can't use it to calculate the position!
-
 $(function() {
-  $("#draggableIcon").draggable({
+
+  //1  this needs to run once to create all the hidden draggable icons
+  foo();
+  function foo(){
+        var foo = $('.search-results-entries').length;
+        var tempHTML = '<i class="fa fa-music draggableIcon" style="display:none;"></i>';
+              for (x = 0; x < foo; x++){
+                $('.swipe-feedback').prepend(tempHTML).fadeIn(1200);
+              }
+         console.log(foo);
+  }
+ //2 then another function needs to run that makes 1 visible when when disappearse
+  function bar() {
+      $($('.draggableIcon')[counter]).fadeIn(1500).css("display","block");
+  }
+
+
+  $(".draggableIcon").draggable({
         axis: 'x',
-        revert: true,
-        drag: function(event, ui) {
+      //  revert: true,
+        stop: function(event, ui) {
              var pos = ui.helper.position(); // just get pos.top and pos.left
-             if (pos.left < 50) {
+             if (pos.left < 75) {
                console.log ('LEFT SWIPE');
-              // $("#draggableIcon").clone().prependTo('.swipe-feedback');
-              // $("#draggableIcon").css("color","red").fadeOut(1200);
+                 console.log(pos.left);
+               $(".draggableIcon:visible").css("color","red").fadeOut(1200,  function() { $(this).remove(); });
                $('.swipe-feedback .swipe-left').click();
+               bar();
 
               }
 
-             else if (pos.left > 200) {
+             else if (pos.left > 100) {
                console.log ('RIGHT SWIPE');
+               console.log(pos.left);
                $('.swipe-feedback .swipe-right').click();
-               //$("#draggableIcon").css("color","green").fadeOut(1200);
+               $(".draggableIcon:visible").css("color","green").fadeOut(1200,  function() { $(this).remove(); });
+               bar();
+
               }
 
             else {
-              console.log('motherfucker');
+              console.log(pos.left + 'no left or right swipe');
+
+
             }
-             console.log("left: " + pos.left);
-             console.log("top: " + pos.top);
          },
   });
 
-
-
-
-
 });
 
-
-
-
-
-
-
-
-/*
-$(function() {
-
-
-  var x1=x2=y1=y2=0;
-
-  $("#draggableIcon").draggable({
-      revert: true,
-      revertDuration: 100,
-      axis: 'x',
-      drag: function (e, ui){
-          y2 = ui.position.top;
-          x2 = ui.position.left;
-          if(x2 > 100){ // RIGHT
-            console.log('right swipe');
-            $('.swipe-feedback .swipe-right').click();
-            break;
-
-        }
-
-          if(x2 < -100){ // LEFT
-            console.log("left swipe");
-            $('.swipe-feedback .swipe-left').click();
-            break;
-
-          }
-
-      },
-      start: function(e, ui) {
-          y1 = ui.position.top;
-          x1 = ui.position.left;
-
-      },
-      stop: function(e, ui) {
-
-      }
-  });
-
-});
-*/
-
-  </script>
+</script>
 
 <script>
   $ (function () {
@@ -150,7 +114,7 @@ $(function() {
   <div class="swipe-feedback">
 
 
-        <i class="fa fa-music" id="draggableIcon"></i>
+        <i class="fa fa-music draggableIcon"></i>
 
       <a href="#" class="swipe-left">No<a/>
       <a href="#" class="swipe-right">Yes</a>
@@ -188,6 +152,14 @@ $(function() {
     });
 
     manageSongs();
+
+
+    $(this).animate({
+            color: "#f00",
+          }, 300 ).animate({
+            color: "#fff",
+          }, 300 );
+
     // check is game over?
     swipedCounter = swipedCounter + 1;
     gameOver();
@@ -200,6 +172,13 @@ $(function() {
       url: "/like_clip/" + clip_id,
       type: "POST",
     });
+
+
+    $(this).animate({
+            color: "green",
+          }, 300 ).animate({
+            color: "#fff",
+          }, 300 );
 
     manageSongs();
     // check is game over?

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy, :update, :edit]
+  before_action :set_other_user, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user, except: [:new, :create]
 
 
@@ -134,7 +135,11 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(session[:user_id])
+    end
+
+    def set_other_user
+      @other_user = User.find(params[:id])
     end
 
     def user_params
