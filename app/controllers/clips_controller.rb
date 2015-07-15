@@ -25,7 +25,9 @@ class ClipsController < ApplicationController
   private
 
   def clip_params
-    params.require(:clip).permit(:user_id, :instrument_id, :genre, :uploaded_file, :title)
+    params.require(:clip).permit(:user_id, :instrument_id, :genre,
+        :uploaded_file, :title, :jam_circle_id, :previous_clip_id
+    )
   end
 
   def set_user
