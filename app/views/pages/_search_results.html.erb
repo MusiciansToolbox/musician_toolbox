@@ -16,6 +16,7 @@ $(function() {
 
   }
  //2 then another function needs to run that makes 1 visible when when disappearse
+ // this is triggers on swipe event function below
   function bar() {
        console.log('counter @ bar: ' + counter);
        $($('.draggableIcon')[counter]).fadeIn(1500).css("display","block");
@@ -45,11 +46,8 @@ $(function() {
                bar();
 
               }
-
             else {
               console.log(pos.left + 'no left or right swipe');
-
-
             }
          },
   });

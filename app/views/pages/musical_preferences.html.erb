@@ -15,7 +15,7 @@
 
 <div class="content-wrapper profile-wrapper" style="padding:0;">
   <h2>
-    Music
+    Music Menu
   </h2>
 
   <div collapsible="true" id="accordion">
@@ -23,7 +23,7 @@
 <!--NEW SECTION-->
     <h3>Musical Preferences</h3>
 
-    <div>
+    <div class="accordion-content">
 
       <span class="settings-header">My Instruments</span>
       <div id='instruments-container'>
@@ -51,11 +51,11 @@
       </div>
       <% end %>
 
-    </div><hr/>
+    </div>
 
 <!--NEW SECTION-->
     <h3>Your Music</h3>
-    <div>
+    <div class="accordion-content">
       <% if @clips.any? %>
 
       <div class="dashboard-music-player">
@@ -84,11 +84,11 @@
         </div>
       </center>
       <% end %>
-    </div><hr/>
+    </div>
 
 <!---NEW SECTION--->
     <h3>Upload Music</h3>
-    <div>
+    <div class="accordion-content">
 
       <div class="upload-wrapper">
         <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
@@ -138,11 +138,13 @@
 
     </div>
 <!--CLOSE ACCORDION-->
-  </div><hr/>
+  </div>
 <!--CLOSE WRAPPER-->
-<%= link_to root_path, class:"link-to-go-back", style: "text-decoration: none;" do %>
-  <h3 style="margin: 40px 0 30px 0;">Back</h3>
-<% end %>
+
+
+<%= link_to "Back", root_path, class:"link-to-go-back" %>
+
+
 
   <% if @clips.any? %>
   <script>
