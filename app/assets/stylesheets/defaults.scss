@@ -261,7 +261,7 @@ form {
 
   h2 {
       padding:10px;
-      margin:10px auto;
+      margin:0px auto 10px auto;
       text-align: center;
       display:block;
     }
@@ -285,11 +285,8 @@ form {
     cursor:default;
   }
 
-  .link-to-go-back {
-    text-align:center;
-    float:none;
-    padding:10px 0 0 0;
-
+  .chevron-back-link {
+    padding-top:5px; // 5px hacky fix
   }
 
 
@@ -321,6 +318,22 @@ form {
 
 
 
+
+
+// chevron back link
+.chevron-back-link {
+  text-decoration:none;
+  font-size:.4em;
+  color:#ccc!important;
+  position: absolute;
+  top:0;
+  left:0;
+  padding-left:10px;
+  padding-top:10px;
+  @include mobile {
+    display:none
+  }
+}
 
 
 

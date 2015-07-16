@@ -1,4 +1,9 @@
 <div class="content-wrapper liked-profile">
+  <%= link_to root_path, class:"chevron-back-link" do %>
+      <i class="fa fa-chevron-left"></i>
+  <% end %>
+
+
   <h2>Music You've Liked</h2>
   <% if @user.opinions.count != 0%>
     <script>
@@ -76,5 +81,5 @@
   </div>
 
   <% end %>
-  <%= link_to 'Back', root_path, class:"link-to-go-back" %>
+
 </div>
