@@ -16,6 +16,7 @@ class JamCirclesController < ApplicationController
   # GET /jam_circles/new
   def new
     @jam_circle = JamCircle.new
+    @clip = Clip.new
   end
 
   # GET /jam_circles/1/edit
