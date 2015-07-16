@@ -4,13 +4,13 @@
 
 <%= form_for @user, html: { multipart: true } do |f| %>
   <div class="field">
-    <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
+    <%= f.text_field :name, autofocus: true, placeholder: "Name", class: 'form-control', 'data-parsley-required' => 'true' %>
   </div>
   <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: "Email", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-trigger' => 'blur' %>
+    <%= f.email_field :email, placeholder: "Email", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-trigger' => 'blur', 'data-parsley-required' => 'true' %>
   </div>
   <div class="field">
-    <%= f.text_field :zipcode, placeholder: "Zipcode", 'data-parsley-type' => 'number', 'data-parsley-minlength' => '5', 'data-parsley-maxlength' => '5', 'data-parsley-minlength-message' =>'Zip code should be 5 digits.', 'data-parsley-type-message' => 'Zip code should only be numbers.', 'data-parsley-trigger' => 'blur' %>
+    <%= f.text_field :zipcode, placeholder: "Zipcode", 'data-parsley-type' => 'number', 'data-parsley-minlength' => '5', 'data-parsley-maxlength' => '5', 'data-parsley-minlength-message' =>'Zip code should be 5 digits.', 'data-parsley-type-message' => 'Zip code should only be numbers.', 'data-parsley-trigger' => 'blur', 'data-parsley-required' => 'true' %>
   </div>
 
 
@@ -31,7 +31,7 @@
 
   <div class="field">
     <label>Password</label>
-    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", 'data-parsley-required' => 'true' %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>
