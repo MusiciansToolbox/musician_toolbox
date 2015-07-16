@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :transloadits
   resources :jam_circles
   resources :genres
   resources :instruments
