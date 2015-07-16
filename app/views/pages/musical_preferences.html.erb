@@ -91,6 +91,7 @@
     <div class="accordion-content">
 
       <div class="upload-wrapper">
+        <p id="notice"><%= notice %></p>
         <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
         <% if @clip.errors.any? %>
         <div id="error_explanation">
@@ -111,6 +112,10 @@
           <%= f.text_field :title, placeholder: 'Title' %>
 
           <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+
+          Do you want this to be a Demo Clip?  Demo clips must be less than 10 seconds long.
+
+          <%= f.check_box :demo %>Yes
 
           <label class="fileContainer">
 
