@@ -1,0 +1,151 @@
+
+function gtaNostalgia() {
+  setTimeout( function() {
+    $('.cheat-box').fadeIn(50).delay(4500).fadeOut(400);
+  }, 100);
+
+  setTimeout( function() {
+    cheat_activated.play(); // 50 ms delay before sound plays
+  }, 200);
+
+
+  cheat_activated.play();
+  audio.play();
+
+  dash(3500);
+
+  head(3500);
+
+  setTimeout( function() {
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("1.jpg") %>');
+    showRim();
+  }, 4000);
+
+  setTimeout( function() {
+    prepareForSlideshow();
+  }, 5000);
+
+  setTimeout( function() {
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("2.jpg") %>').css('z-index',10);
+  }, 14000);
+
+  setTimeout( function() {
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("4.jpg") %>').css('z-index',10);
+  }, 24000);
+
+  setTimeout( function() {
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("7.jpg") %>').css('z-index',10);
+  }, 34000);
+
+  setTimeout( function() {
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("10.jpg") %>').css('z-index',10);
+  }, 44000);
+
+  setTimeout( function() {
+    $('#gta').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta2').fadeIn(1000).attr('src','<%= asset_url("8.png") %>').css('z-index',10);
+  }, 54000);
+
+  setTimeout( function() {
+    $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
+    $('#gta').fadeIn(1000).attr('src','<%= asset_url("5.jpg") %>').css('z-index',10);
+  }, 64000);
+
+  setTimeout( function() {
+    $('#gta').fadeOut(3000);
+    reTurn();
+  }, 71000);
+
+};
+
+function pauseAudio() {
+  audio.pause();
+};
+
+function cheatDeactivated() {
+  $('.cheat-box').show(100).delay(6500).fadeOut(90);
+  $('.cheat-text').html('Cheat deactivated');
+  $('.dashboard-button').removeClass('fa fa-spin');
+  $('img.chrome-rim').removeClass('fa fa-spin').hide();
+};
+
+function reTurn() {
+  returnFromSlideshow();
+  $('header').fadeIn(1500);
+  $('.dashboard.dashboard-wrapper').fadeIn(1500);
+  $('.chrome-rim').fadeOut(1000);
+};
+
+function dash(wait) {
+  var wait = wait || 0;
+  $('.dashboard.dashboard-wrapper').delay(wait).fadeOut(1500);
+}
+
+function head(wait) {
+  var wait = wait || 0;
+  $('header').delay(wait).slideUp(1500);
+}
+
+function prepareForSlideshow() {
+  $('body').css({padding: 0});
+  $('.container').css({margin: 0});
+};
+
+function returnFromSlideshow() {
+  $('body').css({padding: ""});
+  $('.container').css({margin: ""});
+};
+
+function showRim(wait) {
+  var wait = wait || 1000;
+  $('img.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top').fadeIn(wait);
+};
+
+$(function() {
+
+  listener = new window.keypress.Listener();
+
+  // listener.sequence_combo("n o s t a l g i a", gtaNostalgia);
+  listener.sequence_combo("left right a q f r up down left right", gtaNostalgia);
+
+  // broken incomplete functions below, needs work
+  listener.sequence_combo("p a u s e", function() {
+    pauseAudio();
+    cheatDeactivated();
+  });
+
+  listener.sequence_combo("h i d e", function() {
+    $('.dashboard-button').hide();
+  }, true);
+
+  listener.sequence_combo("s h o w", function() {
+    $('.dashboard-button').show();
+  }, true);
+
+  listener.sequence_combo("s p i n", function() {
+    $('.cheat-activated').delay(1000).fadeIn(100, function(){
+      $('.dashboard-button').addClass('fa fa-spin')
+    }).delay(5000).fadeOut(100);
+  });
+
+  listener.sequence_combo("s t o p", function() {
+    $('.cheat-activated').hide();
+    $('.cheat-deactivated').show().delay(6500).fadeOut(90);
+    $('.dashboard-button').removeClass('fa fa-spin');
+    $('img.chrome-rim').hide().removeClass('fa fa-spin')
+    audio.currentTime = 0;
+  });
+
+  listener.sequence_combo("d a s h", dash);
+  listener.sequence_combo("h e a d", head);
+  listener.sequence_combo("r e t u r n", reTurn);
+
+  listener.sequence_combo("up up down down left right left right b a enter", function() {
+    console.log("Cheat code");
+  }, true);
+
+});
