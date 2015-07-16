@@ -41,6 +41,7 @@
   <span class="upload-form">
 
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
+
     <%= f.hidden_field :jam_circle_id, :value => @jam_circle.id %>
 
     <%= f.text_field :title, placeholder: 'Clip title' %>

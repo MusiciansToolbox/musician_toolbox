@@ -1,4 +1,4 @@
-<div class='content-wrapper'>
+<div class='content-wrapper jam-circle'>
   <p id='notice'><%= notice %></p>
 
   <p>
@@ -32,18 +32,18 @@
       (id: <%= clip.id %>)
       -
       <% if clip.previous_clip_id %>
-        Previous clip id:
+        Previous clip id: <%= clip.previous_clip_id %>
       <% else %>
         Original
       <% end %>
       -
       <%= link_to 'Download' %>
       -
-      <%= link_to 'Add To' %>
+      <%= link_to 'Add To', '#', class: 'add-to', value: clip.id %>
 
     </p>
     <% counter += 1 %>
   <% end %>
-
+  <%= render 'jam_circles/new_clip' %>
   <%= link_to 'Back', jam_circles_path %>
 </div>
