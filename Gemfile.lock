@@ -108,6 +108,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    parsley-rails (2.0.7.0)
+      railties (>= 3.0.0)
     pg (0.18.2)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
@@ -205,6 +207,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.2)
+  parsley-rails (~> 2.0.7.0)
   pg
   puma
   rails (= 4.2.1)

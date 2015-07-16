@@ -1,33 +1,38 @@
 @import 'sass';
 .search-content {
-  form {
-    input {
-      margin-bottom: 20px;
+
+
+    form {
+      input {
+        margin-bottom: 20px;
+      }
+      select {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      label {
+        display: inline-block;
+      }
+      #user_search_default_search {
+        display: inline-block;
+      }
+      input[type="checkbox"] {
+        display: inline-block;
+        width: 30px;
+      }
     }
-    select {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-    label {
-      display: inline-block;
-    }
-    #user_search_default_search {
-      display: inline-block;
-    }
-    input[type="checkbox"] {
-      display: inline-block;
-      width: 30px;
-    }
-  }
 
 
   .link-to-go-back {
     float: none;
     text-align: center;
     padding: 50px 0 0;
-    @include mobile {
-      display: none;
-    }
+    margin-right:10px;
+          @include mobile {
+            display: none;
+          }
+   }
+
 
   .search-results-entries {
     display: none; // displayed one by one via javascript
@@ -39,27 +44,26 @@
     padding: 0 10px;
     position: relative;
     margin-bottom: 30px;
-    .fa-music {
-      position: absolute;
-      top: 50%;
-      left: 44%;
-    }
-    a {
-      background: rgba(0,0,0,.5);
-      text-decoration: none;
-      font-size: 1.8em;
-    }
-    .swipe-left {
-      float: left;
-      text-align: center;
-      padding: 30px;
-    }
-    .swipe-right {
-      float: right;
-      text-align: center;
-      padding: 30px;
+          .fa-music {
+            position: absolute;
+            top: 50%;
+            left: 44%;
+          }
+          a {
+            background: rgba(0,0,0,.5);
+            text-decoration: none;
+            font-size: 1.8em;
+          }
+          .swipe-left {
+            float: left;
+            text-align: center;
+            padding: 30px;
+          }
+          .swipe-right {
+            float: right;
+            text-align: center;
+            padding: 30px;
+          }
     }
 
-    }
-  }
 }
