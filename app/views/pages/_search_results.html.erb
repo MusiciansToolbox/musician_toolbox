@@ -121,8 +121,11 @@ $(function() {
       <a href="#" class="swipe-left"><i class="fa fa-thumbs-down"></i><a/>
       <a href="#" class="swipe-right"><i class="fa fa-thumbs-up"></i></a>
 
+
       <div style="clear:both;"><!-- clear floats--></div>
+
       </div>
+      <a href="#" class="swipe-skip">Skip</a>
 
   </div>
 
@@ -188,6 +191,24 @@ $(function() {
     gameOver();
   });
 
+
+
+  $('.swipe-skip').click(function() {
+   // on click don't like or dislike song, but skip it
+
+  // back-end stuff we might need to edit - url~  /skip-clip/ ? 
+  //  var clip_id = $("ol li:visible a").attr('value');
+  //  $.ajax({
+  //    url: "/like_clip/" + clip_id,
+  //    type: "POST",
+  //  });
+
+
+    manageSongs();
+    // check is game over?
+    swipedCounter = swipedCounter + 1;
+    gameOver();
+  });
 
 
 

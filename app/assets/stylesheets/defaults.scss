@@ -317,3 +317,58 @@ form {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BETTER FORM STYLES
+
+/* Select */
+.select {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  display: inline-block;
+  white-space: nowrap;
+  min-width: 15em;
+}
+
+.select:after {
+  content: '';
+  width: 2em;
+  display: inline-block;
+  pointer-events: none;
+}
+
+.select:before {
+  content: '\25bc';
+  z-index: 1;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  line-height: 1em;
+  font-size: 0.75em;
+  margin-top: -0.4em;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.select select {
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: window;
+
+  width: 100%;
+  z-index: 2;
+}

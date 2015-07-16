@@ -2,6 +2,17 @@
 .search-content {
 
 
+      .swipe-skip {
+        float:none;
+        display:block;
+        text-align:center;
+        font-size:.7em;
+        padding-top:50px;
+        padding-left:0px;
+        padding-right:10px;
+        color:#777;
+      }
+
     .dashboard-music-player {
       margin-bottom:0px;
     }
@@ -55,27 +66,27 @@
             top: 50%;
             left: 44%;
           }
-          a {
-            background: rgba(0,0,0,.5);
-            text-decoration: none;
-            font-size: 1.2em;
-          }
           .swipe-left {
+            background: rgba(0,0,0,.5);
+
             float: left;
             text-align: center;
             padding: 15px 20px 30px 30px;
-            font-size:1.4em;
+            font-size:1em;
             padding-bottom:25px;
             border-radius:50%;
           }
           .swipe-right {
+
+            background: rgba(0,0,0,.5);
             float: right;
             text-align: center;
             padding: 15px 20px 30px 30px;
-            font-size:1.4em;
+            font-size:1em;
             border-radius:50%;
             margin:0 auto;
           }
+
     }
 
 }
