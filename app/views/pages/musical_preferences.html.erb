@@ -135,6 +135,26 @@
         <% end %>
 
       </div>
+      <script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
+      <script type="text/javascript">
+      $(function() {
+        $('.upload-wrapper form').transloadit({
+          wait: true,
+          triggerUploadOnFileSelection: true,
+
+          params: {
+            auth: { key: "2f24b7202b0e11e58964e38e2b13e21e" },
+            steps: {
+              mp3: {
+                use: ":original",
+                robot: "/audio/encode",
+                preset: "mp3"
+              }
+            }
+          }
+        });
+      });
+      </script>
 
     </div>
 <!--CLOSE ACCORDION-->
