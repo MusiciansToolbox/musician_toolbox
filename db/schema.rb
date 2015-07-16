@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713190737) do
+ActiveRecord::Schema.define(version: 20150716162232) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150713190737) do
     t.string   "title"
     t.integer  "jam_circle_id"
     t.integer  "previous_clip_id"
+    t.boolean  "demo"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"

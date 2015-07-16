@@ -39,6 +39,7 @@ class UserSearch < ActiveRecord::Base
       # return exact_matches
       end
     end
+
     clips = []
     current_user = User.find_by_id(user_id)
     p local_users.flatten!
@@ -47,19 +48,23 @@ class UserSearch < ActiveRecord::Base
         next
       else
         user.clips.each do |clip|
-          liked = false
-          current_user.opinions.each do |opinion|
-            if opinion.clip_id == clip.id
-              liked = true
-              break
-            end
-          end
-          if liked == true
+          unless clip.demo == true
             next
-          elsif clip.instrument_id == instrument_id
-            clips << clip
-          elsif instrument_id == nil
-            clips << clip
+          else
+            liked = false
+            current_user.opinions.each do |opinion|
+              if opinion.clip_id == clip.id
+                liked = true
+                break
+              end
+            end
+            if liked == true
+              next
+            elsif clip.instrument_id == instrument_id
+              clips << clip
+            elsif instrument_id == nil
+              clips << clip
+            end
           end
         end
       end
