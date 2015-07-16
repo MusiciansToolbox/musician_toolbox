@@ -67,6 +67,7 @@ class JamCirclesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_jam_circle
       @jam_circle = JamCircle.find(params[:id])
+      @clip = Clip.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
