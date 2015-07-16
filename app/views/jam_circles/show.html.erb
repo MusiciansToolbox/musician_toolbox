@@ -25,25 +25,32 @@
   <% end %>
 
   <h2>Clips</h2>
-  <% counter = 1 %>
-  <% @jam_circle.clips.each do |clip| %>
-    <p>
-      <%= counter %>. <%= clip.title ? clip.title : 'Untitled' %>
-      (id: <%= clip.id %>)
-      -
-      <% if clip.previous_clip_id %>
-        Previous clip id: <%= clip.previous_clip_id %>
-      <% else %>
-        Original
-      <% end %>
-      -
-      <%= link_to 'Download' %>
-      -
-      <%= link_to 'Add To', '#', class: 'add-to', value: clip.id %>
+    <% if @jam_circle.clips.any? %>
+      <% counter = 1 %>
+      <% @jam_circle.clips.each do |clip| %>
+        <p>
+          <%= counter %>. <%= clip.title ? clip.title : 'Untitled' %>
+          (id: <%= clip.id %>)
+          -
+          <% if clip.previous_clip_id %>
+            Previous clip id: <%= clip.previous_clip_id %>
+          <% else %>
+            Original
+          <% end %>
+          -
+          <%= link_to 'Download' %>
+          -
+          <%= link_to 'Add To', '#', class: 'add-to', value: clip.id %>
 
-    </p>
-    <% counter += 1 %>
-  <% end %>
-  <%= render 'jam_circles/new_clip' %>
+        </p>
+        <% counter += 1 %>
+      <% end %>
+    <% else %>
+      You Don't have any sound clips lolololololololololololololooolololololo
+      <br/>
+      Click <%= link_to 'here', "#", class: "add-to" %> to add a the first clip to this jam circle
+    <% end %>
+
+  <%= render 'jam_circles/new_clip' %><br>
   <%= link_to 'Back', jam_circles_path %>
 </div>
