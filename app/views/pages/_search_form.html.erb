@@ -33,5 +33,26 @@
   </div>
   <div>
     <%= f.submit "Submit", id: "search-form-submit" %>
+
+    <center style="display: none;">
+
+      <i class="fa fa-spinner fa-pulse"></i>
+
+    </center>
   </div>
 <% end %>
+<script type="text/javascript">
+
+  function disableSearchButton() {
+    $('#search-form-submit').click(function() {
+      alert("clicked!");
+      var button = event.target
+      var icon = $('center')
+      $(button).hide();
+      $(icon).show();
+      button.closest("form").submit();
+    })
+  };
+
+  $(disableSearchButton);
+</script>
