@@ -5,6 +5,8 @@ class TransloaditsController < ApplicationController
   include Transloadit::Rails::ParamsDecoder
 
   def new
+    @key = ENV["AWS_ACCESS_KEY_ID"]
+    @secret = ENV["AWS_SECRET_ACCESS_KEY_ID"]
   end
 
   def create
