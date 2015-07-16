@@ -5,13 +5,14 @@
 <div class="dashboard dashboard-wrapper">
 
 
-  <%= link_to "Music", profile_path(session[:user_id]), class: "dashboard-button" %>
-
   <%= link_to "Search", search_path, class: "dashboard-button" %>
 
-  <%= link_to "Likes", likes_path, class: "dashboard-button" %>
+  <%= link_to "My Likes", likes_path, class: "dashboard-button" %>
 
-  <%= link_to "Account", edit_user_path(@user), class: "dashboard-button" %>
+  <%= link_to 'Jam Circle', jam_circles_path, class: "dashboard-button" %>
+
+  <%= link_to "Account", profile_path(session[:user_id]), class: "dashboard-button" %>
+
 
 </div>
 

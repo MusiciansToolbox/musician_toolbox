@@ -15,13 +15,16 @@
 
 <div class="content-wrapper profile-wrapper" style="padding:0;">
   <h2>
-    Music Menu
+    Account Menu
   </h2>
+
 
   <div collapsible="true" id="accordion">
 
-<!--NEW SECTION-->
-    <h3>Musical Preferences</h3>
+    <!--NEW SECTION-->
+    <h3>Music Profile</h3>
+
+
 
     <div class="accordion-content">
 
@@ -54,7 +57,7 @@
     </div>
 
 <!--NEW SECTION-->
-    <h3>Your Music</h3>
+    <h3>My Music</h3>
     <div class="accordion-content">
       <% if @clips.any? %>
 
@@ -137,12 +140,27 @@
       </div>
 
     </div>
+
+
+
+
+    <!--NEW SECTION-->
+        <h3>Account Settings</h3>
+
+        <div class="accordion-content">
+           <div class="account-settings-wrapper">
+
+                <%= render 'users/form' %>
+                <%= link_to 'Logout', logout_path, method: :delete, class:"rails-link" %>
+
+
+           </div>
+        </div>
+
+
 <!--CLOSE ACCORDION-->
   </div>
 <!--CLOSE WRAPPER-->
-
-
-<%= link_to "Back", root_path, class:"link-to-go-back" %>
 
 
 
