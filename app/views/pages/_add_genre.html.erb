@@ -1,5 +1,13 @@
 <p>Select Genre
+ 
+  <span class="select">
+  <%= select_tag 'genre', options_from_collection_for_select( genres, 'id', 'name'), include_blank: true %>
 
+</span>
 
-<%= select_tag 'genre', options_from_collection_for_select( genres, 'id', 'name'), include_blank: true %>
 </p>
+
+
+<script>
+$('#genre').prepend('<option value="" selected disabled>Genre</option>');
+</script>

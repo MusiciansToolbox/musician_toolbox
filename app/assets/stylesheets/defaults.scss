@@ -408,6 +408,13 @@ form {
   display:none; // this was screwing up the display
 }
 
+select#instrument + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+select#genre + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
 
 
 select:focus {
