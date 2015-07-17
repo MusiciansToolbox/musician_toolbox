@@ -1,0 +1,109 @@
+@import 'sass';
+
+
+.likes-page-music-player {
+
+  ol li { text-align: left; cursor: default;}
+  ol li a { padding:0; margin:0;}// clear spacing from other styles
+  ol li  .profile-pic {
+          max-width:50%; // inside likes left div
+          height:auto;
+          padding:10px 0 10px 0;
+          display:block;
+          border-radius:0;
+          margin:0;
+          cursor: pointer;
+          }
+
+       .likes-left {
+         width:150px;
+         top:0;
+         text-align:left;
+         border:0px solid #fff;
+         display:inline-block;
+         padding:0;
+
+
+         a {
+           text-align:left!important;
+           margin:0!important;
+           padding:0!important;
+         }
+       }
+
+
+        .user-info {
+          border:0px solid #fff;
+        }
+
+        .clip-info {
+          float:right;
+          width:auto;
+          text-align:right;
+          display:inline;
+
+          border:0px solid #fff;
+
+        }
+
+
+
+
+
+/*
+        .likes-page-song-titles {
+          text-align: left;
+
+                li {
+                  text-align:left;
+                  padding-left:0;
+                  margin-left:0;
+                }
+
+                a {
+              //    position:relative;
+              //    left:-35px;
+                }
+        } */
+}
+
+
+
+
+
+
+
+.liked-profile {
+
+  h2 {
+      padding:10px;
+      margin:0px auto 10px auto;
+      text-align: center;
+      display:block;
+    }
+
+
+  h3 {
+    padding:0 0 0 0;
+    margin:0 auto;
+    text-align: center;
+    display:block;
+    font-size:1.2em;
+  }
+
+  .profile-pic {
+    text-align:center;
+    margin:20px auto;
+    display:block;
+    max-width:150px;
+    height:auto;
+    border-radius:50%;
+    cursor:default;
+  }
+
+  .chevron-back-link {
+    padding-top:5px; // 5px hacky fix
+  }
+
+
+}
