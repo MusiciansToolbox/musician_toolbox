@@ -1,5 +1,12 @@
 <p>Select Instrument
 
-
-  <%= select_tag 'instrument', options_from_collection_for_select( instruments, 'id', 'name'), include_blank: true %>
+  <span class="select">
+      <%= select_tag 'instrument', options_from_collection_for_select( instruments, 'id', 'name'), include_blank: true %>
+</span>
 </p>
+
+
+
+<script>
+$('#instrument').prepend('<option value="" selected disabled>Instrument</option>');
+</script>

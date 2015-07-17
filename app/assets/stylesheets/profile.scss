@@ -2,7 +2,7 @@
 
 
 .account-settings-wrapper {
-  .rails-link {
+  .rails-link {   // tbd: think this can be removed
     text-align: center;
     padding-top:50px;
     padding-left:0px;
@@ -17,6 +17,8 @@
 
   }
   h3 { // accordion headers
+
+    letter-spacing:0;
     font-size:1.8em;
     text-align: left;
     cursor: pointer;
@@ -84,6 +86,8 @@
 .profile-wrapper {
      margin-bottom:80px;
 
+     .select { margin-top: 10px; display: block;}
+
 
      form { /* super hacky,for some reason 100% is making it bump out of container */
        width:94%;
@@ -136,12 +140,12 @@
       padding:10px;
       margin-bottom:15px;
 
-      select {
+     /*  select {
         width:100%;
         padding:10px; // does nothing
         font-size:2.8em!important; // does nothing
         height:20px;
-      }
+      } */
     }
     #influences-container {
       padding: 10px;
@@ -152,7 +156,7 @@
             width: 100%;
             padding: 10px;
             font-size: 1.4em;
-            border: 1px solid $border-color;
+            border: 0px solid $border-color;
             border-radius: $border-radius;
                 @include mobile {
                   font-size: 1.2em;
@@ -164,12 +168,12 @@
       padding:10px;
       margin-bottom:15px;
 
-      select {
+    /*  select {
         width:100%;
         padding:10px; // does nothing
         font-size:2.8em!important; // does nothing
         height:20px;
-      }
+      }*/
 
 
     }

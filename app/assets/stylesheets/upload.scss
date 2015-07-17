@@ -1,6 +1,9 @@
 @import 'sass';
 .upload-wrapper {
 
+
+
+
     .upload-form {
       display:block;
     //  padding:15px 50px;
@@ -18,20 +21,20 @@
 
 
     select {
-      width:100%;
-      height:30px!important;
+      //width:100%;
+      //height:30px!important;
     }
 
     .upload-field-instrument {
-      display:inline;
+    /*  display:inline;
       width:100%;
-    }
+    */}
 
     .upload-field-instrument-label {
 
     }
-    #clip_instrument_id {
-      width: 100%;
+    #clip_instrument_id { // select list
+    /*  width: 100%;
       padding: 10px;
       //font-size: 1.4em;
       background: #fff;
@@ -41,8 +44,11 @@
       border-radius: $border-radius;
       margin-top:10px;
       margin-bottom:10px;
-
+*/
     }
+
+
+
 
 
 
@@ -68,9 +74,9 @@
     /* Example stylistic flourishes */
 
     .fileContainer {
-        border: 1px solid $border-color;
+        border: 1px dotted #000;
         border-radius: $border-radius;
-        padding:10px;
+        padding:20px 10px;
         float: left;
         font-size: 1em;
         background: #fff;
@@ -88,5 +94,26 @@
 
 
 
+
+     .submit-clip { // real submit button
+       display:none;   // display block once file upload is clicked
+     }
+    .submit-clip-fake {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.4em;
+      background: rgba(0,0,0,.2); // #FDF5E6;
+      color: #fff;
+      box-shadow: none;
+      font-size:1em;
+      text-transform: uppercase;
+      letter-spacing:.2em;
+      border: 1px solid #FFF5EE;
+      border-radius: 0px;
+      cursor: pointer;
+      margin-top:80px;
+    }
 
 }

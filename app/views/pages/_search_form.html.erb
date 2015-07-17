@@ -19,17 +19,28 @@
       <%= f.text_field :radius, min:1, max: 50, 'data-parsley-type' => 'number', 'data-parsley-trigger' => 'blur'  %>
     <% end %>
   </div>
+
+
+
   <div>
-    <%= f.label :instrument %>
-    <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true %>
+    <%= f.label :instrument, class:"select" do %>
+      <%= f.collection_select :instrument_id, Instrument.all, :id, :name, include_blank: true %>
+    <% end %>
   </div>
+
+
   <div>
-    <%= f.label :genre %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+    <%= f.label :genre, class:"select" do %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+    <% end %>
   </div>
+
+
   <div>
-    <%= f.label :default_search, "Save this search as default?" %>
-    <%= f.check_box :default_search %>
+    <%= f.label :default_search, class:"checkbox" do %>
+        <%= f.check_box :default_search, class:"checkbox-class"  %>
+        <span class="checkbox-label">Save this search as default?</span>
+    <% end %>
   </div>
   <div>
     <%= f.submit "Submit", id: "search-form-submit" %>
@@ -41,6 +52,7 @@
     </center>
   </div>
 <% end %>
+
 <script type="text/javascript">
 
   function disableSearchButton() {
@@ -55,4 +67,8 @@
   };
 
   $(disableSearchButton);
+
+  $('#user_search_instrument_id').prepend('<option value="" selected disabled>Instrument</option>');
+  $('#user_search_genre_id').prepend('<option value="" selected disabled>Genre</option>');
+
 </script>

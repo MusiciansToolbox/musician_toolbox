@@ -31,7 +31,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  font-family: 'Libre Baskerville', serif;
+  font-family:Verdana, Geneva, sans-serif;
+  //font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   line-height: 1.45;
   color: #fff;
@@ -49,11 +50,21 @@ h1,
 h2,
 h3,
 h4 {
+// default font
   margin: 1.414em 0 0.5em;
   font-weight: inherit;
   line-height: 1.2;
+  letter-spacing:.1em;
+
+
+
+
 }
 h1 {
+//  font-family: 'Libre Baskerville', serif;
+font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic,          AppleGothic, sans-serif;
+letter-spacing:.05em;
+ display:block;
   margin-top: 0;
   font-size: 3.998em;
 }
@@ -101,42 +112,55 @@ a:hover {
 // form defaults
 form {
   width: 100%;
+  font-family:inherit;
   label {
     display: block;
   }
   input {
+    font-family:inherit;
     color: initial;
     width: 100%;
     padding: 10px;
     font-size: 1.4em;
-    border: 1px solid $border-color;
+    border: 0px solid $border-color;
     border-radius: $border-radius;
     @include mobile {
       font-size: 1.2em;
     }
   }
   input[type="submit"] {
+    font-family:inherit;
     width: 100%;
     padding: 10px;
     font-size: 1.4em;
-    background: #fff;
-    color: #404040;
+    text-align:center;
+    background: rgba(0,0,0,.2); // #FDF5E6;
+    color: #fff;
     box-shadow: none;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    font-size:1em;
+    text-transform: uppercase;
+    letter-spacing:.2em;
+    border: 1px solid #FFF5EE;
+    border-radius: 0px;
+    cursor: pointer;
+
   }
+
+
+
+      input[type="submit"]:hover{
+        background:#000;
+        font-family:inherit;
+      }
+
+
   input[type="select"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.4em;
-    background: #fff;
-    color: #404040;
-    box-shadow: none;
-    border: 0 solid $border-color;
-    border-radius: $border-radius;
-  }
+   // see .select class
+ }
+
   input[type="file"] {
     width: 100%;
+    font-family:inherit;
 
     //  padding: 10px;
     font-size: 1.4em;
@@ -147,13 +171,14 @@ form {
     border-radius: $border-radius;
   }
   textarea {
+    font-family:inherit;
     width: 100%;
     font-size: 1.4em;
     padding: 10px;
     background: #fff;
     color: #404040;
     box-shadow: none;
-    border: 1px solid $border-color;
+    border: 0px solid $border-color;
     border-radius: $border-radius;
   }
 }
@@ -173,7 +198,7 @@ form {
   border: 1.5em solid #000;
   position: absolute; // necessary to go to the right in desktop view
   left: 57%;
-  top: 16%;
+//  top: 16%;
   width: 450px;
   padding-bottom: 20px;
   @include mobile {
@@ -346,14 +371,22 @@ form {
 // BETTER FORM STYLES
 
 /* Select */
+
 .select {
+  font-family:inherit;
   position: relative;
   box-sizing: border-box;
-  border: 1px solid #CCC;
-  border-radius: 2px;
+  border: 0px solid #CCC;
+  border-radius: 0;
   display: inline-block;
   white-space: nowrap;
-  min-width: 15em;
+  //min-width: 5em;
+  //added
+  width:100%;
+  background:#fff;
+  margin-bottom:20px;
+  color:#000;
+  padding:10px;
 }
 
 .select:after {
@@ -361,6 +394,7 @@ form {
   width: 2em;
   display: inline-block;
   pointer-events: none;
+  font-family:inherit;
 }
 
 .select:before {
@@ -374,14 +408,72 @@ form {
   margin-top: -0.4em;
   pointer-events: none;
   opacity: 0.75;
+  color:#404040;
+  font-family:inherit;
 }
 
 .select select {
-  border: 0;
+  font-family:inherit;
+    border: 0;
   background: transparent;
   -webkit-appearance: none;
   -moz-appearance: window;
-
   width: 100%;
   z-index: 2;
+  // added
+  font-size:1.2em;
+  color:#404040;
+  padding-right:50px;
 }
+
+#user_search_instrument_id + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+#user_search_genre_id + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+#clip_instrument_id +  .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+select#instrument + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+select#genre + .parsley-errors-list {
+  display:none; // this was screwing up the display
+}
+
+
+select:focus {
+  outline:none; // remove blue outline added by browser
+}
+
+
+
+
+// checkbox to make your current search the default
+input#user_search_default_search {
+// see search scss
+}
+
+
+
+
+input#clip_demo { // checkbox on upload music page
+  display: inline-block;
+  width: 10px;
+  //zoom:2.3; // works sporadically! other one works fine.
+  padding:0px;
+  margin:0 0 20px 0;
+  background:#fff;
+  color:#000;
+
+      + span {
+        position:relative;
+        top:-6px;
+        left:5px;
+      }
+  }

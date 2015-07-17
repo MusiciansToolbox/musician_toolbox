@@ -100,6 +100,9 @@
     <h3>Upload Music</h3>
     <div class="accordion-content">
 
+
+
+
       <div class="upload-wrapper">
         <p id="notice"><%= notice %></p>
         <%= form_for @clip, url: clips_create_path, html: { multipart: true } do |f| %>
@@ -119,23 +122,46 @@
 
         <span class="upload-form">
 
-          <%= f.text_field :title, placeholder: 'Title' %>
+          <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur' %>
 
-          <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
 
-          Do you want this to be a Demo Clip?  Demo clips must be less than 10 seconds long.
 
-          <%= f.check_box :demo %>Yes
+        <%= f.label :instrument, class:"select" do %>
+          <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument", 'data-parsley-required' => 'true' %>
+        <% end %>
+
+
+
+        <%= f.label :demo, class:"checkbox" do %>
+        <%= f.check_box :demo, class:"checkbox-class"  %>
+        <span class="checkbox-label">    Featured demo clip. (10 second max)
+        </span>
+        <% end %>
 
           <label class="fileContainer">
 
-            Click To Upload Clip
+            + Add Music Clip
 
-            <%= f.file_field 'uploaded_file', class:"custom-file-input1" %>
+            <%= f.file_field 'uploaded_file', class:"custom-file-input1",  'data-parsley-excluded' => 'false',  'data-required' => 'true', 'data-parsley-required' => 'true' %>
 
           </label>
 
+
+          <div class="file-message" style="padding:10px; font-color:#fff; display:none; margin:0;">
+            This field is required.
+          </div>
+
+
+
+
+<div class="submit-clip-fake">
+  Submit
+</div>
+
           <%= submit_tag 'Submit', class: "submit-clip" %>
+
+
+
 
           <center style="display: none;">
 
@@ -145,9 +171,27 @@
 
         </span>
 
-        <a class="upload-help" href="#">help</a>
+    <!-- <a class="upload-help" href="#">help</a>-->
 
         <% end %>
+
+
+        <script>
+        $('.fileContainer').click(function(){
+          $('.submit-clip-fake').css("display", "none");
+          $('.file-message').css("display", "none");
+          $('.submit-clip').css("display", "block");
+
+        });
+
+        $('.submit-clip-fake').click(function(){
+          $('.file-message').css("display", "block");
+        });
+
+
+        </script>
+
+
 
       </div>
       <script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"></script>
@@ -228,3 +272,14 @@
     });
   </script>
   <% end %>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+      $('#new_clip').parsley();
+    </script>
