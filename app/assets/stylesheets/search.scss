@@ -22,20 +22,30 @@
       input {
         margin-bottom: 20px;
       }
-      select {
+    /*  select {
         width: 100%;
         margin-bottom: 20px;
-      }
+      } */
       label {
         display: inline-block;
       }
+      .checkbox { height: 40px;}
       #user_search_default_search {
         display: inline-block;
-      }
-      input[type="checkbox"] {
-        display: inline-block;
-        width: 30px;
-      }
+        width: 10px;
+        zoom:2.3!important;
+        padding:0px;
+        margin:0px;
+        background:#fff;
+        color:#000;
+
+            + span {
+              position:relative;
+              top:-6px;
+              left:5px;
+            }
+        }
+
     }
 
 
