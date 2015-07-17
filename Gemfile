@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'd3_rails'
 gem 'parsley-rails', '~> 2.0.7.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
