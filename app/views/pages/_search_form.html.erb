@@ -34,6 +34,8 @@
       <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
     <% end %>
   </div>
+
+
   <div>
     <%= f.label :default_search, class:"checkbox" do %>
         <%= f.check_box :default_search, class:"checkbox-class"  %>
