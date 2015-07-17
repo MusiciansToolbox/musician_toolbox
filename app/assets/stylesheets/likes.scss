@@ -3,62 +3,77 @@
 
 .likes-page-music-player {
 
+   .audiojs { display: none;}
+
+
   ol {
-    margin-top:10px;
+    margin-top:0px;
     border:0;
   }
 
   ol li a {  // clear spacing from other styles
-    padding:0;
-    margin:0;
+    padding:0!important;
+    margin:0!important;
+    max-width:100%!important;
   }
 
 
 
   ol li  {
-
     text-align: left;
     cursor: default;
+
+
+    #ghostheight { height:100% }
+      #one {
+        display:inline-block;
+        vertical-align:top;
+        width:48%;
+        text-align:center;
+        border:0px solid #fff;
+        //padding-top:20px;
+
+            .play-circle-container {
+
+              margin:0 auto;
+              display:block;
+              text-align:center;
+              padding-bottom:20px;
+              padding-top:10px;
+
+                 .fa-play-circle {
+                   font-size:4em!important;
+                 }
+            }
+      }
+
+
 
     #two {
       display:inline-block;
       width:50%;
       text-align:center;
+      padding:0;
+      border:0px solid #fff;
 
              .profile-pic {
               max-width:100%; // inside likes left div
               height:auto;
               padding:0px 0 10px 0;
               display:block;
-              border-radius:0;
+              border-radius:5px;
               margin:0;
               cursor: pointer;
               vertical-align:top;
               }
-         }
 
-
-    #one {
-      display:inline-block;
-      vertical-align: top;
-      width:48%;
-      text-align:center;
-      border:0px solid #fff;
-
-          .play-circle-container {
-
-            margin:0 auto;
-            display:block;
-            text-align:center;
-            padding-bottom:20px;
-            padding-top:20px;
-
-               .fa-play-circle {
-                 font-size:4em!important;
-               }
-          }
-
+              a {
+                text-align:center!important;
+                padding:0!important;
+                margin:0!important;
+              }
     }
+
 
   } // close ol li
 
@@ -74,7 +89,7 @@
 
   h2 {
       padding:10px;
-      margin:0px auto 10px auto;
+      margin:0px auto 0px auto;
       text-align: center;
       display:block;
     }

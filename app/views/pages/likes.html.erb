@@ -39,9 +39,9 @@
 
 
         // prevent click on profile button inside LI from also starting audio
-        $('.likes-profile-button').click(function (e) {
-          event.stopPropagation();
-        });
+      //  $('.likes-profile-button').click(function (e) {
+      //    event.stopPropagation();
+    //    });
 
 
       });
@@ -63,6 +63,7 @@
 
 
            <div id="one">
+
              <div class="play-circle-container">
                <i class="fa fa-play-circle"></i>
              </div>
@@ -72,18 +73,24 @@
               <%= opinion.clip.instrument ? "Instrument: " + opinion.clip.instrument.name : () %>
               <%= opinion.clip.genre ? "Genre: " + opinion.clip.genre : () %>
               <br />
-              <span style="display:inline-block; padding-right:5px">Clip Name:<%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %></span>
+              <span style="display:inline-block;padding-top:5px; font-style:italic"><%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %></span>
             </div>
+
          </div>
 
 
          <div id="two">
+
+
            <% unless @user.profile_picture.blank? %>
               <%= image_tag @user.profile_picture.url, class:"profile-pic" %>
             <% else %>
               <%= image_tag "default_profile_pic.jpg", class:"profile-pic" %>
             <% end %>
-           <span style="">Contact <%= opinion.clip.user.name %> </span>
+
+            <%= link_to user_path(opinion.clip.user.id), method: 'get' do %>
+              Contact <%= opinion.clip.user.name %>
+           <% end %>
          </div>
 
 
