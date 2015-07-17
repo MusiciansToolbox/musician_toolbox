@@ -59,62 +59,32 @@
 
 
 
-                <div class="clip-info">
-                 <%= opinion.clip.instrument ? "" + opinion.clip.instrument.name : () %>
-                 <%= opinion.clip.genre ? "<br />" + opinion.clip.genre : () %>
-
-                 <br />
-                 <%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %>
-
-                  <br />
-                  <i class="fa fa-play-circle"></i>
-                </div>
 
 
 
-                  <div class="likes-left">
+           <div id="one">
+             <div class="play-circle-container">
+               <i class="fa fa-play-circle"></i>
+             </div>
 
 
-
-                    <div class="user-info">
-
-                      <%= link_to user_path(opinion.clip.user.id), method: 'get', class:"profile-button" do %>
-
-
-<span style="font-style:italic;"><%= opinion.clip.user.name %> </span>
-
-                      <% unless @user.profile_picture.blank? %>
-                         <%= image_tag @user.profile_picture.url, class:"profile-pic" %>
-                       <% else %>
-                         <%= image_tag "default_profile_pic.jpg", class:"profile-pic" %>
-                       <% end %>
-
-<span style="font-style:italic;">View Profile</span>
-
-                      <% end %>
-                      <!--
-                      <%= link_to 'View Profile', user_path(opinion.clip.user.id), method: 'get', class:"profile-button" %>-->
-                    </div>
+             <div class="clip-info">
+              <%= opinion.clip.instrument ? "Instrument: " + opinion.clip.instrument.name : () %>
+              <%= opinion.clip.genre ? "Genre: " + opinion.clip.genre : () %>
+              <br />
+              <span style="display:inline-block; padding-right:5px">Clip Name:<%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %></span>
+            </div>
+         </div>
 
 
-                  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-                <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
-
-              </a>
--->
+         <div id="two">
+           <% unless @user.profile_picture.blank? %>
+              <%= image_tag @user.profile_picture.url, class:"profile-pic" %>
+            <% else %>
+              <%= image_tag "default_profile_pic.jpg", class:"profile-pic" %>
+            <% end %>
+           <span style="">Contact <%= opinion.clip.user.name %> </span>
+         </div>
 
 
              </li>

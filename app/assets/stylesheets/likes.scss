@@ -3,69 +3,66 @@
 
 .likes-page-music-player {
 
-  ol li { text-align: left; cursor: default;}
-  ol li a { padding:0; margin:0;}// clear spacing from other styles
-  ol li  .profile-pic {
-          max-width:50%; // inside likes left div
-          height:auto;
-          padding:10px 0 10px 0;
-          display:block;
-          border-radius:0;
-          margin:0;
-          cursor: pointer;
+  ol {
+    margin-top:10px;
+    border:0;
+  }
+
+  ol li a {  // clear spacing from other styles
+    padding:0;
+    margin:0;
+  }
+
+
+
+  ol li  {
+
+    text-align: left;
+    cursor: default;
+
+    #two {
+      display:inline-block;
+      width:50%;
+      text-align:center;
+
+             .profile-pic {
+              max-width:100%; // inside likes left div
+              height:auto;
+              padding:0px 0 10px 0;
+              display:block;
+              border-radius:0;
+              margin:0;
+              cursor: pointer;
+              vertical-align:top;
+              }
+         }
+
+
+    #one {
+      display:inline-block;
+      vertical-align: top;
+      width:48%;
+      text-align:center;
+      border:0px solid #fff;
+
+          .play-circle-container {
+
+            margin:0 auto;
+            display:block;
+            text-align:center;
+            padding-bottom:20px;
+            padding-top:20px;
+
+               .fa-play-circle {
+                 font-size:4em!important;
+               }
           }
 
-       .likes-left {
-         width:150px;
-         top:0;
-         text-align:left;
-         border:0px solid #fff;
-         display:inline-block;
-         padding:0;
+    }
 
+  } // close ol li
 
-         a {
-           text-align:left!important;
-           margin:0!important;
-           padding:0!important;
-         }
-       }
-
-
-        .user-info {
-          border:0px solid #fff;
-        }
-
-        .clip-info {
-          float:right;
-          width:auto;
-          text-align:right;
-          display:inline;
-
-          border:0px solid #fff;
-
-        }
-
-
-
-
-
-/*
-        .likes-page-song-titles {
-          text-align: left;
-
-                li {
-                  text-align:left;
-                  padding-left:0;
-                  margin-left:0;
-                }
-
-                a {
-              //    position:relative;
-              //    left:-35px;
-                }
-        } */
-}
+} // close likes page music player
 
 
 
