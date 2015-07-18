@@ -2,15 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy, :update, :edit]
   before_action :set_other_user, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user, except: [:new, :create]
-  after_update :reprocess_avatar, :if => :cropping?
 
-
-  def crop
-  end
-
-  def cropping?
-      !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
-  end
 
 
 
@@ -43,18 +35,16 @@ def create
       @user.profile_picture = url
     end
 
-    # respond_to do |format|
+    respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        render :action => 'crop'
-#       format.html { redirect_to root_path }
-#       format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to root_path }
+        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-
-    # end
+ end
   end
 
  # PATCH/PUT /users/1
@@ -62,7 +52,6 @@ def create
   def update
    respond_to do |format|
       if @user.update(user_params)
-    #    render :action => 'crop'
        format.html { redirect_to root_path }
        format.json { render :show, status: :ok, location: @user }
       else
@@ -172,7 +161,5 @@ def create
     def user_params
       params.require(:user).permit(:name, :email, :password, #:influence,
       :profile_picture, :description, :zipcode, :influences, instruments_attributes: [:name])
-      # :crop_x, :crop_y, :crop_w, :crop_h
-      # add these but not sure syntax
     end
 end
