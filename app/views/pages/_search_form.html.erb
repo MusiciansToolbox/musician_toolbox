@@ -37,10 +37,18 @@
 
 
   <div>
-    <%= f.label :default_search, class:"checkbox" do %>
+  <!--  <%= f.label :default_search, class:"checkbox" do %>
         <%= f.check_box :default_search, class:"checkbox-class"  %>
         <span class="checkbox-label">Save this search as default?</span>
-    <% end %>
+    <% end %>-->
+
+
+          <%= f.check_box :default_search, class:"css-checkbox"  %>
+          <%= f.label :default_search, "Save this search as default?", class:"css-label" %>
+    
+
+
+
   </div>
   <div>
     <%= f.submit "Submit", id: "search-form-submit" %>
