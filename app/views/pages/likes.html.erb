@@ -88,13 +88,16 @@
 
 
          <div id="two">
+           <% user = Clip.find(opinion.clip_id).user %>
 
 
-           <% unless @user.profile_picture.blank? %>
-              <%= image_tag @user.profile_picture.url, class:"profile-pic" %>
-            <% else %>
-              <%= image_tag "default_profile_pic.jpg", class:"profile-pic" %>
-            <% end %>
+           <% unless user.profile_picture.blank? %>
+             <%= image_tag user.profile_picture.url, class:"profile-pic-account profile-pic" %>
+           <% else %>
+             <%= image_tag "default_profile_pic.jpg", class:"profile-pic-account profile-pic" %>
+           <% end %>
+
+
 
             <%= link_to user_path(opinion.clip.user.id), method: 'get', class:"contact-user" do %>
               Contact <%= opinion.clip.user.name %>

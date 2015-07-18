@@ -1,0 +1,11 @@
+
+<%= image_tag @user.profile_picture.url, :id => "cropbox" %>
+
+<% form_for @user do |form| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= form.text_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= form.submit "Crop" %>hey 1</p>
+
+<% end %>
+hey2

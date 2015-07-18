@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :genres
-  
+
   has_many :likes
   has_many :opinions
   has_many :influences
@@ -22,4 +22,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :instruments, reject_if: proc { |attributes| attributes['name'].blank? }
   accepts_nested_attributes_for :genres
   accepts_nested_attributes_for :likes
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  
 end
