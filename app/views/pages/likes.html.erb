@@ -15,6 +15,13 @@
             if (!next.length)
               next = $('.likes-page-music-player ol li').first();
             next.addClass('playing').siblings().removeClass('playing');
+
+
+            // show bouncing player button on playing track
+            next.find('.play-circle-container').addClass( "animated pulse");
+               console.log('yea');
+            next.siblings().find('.play-circle-container').removeClass( "animated pulse");
+
             audio.load($('a', next).attr('data-src'));
             audio.play();
           }
@@ -32,10 +39,20 @@
       // Load in a track on click
         $('.likes-page-music-player ol li').click(function (e) {
           e.preventDefault();
-          $(this).addClass('playing, test').siblings().removeClass('playing, test');
+
+
+          // show bouncing player button on playing track
+          $(this).find('.play-circle-container').addClass( "animated pulse");
+             console.log('yea');
+          $(this).siblings().find('.play-circle-container').removeClass( "animated pulse");
+
+
+
+          $(this).addClass('playing').siblings().removeClass('playing');
           audio.load($('a', this).attr('data-src'));
           audio.play();
         });
+
 
 
         // prevent all other clicks except the play button inside the LI from starting audio
@@ -43,12 +60,12 @@
           event.stopPropagation();
         });
 
-
+/*
         $('.play-circle-container').click(function(){
           $(this).addClass( "animated pulse");
           $('.play-circle-container').not(this).removeClass( "animated pulse");
          })
-
+*/
       });
     </script>
     <div class="dashboard-music-player">
@@ -63,12 +80,7 @@
               <li>
 
 
-
-
-
-
-
-           <div id="one">
+        <div id="one">
 
              <div class="play-circle-container" id="animated-example">
               <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
