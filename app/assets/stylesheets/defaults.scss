@@ -143,15 +143,41 @@ form {
     border: 1px solid #FFF5EE;
     border-radius: 0px;
     cursor: pointer;
-
-  }
-
-
-
-      input[type="submit"]:hover{
-        background:#000;
-        font-family:inherit;
+    }
+    input[type=checkbox].css-checkbox {
+        position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+    }
+    input[type=checkbox].css-checkbox + label.css-label {
+        padding-left:30px;
+        height:21px;
+        display:inline-block;
+        line-height:21px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        //font-size:21px;
+        vertical-align:middle;
+        cursor:pointer;
       }
+    input[type=checkbox].css-checkbox:checked + label.css-label {
+        background-position: 0 -21px;
+      }
+    label.css-label {
+        background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_63a646f248e459260b6213f106eb04cc.png);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+
+
+
+  input[type="submit"]:hover{
+    background:#000;
+    font-family:inherit;
+  }
 
 
   input[type="select"] {
@@ -252,70 +278,6 @@ form {
 
 
 
-// likes page - these may later go into their scss stylesheet
-.likes-page-music-player {
-
-        .likes-profile-button {
-          float:right;
-          top:-15px;
-          position:relative;
-          background:#000;
-          color:#fff;
-          font-size:.8em;
-        }
-
-
-        .likes-page-song-titles {
-          text-align: left;
-
-                li {
-                  text-align:left;
-                  padding-left:0;
-                  margin-left:0;
-                }
-
-                a {
-                  position:relative;
-                  left:-35px;
-                }
-        }
-}
-
-
-.liked-profile {
-
-  h2 {
-      padding:10px;
-      margin:0px auto 10px auto;
-      text-align: center;
-      display:block;
-    }
-
-
-  h3 {
-    padding:0 0 0 0;
-    margin:0 auto;
-    text-align: center;
-    display:block;
-    font-size:1.2em;
-  }
-
-  .profile-pic {
-    text-align:center;
-    margin:20px auto;
-    display:block;
-    max-width:150px;
-    height:auto;
-    border-radius:50%;
-    cursor:default;
-  }
-
-  .chevron-back-link {
-    padding-top:5px; // 5px hacky fix
-  }
-
-
-}
 
 
 
