@@ -17,6 +17,17 @@
     max-width:100%!important;
   }
 
+  li.playing {
+    background:#000;
+    color: #fff!important; /* fix later */
+    font-size:1.1em;
+  }
+
+  li.playing a {
+    font-size:1.1em;
+    color: #fff!important; /* fix later */
+    }
+
   .animated {
       -webkit-animation-duration: 1s;
       animation-duration: 1s;
@@ -80,12 +91,12 @@
       border:0px solid #fff;
 
              .profile-pic {
-              max-width:100%; // inside likes left div
-              height:auto;
+              max-width:80%;
+              height:150px;
               padding:0px 0 10px 0;
               display:block;
               border-radius:0;
-              margin:0;
+              margin:0 auto;
               cursor: pointer;
               vertical-align:top;
               }

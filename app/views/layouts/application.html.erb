@@ -13,26 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
 
-    <script src="http://jcrop-cdn.tapmodo.com/v0.9.12/js/jquery.Jcrop.min.js"></script>
-    <link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v0.9.12/css/jquery.Jcrop.css" type="text/css" />
-    <script type="text/javascript">
-        $(function() {
-          console.log('wtfff')
-          $('#cropbox').Jcrop({
-            onChange: update_crop,
-            onSelect: update_crop,
-            setSelect: [0, 0, 500, 500],
-            aspectRatio: 1
-          });
-        })();
 
-        function update_crop(coords) {
-            console.log('update_crop running...')
-            $('#crop_x').val(coords.x);
-            $('#crop_y').val(coords.y);
-            $('#crop_w').val(coords.w);
-            $('#crop_h').val(coords.h);
-          }
 
 
 
