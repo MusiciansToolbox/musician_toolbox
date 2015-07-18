@@ -19,7 +19,7 @@ function treeBuilder() {
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.json("/mbostock/raw/4063550/flare.json", function(error, flare) {
+  d3.json("/jam_circles/" + jam_circle_id + ".json", function(error, flare) {
     if (error) throw error;
 
     root = flare;
@@ -138,4 +138,4 @@ function treeBuilder() {
     }
     update(d);
   }
-}
+};

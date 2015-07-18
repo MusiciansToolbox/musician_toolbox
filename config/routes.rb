@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post 'dislike_clip/:clip_id' => 'users#dislike_clip'
   post 'reroute_to_likes_page_clip' => 'pages#reroute'
 
+  get 'tree_data/:id' => 'jam_circles#tree_data'
+
   # javaScript paths
   patch 'add_instrument/:instrument_id' => 'users#add_instrument'
   patch 'add_genre/:genre_id' => 'users#add_genre'

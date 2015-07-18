@@ -138,8 +138,8 @@ function disableButton() {
 function showJamClipForm() {
   $(".add-to").click(
     function() {
-      var tomato = $(this).attr('value')
-      $('#clip_previous_clip_id').val(tomato)
+      var previous_clip_id = $(this).attr('value')
+      $('#clip_previous_clip_id').val(previous_clip_id)
       $('form.jam-clip').show();
     }
   )

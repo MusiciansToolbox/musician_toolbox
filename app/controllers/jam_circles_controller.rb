@@ -1,5 +1,5 @@
 class JamCirclesController < ApplicationController
-  before_action :set_jam_circle, only: [:show, :edit, :update, :destroy]
+  before_action :set_jam_circle, only: [:show, :edit, :update, :destroy, :tree_data]
   before_action :set_user
 
   # GET /jam_circles

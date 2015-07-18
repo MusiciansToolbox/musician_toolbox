@@ -31,4 +31,48 @@ class Clip < ActiveRecord::Base
   #   self.duration = duration_in_seconds
   # end
 
+  def children
+    Clip.where(previous_clip_id: self.id)
+  end
+
+
+  def children_json
+    clip = self
+
+    child_data = []
+
+    children.each do |child|
+      
+      if child.has_children?
+        child_data << {
+          'name' => child.name,
+          'parent' => child.parent,
+          'children' => child.children_json
+        }
+      else
+        child_data << {
+          'name' => child.name,
+          'parent' => child.parent
+        }
+
+      end
+
+    end
+
+
+    child_data
+  end
+
+  def name
+    self.title
+  end
+
+  def parent
+    Clip.find(self.previous_clip_id).name
+  end
+
+  def has_children?
+    Clip.where(previous_clip_id: self.id).any?
+  end
+
 end

@@ -8,4 +8,14 @@ class JamCircle < ActiveRecord::Base
   validates :title, presence: true, allow_blank: false
 
   accepts_nested_attributes_for :clips
+
+  def tree_data
+    root_clip = self.clips.where(previous_clip_id: nil).first
+    # ary_children_of_root = self.clips.where(previous_clip_id: root_clip.id)
+    {"root" => root_clip }
+  end
+
+  def root_clip
+    self.clips.where(previous_clip_id: nil).first
+  end
 end
