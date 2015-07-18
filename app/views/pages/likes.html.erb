@@ -15,6 +15,8 @@
             if (!next.length)
               next = $('.likes-page-music-player ol li').first();
             next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
 
 
             // show bouncing player button on playing track
@@ -22,8 +24,7 @@
                console.log('yea');
             next.siblings().find('.play-circle-container').removeClass( "animated pulse");
 
-            audio.load($('a', next).attr('data-src'));
-            audio.play();
+
           }
         });
 
@@ -38,20 +39,35 @@
 
       // Load in a track on click
         $('.likes-page-music-player ol li').click(function (e) {
-          e.preventDefault();
-
-
-          // show bouncing player button on playing track
-          $(this).find('.play-circle-container').addClass( "animated pulse");
-             console.log('yea');
-          $(this).siblings().find('.play-circle-container').removeClass( "animated pulse");
+        //  e.preventDefault();
 
 
 
-          $(this).addClass('playing').siblings().removeClass('playing');
+
+          // play or pause track on click
+           if  ($(this).hasClass('play-button')) {
+                 audio.pause();
+             console.log('has play button class');
+           }
+
+           else  {
+             // show bouncing player button on playing track
+             $(this).find('.play-circle-container').addClass( "animated pulse");
+                console.log('yea');
+             $(this).siblings().find('.play-circle-container').removeClass( "animated pulse");
+            $(this).addClass('playing play-button').siblings().removeClass('playing play-button');
+          }
+
           audio.load($('a', this).attr('data-src'));
           audio.play();
+
+
+          // test to see if this is the one currently playing when clicked and
+          // if so, stop it from playing IE it pauses it
         });
+
+
+
 
 
 
@@ -60,16 +76,14 @@
           event.stopPropagation();
         });
 
-/*
-        $('.play-circle-container').click(function(){
-          $(this).addClass( "animated pulse");
-          $('.play-circle-container').not(this).removeClass( "animated pulse");
-         })
-*/
+
+
+
+
+
       });
     </script>
     <div class="dashboard-music-player">
-
 
       <div id="wrapper" class="likes-page-music-player">
         <audio preload></audio>
