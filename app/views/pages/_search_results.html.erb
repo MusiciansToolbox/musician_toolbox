@@ -84,6 +84,9 @@ $(function() {
       audio.play();
     });
 
+
+
+
   });
 </script>
 
@@ -104,7 +107,12 @@ $(function() {
           <li class="search-results-entries">
               <a href="#" data-src='<%= clip.uploaded_file %>' name='<%= clip.uploaded_file_file_name %>' value='<%= clip.id %>'>
                 <span class="song-title">
-                  <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                  <%= clip.title? ? clip.title.capitalize : clip.uploaded_file_file_name %> <div class="report-issue">
+                      Report
+                    </div>
+                    <div class="report-issue-thank-you">
+                      Thank you
+                    </div>
                 </span>
               </a>
           </li>
@@ -195,21 +203,20 @@ $(function() {
 
   $('.swipe-skip').click(function() {
    // on click don't like or dislike song, but skip it
-
-  // back-end stuff we might need to edit - url~  /skip-clip/ ? 
-  //  var clip_id = $("ol li:visible a").attr('value');
-  //  $.ajax({
-  //    url: "/like_clip/" + clip_id,
-  //    type: "POST",
-  //  });
-
-
     manageSongs();
     // check is game over?
     swipedCounter = swipedCounter + 1;
     gameOver();
   });
 
+
+  $('.report-issue').click(function() {
+    event.stopPropagation();
+    $('.report-issue').fadeOut(500).css("display","none");
+    $('.report-issue-thank-you').fadeIn(500).css("display","block").fadeOut(2000);
+    $('.report-issue').fadeIn(2000).css("display","block");
+    setTimeout(function(){ $('.swipe-skip').click(); }, 1000);
+   });
 
 
 

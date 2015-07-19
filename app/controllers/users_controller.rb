@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
 
 
+
+
+
+
+
   def new
     @user = User.new
   end
@@ -18,22 +23,28 @@ class UsersController < ApplicationController
   def show
   end
 
-  def create
+
+
+
+def create
+
     @user = User.new(user_params)
+
     if @user.profile_picture.blank?
       url = "https://s3-us-west-2.amazonaws.com/jam-connect-uploads/default-profile-pic/default_profile_pic.jpg"
       @user.profile_picture = url
     end
+
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
+ end
   end
 
  # PATCH/PUT /users/1
@@ -41,8 +52,8 @@ class UsersController < ApplicationController
   def update
    respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+       format.html { redirect_to root_path }
+       format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -53,7 +64,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end
@@ -134,6 +145,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def reprocess_avatar
+    profile_picture.reprocess!
+  end
+
     def set_user
       @user = User.find(session[:user_id])
     end

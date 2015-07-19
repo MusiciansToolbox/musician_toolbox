@@ -125,8 +125,7 @@
           <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur' %>
 
 
-
-        <%= f.label :instrument, class:"select" do %>
+          <%= f.label :instrument, class:"select" do %>
           <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument", 'data-parsley-required' => 'true' %>
         <% end %>
 

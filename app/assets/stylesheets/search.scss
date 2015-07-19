@@ -1,6 +1,33 @@
 @import 'sass';
 .search-content {
 
+      .report-issue {
+        position:absolute;
+        right:0;
+        top:0;
+        margin-top:3px;
+        margin-right:3px;
+        cursor:pointer;
+        font-size:.5em;
+        opacity:.5;
+        text-decoration:none;
+        }
+
+      .report-issue-thank-you {
+        display:none;
+        position:absolute;
+        right:0;
+        top:0;
+        margin-top:3px;
+        margin-right:3px;
+        cursor:pointer;
+        font-size:.5em;
+        opacity:.5;
+        text-decoration:none;
+
+
+      }
+
 
       .swipe-skip {
         float:none;

@@ -11,43 +11,79 @@
       // Setup the player to autoplay the next track
         var a = audiojs.createAll({
           trackEnded: function () {
-            var next = $('ol li.playing').next();
+            var next = $('.likes-page-music-player ol li.playing').next();
             if (!next.length)
-              next = $('ol li').first();
+              next = $('.likes-page-music-player ol li').first();
             next.addClass('playing').siblings().removeClass('playing');
             audio.load($('a', next).attr('data-src'));
             audio.play();
+
+
+            // show bouncing player button on playing track
+            next.find('.play-circle-container').addClass( "animated pulse");
+               console.log('yea');
+            next.siblings().find('.play-circle-container').removeClass( "animated pulse");
+
+
           }
         });
 
       // Load in the first track
         var audio = a[0];
-        first = $('ol a').attr('data-src');
-        $('ol li').first().addClass('playing');
+        first = $('.likes-page-music-player ol a').attr('data-src');
+        $('.likes-page-music-player ol li').first().addClass('playing');
         audio.load(first);
 
 
 
 
       // Load in a track on click
-        $('ol li').click(function (e) {
-          e.preventDefault();
-          $(this).addClass('playing').siblings().removeClass('playing');
+        $('.likes-page-music-player ol li').click(function (e) {
+        //  e.preventDefault();
+
+
+
+
+          // play or pause track on click
+           if  ($(this).hasClass('play-button')) {
+                 audio.pause();
+             console.log('has play button class');
+           }
+
+           else  {
+             // show bouncing player button on playing track
+             $(this).find('.play-circle-container').addClass( "animated pulse");
+                console.log('yea');
+             $(this).siblings().find('.play-circle-container').removeClass( "animated pulse");
+            $(this).addClass('playing play-button').siblings().removeClass('playing play-button');
+          }
+
           audio.load($('a', this).attr('data-src'));
           audio.play();
+
+
+          // test to see if this is the one currently playing when clicked and
+          // if so, stop it from playing IE it pauses it
         });
 
 
-        // prevent click on profile button inside LI from also starting audio
-        $('.likes-profile-button').click(function (e) {
+
+
+
+
+        // prevent all other clicks except the play button inside the LI from starting audio
+        $('.profile-pic, .clip-info, .contact-user').click(function (e) {
           event.stopPropagation();
         });
+
+
+
+
 
 
       });
     </script>
     <div class="dashboard-music-player">
-
 
       <div id="wrapper" class="likes-page-music-player">
         <audio preload></audio>
@@ -58,63 +94,42 @@
               <li>
 
 
+        <div id="one">
 
-                <div class="clip-info">
-                 <%= opinion.clip.instrument ? "" + opinion.clip.instrument.name : () %>
-                 <%= opinion.clip.genre ? "<br />" + opinion.clip.genre : () %>
-
-                 <br />
-                 <%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %>
-
-                  <br />
-                  <i class="fa fa-play-circle"></i>
-                </div>
+             <div class="play-circle-container" id="animated-example">
+              <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
+               <i class="fa fa-play-circle"></i>
+               </a>
+             </div>
 
 
+             <div class="clip-info">
+              <%= opinion.clip.instrument ? "Instrument: " + opinion.clip.instrument.name : () %>
+              <%= opinion.clip.genre ? "Genre: " + opinion.clip.genre : () %>
+              <br />
+              <span style="display:inline-block;padding-top:5px; font-style:italic"><%= opinion.clip.title ? opinion.clip.title : opinion.clip.uploaded_file_file_name %></span>
+            </div>
 
-                  <div class="likes-left">
-
-
-
-                    <div class="user-info">
-
-                      <%= link_to user_path(opinion.clip.user.id), method: 'get', class:"profile-button" do %>
-
-
-<span style="font-style:italic;"><%= opinion.clip.user.name %> </span>
-
-                      <% unless @user.profile_picture.blank? %>
-                         <%= image_tag @user.profile_picture.url, class:"profile-pic" %>
-                       <% else %>
-                         <%= image_tag "default_profile_pic.jpg", class:"profile-pic" %>
-                       <% end %>
-
-<span style="font-style:italic;">View Profile</span>
-
-                      <% end %>
-                      <!--
-                      <%= link_to 'View Profile', user_path(opinion.clip.user.id), method: 'get', class:"profile-button" %>-->
-                    </div>
+         </div>
 
 
-                  </div>
+         <div id="two">
+           <% user = Clip.find(opinion.clip_id).user %>
+
+
+           <% unless user.profile_picture.blank? %>
+             <%= image_tag user.profile_picture.url, class:"profile-pic-account profile-pic" %>
+           <% else %>
+             <%= image_tag "default_profile_pic.jpg", class:"profile-pic-account profile-pic" %>
+           <% end %>
 
 
 
+            <%= link_to user_path(opinion.clip.user.id), method: 'get', class:"contact-user" do %>
+              Contact <%= opinion.clip.user.name %>
+           <% end %>
+         </div>
 
-
-
-
-
-
-
-
-
-<!--
-                <a href="#" data-src='<%= opinion.clip.uploaded_file %>'>
-
-              </a>
--->
 
 
              </li>
