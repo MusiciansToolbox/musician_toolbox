@@ -1,5 +1,5 @@
-$svgHeight: 70vh;
-$svgWidth: 70vw;
+$svgSize: 70;
+$svgMargin: (100 - $svgSize)/2;
 
 
 .jam-circle {
@@ -30,9 +30,9 @@ svg {
   border: 3px solid white;
   left: 0;
   top: 0;
-  width: 70vw;
-  height: 70vh;
-  margin: 15vh 15vw;
+  width: $svgSize + vw;
+  height: $svgSize + vh;
+  margin: $svgMargin + vh $svgMargin + vw;
   z-index: 0;
 }
 
