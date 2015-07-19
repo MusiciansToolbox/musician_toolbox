@@ -3,7 +3,7 @@ function treeBuilderTest(jam_circle_id) {
       wh = $(window).height(),
       sw = $('svg').width(),
       sh = $('svg').height(),
-      radius = sh*.01,
+      radius = sh*.013,
       i = 0,
       duration = 750,
       root;
@@ -89,7 +89,7 @@ function treeBuilderTest(jam_circle_id) {
     var nodes = tree.nodes(root).reverse(),
         links = tree.links(nodes);
 
-    // Normalize for fixed-depth. 
+    // Normalize for fixed-depth.
     // nodes.forEach(function(d) { d.y = d.depth * 400; });
 
     // Update the nodes…
@@ -103,7 +103,7 @@ function treeBuilderTest(jam_circle_id) {
         .on("click", click);
 
     nodeEnter.append("circle")
-        .attr("r", 1e-6)
+        .attr("r", radius)
         .style("fill", function(d) { return d._children ? "black" : "#fff"; });
 
     nodeEnter.append("text")
@@ -119,7 +119,7 @@ function treeBuilderTest(jam_circle_id) {
         .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
     nodeUpdate.select("circle")
-        .attr("r", 4.5)
+        .attr("r", radius)
         .style("fill", function(d) { return d._children ? "black" : "#fff"; });
 
     nodeUpdate.select("text")
@@ -132,7 +132,7 @@ function treeBuilderTest(jam_circle_id) {
         .remove();
 
     nodeExit.select("circle")
-        .attr("r", 1e-6);
+        .attr("r", radius);
 
     nodeExit.select("text")
         .style("fill-opacity", 1e-6);
