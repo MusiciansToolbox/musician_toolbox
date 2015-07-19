@@ -19,6 +19,11 @@ class UsersController < ApplicationController
   end
 
   def admin
+    if @user.admin == true
+      @clips = Clip.where(reported: true)
+    else
+      @clips = []
+    end
   end
 
 

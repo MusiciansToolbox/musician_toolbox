@@ -1,1 +1,5 @@
-Admin Page YAYAYAYAY!
+<% if @user.admin == true %>
+  <%= @clips %>
+<% else %>
+  <p> Sorry, your not an admin </p>
+<% end %>
