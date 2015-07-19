@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post 'like_clip/:clip_id' => 'users#like_clip'
   post 'dislike_clip/:clip_id' => 'users#dislike_clip'
   post 'reroute_to_likes_page_clip' => 'pages#reroute'
+  get 'admin' => 'users#admin', as: :admin
 
   get 'tree_data/:id' => 'jam_circles#tree_data'
 
