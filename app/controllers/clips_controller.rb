@@ -13,6 +13,12 @@ class ClipsController < ApplicationController
     @clip = Clip.new
   end
 
+  def report
+    clip = Clip.find_by_id(params[:clip_id])
+    clip.reported = true
+    clip.save
+  end
+
 
   def create
     Rails.logger.info("PARAMS: #{params[:transloadit].inspect}")

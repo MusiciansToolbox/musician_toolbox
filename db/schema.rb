@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150719203843) do
     t.integer  "jam_circle_id"
     t.integer  "previous_clip_id"
     t.boolean  "demo"
+    t.boolean  "reported"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150719203843) do
     t.datetime "profile_picture_updated_at"
     t.string   "facebook_url"
     t.string   "twitter_url"
+    t.boolean  "admin"
   end
 
 end
