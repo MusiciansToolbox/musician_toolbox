@@ -45,7 +45,7 @@
 
           <%= f.check_box :default_search, class:"css-checkbox"  %>
           <%= f.label :default_search, "Save this search as default?", class:"css-label" %>
-    
+
 
 
 
@@ -65,7 +65,6 @@
 
   function disableSearchButton() {
     $('#search-form-submit').click(function() {
-      alert("clicked!");
       var button = event.target
       var icon = $('center')
       $(button).hide();
