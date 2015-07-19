@@ -212,6 +212,13 @@ $(function() {
 
   $('.report-issue').click(function() {
     event.stopPropagation();
+    console.log(event.target);
+    console.log($(event.target.closest("a")).attr("value"));
+    var clip_id = $(event.target.closest("a")).attr("value")
+    $.ajax({
+      url: "/report/" + clip_id,
+      type: "PATCH",
+    });
     $('.report-issue').fadeOut(500).css("display","none");
     $('.report-issue-thank-you').fadeIn(500).css("display","block").fadeOut(2000);
     $('.report-issue').fadeIn(2000).css("display","block");

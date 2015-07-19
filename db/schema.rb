@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716162232) do
+ActiveRecord::Schema.define(version: 20150719184444) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150716162232) do
     t.integer  "jam_circle_id"
     t.integer  "previous_clip_id"
     t.boolean  "demo"
+    t.boolean  "reported"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20150716162232) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.boolean  "admin"
   end
 
 end

@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :update, :edit]
+  before_action :set_user, only: [:show, :destroy, :update, :edit, :admin]
   before_action :set_other_user, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user, except: [:new, :create]
-
-
-
-
-
 
 
   def new
@@ -23,13 +18,17 @@ class UsersController < ApplicationController
   def show
   end
 
+  def admin
+    if @user.admin == true
+      @clips = Clip.where(reported: true)
+    else
+      @clips = []
+    end
+  end
 
 
-
-def create
-
+  def create
     @user = User.new(user_params)
-
     if @user.profile_picture.blank?
       url = "https://s3-us-west-2.amazonaws.com/jam-connect-uploads/default-profile-pic/default_profile_pic.jpg"
       @user.profile_picture = url
@@ -44,7 +43,7 @@ def create
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
- end
+    end
   end
 
  # PATCH/PUT /users/1
