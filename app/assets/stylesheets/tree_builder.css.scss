@@ -1,5 +1,5 @@
-$svgHeight: 80vh;
-$svgWidth: 80vw;
+$svgHeight: 70vh;
+$svgWidth: 70vw;
 
 
 .jam-circle {
@@ -7,22 +7,32 @@ $svgWidth: 80vw;
   color: #fff;
   position: absolute;
   left: 1%;
-  // top: 10%;
+  top: 5%;
   height: 100px;
-  width: auto;
+  width: 14%;
   max-width: 30%;
   font-size: 1.5vmin;
   // line-height: 5px;
 }
 
-svg {
-  background: rgba(0, 0, 0, .7);
+.full-screen {
   position: fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .7);
+}
+
+svg {
+  background: transparent;
+  position: fixed;
+  border: 3px solid white;
   left: 0;
   top: 0;
-  width: $svgWidth;
-  height: $svgHeight;
-  margin: 10vh 10vw;
+  width: 70vw;
+  height: 70vh;
+  margin: 15vh 15vw;
   z-index: 0;
 }
 
