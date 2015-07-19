@@ -1,3 +1,74 @@
-// Place all the styles related to the JamCircles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'sass';
+
+.jam-circle-wrapper {
+
+
+  .box {
+    padding:10px;
+  }
+
+  form {
+    margin:0!important;
+    padding:0!important;
+  }
+
+  .radio-buttons {
+    span { font-style: italic;
+    }
+    label {
+    display:inline;
+    padding-right:50px;
+    }
+  }
+
+
+  form input[type="radio"] {
+    margin-left:0;
+    padding-left:0;
+    display:inline;
+    width:auto;
+  }
+// preferences label + destroy shared from profile.scss styles
+// go there to see them
+  .preferences-label {
+    margin-bottom:10px;
+
+    a {
+      text-decoration:none;
+    }
+  }
+
+
+  .create-jam-circle { // looks like submit button
+    font-family:inherit;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.4em;
+    text-align:center;
+    background: rgba(0,0,0,.2); // #FDF5E6;
+    color: #fff;
+    box-shadow: none;
+    font-size:1em;
+    text-transform: uppercase;
+    letter-spacing:.5em;
+    border: 1px solid #FFF5EE;
+    border-radius: 0px;
+    cursor: pointer;
+    text-decoration:none;
+    display:block;
+
+            span {
+            text-transform: uppercase;
+            display:block;
+            font-size:2em;
+            letter-spacing:.1em;
+
+           }
+  }
+  .create-jam-circle:hover {
+    background: rgba(0,0,0,.8); // #FDF5E6;
+    }
+
+
+
+}

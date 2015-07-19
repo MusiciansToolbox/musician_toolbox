@@ -5,7 +5,8 @@ class JamCirclesController < ApplicationController
   # GET /jam_circles
   # GET /jam_circles.json
   def index
-    @jam_circles = JamCircle.all
+    @jam_circles = JamCircle.where(user_id: session[:user_id])
+    #@jam_circle = JamCircle.new
   end
 
   # GET /jam_circles/1
