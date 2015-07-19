@@ -90,6 +90,11 @@ function head(wait) {
   $('header').delay(wait).slideUp(1500);
 }
 
+function foot(wait) {
+  var wait = wait || 0;
+  $('footer').delay(wait).hide(1500);
+}
+
 function prepareForSlideshow() {
   $('body').css({padding: 0});
   $('.container').css({margin: 0});
@@ -105,7 +110,7 @@ function showRim(wait) {
   $('img.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top').fadeIn(wait);
 };
 
-$(function() {
+function keyBoardListener() {
 
   listener = new window.keypress.Listener();
 
@@ -142,10 +147,11 @@ $(function() {
 
   listener.sequence_combo("d a s h", dash);
   listener.sequence_combo("h e a d", head);
+  listener.sequence_combo("f o o t", foot);
   listener.sequence_combo("r e t u r n", reTurn);
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("Cheat code");
   }, true);
 
-});
+};

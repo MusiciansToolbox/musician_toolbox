@@ -1,9 +1,11 @@
 function treeBuilderTest(jam_circle_id) {
   var ww = $(window).width(),
       wh = $(window).height(),
-      down = 0,
-      right = ww*.1,
-      radius = 6
+      sw = $('svg').width(),
+      sh = $('svg').height(),
+      push_down = 0,
+      push_right = sw*.02,
+      radius = sh*.01
 
   $('svg').replaceWith('<svg></svg>')
 
@@ -14,10 +16,10 @@ function treeBuilderTest(jam_circle_id) {
     height = $(window).height();
 
   var tree = d3.layout.tree()
-    .size([height,width]);
+    .size([sh*.96,sw*.96]);
 
   var diagonal = d3.svg.diagonal()
-    .projection(function(d){return [d.y + right , d.x + down ];});
+    .projection(function(d){return [d.y + push_right , d.x + push_down ];});
 
 
   d3.json("/tree_data/" + jam_circle_id + ".json", function(data) {
@@ -56,7 +58,7 @@ function treeBuilderTest(jam_circle_id) {
         .enter()
         .append("g")
           .attr("class", "node")
-          .attr("transform", function(d) { return "translate(" + (d.y + right) + "," + (d.x+down) + ")";})
+          .attr("transform", function(d) { return "translate(" + (d.y + push_right) + "," + (d.x + push_down) + ")";})
           // .on("click", click);
     }
 
@@ -68,8 +70,10 @@ function treeBuilderTest(jam_circle_id) {
     function addText() {
       node.append("text")
         .text(function(d) {return d.name;})
-        .attr("transform", "translate(25,0)")
+        .attr("transform", "translate(-20,5)")
+        .attr("text-anchor", "end")
     }
+
     function drawEverthing() {
       drawLinks();
       setNodeLocations();
