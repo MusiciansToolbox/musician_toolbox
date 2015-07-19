@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   patch 'rm_genre/:genre_id' => 'users#rm_genre'
   patch 'rm_influence/:influence_id' => 'users#rm_influence'
 
+  patch 'report/:clip_id' =>'clips#report'
+
   # patch 'pages/cheat_activated'
 
 end
