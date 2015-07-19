@@ -30,6 +30,14 @@
 
 
   <div class="field">
+    <%= f.text_field :facebook_url, placeholder: "Facebook URL", class: 'form-control', 'data-parsley-type' => 'url', autocomplete: "off" %>
+  </div>
+
+    <div class="field">
+      <%= f.text_field :twitter_url, placeholder: "Twitter URL", class: 'form-control', 'data-parsley-type' => 'url', autocomplete: "off" %>
+    </div>
+
+  <div class="field">
     <label>Password</label>
     <%= f.password_field :password, autocomplete: "off", placeholder: "Password", 'data-parsley-required' => 'true', 'data-parsley-required' => 'true' %>
   </div>

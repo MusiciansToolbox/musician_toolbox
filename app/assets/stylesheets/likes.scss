@@ -122,6 +122,13 @@
 .liked-profile {
 
   h2 {
+     span {
+     display: block;
+     margin:0 auto;
+     font-size:.6em;
+     margin-bottom:10px;
+     letter-spacing:.2em;
+     }
       padding:10px;
       margin:0px auto 0px auto;
       text-align: center;
@@ -147,9 +154,22 @@
     cursor:default;
   }
 
+
+
+
   .chevron-back-link {
     padding-top:5px; // 5px hacky fix
   }
 
 
 }
+
+
+
+
+  .liked-social-icons {
+    display: block;
+    margin:0 auto;
+    text-align:center;
+     a { padding:0px 3px;}
+  }

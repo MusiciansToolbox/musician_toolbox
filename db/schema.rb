@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716162232) do
+ActiveRecord::Schema.define(version: 20150719203843) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 20150716162232) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
   end
 
 end

@@ -160,6 +160,6 @@ def create
 
     def user_params
       params.require(:user).permit(:name, :email, :password, #:influence,
-      :profile_picture, :description, :zipcode, :influences, instruments_attributes: [:name])
+      :profile_picture, :description, :zipcode, :influences, :facebook_url, :twitter_url, instruments_attributes: [:name])
     end
 end
