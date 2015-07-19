@@ -38,8 +38,17 @@
   .ui-state-focus {
   outline: none;
   background:#000;
-
 }
+
+   .destroy-clip {
+     padding:.5em;
+     position: absolute;
+     top:0;
+     right:0;
+     font-size:.6em;
+     text-decoration: none;
+     color:#ccc;
+   }
 
 }
 
