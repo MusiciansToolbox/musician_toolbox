@@ -3,23 +3,17 @@ function treeBuilderTest(jam_circle_id) {
       wh = $(window).height(),
       sw = $('svg').width(),
       sh = $('svg').height(),
-      push_down = 0,
-      push_right = sw*.02,
       radius = sh*.01
 
   $('svg').replaceWith('<svg></svg>')
 
   var svg = d3.select('body svg')
 
-  var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = $(window).width()*.8,
-    height = $(window).height();
-
   var tree = d3.layout.tree()
-    .size([sh*.96,sw*.96]);
+    .size([sh,sw]);
 
   var diagonal = d3.svg.diagonal()
-    .projection(function(d){return [d.y + push_right , d.x + push_down ];});
+    .projection(function(d){return [ d.y , d.x ];});
 
 
   d3.json("/tree_data/" + jam_circle_id + ".json", function(data) {
@@ -58,7 +52,7 @@ function treeBuilderTest(jam_circle_id) {
         .enter()
         .append("g")
           .attr("class", "node")
-          .attr("transform", function(d) { return "translate(" + (d.y + push_right) + "," + (d.x + push_down) + ")";})
+          .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")";})
           // .on("click", click);
     }
 
