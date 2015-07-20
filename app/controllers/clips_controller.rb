@@ -42,6 +42,11 @@ class ClipsController < ApplicationController
     end
   end
 
+  def destroy
+    Clip.destroy(params[:clip_id])
+    render :nothing => true
+  end
+
   private
 
   def clip_params

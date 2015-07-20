@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get 'retrieve/:clip_id' => 'clips#retrieve'
 
+  delete 'destroy_clip/:clip_id' => 'clips#destroy'
+
   # patch 'pages/cheat_activated'
 
 end
