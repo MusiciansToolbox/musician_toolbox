@@ -13,7 +13,7 @@
 
 // workaround to improve accordion smootheness/choppiness
 #accordion .ui-accordion-header {
-    margin:0 0 0px 0;
+    margin:0;
 }
 
 
@@ -101,7 +101,7 @@
 
 
 .profile-wrapper {
-     margin-bottom:700px; // workaround to improve accordion smootheness/choppiness
+     margin-bottom:200px; // workaround to improve accordion smootheness/choppiness
      @include mobile { margin-bottom:80px;}
      padding-bottom:40px!important;
 
