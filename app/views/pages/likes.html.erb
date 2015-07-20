@@ -46,7 +46,18 @@
 
           // play or pause track on click
            if  ($(this).hasClass('play-button')) {
-                 audio.pause();
+                 //$('audio')[0].pause();
+                 // $('.pause').click();
+
+
+                  $(this).removeClass('play-button playing');
+                  $(this).find('.play-circle-container').removeClass( "animated pulse");
+                 setTimeout(function () {
+
+                    $('.pause').click();
+                 }
+                   , 100);
+                 // $('#audiojs_wrapper0').removeClass('playing');
              console.log('has play button class');
            }
 
