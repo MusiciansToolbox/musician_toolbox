@@ -110,6 +110,15 @@ function showRim(wait) {
   $('img.chrome-rim').addClass('fa fa-spin').attr('style', 'animation: fa-spin 5s infinite linear;').removeProp('top').fadeIn(wait);
 };
 
+function showChain(wait) {
+  var wait = wait || 1000
+  if ( $( "img#chain" ).is( ":hidden" ) ) {
+    $( "img#chain" ).slideDown( wait );
+  } else {
+    $( "img#chain" ).hide();
+  }
+}
+
 function keyBoardListener() {
 
   listener = new window.keypress.Listener();
@@ -149,6 +158,7 @@ function keyBoardListener() {
   listener.sequence_combo("h e a d", head);
   listener.sequence_combo("f o o t", foot);
   listener.sequence_combo("r e t u r n", reTurn);
+  listener.sequence_combo("c h a i n", showChain);
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("Cheat code");
