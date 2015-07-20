@@ -185,9 +185,11 @@ function treeBuilderTest(jam_circle_id) {
 
   function retrieveClip(d) {
     var clip_id = d.clip_id;
-    // console.log($('#clip'+clip_id));
+    var clip_url = d.clip_url
     $('#myModal').modal('show');
     $('#play-button').attr('value', clip_id);
+    $('#add-to-button').attr('value', clip_id);
+    $('#download-button').attr('href', clip_url);
   }
 
 

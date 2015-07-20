@@ -48,12 +48,14 @@ class Clip < ActiveRecord::Base
           'name' => child.name,
           'parent' => child.parent,
           'clip_id' => child.id,
+          'clip_url' => clip.uploaded_file,
           'children' => child.children_json
         }
       else
         child_data << {
           'name' => child.name,
           'parent' => child.parent,
+          'clip_url' => clip.uploaded_file,
           'clip_id' => child.id
         }
 
