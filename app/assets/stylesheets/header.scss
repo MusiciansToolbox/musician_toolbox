@@ -30,7 +30,7 @@ header {
 
     a, a:visited {
           color:#fff;
-          text-decoration:none;
+          text-decoration:none!important; // prevent bootstrap, etc from adding underline
     }
 
     a:hover { // stay the same on hover
