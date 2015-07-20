@@ -28,7 +28,8 @@ $svgSize: 70;
 }
 
 svg {
-  background: lightblue;
+  // background: lightblue;
+  background: transparent;
   position: fixed;
   border: 3px solid white;
   padding: 8%;
@@ -46,14 +47,14 @@ svg {
 }
 
 .node circle {
-  fill: white;
+  fill: black;
   stroke: white;
   stroke-width: 2px;
 }
 
 .node text {
   font: 2vh sans-serif;
-  color: white;
+  fill: white;
 }
 
 .link {
