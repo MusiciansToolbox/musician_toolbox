@@ -189,6 +189,7 @@ function treeBuilderTest(jam_circle_id) {
       url: "/retrieve/" + clip_id,
       type: "GET",
     });
+    $('#myModal').modal('show') 
 
   }
 
