@@ -67,7 +67,7 @@
           <ol>
             <% @clips.each do |clip| %>
             <li>
-              <a data-src='<%= clip.uploaded_file %>' href="#">
+              <a data-src='<%= clip.uploaded_file %>' href="#" value='<%= clip.id %>'>
                 <span class="song-title">
                   <%= clip.title ? clip.title : clip.uploaded_file_file_name %>
                 </span>
@@ -221,6 +221,12 @@
 $('.destroy-clip').click(function() {
   event.stopPropagation();
   $(this).closest('li').fadeOut(500);
+  var clip_id = $($(this).closest('a')[0]).attr("value")
+  $.ajax({
+    url: "/destroy_clip/" + clip_id,
+    type: "DELETE",
+  });
+
 });
 
 // bind upload clip form to parsleyjs
