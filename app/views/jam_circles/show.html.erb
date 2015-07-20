@@ -1,7 +1,15 @@
 <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content" style="color:black;">
-      Dude, check this modal out!!!!<span class="fa fa-spin" style="color:red">WTF!!!</span>
+      <div id="play-button" class="btn btn-primary">
+        Play
+      </div>
+      <div class="btn btn-primary">
+        Download
+      </div>
+      <div class="btn btn-primary">
+        Add To
+      </div>
     </div>
   </div>
 </div>
@@ -87,5 +95,14 @@
       });
 
     });
+
+    $(function playButton(){
+      $('#play-button').click(function(){
+        sumnum = $(this).attr('value');
+        // console.log(sumnum)
+        $('#clip'+sumnum).click();
+      })
+    })
+
   </script>
 <% end %>

@@ -185,10 +185,11 @@ function treeBuilderTest(jam_circle_id) {
 
   function retrieveClip(d) {
     var clip_id = d.clip_id;
-    console.log($('#clip'+clip_id));
-    $('#clip'+clip_id).click();
+    // console.log($('#clip'+clip_id));
     $('#myModal').modal('show');
+    $('#play-button').attr('value', clip_id);
   }
+
 
 
 };
