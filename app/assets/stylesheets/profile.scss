@@ -11,6 +11,17 @@
   }
 }
 
+
+// workaround to improve accordion smootheness/choppiness
+.ui-accordion .ui-accordion-content{
+      box-sizing:content-box!important;
+      -moz-box-sizing:content-box!important;
+  //    overflow:auto!important;
+      overflow-x: hidden!important;
+      overflow-y: hidden!important;
+}
+
+
 #accordion, #likedAccordion {
 
   .accordion-content {
@@ -94,7 +105,8 @@
 
 
 .profile-wrapper {
-     margin-bottom:80px;
+     margin-bottom:700px; // workaround to improve accordion smootheness/choppiness
+     @include mobile { margin-bottom:80px;}
 
      .select { margin-top: 10px; display: block;}
 
@@ -177,14 +189,11 @@
     #genres-container {
       padding:10px;
       margin-bottom:15px;
+    }
 
-    /*  select {
-        width:100%;
-        padding:10px; // does nothing
-        font-size:2.8em!important; // does nothing
-        height:20px;
-      }*/
-
-
+    #add_partial_to_add_instrument, #add_partial_to_add_genre, #add_partial_to_add_influence {
+      display:block;
+      text-align:right;
+      @include mobile { text-align: right; padding:10px 0;}
     }
 }
