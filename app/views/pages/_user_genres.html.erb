@@ -1,10 +1,10 @@
 <% @user_genres.each do |genre| %>
 <p class="preferences-label">
     <%= genre.name.capitalize %>
-    <%= link_to 'X', "/#{genre.id}", value: genre.id, remote: true, class:"destroy-link", title:"remove" %>
+    <%= link_to 'x', "/#{genre.id}", value: genre.id, remote: true, class:"destroy-link", title:"remove" %>
   </p>
 <% end %>
- 
+
 <%= link_to '/', id: 'add_partial_to_add_genre', remote: true do %>
   <i class="fa fa-plus-circle add-icon"></i>Add Genre
    <% end %>

@@ -48,11 +48,11 @@
 }
 
    .destroy-clip {
-     padding:.5em;
+     padding-right:.5em;
      position: absolute;
-     top:0;
+    // top:0;
      right:0;
-     font-size:.6em;
+    // font-size:.6em;
      text-decoration: none;
      color:#ccc;
    }
@@ -72,11 +72,11 @@
 
 
   .destroy-link {
-    padding:.5em;
+    padding-right:.5em;
     position: absolute;
-    top:0;
+    // top:0;
     right:0;
-    font-size:.6em;
+    //font-size:.6em;
     text-decoration: none;
     color:#ccc;
   }

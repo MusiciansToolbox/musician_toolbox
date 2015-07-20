@@ -3,7 +3,7 @@
   <% if instrument.id %>
     <p class="preferences-label">
       <%= instrument.name.capitalize %>
-      <%= link_to 'X', "/#{instrument.id}", value: instrument.id, remote: true, class:"destroy-link", title:"remove" %>
+      <%= link_to 'x', "/#{instrument.id}", value: instrument.id, remote: true, class:"destroy-link", title:"remove" %>
     </p>
   <% end %>
 <% end %>

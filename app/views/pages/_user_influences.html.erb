@@ -1,7 +1,7 @@
 <% @user_influences.each do |influence| %>
   <p class="preferences-label">
     <%= influence.name.capitalize %>
-    <%= link_to 'X', "/#{influence.id}", value: influence.id, remote: true, class:"destroy-link", title:"remove" %>
+    <%= link_to 'x', "/#{influence.id}", value: influence.id, remote: true, class:"destroy-link", title:"remove" %>
   </p>
 <% end %>
 

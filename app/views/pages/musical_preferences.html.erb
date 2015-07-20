@@ -71,7 +71,7 @@
                 <span class="song-title">
                   <%= clip.title ? clip.title : clip.uploaded_file_file_name %>
                 </span>
-                <span class="destroy-clip">X</span>
+                <span class="destroy-clip">x</span>
               </a>
             </li>
             <% end %>
@@ -106,7 +106,7 @@
         <% end %>
         <%= f.hidden_field :user_id, :value => session[:user_id] %>
         <span class="upload-form" style="padding-top:0;margin-top:0;">
-          <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur', style:"padding-top:0; margin-top:0;" %>
+          <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur' %>
           <%= f.label :instrument, class:"select" do %>
           <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument", 'data-parsley-required' => 'true' %>
         <% end %>
