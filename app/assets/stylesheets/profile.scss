@@ -11,7 +11,7 @@
   }
 }
 
-#accordion {
+#accordion, #likedAccordion {
 
   .accordion-content {
 
@@ -38,14 +38,24 @@
   .ui-state-focus {
   outline: none;
   background:#000;
-
 }
+
+   .destroy-clip {
+     padding:.5em;
+     position: absolute;
+     top:0;
+     right:0;
+     font-size:.6em;
+     text-decoration: none;
+     color:#ccc;
+   }
 
 }
 
 
 
 // CSS FOR ADDING GENRES, INSTRUMENTS, INFLUENCES
+// shared with jam circle index page that lists existing JC's
 .preferences-label {
   padding:.5em;
   background:rgba(0,0,0,.5);

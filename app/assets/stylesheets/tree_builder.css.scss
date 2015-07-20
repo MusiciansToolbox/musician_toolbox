@@ -1,5 +1,9 @@
 $svgWidth: 80;
 $svgMargin: (100 - $svgWidth);
+@import 'sass';
+
+$svgSize: 70;
+// $svgMargin: (100 - $svgSize)/2;
 
 
 .jam-circle {

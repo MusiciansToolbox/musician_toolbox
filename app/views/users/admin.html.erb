@@ -1,0 +1,20 @@
+
+
+<div class="content-wrapper">
+  <h2>Admin Page</h2>
+
+<div style="padding:10px;">
+
+<% if @user.admin == true %>
+  <% @clips.each do |c| %>
+  <a href="<%= c.uploaded_file %>" class:"preferences-label"><%= c.title %></a> clip_id: <%=c.id%>
+  <p> use rails console to delete clips </p>
+  <% end %>
+<% else %>
+  <p> Sorry, your not an admin </p>
+<% end %>
+
+
+
+</div>
+</div>

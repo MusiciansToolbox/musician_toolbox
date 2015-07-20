@@ -3,6 +3,11 @@ class ClipsController < ApplicationController
   before_action :set_user
   include Transloadit::Rails::ParamsDecoder
 
+  def retrieve
+    id = params[:clip_id]
+    @clip = Clip.find(id)
+  end
+
   def new
     @clip = Clip.new
     # @clip = @user.clips.build
@@ -11,6 +16,12 @@ class ClipsController < ApplicationController
   def index
     @clips = Clip.all
     @clip = Clip.new
+  end
+
+  def report
+    clip = Clip.find_by_id(params[:clip_id])
+    clip.reported = true
+    clip.save
   end
 
 

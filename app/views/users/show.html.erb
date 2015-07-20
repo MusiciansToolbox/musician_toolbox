@@ -1,9 +1,56 @@
+<% if @other_user.clips.any? %>
+
+  <script>
+    $ (function () {
+    // Setup the player to autoplay the next track
+      var a = audiojs.createAll({
+        trackEnded: function () {
+          var next = $('ol li.playing').next();
+          if (!next.length)
+            next = $('ol li').first();
+          next.addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', next).attr('data-src'));
+          audio.play();
+        }
+      });
+
+    // Load in the first track
+      var audio = a[0];
+      first = $('ol a').attr('data-src');
+      $('ol li').first().addClass('playing');
+      audio.load(first);
+
+    // Load in a track on click
+      $('ol li').click(function (e) {
+        e.preventDefault();
+        $(this).addClass('playing').siblings().removeClass('playing');
+        audio.load($('a', this).attr('data-src'));
+        audio.play();
+      });
+
+    });
+  </script>
+<% end %>
+
+<script>
+  $(function () {
+    $("#likedAccordion").accordion({
+      header: "h2",
+      collapsible: true,
+      active: false,
+      heightStyle: "content"
+    });
+  });
+</script>
+
+
+
 <div class="content-wrapper liked-profile">
   <%= link_to root_path, class:"chevron-back-link" do %>
       <i class="fa fa-chevron-left"></i>
   <% end %>
 
-  <h2>Contact <%= @other_user.name %>:</h2>
+  <h2><span>Contact</span><%= @other_user.name %></h2>
   <span class="users-data">
 
 
@@ -19,9 +66,81 @@
       <%= image_tag "default_profile_pic.jpg", class:"profile-pic-account profile-pic" %>
     <% end %>
 
-    <!--
-    <%= image_tag @user.profile_picture.url, class: "profile-pic" %>
-  -->
+
+
+
+    <span class="liked-social-icons">
+          <% if @other_user.facebook_url %>
+              <%= link_to @other_user.facebook_url do %><i class="fa fa-facebook"></i><% end %>
+          <% end %>
+
+        <% if @other_user.twitter_url %>
+              <%= link_to @other_user.twitter_url do %><i class="fa fa-twitter"></i><% end %>
+          <% end %>
+   </span>
+
+
+
+
+    <% if @other_user.description %>
+        <p>
+          <%= @other_user.description %>
+        </p>
+    <% end %>
+
+
+ </span>
+
+
+
+
+
+
+
+<div collapsible="true" id="likedAccordion">
+
+   <!--NEW SECTION-->
+   <h2>Click For More Music</h2>
+
+
+
+   <div class="accordion-content">
+
+   <!---music playes goes here-->
+   <% if @other_user.clips.any? %>
+
+     <div class="dashboard-music-player">
+       <div id="wrapper">
+         <audio preload></audio>
+         <ol>
+           <% @other_user.clips.each do |clip| %>
+             <li>
+               <a href="#" data-src='<%= clip.uploaded_file %>'>
+                 <span class="song-title">
+                   <%= clip.title ? clip.title.capitalize : clip.uploaded_file_file_name %>
+                 </span>
+               </a>
+             </li>
+           <% end %>
+         </ol>
+       </div>
+     </div>
+
+   <% else %>
+     <center>
+       <div>
+         You do not have any audio clips! Upload some, quick!
+       </div>
+     </center>
+   <% end %>
+
+  </div>
+  <!--close accordion section-->
+
+
+</div>
+<!--CLOSE ENTIRE ACCORDION-->
+
 
 
 
@@ -68,15 +187,3 @@
         <% end %>
     </p>
 -->
-
-
-<% if @other_user.description %>
-
-    <p>
-      <%= @other_user.description %>
-    </p>
-    <% end %>
-
-
-  </span>
-</div>

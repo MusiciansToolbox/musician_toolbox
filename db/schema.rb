@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716162232) do
+ActiveRecord::Schema.define(version: 20150719203843) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150716162232) do
     t.integer  "jam_circle_id"
     t.integer  "previous_clip_id"
     t.boolean  "demo"
+    t.boolean  "reported"
   end
 
   add_index "clips", ["instrument_id"], name: "index_clips_on_instrument_id"
@@ -82,6 +83,16 @@ ActiveRecord::Schema.define(version: 20150716162232) do
 
   add_index "jam_circles", ["user_id"], name: "index_jam_circles_on_user_id"
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["clip_id"], name: "index_likes_on_clip_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+
   create_table "opinions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "clip_id"
@@ -113,6 +124,9 @@ ActiveRecord::Schema.define(version: 20150716162232) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.boolean  "admin"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
   end
 
 end

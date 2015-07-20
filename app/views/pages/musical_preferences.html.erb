@@ -3,6 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <script>
+// initialize accordion menu
   $(function () {
     $("#accordion").accordion({
       header: "h3",
@@ -12,6 +13,8 @@
     });
   });
 </script>
+
+
 
 <div class="content-wrapper profile-wrapper" style="padding:0;">
 
@@ -78,6 +81,7 @@
                 <span class="song-title">
                   <%= clip.title ? clip.title : clip.uploaded_file_file_name %>
                 </span>
+                <span class="destroy-clip">X</span>
               </a>
             </li>
             <% end %>
@@ -275,8 +279,14 @@
 
 
 
+<script>
+// remove my music sound clip on X click from DOM
+$('.destroy-clip').click(function() {
+  event.stopPropagation();
+  $(this).closest('li').fadeOut(500);
+});
 
+// bind upload clip form to parsleyjs
+$('#new_clip').parsley();
 
-    <script type="text/javascript">
-      $('#new_clip').parsley();
-    </script>
+</script>

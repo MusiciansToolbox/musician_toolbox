@@ -47,14 +47,14 @@ class Clip < ActiveRecord::Base
         child_data << {
           'name' => child.name,
           'parent' => child.parent,
-          # 'id' => child.id,
+          'clip_id' => child.id,
           'children' => child.children_json
         }
       else
         child_data << {
           'name' => child.name,
           'parent' => child.parent,
-          # 'id' => child.id
+          'clip_id' => child.id
         }
 
       end

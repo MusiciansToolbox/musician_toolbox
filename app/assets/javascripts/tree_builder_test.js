@@ -55,7 +55,9 @@ function treeBuilderTest(jam_circle_id) {
         .append("g")
           .attr("class", "node")
           .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")";})
-          .on("click", click);
+          .attr("clip_id", function(d) {return d.id} )
+          .on("click", retrieveClip);
+          // .on("click", click);
     }
 
     function drawCirclesAtNodeLocations() {
@@ -98,7 +100,7 @@ function treeBuilderTest(jam_circle_id) {
     var nodeEnter = node.enter().append("g")
         .attr("class", "node")
         .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-        .on("click", click);
+        // .on("click", click);
 
     nodeEnter.append("circle")
         .attr("r", radius)
@@ -179,6 +181,15 @@ function treeBuilderTest(jam_circle_id) {
       d._children = null;
     }
     update(d);
+  }
+
+  function retrieveClip(d) {
+    var clip_id = d.clip_id;
+    $.ajax({
+      url: "/retrieve/" + clip_id,
+      type: "GET",
+    });
+
   }
 
 
