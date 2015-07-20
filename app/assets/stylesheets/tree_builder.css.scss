@@ -1,5 +1,5 @@
-$svgSize: 70;
-$svgMargin: (100 - $svgSize)/2;
+$svgWidth: 80;
+$svgMargin: (100 - $svgWidth);
 
 
 .jam-circle {
@@ -9,10 +9,9 @@ $svgMargin: (100 - $svgSize)/2;
   left: 1%;
   top: 5%;
   height: 100px;
-  width: 14%;
+  width: $svgMargin - 1 + vw;
   max-width: 30%;
   font-size: 1.5vmin;
-  // line-height: 5px;
 }
 
 .full-screen {
@@ -25,19 +24,20 @@ $svgMargin: (100 - $svgSize)/2;
 }
 
 svg {
-  background: transparent;
+  background: lightblue;
   position: fixed;
   border: 3px solid white;
-  padding: 2%;
+  padding: 8%;
   left: 0;
   top: 0;
-  width: $svgSize + vw;
-  height: $svgSize + vh;
-  margin: $svgMargin + vh $svgMargin + vw;
+  bottom:0;
+  width: $svgWidth + vw;
+  height: 190vh;
+  margin: auto $svgMargin + vw;
   z-index: 0;
 }
 
-div svg g.node {
+.node {
   cursor: pointer;
 }
 
@@ -48,11 +48,12 @@ div svg g.node {
 }
 
 .node text {
-  font: 20px sans-serif;
+  font: 2vh sans-serif;
+  color: white;
 }
 
 .link {
   fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
+  stroke: white;
+  stroke-width: 3px;
 }

@@ -3,7 +3,7 @@ function treeBuilderTest(jam_circle_id) {
       wh = $(window).height(),
       sw = $('svg').width(),
       sh = $('svg').height(),
-      radius = sh*.013,
+      radius = wh*.01,
       i = 0,
       duration = 750,
       root;
@@ -45,8 +45,6 @@ function treeBuilderTest(jam_circle_id) {
       .enter()
       .append("path")
       .attr("class", "link")
-      .attr("fill", "none")
-      .attr("stroke", "white")
       .attr("d", diagonal);
     }
 
@@ -68,8 +66,8 @@ function treeBuilderTest(jam_circle_id) {
     function addText() {
       node.append("text")
         .text(function(d) {return d.name;})
-        .attr("transform", "translate(-20,5)")
-        .attr("text-anchor", "end")
+        .attr("transform", function(d) { return d.children || d._children ? "translate(-20,5)" : "translate(20,5)"})
+        .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
     }
 
     function drawEverthing() {
@@ -182,5 +180,6 @@ function treeBuilderTest(jam_circle_id) {
     }
     update(d);
   }
+
 
 };

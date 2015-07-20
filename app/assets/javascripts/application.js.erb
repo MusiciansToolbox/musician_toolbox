@@ -164,6 +164,15 @@ function showChosenProfilePic() {
   });
 };
 
+function hoverOverNode() {
+  console.log("Outside the function")
+
+  $('.node').click(function() {
+    console.log("Inside the function");
+  });
+};
+
+
 $(showChosenProfilePic);
 $(addPartialToAddInstrument);
 $(addPartialToAddGenre);
@@ -173,3 +182,4 @@ $(rmGenre);
 $(rmInfluence);
 $(disableButton);
 $(showJamClipForm);
+$(hoverOverNode);

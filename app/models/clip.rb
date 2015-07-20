@@ -42,17 +42,19 @@ class Clip < ActiveRecord::Base
     child_data = []
 
     children.each do |child|
-      
+
       if child.has_children?
         child_data << {
           'name' => child.name,
           'parent' => child.parent,
+          # 'id' => child.id,
           'children' => child.children_json
         }
       else
         child_data << {
           'name' => child.name,
-          'parent' => child.parent
+          'parent' => child.parent,
+          # 'id' => child.id
         }
 
       end
