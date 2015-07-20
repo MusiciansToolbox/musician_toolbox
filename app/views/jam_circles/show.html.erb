@@ -1,7 +1,16 @@
 <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content" style="color:black;">
-      Dude, check this modal out!!!!<span class="fa fa-spin" style="color:red">WTF!!!</span>
+      <div id="play-button" class="btn btn-primary">
+        Play
+      </div>
+      <a id="download-button" class="btn btn-primary" download>
+        Download
+      </a>
+      <div id="add-to-button" class="btn btn-primary">
+        Add To
+      </div>
+      <%= render 'jam_circles/new_clip' %>
     </div>
   </div>
 </div>
@@ -32,6 +41,13 @@
       <%= link_to 'Edit Jam Circle', edit_jam_circle_path(@jam_circle) %>
     <% end %>
 
+    <% unless @jam_circle.clips.any? %>
+      <div>
+        You Don't have any clips lolololololololooololololo
+        <br/>
+        click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this jam circle/tree/whatever
+    <% end %>
+
 
 <div class="dashboard-music-player" style="display:none;">
   <div id="wrapper">
@@ -52,9 +68,11 @@
   </ol>
   </div>
 
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
-
 </div>
+<% unless @jam_circle.clips.any? %>
+  <%= render 'jam_circles/new_clip' %>
+<% end %>
+
 
   <script>
     head();
@@ -87,5 +105,33 @@
       });
 
     });
+
+    $(function playButton(){
+      $('#play-button').click(function(){
+        sumnum = $(this).attr('value');
+        $('#clip'+sumnum).click();
+      })
+    })
+
+    $(function addToButton(){
+      $('#add-to-button').click(function(){
+
+        var previous_clip_id = $(this).attr('value')
+        $('#clip_previous_clip_id').val(previous_clip_id)
+        $('form.jam-clip').show();
+      })
+    })
+
+    $(function downloadButton(){
+      $('#add-to-button').click(function(){
+
+        var previous_clip_id = $(this).attr('value')
+        $('#clip_previous_clip_id').val(previous_clip_id)
+        $('form.jam-clip').show();
+      })
+    })
+
+
+
   </script>
 <% end %>
