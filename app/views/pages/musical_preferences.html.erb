@@ -32,7 +32,7 @@
   <div collapsible="true" id="accordion">
    <h3>Music Profile</h3>
      <div class="accordion-content">
-      <span class="settings-header">My Instruments</span>
+      <span class="settings-header" style="margin-top:20px">My Instruments</span>
       <div id='instruments-container'>
         <%= render 'pages/user_instruments' %>
       </div>
@@ -61,7 +61,7 @@
     <h3>My Music</h3>
     <div class="accordion-content">
       <% if @clips.any? %>
-      <div class="dashboard-music-player">
+      <div class="dashboard-music-player" style="padding-top:20px;">
         <div id="wrapper">
           <audio preload></audio>
           <ol>
@@ -105,8 +105,8 @@
         </div>
         <% end %>
         <%= f.hidden_field :user_id, :value => session[:user_id] %>
-        <span class="upload-form">
-          <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur' %>
+        <span class="upload-form" style="padding-top:0;margin-top:0;">
+          <%= f.text_field :title, placeholder: 'Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur', style:"padding-top:0; margin-top:0;" %>
           <%= f.label :instrument, class:"select" do %>
           <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument", 'data-parsley-required' => 'true' %>
         <% end %>
@@ -153,7 +153,7 @@
     </div>
         <h3>Account Settings</h3>
         <div class="accordion-content">
-           <div class="account-settings-wrapper">
+           <div class="account-settings-wrapper" style="margin-top:20px">
                 <%= render 'users/form' %>
                 <%= link_to 'Logout', logout_path, method: :delete, class:"rails-link" %>
            </div>
