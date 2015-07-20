@@ -4,7 +4,7 @@
 
 <%= form_for @user, html: { multipart: true } do |f| %>
   <div class="field">
-    <%= f.text_field :name, autofocus: true, placeholder: "Name", class: 'form-control', 'data-parsley-required' => 'true' %>
+    <%= f.text_field :name, autofocus: true, placeholder: "Name", 'data-parsley-required' => 'true' %>
   </div>
   <div class="field">
     <%= f.email_field :email, placeholder: "Email", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-trigger' => 'blur', 'data-parsley-required' => 'true' %>
@@ -30,11 +30,11 @@
 
 
   <div class="field">
-    <%= f.text_field :facebook_url, placeholder: "Facebook URL", class: 'form-control', 'data-parsley-type' => 'url', autocomplete: "off" %>
+    <%= f.text_field :facebook_url, placeholder: "Facebook URL", 'data-parsley-type' => 'url', autocomplete: "off" %>
   </div>
 
     <div class="field">
-      <%= f.text_field :twitter_url, placeholder: "Twitter URL", class: 'form-control', 'data-parsley-type' => 'url', autocomplete: "off" %>
+      <%= f.text_field :twitter_url, placeholder: "Twitter URL",  'data-parsley-type' => 'url', autocomplete: "off" %>
     </div>
 
   <div class="field">
