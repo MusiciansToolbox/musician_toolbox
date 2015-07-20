@@ -6,6 +6,11 @@
   // .audiojs { display: none;}
 
 
+  .audiojs {
+    display:none;
+  }
+
+
   ol {
     margin-top:0px;
     border:0;
@@ -171,5 +176,9 @@
     display: block;
     margin:0 auto;
     text-align:center;
-     a { padding:0px 3px;}
+    font-size:.6em;
+    margin-bottom:10px;
+    opacity:.8;
+
+     a:first-child { padding:0px 15px;}
   }

@@ -11,6 +11,13 @@
   }
 }
 
+// workaround to improve accordion smootheness/choppiness
+#accordion .ui-accordion-header {
+    margin:0 0 0px 0;
+}
+
+
+
 #accordion, #likedAccordion {
 
   .accordion-content {
@@ -22,9 +29,9 @@
     font-size:1.8em;
     text-align: left;
     cursor: pointer;
-    margin-bottom:30px;
+//    margin-bottom:30px; // this doesn't do anything
     color:#f8f8f8;
-    padding:10px 20px;
+    padding:20px 20px;
   }
 
   h3:hover {
@@ -94,7 +101,9 @@
 
 
 .profile-wrapper {
-     margin-bottom:80px;
+     margin-bottom:700px; // workaround to improve accordion smootheness/choppiness
+     @include mobile { margin-bottom:80px;}
+     padding-bottom:40px!important;
 
      .select { margin-top: 10px; display: block;}
 
@@ -177,14 +186,11 @@
     #genres-container {
       padding:10px;
       margin-bottom:15px;
+    }
 
-    /*  select {
-        width:100%;
-        padding:10px; // does nothing
-        font-size:2.8em!important; // does nothing
-        height:20px;
-      }*/
-
-
+    #add_partial_to_add_instrument, #add_partial_to_add_genre, #add_partial_to_add_influence {
+      display:block;
+      text-align:right;
+      @include mobile { text-align: right; padding:10px 0;}
     }
 }
