@@ -49,6 +49,8 @@ class Clip < ActiveRecord::Base
           'parent' => child.parent,
           'clip_id' => child.id,
           'clip_url' => clip.uploaded_file,
+          'clip_instrument' => clip.instrument.name,
+          'clip_user' => clip.user.name,
           'children' => child.children_json
         }
       else
@@ -56,7 +58,9 @@ class Clip < ActiveRecord::Base
           'name' => child.name,
           'parent' => child.parent,
           'clip_url' => clip.uploaded_file,
-          'clip_id' => child.id
+          'clip_id' => child.id,
+          'clip_instrument' => clip.instrument.name,
+          'clip_user' => clip.user.name
         }
 
       end
