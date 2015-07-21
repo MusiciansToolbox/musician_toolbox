@@ -27,20 +27,6 @@
         </div>
       <% end %>
     <% end %>
-
-
-    <div class="radio-buttons">
-      <span>Make This Session:</span>
-      <br />
-        <%= radio_button_tag(:jamcircletype, "public", 'data-parsley-required' => 'true') %>
-        <%= label_tag(:age_child, "Public") %>
-<br />
-        <%= radio_button_tag(:jamcircletype, "private", 'data-parsley-required' => 'true') %>
-         <%= label_tag(:age_adult, "Private") %>
-    </div>
-
-
-
     <br/>
 
     <div class="actions">
@@ -50,7 +36,7 @@
 
 
 
-  </div>
+</div>
 
   <script type="text/javascript">
     $('#jamCircleForm form').parsley();

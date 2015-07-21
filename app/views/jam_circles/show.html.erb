@@ -35,6 +35,16 @@
             <%= @jam_circle.description %>
         <% end %>
         <% unless @jam_circle.clips.any? %>
+        <br /><br />
+        JamCircle creates a tree diagram that allows users to play, upload and download multiple clips.<br /><br />  The first uploaded clip forms the root of the tree.<br /><br />
+
+ To add a branch to the tree find the root clips node, a small circle labeled with the root clips name, and click it.<br /><br />
+
+Download the clip and merge it with a clip of your own making, then upload this clip by clicking “Add Instrument”.<br /><br />
+
+To extend the branch, add an instrument to the last node on that branch.<br /><br />
+
+To add a parallel branch, add an instrument to the root clip, or any other clip you wish to branch from.
         <br /><br /><br />
           Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;' %> to add the first clip to this Jam Circle
           <br /><br />
