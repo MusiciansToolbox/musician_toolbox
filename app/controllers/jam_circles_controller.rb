@@ -28,6 +28,7 @@ class JamCirclesController < ApplicationController
   # POST /jam_circles.json
   def create
     @jam_circle = JamCircle.new(jam_circle_params)
+    @jam_circle.users << @user
     user_ids = params[:users].keys
     user_ids.each do |id|
       @jam_circle.users << User.find(id)
