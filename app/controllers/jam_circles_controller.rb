@@ -52,6 +52,12 @@ class JamCirclesController < ApplicationController
   # PATCH/PUT /jam_circles/1
   # PATCH/PUT /jam_circles/1.json
   def update
+    if params[:users]
+      user_ids = params[:users].keys
+      user_ids.each do |id|
+        @jam_circle.users << User.find(id)
+      end
+    end
     respond_to do |format|
       if @jam_circle.update(jam_circle_params)
         format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully updated.' }
