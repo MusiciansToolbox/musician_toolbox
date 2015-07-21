@@ -30,10 +30,13 @@ class JamCirclesController < ApplicationController
   # POST /jam_circles.json
   def create
     @jam_circle = JamCircle.new(jam_circle_params)
+    @jam_circle.user_id = @user.id
     @jam_circle.users << @user
-    user_ids = params[:users].keys
-    user_ids.each do |id|
-      @jam_circle.users << User.find(id)
+    if params[:users]
+      user_ids = params[:users].keys
+      user_ids.each do |id|
+        @jam_circle.users << User.find(id)
+      end
     end
     respond_to do |format|
       if @jam_circle.save

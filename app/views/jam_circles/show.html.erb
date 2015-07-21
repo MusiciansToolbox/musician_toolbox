@@ -34,9 +34,7 @@
         <% unless @jam_circle.description.blank? %>
             <%= @jam_circle.description %>
         <% end %>
-          <%#= @jam_circle.user.name.capitalize %>
-          <%#= @jam_circle.public ? 'Public' : 'Private' %>
-          <%#= @jam_circle.open ? 'Open' : 'Closed' %>
+        <% if jam_circle.user_id == session[:user_id] %><%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %><% end %>
         <% unless @jam_circle.clips.any? %>
         <br /><br /><br />
           Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;' %> to add the first clip to this Jam Circle

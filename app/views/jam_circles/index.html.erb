@@ -19,7 +19,7 @@
         <%= link_to jam_circle do %>
           <% jam_circle.title %>
         <% end %>
-          <%= link_to 'x', jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" %>
+          <% if jam_circle.user_id == session[:user_id] %><%= link_to 'x', jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" %><% end %>
       </div>
 
 
