@@ -12,6 +12,8 @@
     padding:0!important;
   }
 
+
+
   input[type=checkbox]{
   border: 0;
   clip: rect(0 0 0 0);
@@ -109,6 +111,18 @@
     background: rgba(0,0,0,.8); // #FDF5E6;
     }
 
+
+
+}
+
+
+
+
+.jam-circle {  // hack to get padding right on 'upload the first clip' link in jam circle
+               // which opens up a form below it
+    input#clip_title {
+        margin-bottom:10px!important;
+    }
 
 
 }

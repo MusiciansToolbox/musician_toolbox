@@ -36,12 +36,14 @@
         <% unless @jam_circle.clips.any? %>
 
         <br /><br /><br />
-          Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;color:#fff;' %> to add the first clip to this Jam Circle
+          Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;color:#fff;' %> to add the first clip to this Jam Circle.
           <br /><br />
 
         <% end %>
         <% unless @jam_circle.clips.any? %>
+        <div class="upload-wrapper">
           <%= render 'jam_circles/new_clip' %>
+        </div>
         <% end %>
         <% if @jam_circle.user_id == session[:user_id] %><%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %><% end %>
     </div>
