@@ -26,6 +26,7 @@ class ClipsController < ApplicationController
 
 
   def create
+    session[:return_to] ||= request.referer
     Rails.logger.info("PARAMS: #{params[:transloadit].inspect}")
     url = params[:transloadit][:results][:mp3][0]["url"]
     duration = params[:transloadit][:results][:mp3][0][:meta]["duration"]
@@ -35,7 +36,7 @@ class ClipsController < ApplicationController
       redirect_to profile_path(session[:user_id]), notice: "Demo Clip too long"
     else
       if @clip.save
-        redirect_to root_path, notice: "Clip successfully uploaded"
+        redirect_to session.delete(:return_to), notice: "Clip successfully uploaded"
       else
         redirect_to profile_path(session[:user_id]), notice: "Clip failed to load"
       end

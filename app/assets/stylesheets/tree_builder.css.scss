@@ -6,17 +6,6 @@ $svgSize: 70;
 // $svgMargin: (100 - $svgSize)/2;
 
 
-.jam-circle {
-  background: transparent;
-  color: #fff;
-  position: absolute;
-  left: 1%;
-  top: 5%;
-  height: 100px;
-  width: $svgMargin - 1 + vw;
-  max-width: 30%;
-  font-size: 1.5vmin;
-}
 
 .full-screen {
   position: fixed;
@@ -24,41 +13,245 @@ $svgSize: 70;
   left:0;
   height:100%;
   width: 100%;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, .5);
 }
+
+
+.jam-circle {
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  position:fixed;
+  height: auto;
+  width: 350px;
+  font-size: 1em;
+  margin-top:110px;
+  margin-left:10px;
+  border: .5em solid #000;
+
+      .box {
+      padding:10px
+      }
+
+      .edit-JC-link {
+        text-decoration:underline;
+        font-size:.7em;
+        display:block;
+        text-align:right;
+        padding-top:15px;
+        padding-right:2px;
+      }
+
+      h2 {
+        text-align: center;
+        display:block;
+        margin: 0 auto;
+        color: #ccc;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        background: rgba(0, 0, 0, .5);
+        padding: 15px 0px 15px 5px;
+
+            .jam-circle-back-link {
+            position: relative;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            font-size: 0.3em !important;
+            top: -3px !important;
+            left: 0;
+            float: left;
+            }
+
+            span {
+            display:inline-block;
+            margin:0 auto;
+          //  padding-left:-10px;
+            position: relative;
+           left:-10px;
+            }
+
+      }
+
+  h3 {
+    font-size:1.4em;
+    margin-top:0;
+    padding-top:0;
+   }
+
+}
+
+
+
 
 svg {
-  // background: lightblue;
   background: transparent;
   position: fixed;
-  border: 3px solid white;
-  padding: 8%;
+  padding: 8% 10% 8% 10%;
   left: 0;
   top: 0;
-  bottom:0;
-  width: $svgWidth + vw;
-  height: 150vh;
-  margin: auto $svgMargin + vw;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
   z-index: 0;
+
+    .node {
+      cursor: pointer;
+    }
+
+    .node circle {
+      fill: black;
+      stroke: white;
+      stroke-width: 2px;
+    }
+
+    .node text {
+      font: 2vh sans-serif;
+      fill: white;
+    }
+
+    .link {
+      fill: none;
+      stroke: white;
+      stroke-width: 3px;
+    }
 }
 
-.node {
-  cursor: pointer;
+
+
+
+#jam-circle-modal {
+   border:.5em solid #000;
+   background:#404040;
+   margin-top:200px;
+
+
+
+  .btn, .btn-primary {   // play / download // add to button
+    font-family:inherit;
+    width: 100%;
+    padding: 25px;
+    font-size: 1.4em;
+    box-shadow: none;
+    font-size:1em;
+    text-transform: uppercase;
+    letter-spacing:.2em;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align:center;
+    background:$button-color-bg;
+    color:$button-text;
+    transition: $transition;
+    text-decoration:none;
+    text-align: center;
+    vertical-align: middle;
+    outline: none;
+    border:none!important; // remove bootstrap styles
+}
+  .btn:hover, .btn-primary:hover {
+    font-family:inherit;
+    color:$button-text;
+    background:rgba($button-hover,.7);
+    outline: none;
+    border:none!important; // remove bootstrap styles
+  }
 }
 
-.node circle {
-  fill: black;
-  stroke: white;
-  stroke-width: 2px;
-}
+// form inside modal
+#jam-circle-modal {
+  .modal-content {
+    border-radius:0!important; // remove bootstrap border radius on modal
+    border:0!important; // remove bootstrap border, grr
+  }
 
-.node text {
-  font: 2vh sans-serif;
-  fill: white;
-}
 
-.link {
-  fill: none;
-  stroke: white;
-  stroke-width: 3px;
+  .upload-wrapper {
+       h2 {
+       }
+     .upload-form {
+        border-top:.5em solid #000;
+        display:block;
+        padding:15px;
+        margin-bottom: 10px;
+        overflow: auto; // otherwise button pops out of modal
+        overflow-x: hidden; // prevent left to right scrollbar from showing up
+        background:transparent;
+      }
+      form {
+        padding:0;
+        margin:0;
+        background:#f8f8f8;
+        input {
+          font-family:inherit;
+          color: initial;
+          width: 100%;
+          padding: 10px;
+          font-size: 1.4em;
+          border: 1px solid #ccc;
+          border-radius: 0;
+          margin-bottom:10px;
+          }
+          .select {
+            border: 1px solid #ccc;
+          }
+      }
+      .fileContainer {
+          overflow: hidden;
+          position: relative;
+      }
+      .fileContainer [type=file] {
+          cursor: inherit;
+          display: block;
+          font-size: 999px;
+          filter: alpha(opacity=0);
+          min-height: 100%;
+          min-width: 100%;
+          opacity: 0;
+          position: absolute;
+          right: 0;
+          text-align: right;
+          top: 0;
+      }
+
+      /* Example stylistic flourishes */
+      .fileContainer {
+          border: 1px solid #ccc;
+          border-radius: $border-radius;
+          padding:20px 10px;
+          float: left;
+          font-size: 1em;
+          background: #fff;
+          color: #404040;
+          box-shadow: none;
+          color:#404040;
+          text-align:center;
+          width:100%;
+          margin-bottom:10px;
+      }
+      .fileContainer [type=file] {
+          cursor: pointer;
+      }
+/*       .submit-clip { // real submit button
+         display:none;   // display block once file upload is clicked
+       }
+      .submit-clip-fake {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-size: 1.4em;
+        background: rgba(0,0,0,.2); // #FDF5E6;
+        color: #fff;
+        box-shadow: none;
+        font-size:1em;
+        text-transform: uppercase;
+        letter-spacing:.2em;
+        border: 1px solid #FFF5EE;
+        border-radius: 0px;
+        cursor: pointer;
+        margin-top:80px;
+      }
+  */
+
+  }
+
+
 }
