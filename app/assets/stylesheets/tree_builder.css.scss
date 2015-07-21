@@ -79,7 +79,7 @@ svg {
     cursor: pointer;
     circle {
       fill: black;
-      stroke: white;
+      stroke: gray;
       stroke-width: 2px;
     }
     text {
@@ -90,7 +90,7 @@ svg {
   }
   path {
     fill: none;
-    stroke: white;
+    stroke: gray;
     stroke-width: 3px;
   }
 }
