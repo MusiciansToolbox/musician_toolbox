@@ -1,53 +1,55 @@
 <div class="content-wrapper jam-circle-wrapper">
-<p id="notice" style="display:none;"><%= notice %></p>
+  <p id="notice" style="display:none;"><%= notice %></p>
 
-<%= link_to root_path, class:"chevron-back-link" do %>
+  <%= link_to root_path, class:"chevron-back-link" do %>
     <i class="fa fa-chevron-left"></i>
-<% end %>
+  <% end %>
 
-<h2>Jam Circle</h2>
+  <h2>Jam Circle</h2>
 
-<div class="box">
+  <div class="box">
 
+    <% if @jam_circles.count != 0%>
 
-<% if @jam_circles.count != 0%>
-
-
- <% @jam_circles.each do |jam_circle| %>
+      <% @jam_circles.each do |jam_circle| %>
 
       <div class="preferences-label">
         <%= link_to jam_circle do %>
-          <% jam_circle.title %>
+          <div style="width:85%;float:left;">
+            <%= jam_circle.title %>
+          </div>
         <% end %>
-          <% if jam_circle.user_id == session[:user_id] %><%= link_to 'x', jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" %><% end %>
+        <% if jam_circle.user_id == session[:user_id] %>
+          <div style="width:5%;float:left;"></div>
+          <%= link_to jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" do %>
+            <div style="width:10%;float:left;">
+              x
+            </div>
+          <% end %>
+        <% else %>
+          <div style="width:15%;float:left;"
+        <% end %>
       </div>
 
+    <% end %>
+    <% else %>
+    You haven't created any Jam Circles yet.
+    <br/><br/>
+    Why not
+    <%= link_to new_jam_circle_path do %>
+    start now<% end %>?
+    <br/><br/>
 
+    <% end %>
 
-  <% end %>
-<% else %>
-You haven't created any Jam Circles yet.
-<br /><br />
-Why not
-<%= link_to new_jam_circle_path do %>
-start  now<% end %>?
-<br /><br />
+    <br/>
 
-<% end %>
+    <%= link_to new_jam_circle_path, class:"create-jam-circle" do %>
+    Create a New
+    <span>Jam Circle</span>
+    <% end %>
 
-<br />
-
-<%= link_to new_jam_circle_path, class:"create-jam-circle" do %>
-
-  Create a New <span>Jam Circle</span>
-<% end %>
-
-</div>
-
-
-
-
-
+  </div>
 
 </div>
 
