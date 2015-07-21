@@ -1,4 +1,5 @@
 @import 'sass';
+
 .full-screen {
   position: fixed;
   top: 0;
@@ -79,7 +80,7 @@ svg {
     cursor: pointer;
     circle {
       fill: black;
-      stroke: gray;
+      stroke: #bdc3c7;
       stroke-width: 2px;
     }
     text {
