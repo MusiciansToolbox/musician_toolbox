@@ -26,6 +26,7 @@ class ClipsController < ApplicationController
 
 
   def create
+    session[:return_to] ||= request.referer
     Rails.logger.info("PARAMS: #{params[:transloadit].inspect}")
     url = params[:transloadit][:results][:mp3][0]["url"]
     duration = params[:transloadit][:results][:mp3][0][:meta]["duration"]

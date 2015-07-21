@@ -12,7 +12,6 @@ class JamCirclesController < ApplicationController
   # GET /jam_circles/1
   # GET /jam_circles/1.json
   def show
-    session[:return_to] ||= request.referer
   end
 
   # GET /jam_circles/new
