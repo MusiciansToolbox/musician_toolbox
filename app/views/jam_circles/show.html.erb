@@ -18,37 +18,50 @@
 <div class="full-screen">
   <svg></svg>
   <div class="jam-circle">
-    <p>
-      <%= @jam_circle.user.name.capitalize %>
-      -
-      <%= @jam_circle.title %>
-    </p>
-
-    <% unless @jam_circle.description.blank? %>
-      <p>
-        <strong>Description:</strong>
-        <%= @jam_circle.description %>
-      </p>
-    <% end %>
-
-    <p>
-      <%= @jam_circle.public ? 'Public' : 'Private' %>
-      -
-      <%= @jam_circle.open ? 'Open' : 'Closed' %>
-    </p>
-
-    <% if @jam_circle.user.id == session[:user_id]%>
-      <%= link_to 'Edit Jam Circle', edit_jam_circle_path(@jam_circle) %>
-    <% end %>
-
-    <% unless @jam_circle.clips.any? %>
-      <div>
-        You Don't have any clips lolololololololooololololo
-        <br/>
-        click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this jam circle/tree/whatever
-    <% end %>
 
 
+    <h2>
+
+        <%= link_to root_path, class:"jam-circle-back-link" do %>
+          <i class="fa fa-chevron-left"></i>
+      <% end %>
+
+
+      <span>Jam Circle</span>
+    </h2>
+
+    <div class="box">
+        <h3><%= @jam_circle.title %>   </h3>
+
+        <% unless @jam_circle.description.blank? %>
+            <%= @jam_circle.description %>
+        <% end %><% if @jam_circle.user.id == session[:user_id]%><%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %><% end %>
+          <%#= @jam_circle.user.name.capitalize %>
+          <%#= @jam_circle.public ? 'Public' : 'Private' %>
+          <%#= @jam_circle.open ? 'Open' : 'Closed' %>
+      <% unless @jam_circle.clips.any? %>
+          Click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this Jam Circle/
+        <% end %>
+        <% unless @jam_circle.clips.any? %>
+          <%= render 'jam_circles/new_clip' %>
+        <% end %>
+    </div>
+
+
+
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- HIDDEN AUDIO PLAYER -->
 <div class="dashboard-music-player" style="display:none;">
   <div id="wrapper">
     <audio preload></audio>
@@ -67,15 +80,11 @@
     <% end %>
   </ol>
   </div>
-
 </div>
-<% unless @jam_circle.clips.any? %>
-  <%= render 'jam_circles/new_clip' %>
-<% end %>
 
 
   <script>
-    head();
+  //  head();
     foot();
     $(treeBuilderTest(<%= @jam_circle.id %>));
 
