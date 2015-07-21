@@ -9,21 +9,27 @@
 
   <div class="box">
 
-
     <% if @jam_circles.count != 0%>
 
+      <% @jam_circles.each do |jam_circle| %>
 
-     <% @jam_circles.each do |jam_circle| %>
-
-          <div class="preferences-label">
-            <%= link_to jam_circle do %>
-              <% jam_circle.title %>
-            <% end %>
-              <% if jam_circle.user_id == session[:user_id] %><%= link_to 'x', jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" %><% end %>
+      <div class="preferences-label">
+        <%= link_to jam_circle do %>
+          <div style="width:85%;float:left;">
+            <%= jam_circle.title %>
           </div>
-
-
-
+        <% end %>
+        <% if jam_circle.user_id == session[:user_id] %>
+          <div style="width:5%;float:left;"></div>
+          <%= link_to jam_circle, method: :delete, data: { confirm: 'Are you sure?' }, class:"destroy-link" do %>
+            <div style="width:10%;float:left;">
+              x
+            </div>
+          <% end %>
+        <% else %>
+          <div style="width:15%;float:left;"
+        <% end %>
+      </div>
       <% end %>
     <% else %>JamCircle allows musicians to explore various sound and instrument combinations through an easy to use interface.<br /><br />
 
@@ -39,10 +45,12 @@ Upload a root clip and your off!
     <br />
 
     <%= link_to new_jam_circle_path, class:"create-jam-circle" do %>
-
-    Create a New <span>Jam Circle</span>
+    Create a New
+    <span>Jam Circle</span>
     <% end %>
 
   </div>
+
+</div>
 
 </div>
