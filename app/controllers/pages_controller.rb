@@ -17,6 +17,7 @@ class PagesController < ApplicationController
     @user_influences = @user.influences
     @clips = Clip.where( user_id: @user.id, jam_circle_id: nil )
     @clip = Clip.new
+    session[:return_to] ||= request.referer
   end
 
   def add_instrument_partial

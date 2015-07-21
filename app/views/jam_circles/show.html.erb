@@ -1,8 +1,9 @@
+
 <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-sm" id="jam-circle-modal">
     <div class="modal-content" style="color:black;">
       <div id="play-button" class="btn btn-primary">
-        Play
+        <span class="play-span">Play</span>
       </div>
       <a id="download-button" class="btn btn-primary" download>
         Download
@@ -10,7 +11,10 @@
       <div id="add-to-button" class="btn btn-primary">
         Add To
       </div>
-      <%= render 'jam_circles/new_clip' %>
+      <div class="upload-wrapper">
+        <%= render 'jam_circles/new_clip' %>
+
+      </div>
     </div>
   </div>
 </div>
@@ -18,33 +22,44 @@
 <div class="full-screen">
   <svg></svg>
   <div class="jam-circle">
-    <p>
-      <%= @jam_circle.title %>
-    </p>
+    <h2>
+      <%= link_to root_path, class:"jam-circle-back-link" do %>
+        <i class="fa fa-chevron-left"></i>
+      <% end %>
+      <span>Jam Circle</span>
+    </h2>
 
-    <% unless @jam_circle.description.blank? %>
-      <p>
-        <strong>Description:</strong>
-        <%= @jam_circle.description %>
-      </p>
-    <% end %>
-
-    <p>
-      <%= @jam_circle.public ? 'Public' : 'Private' %>
-      -
-      <%= @jam_circle.open ? 'Open' : 'Closed' %>
-    </p>
-
-      <%= link_to 'Edit Jam Circle', edit_jam_circle_path(@jam_circle) %>
-
-    <% unless @jam_circle.clips.any? %>
-      <div>
-        You Don't have any clips lolololololololooololololo
-        <br/>
-        click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this jam circle/tree/whatever
-    <% end %>
+    <div class="box">
+        <h3><%= @jam_circle.title %>   </h3>
+        <% unless @jam_circle.description.blank? %>
+            <%= @jam_circle.description %>
+        <% end %><%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %>
+          <%#= @jam_circle.user.name.capitalize %>
+          <%#= @jam_circle.public ? 'Public' : 'Private' %>
+          <%#= @jam_circle.open ? 'Open' : 'Closed' %>
+        <% unless @jam_circle.clips.any? %>
+          Click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this Jam Circle
+        <% end %>
+        <% unless @jam_circle.clips.any? %>
+          <%= render 'jam_circles/new_clip' %>
+        <% end %>
+    </div>
 
 
+
+ </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- HIDDEN AUDIO PLAYER -->
 <div class="dashboard-music-player" style="display:none;">
   <div id="wrapper">
     <audio preload></audio>
@@ -63,15 +78,11 @@
     <% end %>
   </ol>
   </div>
-
 </div>
-<% unless @jam_circle.clips.any? %>
-  <%= render 'jam_circles/new_clip' %>
-<% end %>
 
 
   <script>
-    head();
+  //  head();
     foot();
     $(treeBuilderTest(<%= @jam_circle.id %>));
 
@@ -106,7 +117,35 @@
       $('#play-button').click(function(){
         sumnum = $(this).attr('value');
         $('#clip'+sumnum).click();
-      })
+
+        // logic to start and stop the music when pressing play/pause
+         if ( $(this).hasClass('jam-circle-playing') ) {
+                setTimeout (function(){ $('.pause').click();},100);
+                $(this).removeClass('jam-circle-playing');
+                  $('#play-button span').text('Play');
+
+                $('')
+               }
+               else {
+                $(this).addClass('jam-circle-playing');
+                  $('#play-button span').text('Pause').fadeIn(500);
+               }
+
+        // logic to stop the music when clicking outside the modal
+         $('#myModal').click(function(){
+             console.log('modal clicked 111');
+             if (  $('#play-button').hasClass('jam-circle-playing') ) {
+               $('#play-button').removeClass('jam-circle-playing') ;
+               $('.pause').click();
+               $('#play-button span').text('Play');
+             }
+
+         });
+         $('#jam-circle-modal').click(function(e){
+            e.stopPropagation();
+         });
+
+      }) // close click event
     })
 
     $(function addToButton(){
@@ -114,7 +153,7 @@
 
         var previous_clip_id = $(this).attr('value')
         $('#clip_previous_clip_id').val(previous_clip_id)
-        $('form.jam-clip').show();
+        $('form.jam-clip').slideToggle();
       })
     })
 

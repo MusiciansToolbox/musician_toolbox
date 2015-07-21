@@ -1,5 +1,6 @@
+
 <%= form_for @clip, html: { class: "jam-clip" } do |f| %>
-  <h2>Upload Sound Clip</h2>
+  <!--  <h2>Upload Sound Clip</h2> -->
 
   <span class="upload-form">
 
@@ -7,9 +8,12 @@
     <%= f.hidden_field :jam_circle_id, :value => @jam_circle.id %>
     <%= f.hidden_field :previous_clip_id %>
 
-    <%= f.text_field :title, placeholder: 'Clip title' %>
 
+  <%= f.text_field :title, placeholder: 'Clip Title', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'blur' %>
+
+    <%= f.label :instrument, class:"select" do %>
     <%= f.collection_select :instrument_id, Instrument.all, :id, :name, prompt: "Instrument", class:"upload-field-instrument" %>
+    <% end %>
 
     <label class="fileContainer">
 
@@ -28,8 +32,6 @@
     </center>
 
   </span>
-
-  <a class="rails-link" href="#">help</a>
 
 <% end %>
 

@@ -5,13 +5,14 @@ class JamCirclesController < ApplicationController
   # GET /jam_circles
   # GET /jam_circles.json
   def index
-    @jam_circles = JamCircle.where(user_id: session[:user_id])
+    @jam_circles = @user.jam_circles
     #@jam_circle = JamCircle.new
   end
 
   # GET /jam_circles/1
   # GET /jam_circles/1.json
   def show
+    session[:return_to] ||= request.referer
   end
 
   # GET /jam_circles/new
@@ -28,9 +29,10 @@ class JamCirclesController < ApplicationController
   # POST /jam_circles.json
   def create
     @jam_circle = JamCircle.new(jam_circle_params)
-    user_ids = params[:users]
-    byebug
-    p user_ids
+    user_ids = params[:users].keys
+    user_ids.each do |id|
+      @jam_circle.users << User.find(id)
+    end
     respond_to do |format|
       if @jam_circle.save
         format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully created.' }

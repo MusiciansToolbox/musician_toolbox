@@ -35,7 +35,7 @@ class ClipsController < ApplicationController
       redirect_to profile_path(session[:user_id]), notice: "Demo Clip too long"
     else
       if @clip.save
-        redirect_to root_path, notice: "Clip successfully uploaded"
+        redirect_to session.delete(:return_to), notice: "Clip successfully uploaded"
       else
         redirect_to profile_path(session[:user_id]), notice: "Clip failed to load"
       end

@@ -170,24 +170,16 @@ form {
         -ms-user-select: none;
         user-select: none;
     }
-
-
-
-
   input[type="submit"]:hover{
     background:#000;
     font-family:inherit;
   }
-
-
   input[type="select"] {
    // see .select class
- }
-
+  }
   input[type="file"] {
     width: 100%;
     font-family:inherit;
-
     //  padding: 10px;
     font-size: 1.4em;
     background: #fff;
