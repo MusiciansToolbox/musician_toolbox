@@ -23,7 +23,7 @@
   <svg></svg>
   <div class="jam-circle">
     <h2>
-      <%= link_to root_path, class:"jam-circle-back-link" do %>
+      <%= link_to jam_circles_path, class:"jam-circle-back-link" do %>
         <i class="fa fa-chevron-left"></i>
       <% end %>
       <span>Jam Circle</span>
@@ -33,16 +33,19 @@
         <h3><%= @jam_circle.title %>   </h3>
         <% unless @jam_circle.description.blank? %>
             <%= @jam_circle.description %>
-        <% end %><%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %>
+        <% end %>
           <%#= @jam_circle.user.name.capitalize %>
           <%#= @jam_circle.public ? 'Public' : 'Private' %>
           <%#= @jam_circle.open ? 'Open' : 'Closed' %>
         <% unless @jam_circle.clips.any? %>
-          Click <%= link_to 'here', '#', class: 'add-to' %> to add the first clip to this Jam Circle
+        <br /><br /><br />
+          Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;' %> to add the first clip to this Jam Circle
+          <br /><br />
         <% end %>
         <% unless @jam_circle.clips.any? %>
           <%= render 'jam_circles/new_clip' %>
         <% end %>
+        <%= link_to 'Edit', edit_jam_circle_path(@jam_circle), class:"edit-JC-link" %>
     </div>
 
 
