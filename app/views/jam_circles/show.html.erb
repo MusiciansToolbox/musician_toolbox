@@ -34,19 +34,11 @@
             <%= @jam_circle.description %>
         <% end %>
         <% unless @jam_circle.clips.any? %>
-        <br /><br />
-        JamCircle creates a tree diagram that allows users to play, upload and download multiple clips.<br /><br />  The first uploaded clip forms the root of the tree.<br /><br />
 
- To add a branch to the tree find the root clips node, a small circle labeled with the root clips name, and click it.<br /><br />
-
-Download the clip and merge it with a clip of your own making, then upload this clip by clicking “Add Instrument”.<br /><br />
-
-To extend the branch, add an instrument to the last node on that branch.<br /><br />
-
-To add a parallel branch, add an instrument to the root clip, or any other clip you wish to branch from.
         <br /><br /><br />
-          Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;' %> to add the first clip to this Jam Circle
+          Click <%= link_to 'here', '#', class:'add-to', style:'text-decoration:underline;color:#fff;' %> to add the first clip to this Jam Circle
           <br /><br />
+
         <% end %>
         <% unless @jam_circle.clips.any? %>
           <%= render 'jam_circles/new_clip' %>
@@ -57,7 +49,29 @@ To add a parallel branch, add an instrument to the root clip, or any other clip 
 
 
  </div>
+
+
+
+ <%# unless @jam_circle.clips.any? %>
+ <div class="help-div">Help</div>
+ <div class="help-text">
+ JamCircle creates a tree diagram that allows users to play, upload and download multiple clips.
+ <br /><br />
+ The first uploaded clip forms the root of the tree.
+ <br /><br />
+ To add a branch to the tree find the root clips node, a small circle labeled with the root clips name, and click it.
+ <br /><br />
+ Download the clip and merge it with a clip of your own making, then upload this clip by clicking "Add Instrument".
+ <br /><br />
+ To extend the branch, add an instrument to the last node on that branch.
+ <br /><br />
+ To add a parallel branch, add an instrument to the root clip, or any other clip you wish to branch from.
+ </div>
+ <%# end %>
 </div>
+
+
+
 
 
 
@@ -90,15 +104,28 @@ To add a parallel branch, add an instrument to the root clip, or any other clip 
 </div>
 
 
-  <script>
-    // head();
-    // foot();
-    $(treeBuilder(<%= @jam_circle.id %>));
 
+<script>
+$('.help-div').click(function(){
+  $('.help-text').fadeToggle();
+  if ( $(this).hasClass('help-is-showing') ){
+    $(this).removeClass('help-is-showing');
+    $('.help-div').text('Help');
+  }
+  else {
+    $(this).addClass('help-is-showing');
+    $('.help-div').text('Close');
+  }
+});
+</script>
+
+<script>
+    $(treeBuilder(<%= @jam_circle.id %>));
     $(window).resize(function(){
       treeBuilder(<%= @jam_circle.id %>);
     });
-  </script>
+</script>
+
 <% if @jam_circle.clips.any? %>
   <script>
     $ (function () {

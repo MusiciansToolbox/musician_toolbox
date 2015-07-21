@@ -19,14 +19,23 @@
     <div class="field">
       <%= f.text_area :description, placeholder:"Description" %>
     </div>
-    <% @user.liked_musicians.each do |m| %>
-      <% unless @jam_circle.users.include?(m) %>
-        <div>
+
+    <div class="pick-users">
+      <span><i class="fa fa-user-plus"></i> Invite Users</span>
+      <div class="show-users" style="display:none;">
+      <% @user.liked_musicians.each do |m| %>
+        <% unless @jam_circle.users.include?(m) %>
+
           <%= check_box_tag "users[#{m.id}]" %>
-          <%= m.name %>
-        </div>
+          <%= label_tag "users[#{m.id}]" do %><% m.name %><% end %>
+
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
+
+
+    </div>
+
     <br/>
 
     <div class="actions">
@@ -39,5 +48,11 @@
 </div>
 
   <script type="text/javascript">
+    // bind form to parsley
     $('#jamCircleForm form').parsley();
+
+    // show users to select on toggle
+    $('.pick-users span:first-child').click(function(){
+      $('.show-users').slideToggle();
+    });
   </script>
