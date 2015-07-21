@@ -177,6 +177,7 @@ function treeBuilder(jam_circle_id) {
     $('#play-button').attr('value', clip_id);
     $('#add-to-button').attr('value', clip_id);
     $('#download-button').attr('href', clip_url);
+    $('#data').html(d.clip_user+" - "+d.clip_instrument)
   }
 
 
