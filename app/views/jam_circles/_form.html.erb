@@ -20,10 +20,12 @@
       <%= f.text_area :description, placeholder:"Description" %>
     </div>
     <% @user.liked_musicians.each do |m| %>
-      <div>
-        <%= check_box_tag "users[#{m.id}]" %>
-        <%= m.name %>
-      </div>
+      <% unless @jam_circle.users.include?(m) %>
+        <div>
+          <%= check_box_tag "users[#{m.id}]" %>
+          <%= m.name %>
+        </div>
+      <% end %>
     <% end %>
 
 
