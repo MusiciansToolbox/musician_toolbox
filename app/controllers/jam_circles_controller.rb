@@ -40,7 +40,7 @@ class JamCirclesController < ApplicationController
     end
     respond_to do |format|
       if @jam_circle.save
-        format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully created.' }
+        format.html { redirect_to @jam_circle }
         format.json { render :show, status: :created, location: @jam_circle }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class JamCirclesController < ApplicationController
     end
     respond_to do |format|
       if @jam_circle.update(jam_circle_params)
-        format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully updated.' }
+        format.html { redirect_to @jam_circle }
         format.json { render :show, status: :ok, location: @jam_circle }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class JamCirclesController < ApplicationController
   def destroy
     @jam_circle.destroy
     respond_to do |format|
-      format.html { redirect_to jam_circles_url, notice: 'Jam circle was successfully destroyed.' }
+      format.html { redirect_to jam_circles_url }
       format.json { head :no_content }
     end
   end
