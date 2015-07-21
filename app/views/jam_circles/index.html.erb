@@ -30,19 +30,19 @@
           <div style="width:15%;float:left;"
         <% end %>
       </div>
+      <% end %>
+    <% else %>JamCircle allows musicians to explore various sound and instrument combinations through an easy to use interface.<br /><br />
+
+To begin, search for musicians in your area and be sure to like the ones you want to collaborate with.<br /><br />
+
+ Create a JamCircle and invite any number of musicians to join you.<br /><br />
+
+Upload a root clip and your off!
+      <br /><br />
+
 
     <% end %>
-    <% else %>
-    You haven't created any Jam Circles yet.
-    <br/><br/>
-    Why not
-    <%= link_to new_jam_circle_path do %>
-    start now<% end %>?
-    <br/><br/>
-
-    <% end %>
-
-    <br/>
+    <br />
 
     <%= link_to new_jam_circle_path, class:"create-jam-circle" do %>
     Create a New
