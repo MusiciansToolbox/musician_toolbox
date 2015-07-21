@@ -138,35 +138,36 @@ svg {
     border: 0!important; // remove bootstrap border, grr
   }
   .upload-wrapper {
-    h2 {
 
-    }
-    .upload-form {
-      border-top: 0.5em solid #000;
-      display: block;
-      padding: 15px;
-      margin-bottom: 10px;
-      overflow: auto; // otherwise button pops out of modal
-      overflow-x: hidden; // prevent left to right scrollbar from showing up
-      background: transparent;
-    }
-    form {
-      padding: 0;
-      margin: 0;
-      background: #f8f8f8;
-      input {
-        font-family: inherit;
-        color: initial;
-        width: 100%;
-        padding: 10px;
-        font-size: 1.4em;
-        border: 1px solid #ccc;
-        border-radius: 0;
-        margin-bottom: 10px;
+       h2 {
+       }
+     .upload-form {
+        border-top:.5em solid #000;
+        display:block;
+        padding:15px;
+        margin-bottom: 0px;
+        overflow: auto; // otherwise button pops out of modal
+        overflow-x: hidden; // prevent left to right scrollbar from showing up
+        background:transparent;
       }
-      .select {
-        border: 1px solid #ccc;
-      }
+      form {
+        padding:0;
+        margin:0;
+        background:#f8f8f8;
+        input {
+          font-family:inherit;
+          color: initial;
+          width: 100%;
+          padding: 10px;
+          font-size: 1.4em;
+          border: 1px solid #ccc;
+          border-radius: 0;
+          margin-bottom:10px;
+          }
+          .select {
+            border: 1px solid #ccc;
+          }
+
     }
     .fileContainer {
       overflow: hidden;
@@ -186,44 +187,41 @@ svg {
       top: 0;
     }
 
-    /* Example stylistic flourishes */
-    .fileContainer {
-      border: 1px solid #ccc;
-      border-radius: $border-radius;
-      padding: 20px 10px;
-      float: left;
-      font-size: 1em;
-      background: #fff;
-      color: #404040;
-      box-shadow: none;
-      color: #404040;
-      text-align: center;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    .fileContainer [type=file] {
-      cursor: pointer;
-    }
-    /*       .submit-clip { // real submit button
-         display:none;   // display block once file upload is clicked
-       }
-      .submit-clip-fake {
-        display: block;
-        text-align: center;
-        width: 100%;
-        padding: 10px;
-        font-size: 1.4em;
-        background: rgba(0,0,0,.2); // #FDF5E6;
-        color: #fff;
-        box-shadow: none;
-        font-size:1em;
-        text-transform: uppercase;
-        letter-spacing:.2em;
-        border: 1px solid #FFF5EE;
-        border-radius: 0px;
-        cursor: pointer;
-        margin-top:80px;
+      .fileContainer {
+          display: block;
+          text-align: center;
+          width: 100%;
+          padding: 10px;
+          font-size: 1.4em;
+          background:#fff;//rgba(0, 0, 0, .9);
+          color: #000;
+          box-shadow: none;
+          font-size: .8em;
+          text-transform: uppercase;
+          letter-spacing: .2em;
+          border: 1px solid #ccc;
+          border-radius: 0px;
+          cursor: pointer;
+          margin-top: 0px;
+          transition:.2s ease;
+
+
+                  span {
+                  text-transform: uppercase;
+                  display:block;
+                  font-size:1.5em;
+                  letter-spacing:.1em;
+
+                 }
       }
-  */
+      .fileContainer:hover {
+        background:#000;
+        color:#fff;
+      }
+      .fileContainer [type=file] {
+          cursor: pointer;
+      }
+
+
   }
 }
