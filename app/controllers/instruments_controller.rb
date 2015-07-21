@@ -1,4 +1,8 @@
 class InstrumentsController < ApplicationController
+  before_action :check_user_count
+  before_action :authenticate_user
+  before_action :set_user
+  before_action :authenticate_admin
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -59,5 +63,21 @@ class InstrumentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instrument_params
       params.require(:instrument).permit(:name)
+    end
+
+    def check_user_count
+      unless User.any?
+        session[:user_id] = nil
+      end
+    end
+
+    def set_user
+      @user = User.find(session[:user_id])
+    end
+
+    def authenticate_admin
+      unless @user.admin
+        redirect_to root_url
+      end
     end
 end

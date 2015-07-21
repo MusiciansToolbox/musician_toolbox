@@ -1,4 +1,6 @@
 class JamCirclesController < ApplicationController
+  before_action :check_user_count
+  before_action :authenticate_user
   before_action :set_jam_circle, only: [:show, :edit, :update, :destroy, :tree_data]
   before_action :set_user
 
@@ -83,4 +85,11 @@ class JamCirclesController < ApplicationController
     def set_user
       @user = User.find(session[:user_id])
     end
+
+    def check_user_count
+      unless User.any?
+        session[:user_id] = nil
+      end
+    end
+
 end
