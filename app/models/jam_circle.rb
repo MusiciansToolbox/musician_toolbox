@@ -1,5 +1,5 @@
 class JamCircle < ActiveRecord::Base
-  belongs_to :user
+  has_and_belongs_to_many :users
   has_many :clips
 
   validates :user_id, presence: true

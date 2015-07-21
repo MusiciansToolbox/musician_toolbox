@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719203843) do
+ActiveRecord::Schema.define(version: 20150720191453) do
 
   create_table "clips", force: :cascade do |t|
     t.integer  "user_id"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 20150719203843) do
   end
 
   add_index "jam_circles", ["user_id"], name: "index_jam_circles_on_user_id"
+
+  create_table "jam_circles_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "jam_circle_id"
+  end
+
+  add_index "jam_circles_users", ["jam_circle_id"], name: "index_jam_circles_users_on_jam_circle_id"
+  add_index "jam_circles_users", ["user_id"], name: "index_jam_circles_users_on_user_id"
 
   create_table "opinions", force: :cascade do |t|
     t.integer  "user_id"

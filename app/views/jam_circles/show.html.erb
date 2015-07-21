@@ -19,8 +19,6 @@
   <svg></svg>
   <div class="jam-circle">
     <p>
-      <%= @jam_circle.user.name.capitalize %>
-      -
       <%= @jam_circle.title %>
     </p>
 
@@ -37,9 +35,7 @@
       <%= @jam_circle.open ? 'Open' : 'Closed' %>
     </p>
 
-    <% if @jam_circle.user.id == session[:user_id]%>
       <%= link_to 'Edit Jam Circle', edit_jam_circle_path(@jam_circle) %>
-    <% end %>
 
     <% unless @jam_circle.clips.any? %>
       <div>

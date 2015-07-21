@@ -13,7 +13,7 @@
       </div>
     <% end %>
 
-<%= f.hidden_field :user_id, value: session[:user_id] %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
 
     <div class="field">
       <%= f.text_field :title, placeholder:"Title", 'data-parsley-required' => 'true' %>
@@ -21,6 +21,12 @@
     <div class="field">
       <%= f.text_area :description, placeholder:"Description" %>
     </div>
+    <% @user.liked_musicians.each do |m| %>
+      <div>
+        <%= check_box_tag "users[#{m.id}]" %>
+        <%= m.name %>
+      </div>
+    <% end %>
 
 
     <div class="radio-buttons">

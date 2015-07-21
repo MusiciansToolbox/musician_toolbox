@@ -17,7 +17,7 @@ class JamCirclesController < ApplicationController
   # GET /jam_circles/new
   def new
     @jam_circle = JamCircle.new
-    @clip = Clip.new
+    # @clip = Clip.new
   end
 
   # GET /jam_circles/1/edit
@@ -28,7 +28,9 @@ class JamCirclesController < ApplicationController
   # POST /jam_circles.json
   def create
     @jam_circle = JamCircle.new(jam_circle_params)
-
+    user_ids = params[:users]
+    byebug
+    p user_ids
     respond_to do |format|
       if @jam_circle.save
         format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully created.' }
