@@ -53,10 +53,18 @@ function treeBuilder(jam_circle_id) {
 
     function addText() {
       node.append("text")
-        .attr("x", function(d) { return d.children || d._children ? -20 : 20; })
+        .attr("transform", function(d) { return d.children || d._children ? "translate(-18.5,1.5)" : "translate(21.5,1.5)"})
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
         .text( function(d) {return d.name} )
+
+      node.append("text")
+        .attr("x", function(d) { return d.children || d._children ? -20 : 20; })
+        .attr("dy", ".35em")
+        .attr("fill", "white")
+        .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+        .text( function(d) {return d.name} )
+
     }
 
     function drawEverthing() {
@@ -177,9 +185,9 @@ function treeBuilder(jam_circle_id) {
     $('#play-button').attr('value', clip_id);
     $('#add-to-button').attr('value', clip_id);
     $('#download-button').attr('href', clip_url);
-    $('#data').html(d.clip_user+" - "+d.clip_instrument)
+    $('#name').html("<a href='/users/" + d.user_id + "' target='_blank'>" + d.clip_user + "</a>");
+    // $('#user-link').attr('href', "/users/" + d.user_id )
+    // $('#name').html( d.clip_user );
+    $('#instrument').html(d.clip_instrument);
   }
-
-
-
 };
