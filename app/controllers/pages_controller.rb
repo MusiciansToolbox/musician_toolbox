@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :check_user_count
   before_action :authenticate_user
   before_action :set_user, only: [:home, :search, :likes, :cheat_activated]
 
@@ -60,5 +61,11 @@ class PagesController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id])
+  end
+
+  def check_user_count
+    unless User.any?
+      session[:user_id] = nil
+    end
   end
 end

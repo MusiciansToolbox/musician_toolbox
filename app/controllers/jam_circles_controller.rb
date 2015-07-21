@@ -1,4 +1,6 @@
 class JamCirclesController < ApplicationController
+  before_action :check_user_count
+  before_action :authenticate_user
   before_action :set_jam_circle, only: [:show, :edit, :update, :destroy, :tree_data]
   before_action :set_user
 
@@ -28,10 +30,13 @@ class JamCirclesController < ApplicationController
   # POST /jam_circles.json
   def create
     @jam_circle = JamCircle.new(jam_circle_params)
+    @jam_circle.user_id = @user.id
     @jam_circle.users << @user
-    user_ids = params[:users].keys
-    user_ids.each do |id|
-      @jam_circle.users << User.find(id)
+    if params[:users]
+      user_ids = params[:users].keys
+      user_ids.each do |id|
+        @jam_circle.users << User.find(id)
+      end
     end
     respond_to do |format|
       if @jam_circle.save
@@ -47,6 +52,12 @@ class JamCirclesController < ApplicationController
   # PATCH/PUT /jam_circles/1
   # PATCH/PUT /jam_circles/1.json
   def update
+    if params[:users]
+      user_ids = params[:users].keys
+      user_ids.each do |id|
+        @jam_circle.users << User.find(id)
+      end
+    end
     respond_to do |format|
       if @jam_circle.update(jam_circle_params)
         format.html { redirect_to @jam_circle, notice: 'Jam circle was successfully updated.' }
@@ -83,4 +94,11 @@ class JamCirclesController < ApplicationController
     def set_user
       @user = User.find(session[:user_id])
     end
+
+    def check_user_count
+      unless User.any?
+        session[:user_id] = nil
+      end
+    end
+
 end

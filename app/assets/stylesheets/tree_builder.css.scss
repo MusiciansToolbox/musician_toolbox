@@ -1,173 +1,144 @@
-$svgWidth: 80;
-$svgMargin: (100 - $svgWidth);
 @import 'sass';
-
-$svgSize: 70;
-// $svgMargin: (100 - $svgSize)/2;
-
-
-
 .full-screen {
   position: fixed;
-  top:0;
-  left:0;
-  height:100%;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, .5);
 }
-
-
 .jam-circle {
   background: rgba(0,0,0,.6);
   color: #fff;
-  position:fixed;
+  position: fixed;
   height: auto;
   width: 350px;
   font-size: 1em;
-  margin-top:110px;
-  margin-left:10px;
-  border: .5em solid #000;
+  margin-top: 110px;
+  margin-left: 10px;
+  border: 0.5em solid #000;
+  .box {
+    padding: 10px;
+  }
+  .edit-JC-link {
+    text-decoration: underline;
+    font-size: 0.7em;
+    display: block;
+    text-align: right;
+    padding-top: 15px;
+    padding-right: 2px;
+  }
+  .edit-JC-link:hover {
+    text-decoration: underline;
+    color: #fff;
+  }
+  h2 {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px 0 15px 5px;
+    .jam-circle-back-link {
+      position: relative;
+      padding-right: 0;
+      padding-bottom: 0;
+      font-size: 0.3em !important;
+      top: -3px !important;
+      left: 0;
+      float: left;
+    }
+    span {
+      display: inline-block;
+      margin: 0 auto;
 
-      .box {
-      padding:10px
-      }
-
-      .edit-JC-link {
-        text-decoration:underline;
-        font-size:.7em;
-        display:block;
-        text-align:right;
-        padding-top:15px;
-        padding-right:2px;
-      }
-      .edit-JC-link:hover {
-        text-decoration:underline;
-        color:#fff;
-      }
-
-      h2 {
-        text-align: center;
-        display:block;
-        margin: 0 auto;
-        color: #ccc;
-        text-transform: uppercase;
-        font-size: 1.5em;
-        background: rgba(0, 0, 0, .5);
-        padding: 15px 0px 15px 5px;
-
-            .jam-circle-back-link {
-            position: relative;
-            padding-right: 0px;
-            padding-bottom: 0px;
-            font-size: 0.3em !important;
-            top: -3px !important;
-            left: 0;
-            float: left;
-            }
-
-            span {
-            display:inline-block;
-            margin:0 auto;
-          //  padding-left:-10px;
-            position: relative;
-           left:-10px;
-            }
-
-      }
-
+      //  padding-left:-10px;
+      position: relative;
+      left: -10px;
+    }
+  }
   h3 {
-    font-size:1.4em;
-    margin-top:0;
-    padding-top:0;
-   }
-
+    font-size: 1.4em;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
-
-
-
-
 svg {
   background: transparent;
   position: fixed;
-  padding: 8% 10% 8% 10%;
+  padding: 8% 10%;
   left: 0;
   top: 0;
   bottom: 0;
   width: 100%;
   min-height: 100%;
   z-index: 0;
-
-    .node {
-      cursor: pointer;
-    }
-
-    .node circle {
+  .node {
+    cursor: pointer;
+    circle {
       fill: black;
       stroke: white;
       stroke-width: 2px;
     }
-
-    .node text {
+    text {
       font: 2vh sans-serif;
       fill: white;
+      cursor: pointer;
     }
-
-    .link {
-      fill: none;
-      stroke: white;
-      stroke-width: 3px;
-    }
+  }
+  .link {
+    fill: none;
+    stroke: white;
+    stroke-width: 3px;
+  }
 }
-
-
-
-
 #jam-circle-modal {
-   border:.5em solid #000;
-   background:#404040;
-   margin-top:200px;
-
-
-
-  .btn, .btn-primary {   // play / download // add to button
-    font-family:inherit;
+  border: 0.5em solid #000;
+  background: #404040;
+  margin-top: 200px;
+  .btn,
+  .btn-primary {
+    // play / download // add to button
+    font-family: inherit;
     width: 100%;
     padding: 25px;
     font-size: 1.4em;
     box-shadow: none;
-    font-size:1em;
+    font-size: 1em;
     text-transform: uppercase;
-    letter-spacing:.2em;
-    border-radius: 0px;
+    letter-spacing: 0.2em;
+    border-radius: 0;
     cursor: pointer;
-    text-align:center;
-    background:$button-color-bg;
-    color:$button-text;
+    text-align: center;
+    background: $button-color-bg;
+    color: $button-text;
     transition: $transition;
-    text-decoration:none;
+    text-decoration: none;
     text-align: center;
     vertical-align: middle;
     outline: none;
-    border:none!important; // remove bootstrap styles
-}
-  .btn:hover, .btn-primary:hover {
-    font-family:inherit;
-    color:$button-text;
-    background:rgba($button-hover,.7);
+    border: none!important; // remove bootstrap styles
+  }
+  .btn:hover,
+  .btn-primary:hover {
+    font-family: inherit;
+    color: $button-text;
+    background: rgba($button-hover,.7);
     outline: none;
-    border:none!important; // remove bootstrap styles
+    border: none!important; // remove bootstrap styles
   }
 }
 
 // form inside modal
 #jam-circle-modal {
   .modal-content {
-    border-radius:0!important; // remove bootstrap border radius on modal
-    border:0!important; // remove bootstrap border, grr
+    border-radius: 0!important; // remove bootstrap border radius on modal
+    border: 0!important; // remove bootstrap border, grr
   }
-
-
   .upload-wrapper {
+
        h2 {
        }
      .upload-form {
@@ -196,39 +167,27 @@ svg {
           .select {
             border: 1px solid #ccc;
           }
-      }
-      .fileContainer {
-          overflow: hidden;
-          position: relative;
-      }
-      .fileContainer [type=file] {
-          cursor: inherit;
-          display: block;
-          font-size: 999px;
-          filter: alpha(opacity=0);
-          min-height: 100%;
-          min-width: 100%;
-          opacity: 0;
-          position: absolute;
-          right: 0;
-          text-align: right;
-          top: 0;
-      }
 
-      /* Example stylistic flourishes */
+    }
+    .fileContainer {
+      overflow: hidden;
+      position: relative;
+    }
+    .fileContainer [type=file] {
+      cursor: inherit;
+      display: block;
+      font-size: 999px;
+      filter:alpha(opacity=0);
+      min-height: 100%;
+      min-width: 100%;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+    }
+
       .fileContainer {
-        /*  border: 1px solid #ccc;
-          border-radius: $border-radius;
-          padding:20px 10px;
-          float: left;
-          font-size: 1em;
-          background: #fff;
-          color: #404040;
-          box-shadow: none;
-          color:#404040;
-          text-align:center;
-          width:100%;
-          margin-bottom:10px; */
           display: block;
           text-align: center;
           width: 100%;
@@ -263,7 +222,6 @@ svg {
           cursor: pointer;
       }
 
+
   }
-
-
 }
