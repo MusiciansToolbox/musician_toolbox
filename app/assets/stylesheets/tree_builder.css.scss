@@ -66,6 +66,42 @@
     padding-top: 0;
   }
 }
+
+
+
+.help-div {
+  margin-top:105px;
+  position:absolute;
+  top:0;
+  right:0;
+  margin-right:7px;
+  color:#fff;
+  padding:5px;
+//  border:.2em solid #000;
+  width:auto;
+  display:inline-block;
+//  background:rgba(0,0,0,.7);
+  cursor: pointer;
+  width:50px;
+  font-size:.7em;
+  color:#ccc;
+}
+
+.help-text {
+  display:none; // show on click
+  margin-top:110px;
+  position:absolute;
+  top:0;
+  right:0;
+  margin-right:70px;
+  color:#fff;
+  padding:15px;
+  border:.5em solid #000;
+  width:auto;
+  background:rgba(0,0,0,.7);
+}
+
+
 svg {
   background: transparent;
   position: fixed;
