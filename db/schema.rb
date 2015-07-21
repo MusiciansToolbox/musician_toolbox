@@ -122,9 +122,9 @@ ActiveRecord::Schema.define(version: 20150720191453) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
-    t.boolean  "admin"
     t.string   "facebook_url"
     t.string   "twitter_url"
+    t.boolean  "admin"
   end
 
 end
