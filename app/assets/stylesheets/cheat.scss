@@ -1,3 +1,7 @@
+@import 'sass';
+
+$progressBarWidth: 22%;
+
 #chain{
   position: fixed;
   top: 0;
@@ -52,11 +56,21 @@ img.chrome-rim {
   right: 0;
   height: 18%;
 };
-.progress {
+.gta-progress-bar {
+  display: none;
+  position: fixed;
+  left: 10vh;
+  top: 10vh;
+  z-index: 9000;
   background-color: #686456 !important;
-  border: 4px solid black;
-  border-radius: 0 !important;
+  border: 3px solid black;
+  border-radius: 1px !important;
+  width: $progressBarWidth;
+  height: $progressBarWidth/15;
+  box-shadow: 0 0 1px gray;
 }
-.progress-bar {
+.gta-progress-bar-inside {
   background-color: white !important;
+  height: 100%;
+  width: 0;
 }

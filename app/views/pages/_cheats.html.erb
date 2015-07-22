@@ -1,0 +1,22 @@
+<script>
+  var cheat_activated = new Audio("<%= asset_url('cheat_activated.mp3') %>");
+  var audio = new Audio("<%= asset_url('gta_san_andreas_theme.mp3') %>");
+  keyBoardListener();
+</script>
+
+<div class="cheat-box">
+  <div class="cheat-text">
+    Cheat activated
+  </div>
+</div>
+
+<%= image_tag asset_url('chrome_rim.png'), class: 'chrome-rim' %>
+
+<img id="gta"></img>
+<img id="gta2"></img>
+<img id="chain" src='<%= asset_url("chain_1.png") %>'></img>
+
+<div class="gta-progress-bar">
+  <div class="gta-progress-bar-inside">
+  </div>
+</div>
