@@ -19,7 +19,7 @@ function gtaNostalgia() {
   setTimeout( function() {
     $('#gta').fadeIn(1000).attr('src','<%= asset_url("1.jpg") %>');
     showRim();
-    showProgress(1000, 66500);
+    showProgress(1000, 67000);
   }, 4000);
 
   setTimeout( function() {
@@ -124,24 +124,17 @@ function toggleChain(wait) {
 }
 
 function loading(duration){
-  var dividends = 100;
-  var wait = duration/dividends;
   var progress_bar = $('.gta-progress-bar-inside');
-  var new_percent = 0;
-
-  var myVar = setInterval( function(){updateProgress()}, wait );
-  function updateProgress(){
-    new_percent++;
-    width = new_percent/dividends*100 + '%';
-    progress_bar.animate( { "width" : width }, wait/2 );
-    myStopFunction();
-  }
-
-  function myStopFunction() {
-    if( new_percent >= dividends ) {
-      clearInterval(myVar);
-    }
-  }
+  progress_bar.animate( { "width" : "10%" }, duration/10 - 300 )
+  .animate( { "width" : "20%" }, duration/10 + 300 )
+  .delay(duration/10)
+  .animate( { "width" : "40%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "60%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "80%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "100%"}, duration/10 )
 }
 
 function showProgress(delay, wait) {
