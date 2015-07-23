@@ -64,19 +64,6 @@
 
     }
 
-
-  .link-to-go-back {
-    float: none;
-    display: none;
-    text-align: center;
-    padding: 50px 0 0;
-    margin-right:10px;
-          @include mobile {
-            display: none;
-          }
-   }
-
-
   .search-results-entries {
     display: none; // displayed one by one via javascript
   }
