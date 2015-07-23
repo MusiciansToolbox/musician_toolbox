@@ -20,6 +20,13 @@
 
 #accordion, #likedAccordion {
 
+  // error message at top of accordion
+  #notice {
+  padding-left: 20px;
+  padding-top: 10px;
+  color: #f00;
+  }
+
   .accordion-content {
 
   }

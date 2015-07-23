@@ -19,6 +19,7 @@ function gtaNostalgia() {
   setTimeout( function() {
     $('#gta').fadeIn(1000).attr('src','<%= asset_url("1.jpg") %>');
     showRim();
+    showProgress(1000, 67000);
   }, 4000);
 
   setTimeout( function() {
@@ -33,7 +34,7 @@ function gtaNostalgia() {
   setTimeout( function() {
     $('#gta2').delay(1000).fadeOut(100).css('z-index',9);
     $('#gta').fadeIn(1000).attr('src','<%= asset_url("4.jpg") %>').css('z-index',10);
-    toggleChain();
+    toggleChain(1000);
   }, 24000);
 
   setTimeout( function() {
@@ -77,6 +78,7 @@ function cheatDeactivated() {
 
 function reTurn() {
   returnFromSlideshow();
+  hideProgress(1000);
   $('header').fadeIn(1500);
   $('.dashboard.dashboard-wrapper').fadeIn(1500);
   $('.chrome-rim').fadeOut(1000);
@@ -121,6 +123,31 @@ function toggleChain(wait) {
   }
 }
 
+function loading(duration){
+  var progress_bar = $('.gta-progress-bar-inside');
+  progress_bar.animate( { "width" : "10%" }, duration/10 - 300 )
+  .animate( { "width" : "20%" }, duration/10 + 300 )
+  .delay(duration/10)
+  .animate( { "width" : "40%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "60%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "80%"}, duration/10 )
+  .delay(duration/10)
+  .animate( { "width" : "100%"}, duration/10 )
+}
+
+function showProgress(delay, wait) {
+  $('.gta-progress-bar').fadeIn(delay, function(){
+    loading(wait);
+  });
+}
+
+function hideProgress(delay) {
+  $('.gta-progress-bar').fadeOut(delay);
+}
+
+
 function keyBoardListener() {
 
   listener = new window.keypress.Listener();
@@ -161,6 +188,9 @@ function keyBoardListener() {
   listener.sequence_combo("f o o t", foot);
   listener.sequence_combo("r e t u r n", reTurn);
   listener.sequence_combo("c h a i n", toggleChain);
+  listener.sequence_combo("l o a d", function(){
+    loading(75000);
+  })
 
   listener.sequence_combo("up up down down left right left right b a enter", function() {
     console.log("Cheat code");

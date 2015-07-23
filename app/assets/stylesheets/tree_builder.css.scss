@@ -1,5 +1,23 @@
 @import 'sass';
+#data {
+  display: block;
+  width: auto;
+  text-align: left;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  background: black;
+  padding: 0 0 8px 0;
+  overflow: auto;
 
+  #name {
+    float: left;
+  }
+
+  #instrument {
+    float: right;
+  }
+}
 .full-screen {
   position: fixed;
   top: 0;
@@ -66,46 +84,42 @@
     padding-top: 0;
   }
 }
-
-
-
 .help-div {
-  margin-top:105px;
-  position:absolute;
-  top:0;
-  right:0;
-  margin-right:7px;
-  color:#fff;
-  padding:5px;
-//  border:.2em solid #000;
-  width:auto;
-  display:inline-block;
-//  background:rgba(0,0,0,.7);
+  margin-top: 105px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 7px;
+  color: #fff;
+  padding: 5px;
+
+  //  border:.2em solid #000;
+  width: auto;
+  display: inline-block;
+
+  //  background:rgba(0,0,0,.7);
   cursor: pointer;
-  width:50px;
-  font-size:.7em;
-  color:#ccc;
+  width: 50px;
+  font-size: 0.7em;
+  color: #ccc;
 }
-
 .help-text {
-  display:none; // show on click
-  margin-top:110px;
-  position:absolute;
-  top:0;
-  right:0;
-  margin-right:70px;
-  color:#fff;
-  padding:15px;
-  border:.5em solid #000;
-  width:auto;
-  background:rgba(0,0,0,.7);
+  display: none; // show on click
+  margin-top: 110px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 70px;
+  color: #fff;
+  padding: 15px;
+  border: 0.5em solid #000;
+  width: auto;
+  background: rgba(0,0,0,.7);
 }
-
-
 svg {
   background: transparent;
   position: fixed;
-  padding: 8% 10% 3% 10%;
+  padding: 8% 10% 3%;
   left: 0;
   top: 0;
   bottom: 0;
@@ -116,18 +130,19 @@ svg {
     cursor: pointer;
     circle {
       fill: black;
-      stroke: #bdc3c7;
+      // stroke: #FFF35F;
+      stroke: #FFD03B;
       stroke-width: 2px;
     }
     text {
       font: 2vh sans-serif;
-      fill: white;
       cursor: pointer;
     }
   }
   path {
     fill: none;
-    stroke: gray;
+    // stroke: #FFF35F;
+    stroke: #FFD03B;
     stroke-width: 3px;
   }
 }
@@ -137,6 +152,7 @@ svg {
   margin-top: 200px;
   .btn,
   .btn-primary {
+
     // play / download // add to button
     font-family: inherit;
     width: 100%;
@@ -175,36 +191,35 @@ svg {
     border: 0!important; // remove bootstrap border, grr
   }
   .upload-wrapper {
+    h2 {
 
-       h2 {
-       }
-     .upload-form {
-        border-top:.5em solid #000;
-        display:block;
-        padding:15px;
-        margin-bottom: 0px;
-        overflow: auto; // otherwise button pops out of modal
-        overflow-x: hidden; // prevent left to right scrollbar from showing up
-        background:transparent;
+    }
+    .upload-form {
+      border-top: 0.5em solid #000;
+      display: block;
+      padding: 15px;
+      margin-bottom: 0;
+      overflow: auto; // otherwise button pops out of modal
+      overflow-x: hidden; // prevent left to right scrollbar from showing up
+      background: transparent;
+    }
+    form {
+      padding: 0;
+      margin: 0;
+      background: #f8f8f8;
+      input {
+        font-family: inherit;
+        color: initial;
+        width: 100%;
+        padding: 10px;
+        font-size: 1.4em;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        margin-bottom: 10px;
       }
-      form {
-        padding:0;
-        margin:0;
-        background:#f8f8f8;
-        input {
-          font-family:inherit;
-          color: initial;
-          width: 100%;
-          padding: 10px;
-          font-size: 1.4em;
-          border: 1px solid #ccc;
-          border-radius: 0;
-          margin-bottom:10px;
-          }
-          .select {
-            border: 1px solid #ccc;
-          }
-
+      .select {
+        border: 1px solid #ccc;
+      }
     }
     .fileContainer {
       overflow: hidden;
@@ -223,42 +238,36 @@ svg {
       text-align: right;
       top: 0;
     }
-
-      .fileContainer {
-          display: block;
-          text-align: center;
-          width: 100%;
-          padding: 10px;
-          font-size: 1.4em;
-          background:#fff;//rgba(0, 0, 0, .9);
-          color: #000;
-          box-shadow: none;
-          font-size: .8em;
-          text-transform: uppercase;
-          letter-spacing: .2em;
-          border: 1px solid #ccc;
-          border-radius: 0px;
-          cursor: pointer;
-          margin-top: 0px;
-          transition:.2s ease;
-
-
-                  span {
-                  text-transform: uppercase;
-                  display:block;
-                  font-size:1.5em;
-                  letter-spacing:.1em;
-
-                 }
+    .fileContainer {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.4em;
+      background: #fff; //rgba(0, 0, 0, .9);
+      color: #000;
+      box-shadow: none;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      border: 1px solid #ccc;
+      border-radius: 0;
+      cursor: pointer;
+      margin-top: 0;
+      transition: 0.2s ease;
+      span {
+        text-transform: uppercase;
+        display: block;
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
       }
-      .fileContainer:hover {
-        background:#000;
-        color:#fff;
-      }
-      .fileContainer [type=file] {
-          cursor: pointer;
-      }
-
-
+    }
+    .fileContainer:hover {
+      background: #000;
+      color: #fff;
+    }
+    .fileContainer [type=file] {
+      cursor: pointer;
+    }
   }
 }

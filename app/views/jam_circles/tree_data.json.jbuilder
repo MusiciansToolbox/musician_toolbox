@@ -5,6 +5,8 @@ json.clip_id root_clip.id
 json.clip_url root_clip.uploaded_file
 json.clip_instrument root_clip.instrument.name
 json.clip_user root_clip.user.name
+json.user_id root_clip.user.id
+
 
 
 if root_clip.has_children?
