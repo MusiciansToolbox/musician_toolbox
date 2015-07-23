@@ -71,19 +71,11 @@ $(function() {
     });
 
   // Load in the first track
-
-
-    setTimeout(function(){
-
-        var audio = a[0];
-        first = $('ol a').attr('data-src');
-        $('ol li').first().addClass('playing');
-        audio.load(first);
-        audio.play();
-
-    }, 3000);
-
-
+    var audio = a[0];
+  //  first = $('ol a').attr('data-src');
+   //  $('ol li').first().addClass('playing');
+  //  audio.load(first);
+  //  audio.play();
   // Load in a track on click
     $('ol li').click(function (e) {
       e.preventDefault();
@@ -93,9 +85,17 @@ $(function() {
     });
 
 
+    // initiate first click to get around audio not loading in mobile!
+    setTimeout(function() { $('ol li').click();}, 500);
+
+
+
 
 
   });
+
+
+  $('.pause')
 </script>
 
 
