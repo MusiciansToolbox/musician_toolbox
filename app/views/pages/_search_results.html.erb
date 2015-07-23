@@ -73,9 +73,9 @@ $(function() {
   // Load in the first track
     var audio = a[0];
     first = $('ol a').attr('data-src');
-    $('ol li').first().addClass('playing');
-    audio.load(first);
-    audio.play();
+//     $('ol li').first().addClass('playing');
+//    audio.load(first);
+//    audio.play();
 
   // Load in a track on click
     $('ol li').click(function (e) {
@@ -89,6 +89,7 @@ $(function() {
 
 
   }
+
 </script>
 
 
@@ -101,6 +102,7 @@ $(function() {
 <% else %>
   <div class="dashboard-music-player">
     <button id="auto-play-alternative" onclick='beginJudgment()'>Begin the Judgement</button>
+    <!-- <a href="#" class="mobile-start-swipe-music">Click Here!</a> -->
     <div id="wrapper">
       <audio preload autoplay></audio>
       <ol>
@@ -226,6 +228,12 @@ $(function() {
     setTimeout(function(){ $('.swipe-skip').click(); }, 1000);
    });
 
+
+  //  $('.mobile-start-swipe-music').click(){
+  //    $('ol li').first().addClass('playing');
+  //   audio.load(first);
+  //   audio.play();
+  //  }
 
 
   // FUNCTIONS
