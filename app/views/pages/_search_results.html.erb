@@ -75,6 +75,7 @@ $(function() {
     first = $('ol a').attr('data-src');
     $('ol li').first().addClass('playing');
     audio.load(first);
+    audio.play();
 
   // Load in a track on click
     $('ol li').click(function (e) {
