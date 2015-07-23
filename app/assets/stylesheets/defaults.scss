@@ -228,6 +228,8 @@ form {
     // spills out of it - IE it goes out of the content wrapper
     padding-bottom: 50px; // must match footer height
     position: static;
+    width:100%;
+    max-width:100%;
   }
   #profilePicFileField {
     display: none;

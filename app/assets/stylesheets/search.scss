@@ -1,6 +1,14 @@
 @import 'sass';
 
-/*
+
+.search-content {
+  @include mobile {
+    width:100%;
+    max-width:100%;
+  //  border:10px solid #f00;
+  }
+}
+
 #swipePageModal {
   margin-top:120px;
   max-width:400px;
@@ -157,5 +165,3 @@
     }
 
 }
-
-*/
