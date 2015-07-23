@@ -57,7 +57,7 @@ $(function() {
 </script>
 
 <script>
-  $ (function () {
+  function beginJudgment () {
   // Setup the player to autoplay the next track
     var a = audiojs.createAll({
       trackEnded: function () {
@@ -88,7 +88,7 @@ $(function() {
 
 
 
-  });
+  }
 </script>
 
 
@@ -100,7 +100,7 @@ $(function() {
 </div>
 <% else %>
   <div class="dashboard-music-player">
-
+    <button id="auto-play-alternative" onclick='beginJudgment()'>Begin the Judgement</button>
     <div id="wrapper">
       <audio preload autoplay></audio>
       <ol>
