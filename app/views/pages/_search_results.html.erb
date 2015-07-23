@@ -71,11 +71,18 @@ $(function() {
     });
 
   // Load in the first track
-    var audio = a[0];
-    first = $('ol a').attr('data-src');
-    $('ol li').first().addClass('playing');
-    audio.load(first);
-    audio.play();
+
+
+    setTimeout(function(){
+
+        var audio = a[0];
+        first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+        audio.play();
+
+    }, 3000);
+
 
   // Load in a track on click
     $('ol li').click(function (e) {
