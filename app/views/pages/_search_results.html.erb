@@ -93,6 +93,52 @@ $(function() {
 </script>
 
 
+<!--MODAL TO START PROCESS-->
+<div id="swipePageModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" id="swipe-page-modal">
+    <div class="modal-content">
+
+      <strong>Now you're ready to start hearing music!</strong>
+      <br /><br />
+
+      <span>
+     <p>Like It</p>
+      When you hear something you like, click the thumbs up or swipe the music note to the right.
+      </span>
+
+      <span>
+      <p>Don't Like It</p>
+      If you hear something you don't like, click the thumbs down or swipe the music note to the left.
+      </span>
+
+
+
+
+      <div class="got-it">
+        Click To Start
+      </div>
+
+
+      <!-- <small>
+        <span>
+        Skip It: <br />
+        If you'd like to decide, press skip.
+        </span>
+
+        <span>
+        Report It: <br />
+        If you hear anything inapproprioate or copyrighted, please press the report link in the top right.
+        </span>
+        </small>
+      -->
+
+    </div>
+  </div>
+</div>
+
+
+
+
 <% if @results.blank? %>
 
   <div class="dashboard-music-player">
@@ -101,7 +147,6 @@ $(function() {
 </div>
 <% else %>
   <div class="dashboard-music-player">
-    <a href="#" class="mobile-start-swipe-music">Click Here!</a>
     <div id="wrapper">
       <audio preload autoplay></audio>
       <ol>
@@ -228,12 +273,6 @@ $(function() {
    });
 
 
-   $('.mobile-start-swipe-music').click(function (){
-    // $('ol li').first().addClass('playing');
-     //audio.load(first);
-      $('ol li').first().click();
-      $(this).fadeOut(500);
-   });
 
 
 
@@ -260,5 +299,23 @@ $(function() {
       }
 
   }
+
+
+  // show modal on page load
+  $(window).load(function(){
+      $('#swipePageModal').modal('show');
+  });
+
+  // start it all after closing the modal
+  $('#swipePageModal').click(function (){
+     // start music
+     $('ol li').first().click();
+
+     // ensure modal disappears when you click ON the modal itself not just outside it (default behavior)
+     $('#swipePageModal').modal('hide');
+     $('body').removeClass('modal-open');
+     $('.modal-backdrop').remove();
+  });
+
 
 </script>
