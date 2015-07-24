@@ -2,7 +2,7 @@
 
   <%= form_for @user, html: { multipart: true } do |f| %>
     <div class="field">
-      <%= f.text_field :name, autofocus: true, placeholder: "Name", 'data-parsley-required' => 'true' %>
+      <%= f.text_field :name, placeholder: "Name", 'data-parsley-required' => 'true' %>
     </div>
     <div class="field">
       <%= f.email_field :email, placeholder: "Email", 'data-parsley-type' => 'email', 'data-parsley-type-message' => "Something doesn't look right with that email address.", 'data-parsley-trigger' => 'blur', 'data-parsley-required' => 'true' %>

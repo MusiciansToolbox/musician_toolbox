@@ -14,6 +14,10 @@ footer {
     }
 
 
+   @include desktop {
+     display:none!important;
+   }
+
     // stripped down mobile menu below
     .mobile-menu-simple {
       background:$accent-color-1-bg;

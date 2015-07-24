@@ -1,4 +1,73 @@
 @import 'sass';
+
+
+.search-content {
+  @include mobile {
+    width:100%;
+    max-width:100%;
+  //  border:10px solid #f00;
+  }
+}
+
+#swipePageModal {
+  margin-top:120px;
+  max-width:400px;
+  overflow:hidden;
+
+  @include tablet {
+    max-width:100%;
+    margin-top:80px;
+  }
+  @include mobile {
+    margin-top:80px;
+    max-width:100%;
+  }
+
+
+  .modal-content {
+
+          color:#000;
+          background:fff;
+          padding:20px;
+          font-size:1em;
+
+          span {
+            display: block;
+            margin-bottom:20px;
+          }
+
+          p {
+            font-size:1.2em;
+            padding-bottom:0px;
+            margin-bottom:0px;
+          }
+
+          a { color :#000; }
+
+
+          .got-it {
+            margin-top:20px;
+            font-family:inherit;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.5em;
+            text-align:center;
+            background: rgba(0,0,0,.7);
+            color: #fff;
+            box-shadow: none;
+            font-size:1em;
+            text-transform: uppercase;
+            letter-spacing:.2em;
+            border: 1px solid #FFF5EE;
+            border-radius: 0px;
+            cursor: pointer;
+          }
+          .got-it:hover {
+            color:#fff;
+            background:#000;
+          }
+  }
+}
 .search-content {
 
       .report-issue {
@@ -49,13 +118,6 @@
       input {
         margin-bottom: 20px;
       }
-    /*  select {
-        width: 100%;
-        margin-bottom: 20px;
-      } */
-      label {
-      //  display: inline-block;
-      }
 
       #search-form-submit { margin-top:20px;}
 
@@ -63,19 +125,6 @@
 
 
     }
-
-
-  .link-to-go-back {
-    float: none;
-    display: none;
-    text-align: center;
-    padding: 50px 0 0;
-    margin-right:10px;
-          @include mobile {
-            display: none;
-          }
-   }
-
 
   .search-results-entries {
     display: none; // displayed one by one via javascript

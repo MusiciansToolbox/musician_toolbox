@@ -5,7 +5,7 @@
 
 
   <h2>Music You've Liked</h2>
-  <% if @user.opinions.count != 0%>
+  <% if @user.opinions.positive.count != 0%>
     <script>
       $ (function () {
       // Setup the player to autoplay the next track

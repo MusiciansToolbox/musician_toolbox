@@ -56,5 +56,34 @@
 
     <% end %>
 
+
+<script>
+$ (function () {
+      $('input, select, textarea').on('focus', function(){
+          $('footer').css("display","none"); // footer.css({position:'absolute'});
+          $('header').css("position","absolute");
+      });
+      $('input, select, textarea').on('blur', function(){
+         $('footer').css("display","block");
+         $('header').css("position","fixed");
+      });
+
+
+/*
+            $('select').on('focus', function(){
+                $('footer').css("display","none"); // footer.css({position:'absolute'});
+                $('header').css("position","absolute");
+            });
+            $('select').on('blur', function(){
+               $('footer').css("display","block");
+               $('header').css("position","fixed");
+            });
+*/
+
+
+});</script>
+
+
+
   </body>
 </html>
